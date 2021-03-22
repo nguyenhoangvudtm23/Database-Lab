@@ -60,7 +60,7 @@ BUYORDER:
 => Các hàm cần có:
 
 	BuyOrder(String phoneNumber, String address, String Name, double TotalCost)
-	void checkExist(String phoneNumber)  --  SQL
+	void checkExist(String phoneNumber)  --SQL
 	Date getDate()
 	void record(BuyOrder order)
 	{
@@ -135,11 +135,11 @@ KHÁCH HÀNG (HẢI)
 
 SẢN PHẨM (ĐĂNG)
 	- Doanh thu của sản phẩm?
-	- Chi phí của sản phẩm?
-	- Sắp xếp theo lợi nhuận, doanh thu
+	- Chi phí của sản phẩm? 			(nghiên cứu thêm)
+	- Sắp xếp theo lợi nhuận, doanh thu		(nghiên cứu thêm)
 	- Infographic chi phí -> Phân loại sản phẩm ra 3 loại để mô phỏng cho dễ vẽ (để trên bát, để trên đĩa, để trong cốc)
 
-BÊN CUNG CẤP (NGỌC LINH + một số câu lệnh râu ria bên trên)
+BÊN CUNG CẤP (NGỌC LINH + một số câu lệnh râu ria bên trên)			(buổi tới trình bày)
 	- Các nguyên liệu có được tiêu thụ hết không?
 	- Giá tốt không?
 -> Khuyến nghị người bán nhập dữ liệu chuẩn hoá để tối ưu chương trình (VD 200g thịt x 1, 500g thịt x 1)

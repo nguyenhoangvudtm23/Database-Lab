@@ -122,7 +122,7 @@ public class Creator {
 		// TODO Auto-generated method stub
 		Class.forName("org.sqlite.JDBC");
 		Creator creator = new Creator();
-		Connection connection = DriverManager.getConnection("jdbc:sqlite:creation.db");
+		Connection connection = DriverManager.getConnection("jdbc:sqlite:tt.db");
 		Statement statement = connection.createStatement();
 		statement.setQueryTimeout(45);
 		//need to drop if exists
@@ -165,7 +165,7 @@ public class Creator {
 		
 		//For testing purpose only
 		
-		statement.executeUpdate("INSERT INTO Customers values('1', '1', 'Hai','Hai','m')");
+		statement.executeUpdate("INSERT INTO Customers values('1', '1', 'Hai')");
 		ResultSet set = statement.executeQuery("SELECT * FROM Customers");
 		while (set.next())
 		{

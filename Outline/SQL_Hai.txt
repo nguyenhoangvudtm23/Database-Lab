@@ -7,6 +7,8 @@ WHERE CreationDate BETWEEN '2020-01-01' AND '2021-05-05'		--THỜI GIAN THỐNG 
 
 * DOANH THU THEO SẢN PHẨM
 
+-- Xử lý = Java để lấy ProductID
+
 SELECT SUM(OI.PricePerUnit*OI.Quantity) 
 FROM OrderItems as OI
 JOIN Orders AS O 
@@ -15,7 +17,7 @@ AND (OI.ProductID = 2) 							--MÃ SẢN PHẨM CẦN TÌM
 
 * THỐNG KÊ DOANH THU CỦA TẤT CẢ SẢN PHẨM
 
-SELECT OI.ProductID, SUM(OI.PricePerUnit*OI.Quantity) 
+SELECT OI.ProductID, SUM(OI.PricePerUnit*OI.Quantity) AS Total
 FROM OrderItems as OI
 JOIN Orders AS O 
 WHERE (O.CreationDate BETWEEN '2020-01-01' AND '2021-05-05')		--THỜI GIAN THỐNG KÊ
