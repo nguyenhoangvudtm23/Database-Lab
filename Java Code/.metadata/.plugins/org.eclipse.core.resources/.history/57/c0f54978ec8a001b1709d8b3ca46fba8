@@ -1,0 +1,24 @@
+import java.sql.*;
+public class Creator {
+	
+	public String CreateBuyOrders()
+	{
+		return "CREATE TABLE BuyOrderItems ("
+				BuyOrderID	INTEGER,
+				IngredientID	INTEGER,
+				Quantity	INTEGER NOT NULL DEFAULT 0,
+				PricePerUnit	REAL DEFAULT 0,
+				FOREIGN KEY(BuyOrderID) REFERENCES BuyOrders(BuyOrderID),
+				FOREIGN KEY(IngredientID) REFERENCES Ingredients(IngredientID)
+			);";
+	}
+	public static void main(String[] args) throws SQLException {
+		// TODO Auto-generated method stub
+		Creator creator = new Creator();
+		Connection connection = DriverManager.getConnection("jdbc::sqlite::test.db");
+		Statement statement = connection.createStatement();
+		statement.setQueryTimeout(45);
+		statement.executeUpdate(creator.CreateBuyOrders());
+	}
+
+}
