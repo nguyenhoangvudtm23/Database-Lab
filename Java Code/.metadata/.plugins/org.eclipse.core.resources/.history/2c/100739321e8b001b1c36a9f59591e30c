@@ -165,7 +165,7 @@ public class Creator {
 		
 		//For testing purpose only
 		
-		statement.executeUpdate("INSERT INTO Customers values('1', '1', 'Vu','Hai','m')");
+		statement.executeUpdate("INSERT INTO Customers values('1', '1', 'Hai','Hai','m')");
 		ResultSet set = statement.executeQuery("SELECT * FROM Customers");
 		while (set.next())
 		{
