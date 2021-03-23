@@ -2,32 +2,29 @@ import java.sql.*;
 public class Creator {
 	public String CreateTableIngredients()
 	{
-		StringBuilder string = new StringBuilder();
-		string.append("CREATE TABLE \"Ingredients\" (\r\n"
+		return "CREATE TABLE \"Ingredients\" (\r\n"
 				+ "	\"IngredientID\"	INT,\r\n"
 				+ "	\"Name\"	VARCHAR(40),\r\n"
 				+ "	\"description\"	VARCHAR(40),\r\n"
 				+ "	\"Amount_Left\"	INT,\r\n"
 				+ "	PRIMARY KEY(\"IngredientID\")\r\n"
-				+ ");");
-		return string.toString();
+				+ ");";
 	}
 	public String CreateTableProducts()
 	{
-		StringBuilder string = new StringBuilder();
-		string.append("CREATE TABLE \"Products\" (\r\n"
+		
+		return "CREATE TABLE \"Products\" (\r\n"
 				+ "	\"ProductID\"	INT,\r\n"
 				+ "	\"Amount_Left\"	INT,\r\n"
 				+ "	\"Selling_Price\"	DOUBLE,\r\n"
 				+ "	\"Product_Descript\"	VARCHAR(40),\r\n"
 				+ "	PRIMARY KEY(\"ProductID\")\r\n"
-				+ ");");
-		return string.toString();
+				+ ");";
 	}
 	public String CreateTableBuyOrders()
 	{
-		StringBuilder string = new StringBuilder();
-		string.append("CREATE TABLE \"BuyOrders\" (\r\n"
+		
+		return "CREATE TABLE \"BuyOrders\" (\r\n"
 				+ "	\"BuyOrderID\"	INT,\r\n"
 				+ "	\"SupplierID\"	INT,\r\n"
 				+ "	\"Totalcost\"	DOUBLE,\r\n"
@@ -35,26 +32,24 @@ public class Creator {
 				+ "	\"Status\"	VARCHAR(1),\r\n"
 				+ "	PRIMARY KEY(\"BuyOrderID\"),\r\n"
 				+ "	CONSTRAINT \"check_status_buyorders\" CHECK(\"Status\" = 'C' OR \"Status\" = 'P' OR \"Status\" = 'S' OR \"Status\" = 'F')\r\n"
-				+ ");");
-		return string.toString();
+				+ ");";
 	}
 	public String CreateTableBuyOrderItems()
 	{
-		StringBuilder string = new StringBuilder();
-		string.append("CREATE TABLE \"BuyOrderItems\" (\r\n"
+		
+		return "CREATE TABLE \"BuyOrderItems\" (\r\n"
 				+ "	\"BuyOrderID\"	INT,\r\n"
 				+ "	\"IngredientID\"	INT,\r\n"
 				+ "	\"Quantity\"	INT,\r\n"
 				+ "	\"PricePerUnit\"	DOUBLE,\r\n"
 				+ "	CONSTRAINT \"buyorderitems_fk_ingredients\" FOREIGN KEY(\"IngredientID\") REFERENCES \"Ingredients\"(\"IngredientID\") ON DELETE SET NULL,\r\n"
 				+ "	CONSTRAINT \"buyorderitems_fk_buyorders\" FOREIGN KEY(\"BuyOrderID\") REFERENCES \"BuyOrders\"(\"BuyOrderID\") ON DELETE SET NULL\r\n"
-				+ ");");
-		return string.toString();
+				+ ");";
 	}
 	public String CreateTableOrders()
 	{
-		StringBuilder string = new StringBuilder();
-		string.append("CREATE TABLE \"Orders\" (\r\n"
+		
+		return "CREATE TABLE \"Orders\" (\r\n"
 				+ "	\"OrderID\"	INT,\r\n"
 				+ "	\"CustomerID\"	INT,\r\n"
 				+ "	\"Totalcost\"	DOUBLE,\r\n"
@@ -64,59 +59,54 @@ public class Creator {
 				+ "	CONSTRAINT \"check_status\" CHECK(\"Status\" = 'C' OR \"Status\" = 'P' OR \"Status\" = 'S' OR \"Status\" = 'F'),\r\n"
 				+ "	PRIMARY KEY(\"OrderID\"),\r\n"
 				+ "	CONSTRAINT \"orders_fk_customers\" FOREIGN KEY(\"CustomerID\") REFERENCES \"Customers\"(\"CustomerID\") ON DELETE SET NULL\r\n"
-				+ ");");
-		return string.toString();
+				+ ");";
 	}
 	public String CreateTableOrderItems()
 	{
-		StringBuilder string = new StringBuilder();
-		string.append("CREATE TABLE \"OrderItems\" (\r\n"
+
+		return "CREATE TABLE \"OrderItems\" (\r\n"
 				+ "	\"OrderID\"	INT,\r\n"
 				+ "	\"ProductID\"	INT,\r\n"
 				+ "	\"Quantity\"	INT,\r\n"
 				+ "	\"PricePerUnit\"	DOUBLE,\r\n"
 				+ "	CONSTRAINT \"orderitems_fk_orders\" FOREIGN KEY(\"OrderID\") REFERENCES \"Orders\"(\"OrderID\") ON DELETE SET NULL,\r\n"
 				+ "	CONSTRAINT \"orderitems_fk_products\" FOREIGN KEY(\"ProductID\") REFERENCES \"Products\"(\"ProductID\") ON DELETE SET NULL\r\n"
-				+ ");");
-		return string.toString();
+				+ ");";
 	}
 	public String CreateTableSuppliers()
 	{
-		StringBuilder string = new StringBuilder();
-		string.append("CREATE TABLE \"Suppliers\" (\r\n"
+		
+		return "CREATE TABLE \"Suppliers\" (\r\n"
 				+ "	\"SupplierID\"	INT,\r\n"
 				+ "	\"Name\"	VARCHAR(40),\r\n"
 				+ "	\"Address\"	VARCHAR(40),\r\n"
 				+ "	\"Phone_Number\"	VARCHAR(14),\r\n"
 				+ "	\"Email\"	VARCHAR(40),\r\n"
 				+ "	PRIMARY KEY(\"SupplierID\")\r\n"
-				+ ");");
-		return string.toString();
+				+ ");";
 	}
 	public String CreateTableCustomers()
 	{
-		StringBuilder string = new StringBuilder();
-		string.append("CREATE TABLE \"Customers\" (\r\n"
+		
+		return "CREATE TABLE \"Customers\" (\r\n"
 				+ "	\"CustomerID\"	INT,\r\n"
 				+ "	\"Address\"	VARCHAR(40),\r\n"
 				+ "	\"Phone_Number\"	VARCHAR(14),\r\n"
 				+ "	\"Name\"	VARCHAR(40),\r\n"
 				+ "	\"Email\"	VARCHAR(40),\r\n"
 				+ "	PRIMARY KEY(\"CustomerID\")\r\n"
-				+ ");");
-		return string.toString();
+				+ ");";
 	}
 	public String CreateTableIngreList()
 	{
-		StringBuilder string = new StringBuilder();
-		string.append("CREATE TABLE \"IngreList\" (\r\n"
+
+		return "CREATE TABLE \"IngreList\" (\r\n"
 				+ "	\"ProductID\"	INT,\r\n"
 				+ "	\"IngredientID\"	INT,\r\n"
 				+ "	\"Quantity\"	INT,\r\n"
 				+ "	CONSTRAINT \"ingrelist_fk_ingredients\" FOREIGN KEY(\"IngredientID\") REFERENCES \"Ingredients\"(\"IngredientID\") ON DELETE SET NULL,\r\n"
 				+ "	CONSTRAINT \"ingrelist_fk_products\" FOREIGN KEY(\"ProductID\") REFERENCES \"Products\"(\"ProductID\") ON DELETE SET NULL\r\n"
-				+ ");");
-		return string.toString();
+				+ ");";
 	}
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		// TODO Auto-generated method stub
