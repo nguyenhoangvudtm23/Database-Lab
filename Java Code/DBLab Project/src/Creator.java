@@ -3,59 +3,59 @@ public class Creator {
 	public static String createTableIngredientsQuery()
 	{
 		return "CREATE TABLE \"Ingredients\" (\r\n"
-				+ "	\"IngredientID\"	INT,\r\n"
+				+ "	\"IngredientID\"	INTEGER,\r\n"
 				+ "	\"Name\"	VARCHAR(40),\r\n"
 				+ "	\"description\"	VARCHAR(40),\r\n"
-				+ "	\"Amount_Left\"	INT,\r\n"
-				+ "	PRIMARY KEY(\"IngredientID\")\r\n"
+				+ "	\"Amount_Left\"	INTEGER,\r\n"
+				+ "	PRIMARY KEY(\"IngredientID\" AUTOINCREMENT)\r\n"
 				+ ");";
 	}
 	public static String createTableProductsQuery()
 	{
 		
 		return "CREATE TABLE \"Products\" (\r\n"
-				+ "	\"ProductID\"	INT,\r\n"
-				+ "	\"Amount_Left\"	INT,\r\n"
+				+ "	\"ProductID\"	INTEGER,\r\n"
+				+ "	\"Amount_Left\"	INTEGER,\r\n"
 				+ "	\"Selling_Price\"	DOUBLE,\r\n"
 				+ "	\"Product_Descript\"	VARCHAR(40),\r\n"
-				+ "	PRIMARY KEY(\"ProductID\")\r\n"
+				+ "	PRIMARY KEY(\"ProductID\" AUTOINCREMENT)\r\n"
 				+ ");";
 	}
 	public static String createTableBuyOrdersQuery()
 	{
 		return "CREATE TABLE \"BuyOrders\" (\r\n"
-				+ "	\"BuyOrderID\"	INT,\r\n"
-				+ "	\"SupplierID\"	INT,\r\n"
-				+ "	\"TotalCost\"	DOUBLE,\r\n"
+				+ "	\"BuyOrderID\"	INTEGER,\r\n"
+				+ "	\"SupplierID\"	INTEGER,\r\n"
+				+ "	\"Totalcost\"	DOUBLE,\r\n"
 				+ "	\"CreationDate\"	DATETIME,\r\n"
 				+ "	\"Status\"	VARCHAR(1),\r\n"
-				+ "	PRIMARY KEY(\"BuyOrderID\"),\r\n"
+				+ "	PRIMARY KEY(\"BuyOrderID\" AUTOINCREMENT),\r\n"
 				+ "	CONSTRAINT \"check_status_buyorders\" CHECK(\"Status\" = 'C' OR \"Status\" = 'P' OR \"Status\" = 'S' OR \"Status\" = 'F')\r\n"
 				+ ");";
 	}
 	public static String createTableBuyOrderItemsQuery()
 	{
 		return "CREATE TABLE \"BuyOrderItems\" (\r\n"
-				+ "	\"BuyOrderID\"	INT,\r\n"
-				+ "	\"IngredientID\"	INT,\r\n"
-				+ "	\"Quantity\"	INT,\r\n"
+				+ "	\"BuyOrderID\"	INTEGER,\r\n"
+				+ "	\"IngredientID\"	INTEGER,\r\n"
+				+ "	\"Quantity\"	INTEGER,\r\n"
 				+ "	\"PricePerUnit\"	DOUBLE,\r\n"
-				+ "	CONSTRAINT \"buyorderitems_fk_ingredients\" FOREIGN KEY(\"IngredientID\") REFERENCES \"Ingredients\"(\"IngredientID\") ON DELETE SET NULL,\r\n"
-				+ "	CONSTRAINT \"buyorderitems_fk_buyorders\" FOREIGN KEY(\"BuyOrderID\") REFERENCES \"BuyOrders\"(\"BuyOrderID\") ON DELETE SET NULL\r\n"
+				+ "	CONSTRAINT \"buyorderitems_fk_buyorders\" FOREIGN KEY(\"BuyOrderID\") REFERENCES \"BuyOrders\"(\"BuyOrderID\") ON DELETE SET NULL,\r\n"
+				+ "	CONSTRAINT \"buyorderitems_fk_ingredients\" FOREIGN KEY(\"IngredientID\") REFERENCES \"Ingredients\"(\"IngredientID\") ON DELETE SET NULL\r\n"
 				+ ");";
 	}
 	public static String createTableOrdersQuery()
 	{
 		
 		return "CREATE TABLE \"Orders\" (\r\n"
-				+ "	\"OrderID\"	INT,\r\n"
-				+ "	\"CustomerID\"	INT,\r\n"
-				+ "	\"TotalCost\"	DOUBLE,\r\n"
+				+ "	\"OrderID\"	INTEGER,\r\n"
+				+ "	\"CustomerID\"	INTEGER,\r\n"
+				+ "	\"Totalcost\"	DOUBLE,\r\n"
 				+ "	\"CreationDate\"	DATETIME,\r\n"
 				+ "	\"Status\"	VARCHAR(1),\r\n"
-				+ "	\"Discount\"	INT,\r\n"
+				+ "	\"Discount\"	INTEGER,\r\n"
+				+ "	PRIMARY KEY(\"OrderID\" AUTOINCREMENT),\r\n"
 				+ "	CONSTRAINT \"check_status\" CHECK(\"Status\" = 'C' OR \"Status\" = 'P' OR \"Status\" = 'S' OR \"Status\" = 'F'),\r\n"
-				+ "	PRIMARY KEY(\"OrderID\"),\r\n"
 				+ "	CONSTRAINT \"orders_fk_customers\" FOREIGN KEY(\"CustomerID\") REFERENCES \"Customers\"(\"CustomerID\") ON DELETE SET NULL\r\n"
 				+ ");";
 	}
@@ -63,44 +63,44 @@ public class Creator {
 	{
 
 		return "CREATE TABLE \"OrderItems\" (\r\n"
-				+ "	\"OrderID\"	INT,\r\n"
-				+ "	\"ProductID\"	INT,\r\n"
-				+ "	\"Quantity\"	INT,\r\n"
+				+ "	\"OrderID\"	INTEGER,\r\n"
+				+ "	\"ProductID\"	INTEGER,\r\n"
+				+ "	\"Quantity\"	INTEGER,\r\n"
 				+ "	\"PricePerUnit\"	DOUBLE,\r\n"
-				+ "	CONSTRAINT \"orderitems_fk_orders\" FOREIGN KEY(\"OrderID\") REFERENCES \"Orders\"(\"OrderID\") ON DELETE SET NULL,\r\n"
-				+ "	CONSTRAINT \"orderitems_fk_products\" FOREIGN KEY(\"ProductID\") REFERENCES \"Products\"(\"ProductID\") ON DELETE SET NULL\r\n"
+				+ "	CONSTRAINT \"orderitems_fk_products\" FOREIGN KEY(\"ProductID\") REFERENCES \"Products\"(\"ProductID\") ON DELETE SET NULL,\r\n"
+				+ "	CONSTRAINT \"orderitems_fk_orders\" FOREIGN KEY(\"OrderID\") REFERENCES \"Orders\"(\"OrderID\") ON DELETE SET NULL\r\n"
 				+ ");";
 	}
 	public static String createTableSuppliersQuery()
 	{
 		
 		return "CREATE TABLE \"Suppliers\" (\r\n"
-				+ "	\"SupplierID\"	INT,\r\n"
+				+ "	\"SupplierID\"	INTEGER,\r\n"
 				+ "	\"Name\"	VARCHAR(40),\r\n"
 				+ "	\"Address\"	VARCHAR(40),\r\n"
 				+ "	\"Phone_Number\"	VARCHAR(14),\r\n"
 				+ "	\"Email\"	VARCHAR(40),\r\n"
-				+ "	PRIMARY KEY(\"SupplierID\")\r\n"
+				+ "	PRIMARY KEY(\"SupplierID\" AUTOINCREMENT)\r\n"
 				+ ");";
 	}
 	public static String createTableCustomersQuery()
 	{
 		
 		return "CREATE TABLE \"Customers\" (\r\n"
-				+ "	\"CustomerID\"	INT,\r\n"
+				+ "	\"CustomerID\"	INTEGER,\r\n"
 				+ "	\"Address\"	VARCHAR(40),\r\n"
-				+ "	\"Phone_Number\"	VARCHAR(14) UNIQUE,\r\n"
+				+ "	\"Phone_Number\"	VARCHAR(14),\r\n"
 				+ "	\"Name\"	VARCHAR(40),\r\n"
 				+ "	\"Email\"	VARCHAR(40),\r\n"
-				+ "	PRIMARY KEY(\"CustomerID\")\r\n"
+				+ "	PRIMARY KEY(\"CustomerID\" AUTOINCREMENT)\r\n"
 				+ ");";
 	}
 	public static String createTableIngreListQuery()
 	{
 		return "CREATE TABLE \"IngreList\" (\r\n"
-				+ "	\"ProductID\"	INT,\r\n"
-				+ "	\"IngredientID\"	INT,\r\n"
-				+ "	\"Quantity\"	INT,\r\n"
+				+ "	\"ProductID\"	INTEGER,\r\n"
+				+ "	\"IngredientID\"	INTEGER,\r\n"
+				+ "	\"Quantity\"	INTEGER,\r\n"
 				+ "	CONSTRAINT \"ingrelist_fk_ingredients\" FOREIGN KEY(\"IngredientID\") REFERENCES \"Ingredients\"(\"IngredientID\") ON DELETE SET NULL,\r\n"
 				+ "	CONSTRAINT \"ingrelist_fk_products\" FOREIGN KEY(\"ProductID\") REFERENCES \"Products\"(\"ProductID\") ON DELETE SET NULL\r\n"
 				+ ");";

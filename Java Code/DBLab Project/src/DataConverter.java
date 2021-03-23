@@ -1,7 +1,7 @@
 import java.time.LocalDateTime;
 
 public class DataConverter {
-	public static String add0(String a)
+	public static String addZeroToTheLeft(String a)
 	{
 		if (a.length() == 1)
 		{
@@ -12,12 +12,12 @@ public class DataConverter {
 	public static String TimeToString(LocalDateTime a)
 	{
 		String res = Integer.toString(a.getYear())
-				+"-"+	add0(Integer.toString(a.getMonthValue()))
-				+"-"+	add0(Integer.toString(a.getDayOfMonth()))
+				+"-"+	addZeroToTheLeft(Integer.toString(a.getMonthValue()))
+				+"-"+	addZeroToTheLeft(Integer.toString(a.getDayOfMonth()))
 				+" "
-				+		add0(Integer.toString(a.getHour()))
-				+":"+	add0(Integer.toString(a.getMinute()))
-				+":"+	add0(Integer.toString(a.getSecond()));
+				+		addZeroToTheLeft(Integer.toString(a.getHour()))
+				+":"+	addZeroToTheLeft(Integer.toString(a.getMinute()))
+				+":"+	addZeroToTheLeft(Integer.toString(a.getSecond()));
 		return res;
 	}
 	public static void main(String[] args) {
