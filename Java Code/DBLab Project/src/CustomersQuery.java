@@ -1,6 +1,6 @@
 import java.sql.*;
 public class CustomersQuery {
-	public static String SortByTotalDesc(int limit)
+	public static String sortByTotalDescQuery(int limit)
 	{
 		return "SELECT C.CustomerID, SUM(O.TotalCost) AS Total\r\n"
 				+ "FROM Customers C JOIN Orders O\r\n"
@@ -9,7 +9,7 @@ public class CustomersQuery {
 				+ "ORDER BY Total DESC\r\n"
 				+ "LIMIT " + Integer.toString(limit);
 	}
-	public static String CustomerTotalSpend(int ID)
+	public static String customerTotalSpendQuery(int ID)
 	{
 		return "SELECT SUM(O.TotalCost) AS Total\r\n"
 				+ "FROM Orders O\r\n"
@@ -29,7 +29,7 @@ public class CustomersQuery {
 		//statement.executeUpdate("insert into Orders\r\n"
 		//		+ "VALUES (1, 1, 0.5, \"2020-02-02 01:00:21\", \"C\", 0)");
 		
-		ResultSet result = statement.executeQuery(CustomersQuery.SortByTotalDesc(1));
+		ResultSet result = statement.executeQuery(CustomersQuery.sortByTotalDescQuery(1));
 		while (result.next())
 		{
 			System.out.println(result.getString("Total"));
