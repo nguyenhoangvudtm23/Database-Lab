@@ -1,5 +1,6 @@
-/.metadata
+.metadata/
 *.index
 *.snap
 *.snap
 Java Code/.metadata/.plugins/org.eclipse.core.resources/.projects/DBLab Project/.indexes/e4/history.index
+*.dat
