@@ -1,6 +1,6 @@
 import java.sql.*;
 public class Creator {
-	public String CreateTableIngredients()
+	public static String CreateTableIngredients()
 	{
 		return "CREATE TABLE \"Ingredients\" (\r\n"
 				+ "	\"IngredientID\"	INT,\r\n"
@@ -10,7 +10,7 @@ public class Creator {
 				+ "	PRIMARY KEY(\"IngredientID\")\r\n"
 				+ ");";
 	}
-	public String CreateTableProducts()
+	public static String CreateTableProducts()
 	{
 		
 		return "CREATE TABLE \"Products\" (\r\n"
@@ -21,22 +21,20 @@ public class Creator {
 				+ "	PRIMARY KEY(\"ProductID\")\r\n"
 				+ ");";
 	}
-	public String CreateTableBuyOrders()
+	public static String CreateTableBuyOrders()
 	{
-		
 		return "CREATE TABLE \"BuyOrders\" (\r\n"
 				+ "	\"BuyOrderID\"	INT,\r\n"
 				+ "	\"SupplierID\"	INT,\r\n"
-				+ "	\"Totalcost\"	DOUBLE,\r\n"
+				+ "	\"TotalCost\"	DOUBLE,\r\n"
 				+ "	\"CreationDate\"	DATETIME,\r\n"
 				+ "	\"Status\"	VARCHAR(1),\r\n"
 				+ "	PRIMARY KEY(\"BuyOrderID\"),\r\n"
 				+ "	CONSTRAINT \"check_status_buyorders\" CHECK(\"Status\" = 'C' OR \"Status\" = 'P' OR \"Status\" = 'S' OR \"Status\" = 'F')\r\n"
 				+ ");";
 	}
-	public String CreateTableBuyOrderItems()
+	public static String CreateTableBuyOrderItems()
 	{
-		
 		return "CREATE TABLE \"BuyOrderItems\" (\r\n"
 				+ "	\"BuyOrderID\"	INT,\r\n"
 				+ "	\"IngredientID\"	INT,\r\n"
@@ -46,13 +44,13 @@ public class Creator {
 				+ "	CONSTRAINT \"buyorderitems_fk_buyorders\" FOREIGN KEY(\"BuyOrderID\") REFERENCES \"BuyOrders\"(\"BuyOrderID\") ON DELETE SET NULL\r\n"
 				+ ");";
 	}
-	public String CreateTableOrders()
+	public static String CreateTableOrders()
 	{
 		
 		return "CREATE TABLE \"Orders\" (\r\n"
 				+ "	\"OrderID\"	INT,\r\n"
 				+ "	\"CustomerID\"	INT,\r\n"
-				+ "	\"Totalcost\"	DOUBLE,\r\n"
+				+ "	\"TotalCost\"	DOUBLE,\r\n"
 				+ "	\"CreationDate\"	DATETIME,\r\n"
 				+ "	\"Status\"	VARCHAR(1),\r\n"
 				+ "	\"Discount\"	INT,\r\n"
@@ -61,7 +59,7 @@ public class Creator {
 				+ "	CONSTRAINT \"orders_fk_customers\" FOREIGN KEY(\"CustomerID\") REFERENCES \"Customers\"(\"CustomerID\") ON DELETE SET NULL\r\n"
 				+ ");";
 	}
-	public String CreateTableOrderItems()
+	public static String CreateTableOrderItems()
 	{
 
 		return "CREATE TABLE \"OrderItems\" (\r\n"
@@ -73,7 +71,7 @@ public class Creator {
 				+ "	CONSTRAINT \"orderitems_fk_products\" FOREIGN KEY(\"ProductID\") REFERENCES \"Products\"(\"ProductID\") ON DELETE SET NULL\r\n"
 				+ ");";
 	}
-	public String CreateTableSuppliers()
+	public static String CreateTableSuppliers()
 	{
 		
 		return "CREATE TABLE \"Suppliers\" (\r\n"
@@ -85,7 +83,7 @@ public class Creator {
 				+ "	PRIMARY KEY(\"SupplierID\")\r\n"
 				+ ");";
 	}
-	public String CreateTableCustomers()
+	public static String CreateTableCustomers()
 	{
 		
 		return "CREATE TABLE \"Customers\" (\r\n"
@@ -97,9 +95,8 @@ public class Creator {
 				+ "	PRIMARY KEY(\"CustomerID\")\r\n"
 				+ ");";
 	}
-	public String CreateTableIngreList()
+	public static String CreateTableIngreList()
 	{
-
 		return "CREATE TABLE \"IngreList\" (\r\n"
 				+ "	\"ProductID\"	INT,\r\n"
 				+ "	\"IngredientID\"	INT,\r\n"
@@ -108,54 +105,58 @@ public class Creator {
 				+ "	CONSTRAINT \"ingrelist_fk_products\" FOREIGN KEY(\"ProductID\") REFERENCES \"Products\"(\"ProductID\") ON DELETE SET NULL\r\n"
 				+ ");";
 	}
+	
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		// TODO Auto-generated method stub
+		
 		Class.forName("org.sqlite.JDBC");
-		Creator creator = new Creator();
+		
 		Connection connection = DriverManager.getConnection("jdbc:sqlite:creation.db");
 		Statement statement = connection.createStatement();
+		statement.setQueryTimeout(23);
+	
 		statement.setQueryTimeout(45);
 		//need to drop if exists
 		
 		//CUSTOMERS
 		statement.executeUpdate("DROP TABLE IF EXISTS Customers");
-		statement.executeUpdate(creator.CreateTableCustomers());
+		statement.executeUpdate(Creator.CreateTableCustomers());
 		
 		//SUPPLIERS
 		statement.executeUpdate("DROP TABLE IF EXISTS Suppliers");
-		statement.executeUpdate(creator.CreateTableSuppliers());
+		statement.executeUpdate(Creator.CreateTableSuppliers());
 		
 		//INGREDIENTS
 		statement.executeUpdate("DROP TABLE IF EXISTS Ingredients");
-		statement.executeUpdate(creator.CreateTableIngredients());
+		statement.executeUpdate(Creator.CreateTableIngredients());
 		
 		//PRODUCTS
 		statement.executeUpdate("DROP TABLE IF EXISTS Products");
-		statement.executeUpdate(creator.CreateTableProducts());
+		statement.executeUpdate(Creator.CreateTableProducts());
 		
 		//BUYORDERS
 		statement.executeUpdate("DROP TABLE IF EXISTS BuyOrders");
-		statement.executeUpdate(creator.CreateTableBuyOrders());
+		statement.executeUpdate(Creator.CreateTableBuyOrders());
 		
 		//BUYORDERSITEMS
 		statement.executeUpdate("DROP TABLE IF EXISTS BuyOrderItems");
-		statement.executeUpdate(creator.CreateTableBuyOrderItems());
+		statement.executeUpdate(Creator.CreateTableBuyOrderItems());
 		
 		//ORDERS
 		statement.executeUpdate("DROP TABLE IF EXISTS Orders");
-		statement.executeUpdate(creator.CreateTableOrders());
+		statement.executeUpdate(Creator.CreateTableOrders());
 				
 		//ORDERITEMS
 		statement.executeUpdate("DROP TABLE IF EXISTS OrderItems");
-		statement.executeUpdate(creator.CreateTableOrderItems());
+		statement.executeUpdate(Creator.CreateTableOrderItems());
 		
 		//INGRELIST
 		statement.executeUpdate("DROP TABLE IF EXISTS IngreList");
-		statement.executeUpdate(creator.CreateTableIngreList());
+		statement.executeUpdate(Creator.CreateTableIngreList());
 		
 		//For testing purpose only
 		
-		statement.executeUpdate("INSERT INTO Customers values('1', '1', 'Vu','Hai','m')");
+		statement.executeUpdate("INSERT INTO Customers values(1, '1', 'Vu','Hai','m')");
 		ResultSet set = statement.executeQuery("SELECT * FROM Customers");
 		while (set.next())
 		{
