@@ -1,4 +1,3 @@
-import java.sql.*;
 public class Creator {
 	public static String createTableIngredientsQuery()
 	{
@@ -106,7 +105,7 @@ public class Creator {
 				+ ");";
 	}
 	
-	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+	public static void main(String[] args) throws ClassNotFoundException {
 		// TODO Auto-generated method stub
 		
 		

@@ -1,4 +1,4 @@
-import java.sql.*;
+
 import java.time.*;
 public class BusinessQuery {
 	
@@ -18,18 +18,9 @@ public class BusinessQuery {
 				+ DataConverter.TimeToString(b) + "')\n"
 				+ "AND (Status = 'F')";
 	}
-	public static void main(String args[]) throws ClassNotFoundException, SQLException
+	public static void main(String args[]) throws ClassNotFoundException
 	{
-		Class.forName("org.sqlite.JDBC");
 		
-		Connection connection = DriverManager.getConnection("jdbc:sqlite:creation.db");
-		Statement statement = connection.createStatement();	
-		System.out.println(BusinessQuery.calculateRevenueFromToQuery(LocalDateTime.MIN, LocalDateTime.now()));
-		ResultSet result = statement.executeQuery(BusinessQuery.calculateCostFromToQuery(LocalDateTime.MIN, LocalDateTime.now()));
-		while (result.next())
-		{
-			System.out.println(result.getString(1));
-		}
 	
 	}
 }
