@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="E:/Tran Hai/HUST/20202/Database Lab/Project/Database-Lab/Java Code/DBLab Project/creation.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="browser pragmas query structure" current="2"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="2902"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,15:mainsqlite_sequence"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">-- table customers
+
+CREATE TABLE Customers(
+    CustomerID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Address VARCHAR(40), 
+    Phone_Number VARCHAR(14),
+    Name VARCHAR(40),
+    Email VARCHAR(40)
+);
+
+-- TABLE Orders
+CREATE TABLE Orders(
+    OrderID INTEGER PRIMARY KEY AUTOINCREMENT,
+    CustomerID INTEGER, 
+    Totalcost DOUBLE,
+    CreationDate DATETIME, 
+    Status VARCHAR(1),
+    Discount INTEGER,
+    CONSTRAINT orders_fk_customers 
+    FOREIGN KEY (CustomerID) 
+    REFERENCES Customers(CustomerID) ON DELETE SET NULL,
+    CONSTRAINT check_status CHECK (
+        Status = 'C' OR Status = 'P' OR Status = 'S' OR Status = 'F'
+    ) -- cancel, pending, shipping, finishing
+);
+
+
+-- TABLE OrderItems
+CREATE TABLE OrderItems(
+    OrderID INTEGER,
+    ProductID INTEGER, 
+    Quantity INTEGER,
+    PricePerUnit DOUBLE,
+    CONSTRAINT orderitems_fk_orders
+    FOREIGN KEY (OrderID)
+    REFERENCES Orders(OrderID) ON DELETE SET NULL ,
+
+    CONSTRAINT orderitems_fk_products
+    FOREIGN KEY(ProductID)
+    REFERENCES Products(ProductID) ON DELETE SET NULL
+);
+
+
+
+-- TABLE Products
+CREATE TABLE Products(
+    ProductID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Amount_Left INTEGER,
+    Selling_Price DOUBLE,
+    Product_Descript VARCHAR(40)
+);
+
+
+
+-- TABLE IngreList
+CREATE TABLE IngreList(
+    ProductID INTEGER ,
+    IngredientID INTEGER,
+    Quantity INTEGER,
+    CONSTRAINT ingrelist_fk_products
+    FOREIGN KEY(ProductID)
+    REFERENCES Products(ProductID) ON DELETE SET NULL,
+    
+    CONSTRAINT ingrelist_fk_ingredients
+    FOREIGN KEY(IngredientID)
+    REFERENCES Ingredients(IngredientID) ON DELETE SET NULL
+);
+
+
+-- TABLE Ingredients
+CREATE TABLE Ingredients(
+    IngredientID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name VARCHAR(40),
+    description VARCHAR(40),
+    Amount_Left INTEGER
+);
+
+
+--Create BurOrderItems
+CREATE TABLE BuyOrderItems(
+    BuyOrderID INTEGER, 
+    IngredientID INTEGER,
+    Quantity INTEGER,
+    PricePerUnit DOUBLE,
+    CONSTRAINT buyorderitems_fk_buyorders
+    FOREIGN KEY(BuyOrderID)
+    REFERENCES BuyOrders(BuyOrderID) ON DELETE SET NULL,
+
+    CONSTRAINT buyorderitems_fk_ingredients
+    FOREIGN KEY(IngredientID)
+    REFERENCES Ingredients(IngredientID) ON DELETE SET NULL
+);
+
+
+--create BuyOrders
+CREATE TABLE BuyOrders(
+    BuyOrderID INTEGER PRIMARY KEY AUTOINCREMENT,
+    SupplierID INTEGER,
+    Totalcost DOUBLE,
+    CreationDate DATETIME,
+    Status VARCHAR(1),
+    CONSTRAINT check_status_buyorders CHECK (
+        Status = 'C' OR Status = 'P' OR Status = 'S' OR Status = 'F'
+    ) -- cancel, pending, shipping, finishing
+);
+
+
+-- create supplier
+CREATE TABLE Suppliers(
+    SupplierID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name VARCHAR(40),
+    Address VARCHAR(40),
+    Phone_Number VARCHAR(14),
+    Email VARCHAR(40)
+);
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
