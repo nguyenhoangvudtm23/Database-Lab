@@ -9,7 +9,7 @@ public class DataConverter {
 		}
 		return a;
 	}
-	public static String TimeToString(LocalDateTime a)
+	public static String convertDateTimeToString(LocalDateTime a)
 	{
 		String res = Integer.toString(a.getYear())
 				+"-"+	addZeroToTheLeft(Integer.toString(a.getMonthValue()))

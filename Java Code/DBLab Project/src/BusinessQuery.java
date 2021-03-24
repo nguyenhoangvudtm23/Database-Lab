@@ -6,16 +6,16 @@ public class BusinessQuery {
 	{
 		return "SELECT SUM(TotalCost) FROM Orders\r\n"
 				+ "WHERE (CreationDate \r\n"
-				+ "BETWEEN '" + DataConverter.TimeToString(a) +"' AND '"
-				+ DataConverter.TimeToString(b) + "')\n"
+				+ "BETWEEN '" + DataConverter.convertDateTimeToString(a) +"' AND '"
+				+ DataConverter.convertDateTimeToString(b) + "')\n"
 				+ "AND (Status = 'F')";
 	}
 	public static String calculateCostFromToQuery(LocalDateTime a, LocalDateTime b)
 	{
 		return "SELECT SUM(TotalCost) FROM BuyOrders\r\n"
 				+ "WHERE (CreationDate \r\n"
-				+ "BETWEEN '" + DataConverter.TimeToString(a) +"' AND '"
-				+ DataConverter.TimeToString(b) + "')\n"
+				+ "BETWEEN '" + DataConverter.convertDateTimeToString(a) +"' AND '"
+				+ DataConverter.convertDateTimeToString(b) + "')\n"
 				+ "AND (Status = 'F')";
 	}
 	public static void main(String args[]) throws ClassNotFoundException

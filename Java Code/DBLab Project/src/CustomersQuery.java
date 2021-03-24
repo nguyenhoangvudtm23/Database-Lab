@@ -15,9 +15,14 @@ public class CustomersQuery {
 				+ "FROM Orders O\r\n"
 				+ "WHERE CustomerID = " + Integer.toString(ID);
 	}
+	public static String getCustomerNameQuery(String phoneNumber)
+	{
+		return "SELECT Name FROM Customers\r\n"
+				+ "WHERE Phone_Number = '" + phoneNumber + "'";
+	}
 	
 	public static void main(String args[]) throws ClassNotFoundException
 	{
-	
+		System.out.println(CustomersQuery.getCustomerNameQuery("09231"));
 	}
 }

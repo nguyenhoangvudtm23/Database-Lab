@@ -63,7 +63,7 @@ public class Main3 extends Application{
 		Optional<Pair<String, String>> result = dialog.showAndWait();
 		result.ifPresent(userNamepassword ->
 		{
-			System.out.println("Username = " + userNamepassword.getKey() + ", Password" + userNamepassword.getValue());
+			System.out.println("Username = " + userNamepassword.getKey() + ", Password = " + userNamepassword.getValue());
 		});
 	}
 
