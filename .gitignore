@@ -4,3 +4,5 @@
 *.snap
 Java Code/.metadata/.plugins/org.eclipse.core.resources/.projects/DBLab Project/.indexes/e4/history.index
 *.dat
+Java Code/DBLab Project/bin/Tester.class
+Java Code/DBLab Project/src/Tester.java

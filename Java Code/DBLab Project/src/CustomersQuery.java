@@ -9,7 +9,7 @@ public class CustomersQuery {
 				+ "ORDER BY Total DESC\r\n"
 				+ "LIMIT " + Integer.toString(limit);
 	}
-	public static String customerTotalSpendQuery(int ID)
+	public static String getOneCustomerTotalSpendQuery(int ID)
 	{
 		return "SELECT SUM(O.TotalCost) AS Total\r\n"
 				+ "FROM Orders O\r\n"

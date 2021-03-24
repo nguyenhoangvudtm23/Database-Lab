@@ -10,7 +10,7 @@ public class ProductQuery {
 				+ DataConverter.convertDateTimeToString(from) +"' AND '" 
 				+ DataConverter.convertDateTimeToString(to) + "')\n"		
 				+ "AND (OI.ProductID = " + Integer.toString(ID) +  ")" 							
-				+ "";
+				;
 	}
 	public static String calculateAllProductRevenueFromToQuery(LocalDateTime from, LocalDateTime to)
 	{
