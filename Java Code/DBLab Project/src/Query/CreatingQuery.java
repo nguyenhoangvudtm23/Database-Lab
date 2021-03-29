@@ -1,4 +1,5 @@
-public class Creator {
+package Query;
+public class CreatingQuery {
 	public static String createTableIngredientsQuery()
 	{
 		return "CREATE TABLE \"Ingredients\" (\r\n"

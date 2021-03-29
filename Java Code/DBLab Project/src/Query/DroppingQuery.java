@@ -1,5 +1,6 @@
+package Query;
 
-public class Destructor {
+public class DroppingQuery {
 	public static String dropCustomersTableQuery()
 	{
 		return "DROP TABLE IF EXISTS Customers";

@@ -1,11 +1,8 @@
+package Query;
 import java.time.*;
-public class OrderCreator {
+public class OrderQuery {
 
-	public static String checkExistQuery(String phoneNumber)
-	{
-		return "select count(*) from Customers\r\n"
-				+ "where Phone_Number = " + "'" + phoneNumber + "'";
-	}
+	
 	public static String addOrderQuery(int CustomerID,
 			double TotalCost, char status, double discount)
 	{
@@ -30,7 +27,7 @@ public class OrderCreator {
 				+ email + "')";
 	}
 	public static void main(String[] args){
-		System.out.println(OrderCreator.addCustomerQuery("Hao", "A", "B", "C"));
+		System.out.println(OrderQuery.addCustomerQuery("Hao", "A", "B", "C"));
 	}
 
 }

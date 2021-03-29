@@ -1,5 +1,11 @@
+package Query;
 
 public class CustomersQuery {
+	public static String checkExistQuery(String phoneNumber)
+	{
+		return "select count(*) from Customers\r\n"
+				+ "where Phone_Number = " + "'" + phoneNumber + "'";
+	}
 	public static String sortByTotalDescQuery(int limit)
 	{
 		return "SELECT C.CustomerID, SUM(O.TotalCost) AS Total\r\n"
