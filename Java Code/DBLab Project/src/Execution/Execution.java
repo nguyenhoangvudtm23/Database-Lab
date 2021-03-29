@@ -15,5 +15,8 @@ public abstract class Execution {
 		statement = connection.createStatement();
         statement.setQueryTimeout(30); 
 	}
-	
+	public static void closeConnection() throws SQLException
+	{
+		connection.close();
+	}
 }

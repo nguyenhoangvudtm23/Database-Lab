@@ -26,6 +26,11 @@ public class CustomersQuery {
 		return "SELECT Name FROM Customers\r\n"
 				+ "WHERE Phone_Number = '" + phoneNumber + "'";
 	}
+	public static String getCustomerNameQuery(int ID)
+	{
+		return "SELECT Name FROM Customers\r\n"
+				+ "WHERE CustomerID = " + ID ;
+	}
 	public static String getCustomerIDQuery(String phoneNumber)
 	{
 		return "select CustomerID\r\n"
