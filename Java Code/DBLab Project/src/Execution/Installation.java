@@ -4,7 +4,7 @@ import java.sql.*;
 import Query.CreatingQuery;
 import Query.DroppingQuery;
 public class Installation extends Execution{
-	
+	//Create all 9 tables 
 	public static void createAllTables() throws SQLException
 	{
 		//BUYORDERITEMS TABLE

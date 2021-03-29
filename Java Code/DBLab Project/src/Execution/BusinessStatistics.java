@@ -6,10 +6,12 @@ import java.time.LocalDateTime;
 import Query.BusinessQuery;
 
 public class BusinessStatistics extends Execution {
+	//Return total Revenue only
 	public static double calculateRevenueFromTo(LocalDateTime from, LocalDateTime to) throws SQLException
 	{
 		return statement.executeQuery(BusinessQuery.calculateTotalRevenueFromToQuery(from, to)).getDouble(1);
 	}
+	//Return total Cost only
 	public static double calculateCostFromTo(LocalDateTime from, LocalDateTime to) throws SQLException
 	{
 		return statement.executeQuery(BusinessQuery.calculateTotalCostFromToQuery(from, to)).getDouble(1);
