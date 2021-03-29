@@ -3,6 +3,7 @@ import java.sql.*;
 
 public class Sample
     {
+	
     public static void main(String[] args) throws ClassNotFoundException
      {
       // load the sqlite-JDBC driver using the current class loader

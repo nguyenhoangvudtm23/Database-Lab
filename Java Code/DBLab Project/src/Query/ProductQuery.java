@@ -13,6 +13,11 @@ public class ProductQuery {
 				+ "AND (OI.ProductID = " + Integer.toString(ID) +  ")" 							
 				;
 	}
+	public static String getProductNameQuery(int ID)
+	{
+		return "select Product_Descript from Products\r\n"
+				+ "where ProductID = " + ID;
+	}
 	public static String calculateAllProductRevenueFromToQuery(LocalDateTime from, LocalDateTime to)
 	{
 		return "SELECT OI.ProductID, SUM(OI.PricePerUnit*OI.Quantity) AS Total\r\n"
@@ -36,7 +41,7 @@ public class ProductQuery {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(ProductQuery.calculateAllProductRevenueFromToQuery(LocalDateTime.MIN, LocalDateTime.now()));
+		System.out.println(ProductQuery.getProductNameQuery(23));
 	}
 
 }

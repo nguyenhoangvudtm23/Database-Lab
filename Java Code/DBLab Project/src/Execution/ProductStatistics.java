@@ -7,6 +7,11 @@ import java.time.LocalDateTime;
 import Query.ProductQuery;
 
 public class ProductStatistics extends Execution {
+	//return product name only
+	public static String getProductName(int ID) throws SQLException
+	{
+		return statement.executeQuery(ProductQuery.getProductNameQuery(ID)).getString(1);
+	}
 	//return total revenue of 1 product during a period of time only
 	public static double calculateOneProductRevenueFromTo(int ProductID, LocalDateTime from, LocalDateTime to) throws SQLException
 	{
@@ -20,10 +25,6 @@ public class ProductStatistics extends Execution {
 	public static void main(String args[]) throws SQLException, ClassNotFoundException
 	{
 		ProductStatistics.getConnection();
-		ResultSet set = ProductStatistics.calculateAllProductRevenueFromTo(LocalDateTime.MIN, LocalDateTime.now());
-		while (set.next())
-		{
-			System.out.println("ID: " + set.getString(1) + "\tRevenue: " + set.getDouble(2));
-		}
+		System.out.println(ProductStatistics.getProductName(1));
 	}
 }

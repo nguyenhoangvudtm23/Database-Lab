@@ -15,4 +15,5 @@ public abstract class Execution {
 		statement = connection.createStatement();
         statement.setQueryTimeout(30); 
 	}
+	
 }
