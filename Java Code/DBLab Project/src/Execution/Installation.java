@@ -3,16 +3,8 @@ import java.sql.*;
 
 import Query.CreatingQuery;
 import Query.DroppingQuery;
-public class Installation {
-	static Statement statement;
-	static Connection connection = null;
-	public static void getConnection() throws SQLException, ClassNotFoundException 
-	{
-		Class.forName("org.sqlite.JDBC");
-		connection = DriverManager.getConnection("jdbc:sqlite:creation.db");
-		statement = connection.createStatement();
-        statement.setQueryTimeout(30); 
-	}
+public class Installation extends Execution{
+	
 	public static void createAllTables() throws SQLException
 	{
 		//BUYORDERITEMS TABLE

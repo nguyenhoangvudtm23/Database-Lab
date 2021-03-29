@@ -11,7 +11,7 @@ public class OrderQuery {
 				+ "VALUES\r\n"
 				+ "(" + Integer.toString(CustomerID) + ", "
 				+ Double.toString(TotalCost) + ", "
-				+ "'now', '"
+				+ "DATE('now'), '"
 				+ Character.toString(status) + "', "
 				+ Double.toString(discount) + ")";
 	}
@@ -27,7 +27,7 @@ public class OrderQuery {
 				+ email + "')";
 	}
 	public static void main(String[] args){
-		System.out.println(OrderQuery.addCustomerQuery("Hao", "A", "B", "C"));
+		System.out.println(OrderQuery.addOrderQuery(2321, 23, 'B', 23));
 	}
 
 }

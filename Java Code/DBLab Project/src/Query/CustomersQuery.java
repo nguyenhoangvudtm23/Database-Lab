@@ -26,9 +26,13 @@ public class CustomersQuery {
 		return "SELECT Name FROM Customers\r\n"
 				+ "WHERE Phone_Number = '" + phoneNumber + "'";
 	}
-	
+	public static String getCustomerIDQuery(String phoneNumber)
+	{
+		return "select CustomerID\r\n"
+				+ "from Customers where Phone_Number = '" + phoneNumber + "'";
+	}
 	public static void main(String args[]) throws ClassNotFoundException
 	{
-		System.out.println(CustomersQuery.getCustomerNameQuery("09231"));
+		System.out.println(CustomersQuery.getCustomerIDQuery("0329859743"));
 	}
 }
