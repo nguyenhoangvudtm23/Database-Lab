@@ -1,12 +1,14 @@
 package Query;
 
+import java.time.LocalDateTime;
+
 public class CustomersQuery {
 	public static String checkExistQuery(String phoneNumber)
 	{
 		return "select count(*) from Customers\r\n"
 				+ "where Phone_Number = " + "'" + phoneNumber + "'";
 	}
-	public static String sortByTotalDescQuery(int limit)
+	public static String sortAllCustomersByTotalSpendDescQuery(int limit)
 	{
 		return "SELECT C.CustomerID, SUM(O.TotalCost) AS Total\r\n"
 				+ "FROM Customers C JOIN Orders O\r\n"
@@ -26,6 +28,11 @@ public class CustomersQuery {
 		return "SELECT Name FROM Customers\r\n"
 				+ "WHERE Phone_Number = '" + phoneNumber + "'";
 	}
+	public static String getCustomersWhoHaveSimilarNameToQuery(String name)
+	{
+		return "select * from customers\r\n"
+				+ "where Name like \"%" + name + "%\"";
+	}
 	public static String getCustomerNameQuery(int ID)
 	{
 		return "SELECT Name FROM Customers\r\n"
@@ -36,8 +43,15 @@ public class CustomersQuery {
 		return "select CustomerID\r\n"
 				+ "from Customers where Phone_Number = '" + phoneNumber + "'";
 	}
+	public static String getOneCustomerTotalSpendFromToQuery(int ID, LocalDateTime from, LocalDateTime to)
+	{
+		return "select sum(Totalcost) from Orders\r\n"
+				+ "where (CustomerID = " + ID + ") AND (CreationDate between '"
+						+ DataConverter.convertDateTimeToString(from) + "' and '"
+						+ DataConverter.convertDateTimeToString(to) + "')";
+	}
 	public static void main(String args[]) throws ClassNotFoundException
 	{
-		System.out.println(CustomersQuery.getCustomerIDQuery("0329859743"));
+		System.out.println(CustomersQuery.getCustomersWhoHaveSimilarNameToQuery("Hai"));
 	}
 }

@@ -2,7 +2,16 @@ package Query;
 import java.time.*;
 public class OrderQuery {
 
-	
+	public static String deleteOrderQuery(int OrderID)
+	{
+		return "delete from Orders\r\n"
+				+ "where OrderID = " + OrderID;
+	}
+	public static String showOrderItemsQuery(int OrderID)
+	{
+		return "select OI.ProductID, OI.Quantity, P.Product_Descript from OrderItems AS OI, Products as P\r\n"
+				+ "where (OI.OrderID = " + OrderID + ") and (OI.ProductID = P.ProductID)";
+	}
 	public static String addOrderQuery(int CustomerID,
 			double TotalCost, char status, double discount)
 	{
@@ -27,7 +36,7 @@ public class OrderQuery {
 				+ email + "')";
 	}
 	public static void main(String[] args){
-		System.out.println(OrderQuery.addOrderQuery(2321, 23, 'B', 23));
+		System.out.println(OrderQuery.showOrderItemsQuery(2));
 	}
 
 }
