@@ -33,6 +33,5 @@ public class CustomerStatistics extends Execution{
 	public static void main(String args[]) throws SQLException, ClassNotFoundException
 	{
 		Tester.starting();
-		System.out.println(CustomerStatistics.getOneCustomerTotalSpend(1));
 	}
 }

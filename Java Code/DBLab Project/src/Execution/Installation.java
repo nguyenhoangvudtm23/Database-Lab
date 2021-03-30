@@ -43,6 +43,18 @@ public class Installation extends Execution{
 		statement.executeUpdate(DroppingQuery.dropProductsTableQuery());
 		statement.executeUpdate(CreatingQuery.createTableProductsQuery());
 	}
+	public static void dropAllTables() throws SQLException
+	{
+		statement.executeUpdate(DroppingQuery.dropOrderItemsTableQuery());
+		statement.executeUpdate(DroppingQuery.dropOrdersTableQuery());
+		statement.executeUpdate(DroppingQuery.dropBuyOrderItemsTableQuery());
+		statement.executeUpdate(DroppingQuery.dropBuyOrdersTableQuery());
+		statement.executeUpdate(DroppingQuery.dropCustomersTableQuery());
+		statement.executeUpdate(DroppingQuery.dropIngredientsTableQuery());
+		statement.executeUpdate(DroppingQuery.dropIngreListTableQuery());
+		statement.executeUpdate(DroppingQuery.dropProductsTableQuery());
+		statement.executeUpdate(DroppingQuery.dropSuppliersTableQuery());
+	}
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		Installation.getConnection();

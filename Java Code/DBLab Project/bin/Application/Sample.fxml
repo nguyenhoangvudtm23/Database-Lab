@@ -5,9 +5,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="562.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
    <children>
-      <Button layoutX="268.0" layoutY="315.0" mnemonicParsing="false" onAction="#Submit" text="Submit" />
+      <Button layoutX="273.0" layoutY="271.0" mnemonicParsing="false" onAction="#SubmitCustomer" text="Submit" />
       <Label layoutX="59.0" layoutY="36.0" text="Tên" />
       <Label layoutX="59.0" layoutY="91.0" text="Địa chỉ" />
       <Label layoutX="59.0" layoutY="152.0" text="SĐT" />

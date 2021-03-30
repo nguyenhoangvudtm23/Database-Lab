@@ -19,11 +19,16 @@ public class BusinessQuery {
 				+ DataConverter.convertDateTimeToString(b) + "')\n"
 				+ "AND (Status = 'F')";
 	}
+	public static String calculateAverageSpendPerOrderQuery(LocalDateTime from, LocalDateTime to)
+	{
+		return "select avg(Totalcost) from Orders"
+				+ "\nwhere CreationDate between '" + DataConverter.convertDateTimeToString(from) + "' AND '"
+				+ DataConverter.convertDateTimeToString(to) + "'";
+	}
 	public static void main(String args[]) throws ClassNotFoundException
 	{
 		//The format below is the SQLite DateTime normal format
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DataConverter.getDateTimeFormat());
-		LocalDateTime time = LocalDateTime.parse("2020-02-02 02:02:02", formatter);
-		System.out.println(time.toString());
+		System.out.println(BusinessQuery.calculateAverageSpendPerOrderQuery(LocalDateTime.MIN, LocalDateTime.now()));
 	}
 }

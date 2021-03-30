@@ -17,6 +17,7 @@ public abstract class Execution {
 	}
 	public static void closeConnection() throws SQLException
 	{
+		statement.close();
 		connection.close();
 	}
 }

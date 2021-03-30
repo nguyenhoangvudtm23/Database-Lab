@@ -9,12 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
-
+//Testing purpose only
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		{
-			Parent root = FXMLLoader.load(this.getClass().getResource("Sample.fxml"));
+			Parent root = FXMLLoader.load(this.getClass().getResource("CreateTables.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
