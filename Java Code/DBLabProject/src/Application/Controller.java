@@ -3,7 +3,7 @@ import java.sql.SQLException;
 
 import Execution.Installation;
 import Execution.PlaceOrder;
-import Scenario.Tester;
+import Scenario.Starter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -11,9 +11,9 @@ import javafx.scene.control.TextField;
 public class Controller {
 	@FXML
 	private TextField Name, Address, PhoneNumber, Email;
-	public void SubmitCustomer(ActionEvent event) throws ClassNotFoundException, SQLException
+	public void submitCustomer(ActionEvent event) throws ClassNotFoundException, SQLException
 	{
-		Tester.starting();
+		Starter.starting();
 		String name, address, phoneNumber, email;
 		name = Name.getText();
 		address = Address.getText();
@@ -36,7 +36,7 @@ public class Controller {
 	}
 	public void createAllTablesButton(ActionEvent event) throws SQLException, ClassNotFoundException
 	{
-		Tester.starting();
+		Starter.starting();
 		Installation.createAllTables();
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setTitle("DONE");
@@ -45,7 +45,7 @@ public class Controller {
 	}
 	public void dropAllTablesButton(ActionEvent event) throws SQLException, ClassNotFoundException
 	{
-		Tester.starting();
+		Starter.starting();
 		Installation.dropAllTables();
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setTitle("DONE");

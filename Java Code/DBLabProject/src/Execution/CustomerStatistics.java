@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 import Query.CustomersQuery;
-import Scenario.Tester;
+import Scenario.Starter;
 
 public class CustomerStatistics extends Execution{
 	/**CUSTOMERS TABLE HAS THE FOLLOWING COLUMNS
@@ -44,14 +44,15 @@ public class CustomerStatistics extends Execution{
 	{
 		return statement.executeQuery(CustomersQuery.getOneCustomerTotalSpendFromToQuery(ID, from, to)).getDouble(1);
 	}
-	//return all Customers who has similar name to a given pattern
+	//return all Customers who have similar name to a given pattern
 	public static ResultSet getCustomersWhoHaveSimilarNameTo(String name) throws SQLException
 	{
 		return statement.executeQuery(CustomersQuery.getCustomersWhoHaveSimilarNameToQuery(name));
 	}
+
 	public static void main(String args[]) throws SQLException, ClassNotFoundException
 	{
-		Tester.starting();
+		Starter.starting();
 		ResultSet set = CustomerStatistics.getCustomersWhoHaveSimilarNameTo("Hai");
 		while (set.next())
 		{

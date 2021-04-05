@@ -27,10 +27,26 @@ public class PlaceOrder extends Execution {
 	{
 		statement.executeUpdate(OrderQuery.addOrderQuery(customerID, totalCost, status, discount));
 	}
+	public static double calculateTotalCost(int orderID) throws SQLException
+	{
+		ResultSet set = statement.executeQuery(OrderQuery.showOrderItemsQuery(orderID));
+		double ans = 0;
+		while (set.next())
+		{
+			//2 is Quantity, 4 is SellingPrice
+			ans = ans + set.getDouble(2) * set.getDouble(4);
+		}
+		return ans;
+	}
+	public static void addItemToOrder(int ProductID, int OrderID, int quantity) throws SQLException
+	{
+		double PricePerUnit = ProductStatistics.getProductPrice(ProductID);
+		OrderQuery.recordItemIntoOrderQuery(OrderID, ProductID, quantity, PricePerUnit);
+	}
 	public static void main(String args[]) throws ClassNotFoundException, SQLException
 	{
 		PlaceOrder.getConnection();
-		PlaceOrder.insertCustomer("30 Nui Truc", "0192433231", "Harold", "harold@gmail.com");
+		System.out.println(PlaceOrder.calculateTotalCost(2));
 	}
 
 }

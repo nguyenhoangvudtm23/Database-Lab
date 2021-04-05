@@ -4,10 +4,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
+import Query.OrderQuery;
 import Query.ProductQuery;
 
 public class ProductStatistics extends Execution {
 	//return product name only
+	public static void recordItemIntoOrder(int OrderID, int ProductID, int quantity, double PricePerUnit) throws SQLException
+	{
+		statement.executeUpdate(OrderQuery.recordItemIntoOrderQuery(OrderID, ProductID, quantity, PricePerUnit));
+	}
 	public static String getProductName(int ID) throws SQLException
 	{
 		return statement.executeQuery(ProductQuery.getProductNameQuery(ID)).getString(1);
@@ -22,9 +27,24 @@ public class ProductStatistics extends Execution {
 	{
 		return statement.executeQuery(ProductQuery.calculateAllProductRevenueFromToQuery(from, to));
 	}
+	//return product's price only
+	public static double getProductPrice(int ID) throws SQLException
+	{
+		return statement.executeQuery(ProductQuery.getProductPriceQuery(ID)).getDouble(1);
+	}
+	//Update Product's Price
+	public static void updateProductPrice(int ProductID, double newPrice) throws SQLException
+	{
+		statement.executeUpdate(ProductQuery.updatePriceQuery(ProductID, newPrice));
+	}
+	//Update Product's Name
+	public static void updateProductName(int ProductID, String newName) throws SQLException
+	{
+		statement.executeUpdate(ProductQuery.updateNameQuery(ProductID, newName));
+	}
 	public static void main(String args[]) throws SQLException, ClassNotFoundException
 	{
 		ProductStatistics.getConnection();
-		System.out.println(ProductStatistics.getProductName(1));
+		ProductStatistics.updateProductName(1, "Beefsteak");;
 	}
 }

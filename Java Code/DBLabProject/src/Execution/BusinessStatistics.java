@@ -17,14 +17,14 @@ public class BusinessStatistics extends Execution {
 		return statement.executeQuery(BusinessQuery.calculateTotalCostFromToQuery(from, to)).getDouble(1);
 	}
 	//Return average Spending per Order FROM TO only
-	public static double calculateAverageSpendPerOrder(LocalDateTime from, LocalDateTime to) throws SQLException
+	public static double calculateAverageSpendPerOrderFromTo(LocalDateTime from, LocalDateTime to) throws SQLException
 	{
-		return statement.executeQuery(BusinessQuery.calculateAverageSpendPerOrderQuery(from, to)).getDouble(1);
+		return statement.executeQuery(BusinessQuery.calculateAverageSpendPerOrderFromToQuery(from, to)).getDouble(1);
 	}
 	public static void main(String[] args) throws SQLException, ClassNotFoundException
 	{
 		BusinessStatistics.getConnection();
-		System.out.println(BusinessStatistics.calculateAverageSpendPerOrder(LocalDateTime.MIN, LocalDateTime.now()));
+		System.out.println(BusinessStatistics.calculateAverageSpendPerOrderFromTo(LocalDateTime.MIN, LocalDateTime.now()));
 		
 	}
 }

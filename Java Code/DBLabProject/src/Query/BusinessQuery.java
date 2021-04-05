@@ -19,7 +19,7 @@ public class BusinessQuery {
 				+ DataConverter.convertDateTimeToString(b) + "')\n"
 				+ "AND (Status = 'F')";
 	}
-	public static String calculateAverageSpendPerOrderQuery(LocalDateTime from, LocalDateTime to)
+	public static String calculateAverageSpendPerOrderFromToQuery(LocalDateTime from, LocalDateTime to)
 	{
 		return "select avg(Totalcost) from Orders"
 				+ "\nwhere CreationDate between '" + DataConverter.convertDateTimeToString(from) + "' AND '"
@@ -29,6 +29,6 @@ public class BusinessQuery {
 	{
 		//The format below is the SQLite DateTime normal format
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DataConverter.getDateTimeFormat());
-		System.out.println(BusinessQuery.calculateAverageSpendPerOrderQuery(LocalDateTime.MIN, LocalDateTime.now()));
+		System.out.println(BusinessQuery.calculateAverageSpendPerOrderFromToQuery(LocalDateTime.MIN, LocalDateTime.now()));
 	}
 }
