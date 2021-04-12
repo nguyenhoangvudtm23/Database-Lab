@@ -50,8 +50,20 @@ public class CustomersQuery {
 						+ DataConverter.convertDateTimeToString(from) + "' and '"
 						+ DataConverter.convertDateTimeToString(to) + "')";
 	}
+	public static String updateCustomerNameQuery(int CustomerID, String newName)
+	{
+		return "update Customers\r\n"
+				+ "set Name = '" + newName + "'\r\n"
+				+ "where CustomerID = " + CustomerID;
+	}
+	public static String updateCustomerPhoneNumberQuery(int CustomerID, String phoneNumber)
+	{
+		return "update Customers\r\n"
+				+ "set Phone_Number = '" + phoneNumber + "'\r\n"
+				+ "where CustomerID = " + CustomerID;
+	}
 	public static void main(String args[]) throws ClassNotFoundException
 	{
-		System.out.println(CustomersQuery.getCustomersWhoHaveSimilarNameToQuery("Hai"));
+		System.out.println(CustomersQuery.updateCustomerPhoneNumberQuery(1, "0123584321"));
 	}
 }

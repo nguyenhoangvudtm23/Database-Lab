@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 import Query.BusinessQuery;
+import Query.CustomersQuery;
 
 public class BusinessStatistics extends Execution {
 	//Return total Revenue only
@@ -21,6 +22,7 @@ public class BusinessStatistics extends Execution {
 	{
 		return statement.executeQuery(BusinessQuery.calculateAverageSpendPerOrderFromToQuery(from, to)).getDouble(1);
 	}
+	
 	public static void main(String[] args) throws SQLException, ClassNotFoundException
 	{
 		BusinessStatistics.getConnection();

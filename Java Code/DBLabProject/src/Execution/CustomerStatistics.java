@@ -49,7 +49,23 @@ public class CustomerStatistics extends Execution{
 	{
 		return statement.executeQuery(CustomersQuery.getCustomersWhoHaveSimilarNameToQuery(name));
 	}
-
+	//update Customer's Name
+	public static void updateCustomerName(int ID, String newName) throws SQLException
+	{
+		statement.executeQuery(CustomersQuery.updateCustomerNameQuery(ID, newName));
+	}
+	//update Customer's phone number
+	public static void updateCustomerPhoneNumber(int ID, String phoneNumber) throws SQLException
+	{
+		if (checkExist(phoneNumber) == 0)
+		{
+			statement.executeQuery(CustomersQuery.updateCustomerPhoneNumberQuery(ID, phoneNumber));
+		}
+	}
+	public static int checkExist(String phoneNumber) throws SQLException
+	{
+		return statement.executeQuery(CustomersQuery.checkExistQuery(phoneNumber)).getInt(1);
+	}
 	public static void main(String args[]) throws SQLException, ClassNotFoundException
 	{
 		Starter.starting();

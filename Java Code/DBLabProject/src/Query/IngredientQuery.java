@@ -21,14 +21,20 @@ public class IngredientQuery {
 				+ "and '"
 				+ DataConverter.convertDateTimeToString(to) + "'";
 	}
-	public static String getIngredientName(int ID)
+	public static String getIngredientNameQuery(int ID)
 	{
 		return "select Name from Ingredients\r\n"
 				+ "where IngredientID = " + ID;
 	}
+	public static String updateIngredientNameQuery(int ID, String newName)
+	{
+		return "update Ingredients\r\n"
+				+ "set Name = '" + newName + "'\r\n"
+				+ "where IngredientID = " + ID;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(IngredientQuery.getIngredientName(2));
+		System.out.println(IngredientQuery.getIngredientNameQuery(2));
 	}
 
 }
