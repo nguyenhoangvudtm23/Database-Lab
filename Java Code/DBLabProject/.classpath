@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="sqlite-jdbc-3.7.2.jar"/>
+	<classpathentry kind="lib" path="lib/sqlite-jdbc-3.7.2.jar"/>
+	<classpathentry kind="lib" path="lib/access-bridge-64.jar"/>
+	<classpathentry kind="lib" path="lib/charsets.jar"/>
+	<classpathentry kind="lib" path="lib/cldrdata.jar"/>
+	<classpathentry kind="lib" path="lib/deploy.jar"/>
+	<classpathentry kind="lib" path="lib/dnsns.jar"/>
+	<classpathentry kind="lib" path="lib/jaccess.jar"/>
+	<classpathentry kind="lib" path="lib/javaws.jar"/>
+	<classpathentry kind="lib" path="lib/jce.jar"/>
+	<classpathentry kind="lib" path="lib/jfr.jar"/>
+	<classpathentry kind="lib" path="lib/jfxrt.jar"/>
+	<classpathentry kind="lib" path="lib/jfxswt.jar"/>
+	<classpathentry kind="lib" path="lib/jsse.jar"/>
+	<classpathentry kind="lib" path="lib/localedata.jar"/>
+	<classpathentry kind="lib" path="lib/management-agent.jar"/>
+	<classpathentry kind="lib" path="lib/nashorn.jar"/>
+	<classpathentry kind="lib" path="lib/plugin.jar"/>
+	<classpathentry kind="lib" path="lib/resources.jar"/>
+	<classpathentry kind="lib" path="lib/rt.jar"/>
+	<classpathentry kind="lib" path="lib/sunec.jar"/>
+	<classpathentry kind="lib" path="lib/sunjce_provider.jar"/>
+	<classpathentry kind="lib" path="lib/sunmscapi.jar"/>
+	<classpathentry kind="lib" path="lib/sunpkcs11.jar"/>
+	<classpathentry kind="lib" path="lib/zipfs.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

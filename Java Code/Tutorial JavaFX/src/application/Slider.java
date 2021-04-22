@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Slider extends Application {
-
 	@Override
 	public void start(Stage primaryStage) {
 		try
