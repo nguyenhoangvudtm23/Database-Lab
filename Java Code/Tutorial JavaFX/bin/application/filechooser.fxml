@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller2">
+   <children>
+      <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="268.0" layoutY="279.0" mnemonicParsing="false" onAction="#ChooseImage" text="Button" />
+   </children>
+</AnchorPane>
