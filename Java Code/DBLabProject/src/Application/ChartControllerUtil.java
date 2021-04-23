@@ -11,7 +11,8 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 
 public class ChartControllerUtil {
-	//Two-column tables only
+	//All of the following implementations are for <String, Double> pairs
+	//ResultSet must return two columns with Name as the 1st column - Value as the 2nd column 
 	public static ObservableList<PieChart.Data> convert_Result_Set_To_Pie_Chart_Data(ResultSet set) throws SQLException
 	{
 		ObservableList<PieChart.Data> res = FXCollections.observableArrayList();
