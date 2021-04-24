@@ -11,7 +11,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
 
-public class BarChartController extends ChartControllerUtil {
+public class BarChartController extends ChartControllerUtil implements ChartController{
 	@FXML
 	BarChart barChart;
 	public void createABarChart() throws SQLException, ClassNotFoundException

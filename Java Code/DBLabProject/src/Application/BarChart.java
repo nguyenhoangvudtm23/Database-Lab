@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class BarChart extends Application{
+public class BarChart extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try

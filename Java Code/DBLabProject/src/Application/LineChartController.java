@@ -13,7 +13,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
 
-public class LineChartController extends ChartControllerUtil{
+public class LineChartController extends ChartControllerUtil implements ChartController{
 	@FXML
 	LineChart<String, Number> lineChart;
 	public void createALineChart() throws SQLException, ClassNotFoundException
