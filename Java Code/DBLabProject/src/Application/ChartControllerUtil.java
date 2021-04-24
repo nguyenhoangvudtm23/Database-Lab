@@ -31,16 +31,39 @@ public class ChartControllerUtil {
 		}
 		return res;
 	}
-	public static XYChart.Series<String, Double> convert_Result_Set_To_Line_Or_Bar_Chart_Data(ResultSet set) throws SQLException
+	public static XYChart.Series convert_Result_Set_To_Line_Chart_Data(ResultSet set) throws SQLException
 	{
-		XYChart.Series<String, Double> res = new XYChart.Series<String, Double>();
+		XYChart.Series res = new XYChart.Series();
 		while (set.next())
 		{
-			res.getData().addAll(new XYChart.Data(set.getString(1), set.getDouble(2)));
+			XYChart.Data<String, Double> data = new XYChart.Data(set.getString(1), set.getDouble(2));
+			res.getData().add(data);
 		}
 		return res;
 	}
-	public static XYChart.Series<String, Double> convert_Pair_of_Arrays_To_Line_Or_Bar_Chart_Data(String[] legend, double[] data)
+	public static XYChart.Series convert_Pair_of_Arrays_To_Line_Chart_Data(String[] legend, double[] data) 
+	{
+		XYChart.Series res = new XYChart.Series();
+		for (int i = 0; i < Math.min(data.length, legend.length); i++)
+		{
+			XYChart.Data<String, Double> tobeadded = new XYChart.Data(legend[i], data[i]);
+			res.getData().add(tobeadded);
+		}
+		return res;
+	}
+	public static ObservableList<XYChart.Series> convert_Result_Set_To_Bar_Chart_Data(ResultSet set) throws SQLException
+	{
+		ObservableList<XYChart.Series> res = FXCollections.observableArrayList();
+		while (set.next())
+		{
+			XYChart.Series tmp = new XYChart.Series();
+			tmp.setName(set.getString(1));
+			tmp.getData().add(new XYChart.Data("", set.getDouble(2)));
+			res.add(tmp);
+		}
+		return res;
+	}
+	public static XYChart.Series<String, Double> convert_Pair_of_Arrays_To_Bar_Chart_Data(String[] legend, double[] data)
 	{
 		XYChart.Series<String, Double> res = new XYChart.Series<String, Double>();
 		for (int i = 0; i < Math.min(data.length, legend.length); i++)
