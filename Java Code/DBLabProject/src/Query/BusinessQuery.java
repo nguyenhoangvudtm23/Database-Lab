@@ -25,10 +25,39 @@ public class BusinessQuery {
 				+ "\nwhere CreationDate between '" + DataConverter.convertDateTimeToString(from) + "' AND '"
 				+ DataConverter.convertDateTimeToString(to) + "'";
 	}
+	public static String calculateTotalRevenueLastXMonthsQuery(int x)
+	{
+		return "select strftime('%Y-%m', CreationDate), sum(Totalcost) from Orders\r\n"
+				+ "where CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusMonths(x)) 
+				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
+				+ "GROUP BY strftime('%Y-%m', CreationDate)";
+	}
+	public static String calculateTotalRevenueLastXWeeksQuery(int x)
+	{
+		return "select strftime('%Y-%m', CreationDate), sum(Totalcost)  from Orders\r\n"
+				+ "where CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusWeeks(x)) 
+				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
+				+ "GROUP BY strftime('%Y-%m', CreationDate)";
+	}
+	public static String calculateTotalCostLastXMonthsQuery(int x)
+	{
+		return "select strftime('%Y-%m', CreationDate), sum(Totalcost) from BuyOrders\r\n"
+				+ "where CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusMonths(x)) 
+				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
+				+ "GROUP BY strftime('%Y-%m', CreationDate)";
+	}
+	public static String calculateTotalCostLastXWeeksQuery(int x)
+	{
+		return "select strftime('%Y-%m', CreationDate), sum(Totalcost) from BuyOrders\r\n"
+				+ "where CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusWeeks(x)) 
+				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
+				+ "GROUP BY strftime('%Y-%m', CreationDate)";
+	}
 	public static void main(String args[]) throws ClassNotFoundException
 	{
 		//The format below is the SQLite DateTime normal format
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DataConverter.getDateTimeFormat());
 		System.out.println(BusinessQuery.calculateAverageSpendPerOrderFromToQuery(LocalDateTime.MIN, LocalDateTime.now()));
+		System.out.println(BusinessQuery.calculateTotalCostLastXWeeksQuery(500));
 	}
 }

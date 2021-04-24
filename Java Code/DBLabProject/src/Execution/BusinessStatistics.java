@@ -1,5 +1,6 @@
 package Execution;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
@@ -22,7 +23,22 @@ public class BusinessStatistics extends Execution {
 	{
 		return statement.executeQuery(BusinessQuery.calculateAverageSpendPerOrderFromToQuery(from, to)).getDouble(1);
 	}
-	
+	public static ResultSet calculateTotalRevenueLastXMonths(int x) throws SQLException
+	{
+		return statement.executeQuery(BusinessQuery.calculateTotalRevenueLastXMonthsQuery(x));
+	}
+	public static ResultSet calculateTotalRevenueLastXWeeks(int x) throws SQLException
+	{
+		return statement.executeQuery(BusinessQuery.calculateTotalCostLastXWeeksQuery(x));
+	}
+	public static ResultSet calculateTotalCostLastXMonths(int x) throws SQLException
+	{
+		return statement.executeQuery(BusinessQuery.calculateTotalCostLastXMonthsQuery(x));
+	}
+	public static ResultSet calculateTotalCostLastXWeeks(int x) throws SQLException
+	{
+		return statement.executeQuery(BusinessQuery.calculateTotalCostLastXWeeksQuery(x));
+	}
 	public static void main(String[] args) throws SQLException, ClassNotFoundException
 	{
 		BusinessStatistics.getConnection();

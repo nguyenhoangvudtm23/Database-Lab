@@ -42,6 +42,7 @@ public class DataConverter {
 	{
 		return "yyyy-MM-dd HH:mm:ss";
 	}
+	
 	public static String getNormalTimeFormat(LocalDateTime a)
 	{
 		String res = 	DataConverter.addZeroToTheLeft(Integer.toString(a.getDayOfMonth()))
