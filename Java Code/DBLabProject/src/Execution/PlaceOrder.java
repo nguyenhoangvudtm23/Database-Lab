@@ -43,6 +43,7 @@ public class PlaceOrder extends Execution {
 	{
 		return statement.executeQuery(OrderQuery.displayAllItemsInOrderQuery(OrderID));
 	}
+	
 	public static void main(String args[]) throws ClassNotFoundException, SQLException
 	{
 		PlaceOrder.getConnection();

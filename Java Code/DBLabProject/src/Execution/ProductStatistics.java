@@ -42,6 +42,10 @@ public class ProductStatistics extends Execution {
 	{
 		statement.executeUpdate(ProductQuery.updateNameQuery(ProductID, newName));
 	}
+	public static ResultSet getProductsWithSimilarName(String pattern) throws SQLException
+	{
+		return statement.executeQuery(ProductQuery.getProductsWithSimilarNameQuery(pattern));
+	}
 	public static void main(String args[]) throws SQLException, ClassNotFoundException
 	{
 		ProductStatistics.getConnection();
