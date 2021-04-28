@@ -4,6 +4,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
+import Execution.IngredientStatistics;
 import Execution.ProductStatistics;
 
 public class DataConverter {
@@ -23,15 +24,16 @@ public class DataConverter {
 		ResultSetMetaData setMD = set.getMetaData();
 		int size = (setMD.getColumnCount());
 		for (int i = 1; i <= size; i++)
+			
 		{
-			System.out.format("%-25s",setMD.getColumnName(i));
+			System.out.format("%-20s",setMD.getColumnName(i));
 		}
 		System.out.println();
 		while (set.next())
 		{
 			for (int i = 1; i <= size; i++)
 			{
-				System.out.format("%-25s", set.getObject(i) );
+				System.out.format("%-20s", set.getObject(i) );
 			}
 			System.out.println();
 		}
@@ -83,6 +85,7 @@ public class DataConverter {
 //		System.out.println(DataConverter.createDateTimeString(0, 0, 0));
 		ProductStatistics.getConnection();
 		DataConverter.printToConsoleAResultSet(ProductStatistics.getProductsWithSimilarName("beef"));
+		DataConverter.printToConsoleAResultSet(IngredientStatistics.getIngredientsWithSimilarName("beef"));
 	}
 
 }
