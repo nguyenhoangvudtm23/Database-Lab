@@ -1,5 +1,6 @@
 package Execution;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
@@ -21,6 +22,10 @@ public class IngredientStatistics extends Execution {
 	public static double calculateAllIngredientsCostFromToQuery(LocalDateTime from, LocalDateTime to) throws SQLException
 	{
 		return statement.executeQuery(IngredientQuery.calculateAllIngredientCostFromToQuery(from, to)).getDouble(1);
+	}
+	public static ResultSet getIngredientsWithSimilarName(String pattern) throws SQLException
+	{
+		return statement.executeQuery(IngredientQuery.getIngredientsWithSimilarNameQuery(pattern));
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

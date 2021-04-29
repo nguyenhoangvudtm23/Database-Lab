@@ -29,20 +29,21 @@ public class PlaceOrder extends Execution {
 	}
 	public static double calculateTotalCost(int orderID) throws SQLException
 	{
-		ResultSet set = statement.executeQuery(OrderQuery.showOrderItemsQuery(orderID));
-		double ans = 0;
-		while (set.next())
-		{
-			//2 is Quantity, 4 is SellingPrice
-			ans = ans + set.getDouble(2) * set.getDouble(4);
-		}
-		return ans;
+		return statement.executeQuery(OrderQuery.calculateTotalCostQuery(orderID)).getDouble(1);
+	}
+	public static void removeItemFromOrder(int OrderID, int ProductID) throws SQLException
+	{
+		statement.executeUpdate(OrderQuery.removeItemFromOrderQuery(OrderID, ProductID));
 	}
 	public static void addItemToOrder(int ProductID, int OrderID, int quantity) throws SQLException
 	{
-		double PricePerUnit = ProductStatistics.getProductPrice(ProductID);
-		OrderQuery.recordItemIntoOrderQuery(OrderID, ProductID, quantity, PricePerUnit);
+		OrderQuery.recordItemIntoOrderQuery(OrderID, ProductID, quantity);
 	}
+	public static ResultSet displayAllItemsInOrder(int OrderID) throws SQLException
+	{
+		return statement.executeQuery(OrderQuery.displayAllItemsInOrderQuery(OrderID));
+	}
+	
 	public static void main(String args[]) throws ClassNotFoundException, SQLException
 	{
 		PlaceOrder.getConnection();

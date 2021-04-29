@@ -9,9 +9,9 @@ import Query.ProductQuery;
 
 public class ProductStatistics extends Execution {
 	//return product name only
-	public static void recordItemIntoOrder(int OrderID, int ProductID, int quantity, double PricePerUnit) throws SQLException
+	public static void recordItemIntoOrder(int OrderID, int ProductID, int quantity) throws SQLException
 	{
-		statement.executeUpdate(OrderQuery.recordItemIntoOrderQuery(OrderID, ProductID, quantity, PricePerUnit));
+		statement.executeUpdate(OrderQuery.recordItemIntoOrderQuery(OrderID, ProductID, quantity));
 	}
 	public static String getProductName(int ID) throws SQLException
 	{
@@ -41,6 +41,10 @@ public class ProductStatistics extends Execution {
 	public static void updateProductName(int ProductID, String newName) throws SQLException
 	{
 		statement.executeUpdate(ProductQuery.updateNameQuery(ProductID, newName));
+	}
+	public static ResultSet getProductsWithSimilarName(String pattern) throws SQLException
+	{
+		return statement.executeQuery(ProductQuery.getProductsWithSimilarNameQuery(pattern));
 	}
 	public static void main(String args[]) throws SQLException, ClassNotFoundException
 	{
