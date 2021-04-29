@@ -18,6 +18,22 @@ public class SupplierStatistics extends Execution {
 	{
 		return statement.executeQuery(SuppliersQuery.getSupplierNameQuery(phoneNumber)).getString(1);
 	}
+	public static int getSupplierID(String phoneNumber) throws SQLException
+	{
+		return statement.executeQuery(SuppliersQuery.getSupplierIDQuery(phoneNumber)).getInt(1);
+	}
+	public static void updateSupplierName(int SupplierID, String newName) throws SQLException
+	{
+		statement.executeUpdate(SuppliersQuery.updateSupplierNameQuery(SupplierID, newName));
+	}
+	public static void updateSupplierPhoneNumber(int SupplierID, String newPhoneNumber) throws SQLException
+	{
+		statement.executeUpdate(SuppliersQuery.updateSupplierNameQuery(SupplierID, newPhoneNumber));
+	}
+	public static int checkExist(String phoneNumber) throws SQLException
+	{
+		return statement.executeQuery(SuppliersQuery.checkExistQuery(phoneNumber)).getInt(1);
+	}
 	public static void main(String args[]) throws ClassNotFoundException, SQLException
 	{
 		SupplierStatistics.getConnection();

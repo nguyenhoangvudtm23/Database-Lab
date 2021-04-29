@@ -47,9 +47,14 @@ public class ProductQuery {
 		return "select Selling_Price FROM Products\r\n"
 				+ "where ProductID = " + ID;
 	}
+	public static String getProductsWithSimilarNameQuery(String pattern)
+	{
+		return "select * from Products WHERE\r\n"
+				+ "Product_Descript LIKE '%" + pattern +  "%'";
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(ProductQuery.updateNameQuery(2, "kaka"));
+		System.out.println(ProductQuery.getProductsWithSimilarNameQuery("beef"));
 	}
 
 }
