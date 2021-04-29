@@ -32,9 +32,15 @@ public class IngredientQuery {
 				+ "set Name = '" + newName + "'\r\n"
 				+ "where IngredientID = " + ID;
 	}
+	public static String getIngredientsWithSimilarNameQuery(String pattern)
+	{
+		return "select * from Ingredients WHERE\r\n"
+				+ "Name LIKE '%" + pattern +"%'\r\n"
+				+ "";
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(IngredientQuery.getIngredientNameQuery(2));
+		System.out.println(IngredientQuery.getIngredientsWithSimilarNameQuery("beef"));
 	}
 
 }
