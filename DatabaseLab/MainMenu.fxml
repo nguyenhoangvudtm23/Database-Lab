@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="668.0" prefWidth="650.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="DatabaseLab.MainMenuController">
+   <children>
+      <Label fx:id="MainMenu" layoutX="227.0" layoutY="165.0" text="Main Menu">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <Button fx:id="createOrderButton" layoutX="392.0" layoutY="473.0" mnemonicParsing="false" onAction="#switchOrderScene" text="Creat order" />
+   </children>
+</AnchorPane>
