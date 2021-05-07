@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ChartChooserController">
+   <children>
+      <Label alignment="CENTER" layoutX="217.0" layoutY="41.0" prefHeight="63.0" prefWidth="167.0" text="CHỌN LOẠI BIỂU ĐỒ" textAlignment="CENTER" AnchorPane.leftAnchor="217.0" AnchorPane.rightAnchor="216.0" />
+      <VBox fx:id="vbox" layoutY="100.0" spacing="5.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="448.0" text="Biểu đồ kết hợp (sẽ update)">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#chooseBarChart" prefHeight="31.0" prefWidth="448.0" text="Biểu đồ cột">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#chooseLineChart" onMouseClicked="#chooseLineChart" prefHeight="31.0" prefWidth="448.0" text="Biểu đồ đường">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#choosePieChart" prefHeight="31.0" prefWidth="448.0" text="Biểu đồ hình quạt">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

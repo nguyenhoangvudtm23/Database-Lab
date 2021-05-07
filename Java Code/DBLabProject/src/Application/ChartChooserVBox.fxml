@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="vbox" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.StatisticsMenuController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="63.0" prefWidth="167.0" text="CHỌN LOẠI BIỂU ĐỒ" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Label>
+      <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="448.0" text="Biểu đồ kết hợp (sẽ update)">
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" />
+         </VBox.margin>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#chooseBarChart" prefHeight="31.0" prefWidth="448.0" text="Biểu đồ cột">
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" />
+         </VBox.margin>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#chooseLineChart" onMouseClicked="#chooseLineChart" prefHeight="31.0" prefWidth="448.0" text="Biểu đồ đường">
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" />
+         </VBox.margin>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#choosePieChart" prefHeight="31.0" prefWidth="448.0" text="Biểu đồ hình quạt">
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+   <padding>
+      <Insets left="5.0" right="5.0" />
+   </padding>
+</VBox>

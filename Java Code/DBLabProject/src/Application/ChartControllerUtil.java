@@ -6,11 +6,18 @@ import java.sql.SQLException;
 import javafx.scene.chart.BarChart;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 public class ChartControllerUtil {
+	@FXML
+	public AnchorPane anchorPane;
+	@FXML
+	public VBox vBox;
 	//All of the following implementations are for <String, Double> pairs
 	//ResultSet must return two columns with Name as the 1st column - Value as the 2nd column 
 	public static ObservableList<PieChart.Data> convert_Result_Set_To_Pie_Chart_Data(ResultSet set) throws SQLException
