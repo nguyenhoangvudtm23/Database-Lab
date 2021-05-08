@@ -26,12 +26,12 @@ public class ChartChooserController implements Initializable {
 	private Stage stage;
 	private Parent root;
 	public static ResultSet resultToDisplay;
+	public static String chartName;
 	private Scene scene;
 	@FXML
 	private VBox vbox;
 	@FXML
 	private AnchorPane anchorPane;
-	
 	public void chooseLineChart(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("LineChart.fxml"));
 		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -60,7 +60,6 @@ public class ChartChooserController implements Initializable {
 		
 		try {
 			Starter.starting();
-			resultToDisplay = BusinessStatistics.calculateTotalCostLastXMonths(40);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

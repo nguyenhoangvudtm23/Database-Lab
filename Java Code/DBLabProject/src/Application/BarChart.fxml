@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="572.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.BarChartController">
    <children>
-      <VBox fx:id="vBox" layoutX="42.0" layoutY="71.0">
+      <VBox fx:id="vBox" layoutX="42.0" layoutY="71.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="71.0">
          <children>
             <BarChart fx:id="barChart" layoutX="139.0" layoutY="45.0" AnchorPane.bottomAnchor="169.0" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="139.0" AnchorPane.topAnchor="45.0">
               <xAxis>
@@ -18,6 +18,9 @@
               <yAxis>
                 <NumberAxis side="LEFT" />
               </yAxis>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </BarChart>
             <Button fx:id="createChart" alignment="CENTER" layoutX="340.0" layoutY="553.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#createABarChart" prefHeight="31.0" prefWidth="313.0" text="Tạo biểu đồ" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="339.0">
                <VBox.margin>
@@ -26,5 +29,6 @@
             </Button>
          </children>
       </VBox>
+      <Button layoutY="-1.0" mnemonicParsing="false" onAction="#back" text="Back" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

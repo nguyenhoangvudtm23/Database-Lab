@@ -34,10 +34,10 @@ public class BusinessQuery {
 	}
 	public static String calculateTotalRevenueLastXWeeksQuery(int x)
 	{
-		return "select strftime('%Y-%m', CreationDate), sum(Totalcost)  from Orders\r\n"
+		return "select strftime('%Y-%W', CreationDate), sum(Totalcost)  from Orders\r\n"
 				+ "where CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusWeeks(x)) 
 				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
-				+ "GROUP BY strftime('%Y-%m', CreationDate)";
+				+ "GROUP BY strftime('%W', CreationDate)";
 	}
 	public static String calculateTotalCostLastXMonthsQuery(int x)
 	{
@@ -48,10 +48,10 @@ public class BusinessQuery {
 	}
 	public static String calculateTotalCostLastXWeeksQuery(int x)
 	{
-		return "select strftime('%Y-%m', CreationDate), sum(Totalcost) from BuyOrders\r\n"
+		return "select strftime('%Y-%W', CreationDate), sum(Totalcost) from BuyOrders\r\n"
 				+ "where CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusWeeks(x)) 
 				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
-				+ "GROUP BY strftime('%Y-%m', CreationDate)";
+				+ "GROUP BY strftime('%W', CreationDate)";
 	}
 	public static void main(String args[]) throws ClassNotFoundException
 	{

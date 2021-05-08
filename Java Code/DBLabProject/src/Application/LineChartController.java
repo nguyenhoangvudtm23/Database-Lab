@@ -24,7 +24,8 @@ public class LineChartController extends ChartControllerUtil implements ChartCon
 	{
 		BusinessStatistics.getConnection();
 		Series series = LineChartController.convert_Result_Set_To_Line_Chart_Data
-				(BusinessStatistics.calculateTotalCostLastXMonths(120));
+				(ChartChooserController.resultToDisplay);
+		lineChart.setTitle(ChartChooserController.chartName);
 		//lineChart.getData().clear();
 		//javaFX has a bug with chart, noi chung la loi nay no ngu vcl the luon
 		lineChart.getXAxis().setAnimated(false);;
