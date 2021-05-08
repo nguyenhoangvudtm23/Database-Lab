@@ -43,3 +43,14 @@ THU CHI:
 + Dạng Pie Chart
 + Có một bảng sản phẩm/khách hàng nằm bên cạnh, người dùng có quyền chọn
 + Có tuỳ chọn về thời gian (ngày bắt đầu và ngày kết thúc), sản phẩm, nhóm khách hàng, ...
+
+
+SRS Document:
+29/5: Đăng
+
+TEST DB:
+Thêm cột Price cho Ingredient (12/5): Ngọc Linh
+
+Execution - Query
+Business: Đăng
+Customer - Supplier: Ngọc Linh
