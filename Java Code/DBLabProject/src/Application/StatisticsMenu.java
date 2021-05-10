@@ -1,5 +1,5 @@
 package Application;
-	
+
 import java.io.IOException;
 
 import javafx.application.Application;
@@ -15,15 +15,15 @@ public class StatisticsMenu extends Application {
 	public void start(Stage primaryStage) throws IOException {
 		{
 			Parent root = FXMLLoader.load(this.getClass().getResource("StatisticsMenu.fxml"));
-			
+
 			Scene scene = new Scene(root);
-			
+
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		}
-		
+
 	}
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
