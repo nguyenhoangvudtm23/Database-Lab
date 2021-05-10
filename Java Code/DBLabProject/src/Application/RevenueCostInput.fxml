@@ -123,7 +123,7 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Tạo" textAlignment="CENTER">
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chooseYearRevenue" text="Tạo" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
@@ -147,7 +147,7 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Tạo" textAlignment="CENTER">
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chooseYearCost" text="Tạo" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
@@ -171,7 +171,7 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Tạo" textAlignment="CENTER">
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chooseDayRevenue" text="Tạo" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
@@ -195,7 +195,7 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Tạo" textAlignment="CENTER">
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chooseDayCost" text="Tạo" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>

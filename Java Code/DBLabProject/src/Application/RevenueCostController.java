@@ -105,4 +105,60 @@ public class RevenueCostController {
 			wrongInputType();
 		}
 	}
+	public void chooseDayRevenue(ActionEvent event)
+	{
+		try {
+			int days = Integer.parseInt(dayRevenueBox.getText());
+			Starter.starting();
+			ChartChooserController.chartName = "Chi phí " + days + " ngày gần nhất";
+			ChartChooserController.resultToDisplay = BusinessStatistics.calculateTotalRevenueLastXDays(days);
+			toChartChooserScene(event);
+		}
+		catch(Exception e)
+		{
+			wrongInputType();
+		}
+	}
+	public void chooseDayCost(ActionEvent event)
+	{
+		try {
+			int days = Integer.parseInt(dayCostBox.getText());
+			Starter.starting();
+			ChartChooserController.chartName = "Chi phí " + days + " ngày gần nhất";
+			ChartChooserController.resultToDisplay = BusinessStatistics.calculateTotalCostLastXDays(days);
+			toChartChooserScene(event);
+		}
+		catch(Exception e)
+		{
+			wrongInputType();
+		}
+	}
+	public void chooseYearRevenue(ActionEvent event)
+	{
+		try {
+			int years = Integer.parseInt(yearRevenueBox.getText());
+			Starter.starting();
+			ChartChooserController.chartName = "Doanh thu " + years + " năm gần nhất";
+			ChartChooserController.resultToDisplay = BusinessStatistics.calculateTotalRevenueLastXYears(years);
+			toChartChooserScene(event);
+		}
+		catch(Exception e)
+		{
+			wrongInputType();
+		}
+	}
+	public void chooseYearCost(ActionEvent event)
+	{
+		try {
+			int years = Integer.parseInt(yearCostBox.getText());
+			Starter.starting();
+			ChartChooserController.chartName = "Chi phí " + years + " năm gần nhất";
+			ChartChooserController.resultToDisplay = BusinessStatistics.calculateTotalCostLastXYears(years);
+			toChartChooserScene(event);
+		}
+		catch(Exception e)
+		{
+			wrongInputType();
+		}
+	}
 }
