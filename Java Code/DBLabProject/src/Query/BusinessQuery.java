@@ -30,56 +30,56 @@ public class BusinessQuery {
 		return "select strftime('%Y', CreationDate), sum(Totalcost) from Orders\r\n"
 				+ "where CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusYears(x)) 
 				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
-				+ "GROUP BY strftime('%Y', CreationDate)";
+				+ "GROUP BY strftime('%Y', CreationDate) ORDER BY strftime('%Y-%m-%d %H:%M:%S', CreationDate) ASC";
 	}
 	public static String calculateTotalRevenueLastXMonthsQuery(int x)
 	{
 		return "select strftime('%Y-%m', CreationDate), sum(Totalcost) from Orders\r\n"
 				+ "where CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusMonths(x)) 
 				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
-				+ "GROUP BY strftime('%Y-%m', CreationDate)";
+				+ "GROUP BY strftime('%Y-%m', CreationDate) ORDER BY strftime('%Y-%m-%d %H:%M:%S', CreationDate) ASC";
 	}
 	public static String calculateTotalRevenueLastXWeeksQuery(int x)
 	{
 		return "select strftime('%Y-%W', CreationDate), sum(Totalcost)  from Orders\r\n"
 				+ "where CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusWeeks(x)) 
 				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
-				+ "GROUP BY strftime('%W', CreationDate)";
+				+ "GROUP BY strftime('%W', CreationDate) ORDER BY strftime('%Y-%m-%d %H:%M:%S', CreationDate) ASC";
 	}
 	public static String calculateTotalRevenueLastXDaysQuery(int x)
 	{
 		return "select strftime('%d-%m-%Y', CreationDate), sum(Totalcost) from Orders\r\n"
 				+ "where CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusDays(x)) 
 				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
-				+ "GROUP BY strftime('%Y-%m-%d', CreationDate)";
+				+ "GROUP BY strftime('%Y-%m-%d', CreationDate) ORDER BY strftime('%Y-%m-%d %H:%M:%S', CreationDate) ASC";
 	}
 	public static String calculateTotalCostLastXYearsQuery(int x)
 	{
 		return "select strftime('%Y', CreationDate), sum(Totalcost) from BuyOrders\r\n"
 				+ "where CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusYears(x)) 
 				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
-				+ "GROUP BY strftime('%Y', CreationDate)";
+				+ "GROUP BY strftime('%Y', CreationDate) ORDER BY strftime('%Y-%m-%d %H:%M:%S', CreationDate) ASC";
 	}
 	public static String calculateTotalCostLastXMonthsQuery(int x)
 	{
 		return "select strftime('%Y-%m', CreationDate), sum(Totalcost) from BuyOrders\r\n"
 				+ "where CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusMonths(x)) 
 				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
-				+ "GROUP BY strftime('%Y-%m', CreationDate)";
+				+ "GROUP BY strftime('%Y-%m', CreationDate) ORDER BY strftime('%Y-%m-%d %H:%M:%S', CreationDate) ASC";
 	}
 	public static String calculateTotalCostLastXWeeksQuery(int x)
 	{
 		return "select strftime('%Y-%W', CreationDate), sum(Totalcost) from BuyOrders\r\n"
 				+ "where CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusWeeks(x)) 
 				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
-				+ "GROUP BY strftime('%W', CreationDate)";
+				+ "GROUP BY strftime('%W', CreationDate) ORDER BY strftime('%Y-%m-%d %H:%M:%S', CreationDate) ASC";
 	}
 	public static String calculateTotalCostLastXDaysQuery(int x)
 	{
 		return "select strftime('%d-%m-%Y', CreationDate), sum(Totalcost) from BuyOrders\r\n"
 				+ "where CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusDays(x)) 
 				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
-				+ "GROUP BY strftime('%Y-%m-%d', CreationDate)";
+				+ "GROUP BY strftime('%Y-%m-%d', CreationDate) ORDER BY strftime('%Y-%m-%d %H:%M:%S', CreationDate) ASC";
 	}
 	public static void main(String args[]) throws ClassNotFoundException
 	{

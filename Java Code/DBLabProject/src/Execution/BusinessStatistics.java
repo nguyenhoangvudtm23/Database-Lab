@@ -23,11 +23,11 @@ public class BusinessStatistics extends Execution {
 	{
 		return statement.executeQuery(BusinessQuery.calculateAverageSpendPerOrderFromToQuery(from, to)).getDouble(1);
 	}
+	//Return a set of pair <String - Double> of <DateTimeFormat - Total of All Bills which satisfy the conditions>
 	public static ResultSet calculateTotalRevenueLastXYears(int x) throws SQLException
 	{
 		return statement.executeQuery(BusinessQuery.calculateTotalRevenueLastXYearsQuery(x));
 	}
-	
 	public static ResultSet calculateTotalRevenueLastXMonths(int x) throws SQLException
 	{
 		return statement.executeQuery(BusinessQuery.calculateTotalRevenueLastXMonthsQuery(x));
