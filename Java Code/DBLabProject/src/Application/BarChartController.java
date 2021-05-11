@@ -46,14 +46,7 @@ public class BarChartController extends ChartControllerUtil implements ChartCont
 	{
 		barChart.getData().clear();
 	}
-	public void back(ActionEvent event) throws IOException
-	{
-		Parent root = FXMLLoader.load(this.getClass().getResource("StatisticsMenu.fxml"));
-		Scene scene = new Scene(root);
-		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();;
-		primaryStage.setScene(scene);
-		primaryStage.show();
-	}
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub

@@ -1,20 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="468.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CustomerController">
    <children>
-      <VBox layoutX="-18.0" layoutY="-7.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="200.0" layoutY="24.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <Button mnemonicParsing="false" onAction="#back" text="Back" />
+            <HBox prefHeight="42.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="35.0" text="TOP">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="customerNumberBox" prefHeight="31.0" prefWidth="70.0" promptText="(5, 10...)">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="21.0" prefWidth="183.0" text="Khách hàng chi tiêu trong">
+                     <HBox.margin>
+                        <Insets bottom="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="dayCustomerBox" prefHeight="31.0" prefWidth="74.0" promptText="(1, 2...)">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="141.0" text="NGÀY gần nhất" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Tạo" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <BarChart fx:id="barChart">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
          </children>
       </VBox>
    </children>

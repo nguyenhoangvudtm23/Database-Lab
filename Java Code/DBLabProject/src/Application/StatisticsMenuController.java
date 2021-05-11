@@ -38,6 +38,11 @@ public class StatisticsMenuController implements Initializable{
 	public void chooseCustomerScene(ActionEvent event) throws IOException, ClassNotFoundException, SQLException
 	{
 		Starter.starting();
+		root = FXMLLoader.load(getClass().getResource("CustomerInput.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
 	public void chooseRevenueAndCostScene(ActionEvent event) throws IOException, ClassNotFoundException, SQLException
 	{

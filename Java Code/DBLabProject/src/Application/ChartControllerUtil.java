@@ -28,6 +28,15 @@ public class ChartControllerUtil {
 	public VBox vBox;
 	//All of the following implementations are for <String, Double> pairs
 	//ResultSet must return two columns with Name as the 1st column - Value as the 2nd column 
+	public void back(ActionEvent event) throws IOException
+	{
+		Parent root = FXMLLoader.load(this.getClass().getResource("StatisticsMenu.fxml"));
+		Scene scene = new Scene(root);
+		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();;
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	
 	public static ObservableList<PieChart.Data> convert_Result_Set_To_Pie_Chart_Data(ResultSet set) throws SQLException
 	{
 		ObservableList<PieChart.Data> res = FXCollections.observableArrayList();
