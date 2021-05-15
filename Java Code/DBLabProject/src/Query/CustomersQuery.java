@@ -64,7 +64,7 @@ public class CustomersQuery {
 	}
 	public static String getTopXSpendCustomersFromToQuery(int X, LocalDateTime from, LocalDateTime to)
 	{
-		return "select Customers.*, sum(Totalcost - Discount) as Pay\r\n"
+		return "select Customers.Name || ' (' ||Customers.Phone_Number||')' AS INFO, sum(Totalcost - Discount) as Pay\r\n"
 				+ "from Orders join Customers on  Orders.CustomerID = Customers.CustomerID\r\n"
 				+ "where CreationDate between '"
 				+ DataConverter.convertDateTimeToString(from) + "' and '"
