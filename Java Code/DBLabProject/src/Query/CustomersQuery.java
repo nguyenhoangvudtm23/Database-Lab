@@ -62,8 +62,21 @@ public class CustomersQuery {
 				+ "set Phone_Number = '" + phoneNumber + "'\r\n"
 				+ "where CustomerID = " + CustomerID;
 	}
+	public static String getTopXSpendCustomersFromToQuery(int X, LocalDateTime from, LocalDateTime to)
+	{
+		return "select Customers.*, sum(Totalcost - Discount) as Pay\r\n"
+				+ "from Orders join Customers on  Orders.CustomerID = Customers.CustomerID\r\n"
+				+ "where CreationDate between '"
+				+ DataConverter.convertDateTimeToString(from) + "' and '"
+				+ DataConverter.convertDateTimeToString(to) + "'\r\n"
+				+ "group by Customers.CustomerID\r\n"
+				+ "order by Pay desc\r\n"
+				+ "limit " + X;
+	}
 	public static void main(String args[]) throws ClassNotFoundException
 	{
 		System.out.println(CustomersQuery.updateCustomerPhoneNumberQuery(1, "0123584321"));
+		System.out.println();
+		System.out.println(CustomersQuery.getTopXSpendCustomersFromToQuery(0, LocalDateTime.MIN, LocalDateTime.MAX));
 	}
 }

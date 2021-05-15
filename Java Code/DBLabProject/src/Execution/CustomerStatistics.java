@@ -14,7 +14,7 @@ public class CustomerStatistics extends Execution{
 	3 is Phone_Number
 	4 is Name
 	5 is Email
-	**/
+	 **/
 	//return 2 columns customerID + Total spending
 	public static ResultSet sortAllCustomersByTotalSpendDesc(int limit) throws SQLException
 	{
@@ -65,6 +65,11 @@ public class CustomerStatistics extends Execution{
 	public static int checkExist(String phoneNumber) throws SQLException
 	{
 		return statement.executeQuery(CustomersQuery.checkExistQuery(phoneNumber)).getInt(1);
+	}
+	//return top spending Customer during a period of time only
+	public static ResultSet getTopXSpendCustomersFromTo(int X, LocalDateTime from, LocalDateTime to) throws SQLException
+	{
+		return statement.executeQuery(CustomersQuery.getTopXSpendCustomersFromToQuery(X, from, to));
 	}
 	public static void main(String args[]) throws SQLException, ClassNotFoundException
 	{
