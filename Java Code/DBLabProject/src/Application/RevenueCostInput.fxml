@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.RevenueCostController">
+   <children>
+      <VBox layoutX="200.0" layoutY="24.0" prefHeight="361.0" prefWidth="600.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="42.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="188.0" text="Doanh thu trong">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="weekRevenueBox" promptText="(một số nguyên)">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="TUẦN gần nhất" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chooseWeekRevenue" text="Tạo" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="42.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="188.0" text="Chi phí trong">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="weekCostBox" promptText="(một số nguyên)">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="TUẦN gần nhất" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chooseWeekCost" text="Tạo" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="42.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="188.0" text="Doanh thu trong">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="monthRevenueBox" promptText="(một số nguyên)">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="THÁNG gần nhất" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chooseMonthRevenue" text="Tạo" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="42.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="188.0" text="Chi phí trong">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="monthCostBox" promptText="(một số nguyên)">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="THÁNG gần nhất" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chooseMonthCost" text="Tạo" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="42.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="188.0" text="Doanh thu trong">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="yearRevenueBox" promptText="(một số nguyên)">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="NĂM gần nhất" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chooseYearRevenue" text="Tạo" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="42.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="188.0" text="Chi phí trong">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="yearCostBox" promptText="(một số nguyên)">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="NĂM gần nhất" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chooseYearCost" text="Tạo" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="42.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="188.0" text="Doanh thu trong">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="dayRevenueBox" promptText="(một số nguyên)">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="NGÀY gần nhất" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chooseDayRevenue" text="Tạo" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="42.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="188.0" text="Chi phí trong">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="dayCostBox" promptText="(một số nguyên)">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="NGÀY gần nhất" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chooseDayCost" text="Tạo" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button layoutX="268.0" layoutY="371.0" mnemonicParsing="false" onAction="#back" text="Quay lại" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="268.0" AnchorPane.rightAnchor="267.0" />
+   </children>
+</AnchorPane>

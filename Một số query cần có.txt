@@ -1,0 +1,6 @@
+1/ X khách hàng có chi tiêu cao nhất (trừ vãng lai) trong Y ngày/tháng/năm qua
+
+2/ X sản phẩm bán chạy nhất trong Y ngày/tháng/năm qua
+
+3/ X sản phẩm ế nhất trong Y ngày/tháng/năm qua
+
