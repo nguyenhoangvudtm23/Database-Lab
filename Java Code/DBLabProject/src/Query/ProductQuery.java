@@ -52,9 +52,41 @@ public class ProductQuery {
 		return "select * from Products WHERE\r\n"
 				+ "Product_Descript LIKE '%" + pattern +  "%'";
 	}
+	public static String getTopXSellingProductsFromToQuery(int X, LocalDateTime from, LocalDateTime to)
+	{
+		return "select Products.*, sum(Quantity) as Sold\r\n"
+				+ "from OrderItems join Products on OrderItems.ProductID = Products.ProductID\r\n"
+				+ "where OrderID in(\r\n"
+				+ "	select OrderID\r\n"
+				+ "	from Orders \r\n"
+				+ "where CreationDate between '"
+				+ DataConverter.convertDateTimeToString(from) + "' and '"
+				+ DataConverter.convertDateTimeToString(to) + "')\r\n"
+				+ "group by Products.ProductID\n"
+				+ "order by Sold desc\n"
+				+ "limit " + X;
+	}
+	public static String getLeastXSellingProductsFromToQuery(int X, LocalDateTime from, LocalDateTime to)
+	{
+		return "select Products.*, sum(Quantity) as Sold\r\n"
+				+ "from OrderItems join Products on OrderItems.ProductID = Products.ProductID\r\n"
+				+ "where OrderID in(\r\n"
+				+ "	select OrderID\r\n"
+				+ "	from Orders \r\n"
+				+ "where CreationDate between '"
+				+ DataConverter.convertDateTimeToString(from) + "' and '"
+				+ DataConverter.convertDateTimeToString(to) + "')\r\n"
+				+ "group by Products.ProductID\n"
+				+ "order by Sold asc\n"
+				+ "limit " + X;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(ProductQuery.getProductsWithSimilarNameQuery("beef"));
+		System.out.println();
+		System.out.println(ProductQuery.getLeastXSellingProductsFromToQuery(0, LocalDateTime.MIN, LocalDateTime.MAX));
+		System.out.println();
+		System.out.println(ProductQuery.getTopXSellingProductsFromToQuery(0, LocalDateTime.MIN, LocalDateTime.MAX));
 	}
 
 }

@@ -2,6 +2,7 @@ package Application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Execution.BusinessStatistics;
@@ -56,7 +57,6 @@ public class RevenueCostController extends MenuController implements Initializab
 	{
 		try {
 			int months = Integer.parseInt(monthRevenueBox.getText());
-			Starter.starting();
 			ChartChooserController.chartName = "Doanh thu " + months + " tháng gần nhất";
 			ChartChooserController.resultToDisplay = BusinessStatistics.calculateTotalRevenueLastXMonths(months);
 			toChartChooserScene(event);
@@ -70,7 +70,6 @@ public class RevenueCostController extends MenuController implements Initializab
 	{
 		try {
 			int months = Integer.parseInt(monthCostBox.getText());
-			Starter.starting();
 			ChartChooserController.chartName = "Chi phí " + months + " tháng gần nhất";
 			ChartChooserController.resultToDisplay = BusinessStatistics.calculateTotalCostLastXMonths(months);
 			toChartChooserScene(event);
@@ -84,7 +83,6 @@ public class RevenueCostController extends MenuController implements Initializab
 	{
 		try {
 			int weeks = Integer.parseInt(weekRevenueBox.getText());
-			Starter.starting();
 			ChartChooserController.chartName = "Doanh thu " + weeks + " tuần gần nhất";
 			ChartChooserController.resultToDisplay = BusinessStatistics.calculateTotalRevenueLastXWeeks(weeks);
 			toChartChooserScene(event);
@@ -98,7 +96,6 @@ public class RevenueCostController extends MenuController implements Initializab
 	{
 		try {
 			int weeks = Integer.parseInt(weekCostBox.getText());
-			Starter.starting();
 			ChartChooserController.chartName = "Chi phí " + weeks + " tuần gần nhất";
 			ChartChooserController.resultToDisplay = BusinessStatistics.calculateTotalCostLastXWeeks(weeks);
 			toChartChooserScene(event);
@@ -112,7 +109,6 @@ public class RevenueCostController extends MenuController implements Initializab
 	{
 		try {
 			int days = Integer.parseInt(dayRevenueBox.getText());
-			Starter.starting();
 			ChartChooserController.chartName = "Chi phí " + days + " ngày gần nhất";
 			ChartChooserController.resultToDisplay = BusinessStatistics.calculateTotalRevenueLastXDays(days);
 			toChartChooserScene(event);
@@ -126,7 +122,6 @@ public class RevenueCostController extends MenuController implements Initializab
 	{
 		try {
 			int days = Integer.parseInt(dayCostBox.getText());
-			Starter.starting();
 			ChartChooserController.chartName = "Chi phí " + days + " ngày gần nhất";
 			ChartChooserController.resultToDisplay = BusinessStatistics.calculateTotalCostLastXDays(days);
 			toChartChooserScene(event);
@@ -140,7 +135,6 @@ public class RevenueCostController extends MenuController implements Initializab
 	{
 		try {
 			int years = Integer.parseInt(yearRevenueBox.getText());
-			Starter.starting();
 			ChartChooserController.chartName = "Doanh thu " + years + " năm gần nhất";
 			ChartChooserController.resultToDisplay = BusinessStatistics.calculateTotalRevenueLastXYears(years);
 			toChartChooserScene(event);
@@ -154,7 +148,6 @@ public class RevenueCostController extends MenuController implements Initializab
 	{
 		try {
 			int years = Integer.parseInt(yearCostBox.getText());
-			Starter.starting();
 			ChartChooserController.chartName = "Chi phí " + years + " năm gần nhất";
 			ChartChooserController.resultToDisplay = BusinessStatistics.calculateTotalCostLastXYears(years);
 			toChartChooserScene(event);
@@ -168,6 +161,14 @@ public class RevenueCostController extends MenuController implements Initializab
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+		try {
+			Starter.starting();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

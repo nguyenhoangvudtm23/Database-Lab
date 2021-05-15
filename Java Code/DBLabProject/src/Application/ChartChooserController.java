@@ -22,7 +22,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class ChartChooserController implements Initializable {
+public class ChartChooserController extends MenuController implements Initializable {
 	private Stage stage;
 	private Parent root;
 	public static ResultSet resultToDisplay;

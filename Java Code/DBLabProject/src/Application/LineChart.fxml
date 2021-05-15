@@ -26,5 +26,6 @@
             </Button>
          </children>
       </VBox>
+      <Button mnemonicParsing="false" onAction="#back" text="Back" />
    </children>
 </AnchorPane>

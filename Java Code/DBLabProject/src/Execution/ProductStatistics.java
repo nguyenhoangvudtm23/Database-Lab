@@ -46,6 +46,16 @@ public class ProductStatistics extends Execution {
 	{
 		return statement.executeQuery(ProductQuery.getProductsWithSimilarNameQuery(pattern));
 	}
+	//return top selling Products during a period of time only
+	public static ResultSet getTopXSellingProductsFromTo(int X, LocalDateTime from, LocalDateTime to) throws SQLException
+	{
+		return statement.executeQuery(ProductQuery.getTopXSellingProductsFromToQuery(X, from, to));
+	}
+	//return least selling Products during a period of time only
+	public static ResultSet getLeastXSellingProductsFromTo(int X, LocalDateTime from, LocalDateTime to) throws SQLException
+	{
+		return statement.executeQuery(ProductQuery.getLeastXSellingProductsFromToQuery(X, from, to));
+	}
 	public static void main(String args[]) throws SQLException, ClassNotFoundException
 	{
 		ProductStatistics.getConnection();
