@@ -54,7 +54,7 @@ public class ProductQuery {
 	}
 	public static String getTopXSellingProductsFromToQuery(int X, LocalDateTime from, LocalDateTime to)
 	{
-		return "select Products.*, sum(Quantity) as Sold\r\n"
+		return "select Products.Product_Descript, sum(Quantity) as Sold\r\n"
 				+ "from OrderItems join Products on OrderItems.ProductID = Products.ProductID\r\n"
 				+ "where OrderID in(\r\n"
 				+ "	select OrderID\r\n"
@@ -68,7 +68,7 @@ public class ProductQuery {
 	}
 	public static String getLeastXSellingProductsFromToQuery(int X, LocalDateTime from, LocalDateTime to)
 	{
-		return "select Products.*, sum(Quantity) as Sold\r\n"
+		return "select Products.Product_Descript, sum(Quantity) as Sold\r\n"
 				+ "from OrderItems join Products on OrderItems.ProductID = Products.ProductID\r\n"
 				+ "where OrderID in(\r\n"
 				+ "	select OrderID\r\n"

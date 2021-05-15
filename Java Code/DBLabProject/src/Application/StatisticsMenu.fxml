@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.StatisticsMenuController">
    <children>
       <VBox alignment="BOTTOM_LEFT" layoutY="-9.0" prefHeight="444.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-9.0">
@@ -22,12 +21,12 @@
             </HBox>
             <HBox prefHeight="100.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="113.0" prefWidth="632.0" text="Đối tác" />
+                  <Button mnemonicParsing="false" onAction="#chooseSupplierScene" prefHeight="113.0" prefWidth="632.0" text="Đối tác" />
                </children>
             </HBox>
             <HBox prefHeight="100.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="113.0" prefWidth="632.0" text="Sản phẩm - Nguyên liệu" />
+                  <Button mnemonicParsing="false" onAction="#chooseProductAndIngredientScene" prefHeight="113.0" prefWidth="632.0" text="Sản phẩm - Nguyên liệu" />
                </children>
             </HBox>
          </children>

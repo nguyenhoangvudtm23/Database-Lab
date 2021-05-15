@@ -37,22 +37,9 @@ public class RevenueCostController extends MenuController implements Initializab
 	@FXML
 	TextField yearCostBox;
 	
-	public void toChartChooserScene(ActionEvent event) throws IOException
-	{
-		Parent root = FXMLLoader.load(getClass().getResource("ChartChooser.fxml"));
-		Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
-	}
 	
-	public static void wrongInputType()
-	{
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setHeaderText("Sai định dạng!");
-		alert.setContentText("Nhập vào một số nguyên");
-		alert.showAndWait();
-	}
+	
+	
 	public void chooseMonthRevenue(ActionEvent event)
 	{
 		try {
