@@ -1,4 +1,4 @@
-package DatabaseLab;
+package Application;
 
 
 import java.io.IOException;

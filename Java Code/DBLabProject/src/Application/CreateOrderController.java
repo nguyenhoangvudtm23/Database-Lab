@@ -1,4 +1,4 @@
-package DatabaseLab;
+package Application;
 
 import java.io.IOException;
 import java.net.URL;
@@ -6,7 +6,8 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
-import Learnjavafx.JustDoIt.Person;
+import Classes.Customer;
+import Classes.Product;
 import javafx.util.Callback;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

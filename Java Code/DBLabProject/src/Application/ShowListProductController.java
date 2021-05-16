@@ -1,11 +1,11 @@
-package DatabaseLab;
+package Application;
 
 import java.awt.GraphicsConfigTemplate;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Learnjavafx.JavaFX_TableView.Record;
+import Classes.Product;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

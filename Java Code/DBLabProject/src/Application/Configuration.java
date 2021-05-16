@@ -1,5 +1,8 @@
-package DatabaseLab;
+package Application;
 
+import Classes.Customer;
+import Classes.Ingredient;
+import Classes.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
