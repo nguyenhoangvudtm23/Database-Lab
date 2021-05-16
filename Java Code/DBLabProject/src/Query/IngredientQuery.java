@@ -38,6 +38,30 @@ public class IngredientQuery {
 				+ "Name LIKE '%" + pattern +"%'\r\n"
 				+ "";
 	}
+	public static String topXmostcostingredientsYdaysQuery(int x, int y)
+	{
+		return "SELECT Ingredients.IngredientID, Name, sum(BuyOrderItems.PricePerUnit*Quantity) as totalcost from BuyOrderItems, Ingredients\r\n"
+				+ "WHERE BuyOrderItems.IngredientID=Ingredients.IngredientID\r\n"
+				+ "AND CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusDays(y))
+				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
+				+ "GROUP BY Ingredients.IngredientID ORDER BY totalcost DESC LIMIT "+x;
+	}
+	public static String topXmostcostingredientsYmonthsQuery(int x, int y)
+	{
+		return "SELECT Ingredients.IngredientID, Name, sum(BuyOrderItems.PricePerUnit*Quantity) as totalcost from BuyOrderItems, Ingredients\r\n"
+				+ "WHERE BuyOrderItems.IngredientID=Ingredients.IngredientID\r\n"
+				+ "AND CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusMonths(y))
+				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
+				+ "GROUP BY Ingredients.IngredientID ORDER BY totalcost DESC LIMIT "+x;
+	}
+	public static String topXmostcostingredientsYyearsQuery(int x, int y)
+	{
+		return "SELECT Ingredients.IngredientID, Name, sum(BuyOrderItems.PricePerUnit*Quantity) as totalcost from BuyOrderItems, Ingredients\r\n"
+				+ "WHERE BuyOrderItems.IngredientID=Ingredients.IngredientID\r\n"
+				+ "AND CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusYears(y))
+				+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
+				+ "GROUP BY Ingredients.IngredientID ORDER BY totalcost DESC LIMIT "+x;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(IngredientQuery.getIngredientsWithSimilarNameQuery("beef"));
