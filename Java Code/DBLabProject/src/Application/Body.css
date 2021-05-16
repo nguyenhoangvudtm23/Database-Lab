@@ -1,0 +1,56 @@
+.root { 
+    -fx-background-color: rgb(191, 190, 119); 
+    -fx-padding: 10px; 
+}
+.root 
+{ 
+    display: block; 
+    -fx-background-color: olivedrab; 
+}
+.root
+{ 
+    display: block; 
+    -fx-background-color: lightsteelblue; 
+} 
+.root {
+    -fx-base: rgb(50, 50, 50);
+    -fx-background: rgb(50, 50, 50);
+    -fx-control-inner-background:  rgb(50, 50, 50);
+}
+.root{  
+    -fx-background-color:Wheat;  
+    -fx-alignment:center;  
+    -fx-background-radius: 100;  
+} 
+.root 
+{
+    -fx-app-background: cornsilk;
+    -fx-background-color: -fx-app-background;
+    -fx-padding: 20;
+} 
+.root {
+    -fx-font: 12pt sans-serif;
+    -fx-background-color: aliceblue;
+    -fx-text-fill: black;
+  }
+.root {
+    -fx-font-size: 14px;
+    -fx-font-family: sans-serif;
+    -fx-background-color: #4cfffd;
+}
+.root{
+    -fx-background-color : rgb(184, 109, 109);
+    -fx-fill-width : true;
+    -fx-color : -color;
+    -fx-fill-width : true;
+    -fx-font-family: 'Segoe UI';
+    -fx-focus-color : transparent;
+    -fx-faint-focus-color: transparent;
+}
+.root {
+ -fx-background-color : -abort;
+}
+.root { 
+    -fx-background-color: rgb(191, 190, 119); 
+    -fx-padding: 10px; 
+}
