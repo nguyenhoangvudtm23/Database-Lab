@@ -1,4 +1,4 @@
-package Scenario;
+package DatabaseLab;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ public class Main extends Application{
 	public void start(Stage Stage) throws Exception {
 		// TODO Auto-generated method stub
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("CreateIngredientScene.fxml"));
 			Scene scene = new Scene(root);
 			Stage.setScene(scene);
 			Stage.show();

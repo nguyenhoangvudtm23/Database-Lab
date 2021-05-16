@@ -1,4 +1,4 @@
-package Scenario;
+package DatabaseLab;
 
 
 import java.net.URL;
