@@ -1,4 +1,4 @@
-package DatabaseLab;
+package Classes;
 
 public class Customer {
 	private String CustomerID;

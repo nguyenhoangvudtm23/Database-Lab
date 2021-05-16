@@ -1,4 +1,4 @@
-package DatabaseLab;
+package Classes;
 
 public class Ingredient {
 	private static int ID = 0;
