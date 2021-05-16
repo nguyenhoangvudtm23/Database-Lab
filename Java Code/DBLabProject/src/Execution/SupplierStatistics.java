@@ -34,6 +34,18 @@ public class SupplierStatistics extends Execution {
 	{
 		return statement.executeQuery(SuppliersQuery.checkExistQuery(phoneNumber)).getInt(1);
 	}
+	public static ResultSet topXbestsuppliersYdays(int x, int y) throws SQLException
+	{
+		return statement.executeQuery(SuppliersQuery.topXbestsuppliersYdaysQuery(x, y));
+	}
+	public static ResultSet topXbestsuppliersYmonths(int x, int y) throws SQLException
+	{
+		return statement.executeQuery(SuppliersQuery.topXbestsuppliersYmonthsQuery(x, y));
+	}
+	public static ResultSet topXbestsuppliersYyears(int x, int y) throws SQLException
+	{
+		return statement.executeQuery(SuppliersQuery.topXbestsuppliersYyearsQuery(x, y));
+	}
 	public static void main(String args[]) throws ClassNotFoundException, SQLException
 	{
 		SupplierStatistics.getConnection();

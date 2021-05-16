@@ -1,5 +1,7 @@
 package Query;
 
+import java.time.LocalDateTime;
+
 public class SuppliersQuery {
 	public static String getSuppliersWithSimilarNameToQuery(String s)
 	{
@@ -39,6 +41,31 @@ public class SuppliersQuery {
 				+ "set Phone_Number = '" + newPhone + "'\r\n"
 				+ "where SupplierID = " + ID;
 	}
+	public static String topXbestsuppliersYdaysQuery(int x, int y)
+	{
+		return "SELECT Suppliers.SupplierID, Name, sum(Totalcost) from BuyOrders, Suppliers\r\n"
+		+ "WHERE Suppliers.SupplierID=BuyOrders.SupplierID\r\n"
+		+ "AND CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusDays(y))
+		+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
+		+ "GROUP BY Suppliers.SupplierID ORDER BY sum(Totalcost) DESC LIMIT "+x;
+	}
+	public static String topXbestsuppliersYmonthsQuery(int x, int y)
+	{
+		return "SELECT Suppliers.SupplierID, Name, sum(Totalcost) from BuyOrders, Suppliers\r\n"
+		+ "WHERE Suppliers.SupplierID=BuyOrders.SupplierID\r\n"
+		+ "AND CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusMonths(y))
+		+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
+		+ "GROUP BY Suppliers.SupplierID ORDER BY sum(Totalcost) DESC LIMIT "+x;
+	}
+	public static String topXbestsuppliersYyearsQuery(int x, int y)
+	{
+		return "SELECT Suppliers.SupplierID, Name, sum(Totalcost) from BuyOrders, Suppliers\r\n"
+		+ "WHERE Suppliers.SupplierID=BuyOrders.SupplierID\r\n"
+		+ "AND CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusYears(y))
+		+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
+		+ "GROUP BY Suppliers.SupplierID ORDER BY sum(Totalcost) DESC LIMIT "+x;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(SuppliersQuery.updateSupplierPhoneNumberQuery(2, "0812321342"));

@@ -27,6 +27,18 @@ public class IngredientStatistics extends Execution {
 	{
 		return statement.executeQuery(IngredientQuery.getIngredientsWithSimilarNameQuery(pattern));
 	}
+	public static ResultSet topXmostcostingredientsYdays(int x, int y) throws SQLException
+	{
+		return statement.executeQuery(IngredientQuery.topXmostcostingredientsYdaysQuery(x, y));
+	}
+	public static ResultSet topXmostcostingredientsYmonths(int x, int y) throws SQLException
+	{
+		return statement.executeQuery(IngredientQuery.topXmostcostingredientsYmonthsQuery(x, y));
+	}
+	public static ResultSet topXmostcostingredientsYyears(int x, int y) throws SQLException
+	{
+		return statement.executeQuery(IngredientQuery.topXmostcostingredientsYyearsQuery(x, y));
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(1D);
