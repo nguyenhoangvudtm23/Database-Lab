@@ -3,7 +3,15 @@ package Query;
 import java.time.LocalDateTime;
 
 public class IngredientQuery {
-	
+	public static String insertIngredientQuery(String name, String description, double price, int amountleft)
+	{
+		return "insert into Ingredients (Name, description, Amount_Left, PricePerUnit) "
+				+ "VALUES ('" + name + "', '" + description + "', " + amountleft + ", " + price + ")";
+	}
+	public static String getAllIngredientQuery()
+	{
+		return "select Name, description, Amount_Left, PricePerUnit from Ingredients";
+	}
 	public static String calculateOneIngredientCostFromToQuery(int ID, LocalDateTime from, LocalDateTime to)
 	{
 		return "SELECT SUM(OI.PricePerUnit*OI.Quantity) \r\n"
@@ -78,6 +86,7 @@ public class IngredientQuery {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(IngredientQuery.getIngredientsWithSimilarNameQuery("beef"));
+		System.out.println(IngredientQuery.insertIngredientQuery("hola", "sda", 5, 5));
 	}
 
 }
