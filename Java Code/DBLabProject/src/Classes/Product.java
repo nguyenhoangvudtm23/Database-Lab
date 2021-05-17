@@ -1,7 +1,7 @@
 package Classes;
 
 public class Product {
-	private static int ID = 0;
+	private static int ID = 1;
 	private String ProductID;
 	private Integer AmountLeft;
 	private String Name;

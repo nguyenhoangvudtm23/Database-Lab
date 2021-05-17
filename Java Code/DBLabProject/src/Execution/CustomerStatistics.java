@@ -81,6 +81,10 @@ public class CustomerStatistics extends Execution{
 	{
 		return statement.executeQuery(CustomersQuery.getTopXSpendCustomersFromToQuery(X, from, to));
 	}
+	public static ResultSet getAllCustomer() throws SQLException
+	{
+		return statement.executeQuery(CustomersQuery.getAllCustomerQuery());
+	}
 	public static void main(String args[]) throws SQLException, ClassNotFoundException
 	{
 		Starter.starting();

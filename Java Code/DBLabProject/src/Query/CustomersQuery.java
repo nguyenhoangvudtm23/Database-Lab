@@ -85,6 +85,11 @@ public class CustomersQuery {
 				+ "order by Pay desc\r\n"
 				+ "limit " + X;
 	}
+	public static String getAllCustomerQuery()
+	{
+		return "select Name, Phone_Number, Address, Email\r\n"
+				+ "from Customers";
+	}
 	public static void main(String args[]) throws ClassNotFoundException
 	{
 		System.out.println(CustomersQuery.updateCustomerPhoneNumberQuery(1, "0123584321"));

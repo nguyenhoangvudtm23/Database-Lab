@@ -2,12 +2,16 @@ package Application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
 import Classes.Customer;
 import Classes.Product;
+import Execution.CustomerStatistics;
+import Scenario.Starter;
 import javafx.util.Callback;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -153,6 +157,26 @@ public class CreateOrderController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		Configuration.ListCustomer.clear();
+		try {
+			Starter.starting();
+			ResultSet listCus = CustomerStatistics.getAllCustomer();
+			while (listCus.next())
+			{
+				Customer customer = new Customer(
+						listCus.getString(3),
+						listCus.getString(2),
+						listCus.getString(1),
+						listCus.getString(4));
+				Configuration.ListCustomer.add(customer);
+			}
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
         idColumn.setCellValueFactory(new PropertyValueFactory<>("ProductID"));
         AmountLeftColumn.setCellValueFactory(new PropertyValueFactory<>("AmountLeft"));
@@ -196,6 +220,9 @@ public class CreateOrderController implements Initializable {
         	}
         	catch(Exception e) {}
         });
+        
+        
+       
 	}
 	public void SwitchMainMenu(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
