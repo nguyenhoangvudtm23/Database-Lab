@@ -54,6 +54,16 @@ public class CustomerStatistics extends Execution{
 	{
 		statement.executeQuery(CustomersQuery.updateCustomerNameQuery(ID, newName));
 	}
+	//update Customer's Email
+	public static void updateCustomerEmail(int ID, String newEmail) throws SQLException
+	{
+		statement.executeQuery(CustomersQuery.updateCustomerEmailQuery(ID, newEmail));
+	}
+	//update Customer's Address
+	public static void updateCustomerAddress(int ID, String newAddress) throws SQLException
+	{
+		statement.executeQuery(CustomersQuery.updateCustomerAddressQuery(ID, newAddress));
+	}
 	//update Customer's phone number
 	public static void updateCustomerPhoneNumber(int ID, String phoneNumber) throws SQLException
 	{

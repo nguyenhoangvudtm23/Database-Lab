@@ -6,6 +6,18 @@ import java.sql.SQLException;
 import Query.OrderQuery;
 
 public class OrderStatistics extends Execution{
+	public static void updateOrderItemsQuantityQuery(int OrderID, int ProductID, int newQuantity) throws SQLException
+	{
+		statement.executeUpdate(OrderQuery.updateOrderItemsQuantityQuery(OrderID, ProductID, newQuantity));
+	}
+	public static void updateOrdersStatusQuery(int OrderID, char newStatus) throws SQLException
+	{
+		statement.executeUpdate(OrderQuery.updateOrdersStatusQuery(OrderID, newStatus));
+	}
+	public static void updateOrdersDiscountQuery(int OrderID, int newDiscount) throws SQLException
+	{
+		statement.executeUpdate(OrderQuery.updateOrdersDiscountQuery(OrderID, newDiscount));
+	}
 	//delete Order with given ID
 	public static void deleteOrder(int ID) throws SQLException
 	{

@@ -50,6 +50,18 @@ public class CustomersQuery {
 						+ DataConverter.convertDateTimeToString(from) + "' and '"
 						+ DataConverter.convertDateTimeToString(to) + "')";
 	}
+	public static String updateCustomerAddressQuery(int CustomerID, String newAddress)
+	{
+		return "update Customers\r\n"
+				+ "set Address = '" + newAddress + "'\r\n"
+				+ "where CustomerID = " + CustomerID;
+	}
+	public static String updateCustomerEmailQuery(int CustomerID, String newEmail)
+	{
+		return "update Customers\r\n"
+				+ "set Email = '" + newEmail + "'\r\n"
+				+ "where CustomerID = " + CustomerID;
+	}
 	public static String updateCustomerNameQuery(int CustomerID, String newName)
 	{
 		return "update Customers\r\n"

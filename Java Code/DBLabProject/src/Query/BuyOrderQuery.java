@@ -1,6 +1,30 @@
 package Query;
 
 public class BuyOrderQuery {
+	public static String updateBuyOrdersSupplierIDQuery(int BuyOrderID, int newSupplierID)
+	{
+		return "update BuyOrders\r\n"
+				+ "set SupplierID = '" + newSupplierID + "'\r\n"
+				+ "where BuyOrdersID = " + BuyOrderID;
+	}
+	public static String updateBuyOrdersStatusQuery(int BuyOrderID, char newStatus)
+	{
+		return "update BuyOrders\r\n"
+				+ "set Status = '" + newStatus + "'\r\n"
+				+ "where BuyOrdersID = " + BuyOrderID;
+	}
+	public static String updateBuyOrderItemsQuantityQuery(int BuyOrderID, int IngredientID, int newQuantity)
+	{
+		return "update BuyOrderItems\r\n"
+				+ "set Quantity = '" + newQuantity + "'\r\n"
+				+ "where BuyOrdersID = " + BuyOrderID + " and IngredientID = " + IngredientID;
+	}
+	public static String updateBuyOrderItemsPricePerUnitQuery(int BuyOrderID, int IngredientID, double newPricePerUnit)
+	{
+		return "update BuyOrderItems\r\n"
+				+ "set PricePerUnit = '" + newPricePerUnit + "'\r\n"
+				+ "where BuyOrdersID = " + BuyOrderID + " and IngredientID = " + IngredientID;
+	}
 	public static String deleteBuyOrderQuery(int BuyOrderID)
 	{
 		return "delete from BuyOrders\r\n"
