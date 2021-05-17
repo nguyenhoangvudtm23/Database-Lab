@@ -8,6 +8,10 @@ import Query.OrderQuery;
 import Query.ProductQuery;
 
 public class ProductStatistics extends Execution {
+	public static ResultSet selectAll() throws SQLException
+	{
+		return statement.executeQuery(ProductQuery.selectAllQuery());
+	}
 	//return product name only
 	public static void recordItemIntoOrder(int OrderID, int ProductID, int quantity) throws SQLException
 	{

@@ -2,9 +2,13 @@ package Application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Classes.Product;
+import Execution.ProductStatistics;
+import Scenario.Starter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -65,6 +69,28 @@ public class CreateProductController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		try {
+			Starter.starting();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			ResultSet listProd = ProductStatistics.selectAll();
+			while (listProd.next())
+			{
+				//amount_left is 2nd column, name & description are 1st column, price is 3rd column
+				Product product = new Product(
+						listProd.getInt(2), 
+						listProd.getString(1), 
+						listProd.getDouble(3),
+						listProd.getString(1));
+				Configuration.ListProduct.add(product);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	public void showListProduct(ActionEvent e) throws IOException {

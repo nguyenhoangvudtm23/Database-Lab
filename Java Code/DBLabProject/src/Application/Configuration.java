@@ -7,13 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Configuration {
-	public static ObservableList<Product> ListProduct = FXCollections.observableArrayList(
-            new Product( 12, "ice", 30.0, "aa"),
-            new Product(12, "table", 30.0, "bb"),
-            new Product(12, "chair", 30.0, "cc"),
-            new Product(12, "bed", 30.0, "zz"),
-            new Product(12, "box", 30.0, "gg")
-    );
+	public static ObservableList<Product> ListProduct = FXCollections.observableArrayList();
 	public static ObservableList<Customer> ListCustomer = FXCollections.observableArrayList(
 			new Customer("HaNoi", "01234", "Nguyen Van A", "naaaa@gmail.com"),
 			new Customer("Hue", "011234", "Nguyen Van B", "n1aa@gmail.com"),

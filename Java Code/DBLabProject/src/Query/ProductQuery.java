@@ -2,7 +2,10 @@ package Query;
 
 import java.time.LocalDateTime;
 public class ProductQuery {
-	
+	public static String selectAllQuery()
+	{
+		return "select Product_Descript, Amount_Left, Selling_Price from Products";
+	}
 	public static String updatePriceQuery(int ProductID, double newPrice)
 	{
 		return "update Products \r\n"
