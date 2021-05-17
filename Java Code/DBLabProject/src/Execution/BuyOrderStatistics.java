@@ -6,6 +6,22 @@ import java.sql.SQLException;
 import Query.BuyOrderQuery;
 
 public class BuyOrderStatistics extends Execution{
+	public static void updateBuyOrdersSupplierIDQuery(int BuyOrderID, int newSupplierID) throws SQLException
+	{
+		statement.executeUpdate(BuyOrderQuery.updateBuyOrdersSupplierIDQuery(BuyOrderID, newSupplierID));
+	}
+	public static void updateBuyOrdersStatusQuery(int BuyOrderID, char newStatus) throws SQLException
+	{
+		statement.executeUpdate(BuyOrderQuery.updateBuyOrdersStatusQuery(BuyOrderID, newStatus));
+	}
+	public static void updateBuyOrderItemsQuantityQuery(int BuyOrderID, int IngredientID, int newQuantity) throws SQLException
+	{
+		statement.executeUpdate(BuyOrderQuery.updateBuyOrderItemsQuantityQuery(BuyOrderID, IngredientID, newQuantity));
+	}
+	public static void updateBuyOrderItemsPricePerUnitQuery(int BuyOrderID, int IngredientID, double newPricePerUnit) throws SQLException
+	{
+		statement.executeUpdate(BuyOrderQuery.updateBuyOrderItemsPricePerUnitQuery(BuyOrderID, IngredientID, newPricePerUnit));
+	}
 	public static double calculateTotalCost(int BuyOrderID) throws SQLException
 	{
 		return statement.executeQuery(BuyOrderQuery.calculateTotalCostQuery(BuyOrderID)).getDouble(1);

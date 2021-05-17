@@ -3,6 +3,7 @@ package Query;
 import java.time.LocalDateTime;
 
 public class IngredientQuery {
+	
 	public static String calculateOneIngredientCostFromToQuery(int ID, LocalDateTime from, LocalDateTime to)
 	{
 		return "SELECT SUM(OI.PricePerUnit*OI.Quantity) \r\n"
@@ -37,6 +38,18 @@ public class IngredientQuery {
 		return "select * from Ingredients WHERE\r\n"
 				+ "Name LIKE '%" + pattern +"%'\r\n"
 				+ "";
+	}
+	public static String updateIngreListQuantityQuery(int ProductID, int IngredientID, int newQuantity)
+	{
+		return "update IngreList\r\n"
+				+ "set Quantity = '" + newQuantity + "'\r\n"
+				+ "where ProductID = " + ProductID + " and IngredientID = " + IngredientID;
+	}
+	public static String updateIngredientdescriptionQuery(int IngredientID, String newdescription)
+	{
+		return "update Ingredients\r\n"
+				+ "set description = '" + newdescription + "'\r\n"
+				+ "where IngredientID = " + IngredientID;
 	}
 	public static String topXmostcostingredientsYdaysQuery(int x, int y)
 	{

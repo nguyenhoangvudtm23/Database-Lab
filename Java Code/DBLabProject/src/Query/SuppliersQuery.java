@@ -35,6 +35,12 @@ public class SuppliersQuery {
 				+ "set Name = '" + newName + "'\r\n"
 				+ "where SupplierID = " + ID;
 	}
+	public static String updateSupplierAddressQuery(int ID, String newAddress)
+	{
+		return "update Suppliers\r\n"
+				+ "set Address = '" + newAddress + "'\r\n"
+				+ "where SupplierID = " + ID;
+	}
 	public static String updateSupplierPhoneNumberQuery(int ID, String newPhone)
 	{
 		return "update Suppliers\r\n"
