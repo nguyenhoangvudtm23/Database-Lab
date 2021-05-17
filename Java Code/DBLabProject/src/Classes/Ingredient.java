@@ -3,8 +3,29 @@ package Classes;
 public class Ingredient {
 	private static int ID = 0;
 	private int IngredientID;
+	private double price;
 	public int getIngredientID() {
 		return IngredientID;
+	}
+
+	public static int getID() {
+		return ID;
+	}
+
+	public static void setID(int iD) {
+		ID = iD;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public void setIngredientID(int ingredientID) {
+		IngredientID = ingredientID;
 	}
 
 	public String getName() {
@@ -35,17 +56,14 @@ public class Ingredient {
 	private String Description;
 	private int AmountLeft;
 	
-	public Ingredient(String Name, String Description, int AmountLeft) {
+	public Ingredient(String Name, double price, String Description, int AmountLeft) {
 		IngredientID = ID++;
 		this.Name = Name;
 		this.Description = Description;
 		this.AmountLeft = AmountLeft;
+		this.price = price;
 	}
-	public Ingredient(String Name, int AmountLeft) {
-		this(Name, "", AmountLeft);
-	}
-	public Ingredient(String Name) {
-		this(Name, "", 0);
-	}
+	
+
 	
 }

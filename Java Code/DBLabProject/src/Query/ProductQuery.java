@@ -83,6 +83,12 @@ public class ProductQuery {
 				+ "order by Sold asc\n"
 				+ "limit " + X;
 	}
+	public static String insertProductQuery(String name, double Price, int amount_left)
+	{
+		return "insert into Products\r\n"
+				+ "(Product_Descript, Amount_Left, Selling_Price)\r\n"
+				+ "values ('" + name + "', " + amount_left +  ", " +  Price + ")";
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(ProductQuery.getProductsWithSimilarNameQuery("beef"));
@@ -90,6 +96,8 @@ public class ProductQuery {
 		System.out.println(ProductQuery.getLeastXSellingProductsFromToQuery(0, LocalDateTime.MIN, LocalDateTime.MAX));
 		System.out.println();
 		System.out.println(ProductQuery.getTopXSellingProductsFromToQuery(0, LocalDateTime.MIN, LocalDateTime.MAX));
+		System.out.println();
+		System.out.println(ProductQuery.insertProductQuery("cala", 1200000, 5));
 	}
 
 }

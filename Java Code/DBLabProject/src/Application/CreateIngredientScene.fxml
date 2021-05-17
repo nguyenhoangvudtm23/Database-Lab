@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -14,11 +15,14 @@
          </font>
       </Label>
       <TextField fx:id="NameText" layoutX="117.0" layoutY="268.0" promptText="name of ingredient" />
-      <TextField fx:id="AmountLeftText" layoutX="117.0" layoutY="377.0" promptText="quantity of product" />
-      <TextField fx:id="DescriptionText" layoutX="117.0" layoutY="484.0" promptText="description" />
+      <TextField fx:id="AmountLeftText" layoutX="117.0" layoutY="546.0" promptText="quantity of product" />
+      <TextField fx:id="DescriptionText" layoutX="117.0" layoutY="453.0" promptText="description" />
       <Label layoutX="117.0" layoutY="247.0" text="Name of Ingredient" />
-      <Label layoutX="117.0" layoutY="356.0" text="Quantity of Product" />
-      <Label layoutX="117.0" layoutY="463.0" text="Description" />
-      <Button fx:id="submitButton" layoutX="75.0" layoutY="629.0" mnemonicParsing="false" onAction="#CreateProduct" text="Submit" />
+      <Label layoutX="117.0" layoutY="525.0" text="Quantity of Product" />
+      <Label layoutX="117.0" layoutY="432.0" text="Description" />
+      <Button fx:id="submitButton" layoutX="75.0" layoutY="645.0" mnemonicParsing="false" onAction="#CreateProduct" text="Submit" />
+      <Button fx:id="showListIngredientButton" layoutX="450.0" layoutY="645.0" mnemonicParsing="false" onAction="#showListIngredient" text="Show List Ingredient" />
+      <TextField layoutX="117.0" layoutY="361.0" promptText="Price of Ingredient" />
+      <Label layoutX="117.0" layoutY="344.0" text="Price" />
    </children>
 </AnchorPane>

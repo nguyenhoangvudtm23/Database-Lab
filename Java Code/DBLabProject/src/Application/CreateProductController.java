@@ -8,7 +8,9 @@ import java.util.ResourceBundle;
 
 import Classes.Product;
 import Execution.ProductStatistics;
+import Query.ProductQuery;
 import Scenario.Starter;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,11 +22,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class CreateProductController implements Initializable {
+public class CreateProductController extends MenuController implements Initializable {
 	@FXML
 	private TextField AmountLeftText, NameText, priceText, DescriptionText;
 	private String Name = "", Description = "";
-	private Double price = 0.0;
+	private double price = 0.0;
 	private int AmountLeft = 0;
 	
 	@FXML Button submitButton, showListProductButton;
@@ -33,12 +35,12 @@ public class CreateProductController implements Initializable {
 	private Scene scene;
 	
 	
-	public void CreateProduct(ActionEvent e) {
+	public void CreateProduct(ActionEvent e) throws ClassNotFoundException {
 		try {
 			AmountLeft = Integer.parseInt((AmountLeftText.getText()));
 		}
 		catch(Exception error) {
-			error.printStackTrace();
+			System.out.println("amount");
 		}
 		
 		try {
@@ -61,6 +63,13 @@ public class CreateProductController implements Initializable {
 			System.out.println("description");
 		}
 		Product newProduct = new Product(AmountLeft, Name, price, Description);
+		try {
+			Starter.starting();
+			ProductStatistics.insertProduct(Name, price, AmountLeft);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		System.out.println(newProduct.getName());
 		Configuration.ListProduct.add(newProduct);
 	}
@@ -69,6 +78,7 @@ public class CreateProductController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		Configuration.ListProduct.clear();
 		try {
 			Starter.starting();
 		} catch (ClassNotFoundException | SQLException e) {

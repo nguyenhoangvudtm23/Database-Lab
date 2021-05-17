@@ -60,6 +60,10 @@ public class ProductStatistics extends Execution {
 	{
 		return statement.executeQuery(ProductQuery.getLeastXSellingProductsFromToQuery(X, from, to));
 	}
+	public static void insertProduct(String name, double price, int amount_left) throws SQLException
+	{
+		statement.executeUpdate(ProductQuery.insertProductQuery(name, price, amount_left));
+	}
 	public static void main(String args[]) throws SQLException, ClassNotFoundException
 	{
 		ProductStatistics.getConnection();
