@@ -15,6 +15,14 @@ public class IngredientStatistics extends Execution {
 	{
 		statement.executeUpdate(IngredientQuery.updateIngredientNameQuery(ID, newName));
 	}
+	public static void updateIngredientdescriptionQuery(int ID, String newdescription) throws SQLException
+	{
+		statement.executeUpdate(IngredientQuery.updateIngredientdescriptionQuery(ID, newdescription));
+	}
+	public static void updateIngreListQuantityQuery(int ProductID, int IngredientID, int newQuantity) throws SQLException
+	{
+		statement.executeUpdate(IngredientQuery.updateIngreListQuantityQuery(ProductID, IngredientID, newQuantity));
+	}
 	public static double calculateOneIngredientCostFromToQuery(int ID, LocalDateTime from, LocalDateTime to) throws SQLException
 	{
 		return statement.executeQuery(IngredientQuery.calculateOneIngredientCostFromToQuery(ID, from, to)).getDouble(1);
