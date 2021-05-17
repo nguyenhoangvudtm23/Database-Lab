@@ -3,9 +3,11 @@ package Application;
 import java.awt.GraphicsConfigTemplate;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import Classes.Ingredient;
+import Execution.IngredientStatistics;
 import Scenario.Starter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -52,9 +54,21 @@ public class ShowListIngredientController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		Configuration.ListIngredient.clear();
 		try {
-			Starter.starting();
 			
+			Starter.starting();
+			ResultSet listIngre = IngredientStatistics.getAllIngredient();
+			while (listIngre.next())
+			{
+				Ingredient ingredient = new Ingredient(
+						listIngre.getString(1),
+						listIngre.getDouble(4),
+						listIngre.getString(2),
+						listIngre.getInt(3)
+						);
+				Configuration.ListIngredient.add(ingredient);
+			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

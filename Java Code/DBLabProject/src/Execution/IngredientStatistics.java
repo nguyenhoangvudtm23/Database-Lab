@@ -7,6 +7,14 @@ import java.time.LocalDateTime;
 import Query.IngredientQuery;
 
 public class IngredientStatistics extends Execution {
+	public static void insertIngredient(String name, String description, double price, int amountleft) throws SQLException
+	{
+		statement.executeUpdate(IngredientQuery.insertIngredientQuery(name, description, price, amountleft));
+	}
+	public static ResultSet getAllIngredient() throws SQLException
+	{
+		return statement.executeQuery(IngredientQuery.getAllIngredientQuery());
+	}
 	public static String getIngredientName(int ID) throws SQLException
 	{
 		return statement.executeQuery(IngredientQuery.getIngredientNameQuery(ID)).getString(1);
