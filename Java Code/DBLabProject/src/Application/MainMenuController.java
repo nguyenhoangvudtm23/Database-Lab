@@ -18,11 +18,31 @@ public class MainMenuController {
 	private Label MainMenu;
 	@FXML 
 	private Button createOrderButton;
+	@FXML
+	private Button statisticsButton;
+	@FXML
+	private Button managementButton;
 	private Stage stage;
 	private Parent root;
 	private Scene scene;
 	public void switchOrderScene(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("BillScene.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchStatisticsScene(ActionEvent event) throws IOException
+	{
+		root = FXMLLoader.load(getClass().getResource("StatisticsMenu.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchManagementScene(ActionEvent event) throws IOException
+	{
+		root = FXMLLoader.load(getClass().getResource("ManagementMenu.fxml"));
 		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
