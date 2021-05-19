@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 public abstract class MenuController {
 	public void back(ActionEvent event) throws IOException
 	{
-		Parent root = FXMLLoader.load(getClass().getResource("StatisticsMenu.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
 		Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
