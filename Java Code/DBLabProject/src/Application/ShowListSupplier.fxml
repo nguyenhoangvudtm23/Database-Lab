@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="766.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DatabaseLab.ShowListSupplierController">
+   <children>
+      <Label layoutX="291.0" layoutY="66.0" text="List of Supplier">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <TableView fx:id="ListSupplierTable" editable="true" layoutX="68.0" layoutY="159.0" prefHeight="482.0" prefWidth="858.0">
+        <columns>
+          <TableColumn fx:id="SupplierIDColumn" prefWidth="90.0" text="ID" />
+          <TableColumn fx:id="NameColumn" prefWidth="147.0" text="Name" />
+            <TableColumn fx:id="AddressColumn" prefWidth="224.0" text="Address" />
+            <TableColumn fx:id="PhoneNumberColumn" prefWidth="138.0" text="PhoneNumber" />
+            <TableColumn fx:id="EmailColumn" prefWidth="258.0" text="Email" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
