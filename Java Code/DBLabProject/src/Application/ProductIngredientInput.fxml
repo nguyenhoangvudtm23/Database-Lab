@@ -93,6 +93,8 @@
             </BarChart>
          </children>
       </VBox>
-      <Button id="button" layoutX="247.0" layoutY="371.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="115.0" stylesheets="@ProductIngredientInput.css" text="Quay lại" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="247.0" AnchorPane.rightAnchor="247.0" />
+
+      <Button id="button" layoutX="247.0" layoutY="371.0" mnemonicParsing="false" onAction="#switchStatisticsScene" prefHeight="26.0" prefWidth="115.0" stylesheets="@ProductIngredientInput.css" text="Quay lại" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="247.0" AnchorPane.rightAnchor="247.0" />
+
    </children>
 </AnchorPane>

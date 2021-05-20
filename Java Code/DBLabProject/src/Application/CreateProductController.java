@@ -81,6 +81,7 @@ public class CreateProductController extends MenuController implements Initializ
 		Configuration.ListProduct.clear();
 		try {
 			Starter.starting();
+			Product.ID = 1;
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

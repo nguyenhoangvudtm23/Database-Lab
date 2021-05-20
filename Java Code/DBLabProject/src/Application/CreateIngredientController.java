@@ -2,9 +2,13 @@ package Application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Classes.Ingredient;
+import Execution.IngredientStatistics;
+import Scenario.Starter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class CreateIngredientController implements Initializable {
+public class CreateIngredientController extends MenuController implements Initializable {
 
 	@FXML
 	private TextField AmountLeftText, NameText, PriceText, DescriptionText;
@@ -61,6 +65,12 @@ public class CreateIngredientController implements Initializable {
 		
 		
 		Ingredient newIngredient = new Ingredient(Name, Price, Description, AmountLeft);
+		try {
+			IngredientStatistics.insertIngredient(Name, Description, Price, AmountLeft);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		Configuration.ListIngredient.add(newIngredient);
 	}
 	
@@ -68,7 +78,28 @@ public class CreateIngredientController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+		Configuration.ListIngredient.clear();
+		try {
+			Ingredient.ID = 1;
+			Starter.starting();
+			ResultSet listIngre = IngredientStatistics.getAllIngredient();
+			while (listIngre.next())
+			{
+				Ingredient ingredient = new Ingredient(
+						listIngre.getString(1),
+						listIngre.getDouble(4),
+						listIngre.getString(2),
+						listIngre.getInt(3)
+						);
+				Configuration.ListIngredient.add(ingredient);
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public void showListIngredient(ActionEvent e) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("ShowListIngredient.fxml"));

@@ -29,7 +29,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-public class ShowListProductController implements Initializable {
+public class ShowListProductController extends MenuController implements Initializable {
 	@FXML
 	private Button backCreateProductSceneButton;
 	private Parent root;

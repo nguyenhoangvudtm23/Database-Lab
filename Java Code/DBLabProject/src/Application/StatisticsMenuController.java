@@ -29,7 +29,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class StatisticsMenuController implements Initializable{
+public class StatisticsMenuController extends MenuController implements Initializable{
 	private Stage stage;
 	private Parent root;
 	public static ResultSet resultToDisplay;

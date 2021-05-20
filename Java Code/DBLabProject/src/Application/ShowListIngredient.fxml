@@ -13,7 +13,7 @@
             <Font size="42.0" />
          </font>
       </Label>
-      <Button fx:id="backCreateIngredientSceneButton" layoutX="87.0" layoutY="557.0" mnemonicParsing="false" onAction="#BackCreateIngredientScene" text="Back" />
+      <Button fx:id="backCreateIngredientSceneButton" mnemonicParsing="false" onAction="#switchManagementScene" text="Back" />
       <TableView fx:id="ListIngredientTable" editable="true" layoutX="172.0" layoutY="202.0" prefHeight="395.0" prefWidth="558.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />

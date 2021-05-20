@@ -14,7 +14,12 @@ public class CustomerStatistics extends Execution{
 	3 is Phone_Number
 	4 is Name
 	5 is Email
+	 * @throws SQLException 
 	 **/
+	public static void insertCustomer(String address, String phoneNumber, String name, String email) throws SQLException
+	{
+		statement.executeUpdate(CustomersQuery.insertCustomerQuery(address, phoneNumber, name, email));
+	}
 	//return 2 columns customerID + Total spending
 	public static ResultSet sortAllCustomersByTotalSpendDesc(int limit) throws SQLException
 	{
