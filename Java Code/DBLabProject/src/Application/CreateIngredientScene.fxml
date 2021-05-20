@@ -24,5 +24,6 @@
       <Button fx:id="showListIngredientButton" layoutX="450.0" layoutY="645.0" mnemonicParsing="false" onAction="#showListIngredient" text="Show List Ingredient" />
       <TextField layoutX="117.0" layoutY="361.0" promptText="Price of Ingredient" />
       <Label layoutX="117.0" layoutY="344.0" text="Price" />
+      <Button mnemonicParsing="false" onAction="#switchManagementScene" text="Back" />
    </children>
 </AnchorPane>

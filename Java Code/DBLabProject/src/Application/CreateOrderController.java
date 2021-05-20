@@ -48,7 +48,7 @@ import java.util.*;
 
 
 
-public class CreateOrderController implements Initializable {
+public class CreateOrderController extends MenuController implements Initializable {
 	static class XCell extends TableCell<Product, String>{
 		HBox hbox = new HBox();
 		Pane pane = new Pane();
@@ -295,7 +295,15 @@ public class CreateOrderController implements Initializable {
 		else {
 			System.out.println("There is no phone");
 			Customer cus = new Customer(Address, PhoneNumber, Name, Email);
-			Configuration.ListCustomer.add(cus);
+			
+			
+			try {
+				CustomerStatistics.insertCustomer(Address, PhoneNumber, Name, Email);
+				Configuration.ListCustomer.add(cus);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 	}
 }	

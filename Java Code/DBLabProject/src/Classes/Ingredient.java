@@ -1,7 +1,7 @@
 package Classes;
 
 public class Ingredient {
-	private static int ID = 0;
+	public static int ID = 1;
 	private int IngredientID;
 	private double price;
 	public int getIngredientID() {

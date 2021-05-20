@@ -51,5 +51,6 @@
             <Button fx:id="SubmitButton" mnemonicParsing="false" onAction="#GetCustomerInformation" text="Submit" />
          </children>
       </VBox>
+      <Button layoutX="2.0" layoutY="-1.0" mnemonicParsing="false" onAction="#back" text="Back" />
    </children>
 </AnchorPane>

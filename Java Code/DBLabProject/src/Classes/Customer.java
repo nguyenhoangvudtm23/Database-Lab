@@ -6,7 +6,7 @@ public class Customer {
 	private String PhoneNumber;
 	private String Name;
 	private String Email;
-	private static int ID = 0;
+	public static int ID = 1;
 	
 	
 	public Customer(boolean createCustomerID, String Address, String PhoneNumber, String Name, String Email) {

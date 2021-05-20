@@ -89,6 +89,6 @@
             </BarChart>
          </children>
       </VBox>
-      <Button layoutX="268.0" layoutY="371.0" mnemonicParsing="false" onAction="#back" text="Quay lại" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="268.0" AnchorPane.rightAnchor="267.0" />
+      <Button layoutX="268.0" layoutY="371.0" mnemonicParsing="false" onAction="#switchStatisticsScene" text="Quay lại" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="268.0" AnchorPane.rightAnchor="267.0" />
    </children>
 </AnchorPane>

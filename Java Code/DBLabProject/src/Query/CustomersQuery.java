@@ -90,10 +90,17 @@ public class CustomersQuery {
 		return "select Name, Phone_Number, Address, Email\r\n"
 				+ "from Customers";
 	}
+	public static String insertCustomerQuery(String address, String phoneNumber, String name, String email)
+	{
+		return "insert into Customers (Address, Phone_Number, Name, Email) VALUES " 
+				+ "('" + address + "', '" + phoneNumber + "', '" + name + "', '" + email + "')";
+	}
 	public static void main(String args[]) throws ClassNotFoundException
 	{
 		System.out.println(CustomersQuery.updateCustomerPhoneNumberQuery(1, "0123584321"));
 		System.out.println();
 		System.out.println(CustomersQuery.getTopXSpendCustomersFromToQuery(0, LocalDateTime.MIN, LocalDateTime.MAX));
+		System.out.println();
+		System.out.println(CustomersQuery.insertCustomerQuery("ale", "0123", "asd", "sdf"));
 	}
 }
