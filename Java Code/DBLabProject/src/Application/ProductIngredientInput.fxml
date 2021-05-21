@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="499.0" prefWidth="609.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ProductIngredientController">
+<AnchorPane prefHeight="499.0" prefWidth="609.0" style="-fx-background-color: rgb(136, 198, 163);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ProductIngredientController">
    <children>
-      <VBox layoutX="200.0" layoutY="24.0" prefHeight="361.0" prefWidth="600.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox id="vbox" layoutX="200.0" layoutY="24.0" prefHeight="361.0" prefWidth="600.0" style="-fx-background-color: rgb(136, 198, 163);" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="42.0" prefWidth="600.0">
                <children>
-                  <Label text="Top">
+                  <Label id="label" stylesheets="@ProductIngredientInput.css" text="Top">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -27,7 +27,7 @@
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label prefHeight="21.0" prefWidth="136.0" text="bán chạy nhất trong">
+                  <Label id="label" prefHeight="21.0" prefWidth="136.0" stylesheets="@ProductIngredientInput.css" text="bán chạy nhất trong">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -37,7 +37,7 @@
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="138.0" text="NGÀY gần nhất" textAlignment="CENTER">
+                  <Label id="label" alignment="CENTER" prefHeight="21.0" prefWidth="138.0" stylesheets="@ProductIngredientInput.css" text="NGÀY gần nhất" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -51,7 +51,7 @@
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
                <children>
-                  <Label text="Top">
+                  <Label id="label" stylesheets="@ProductIngredientInput.css" text="Top">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -61,7 +61,7 @@
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label prefHeight="21.0" prefWidth="136.0" text="bán ít nhất trong">
+                  <Label id="label" prefHeight="21.0" prefWidth="136.0" stylesheets="@ProductIngredientInput.css" text="bán ít nhất trong">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -71,7 +71,7 @@
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="138.0" text="NGÀY gần nhất" textAlignment="CENTER">
+                  <Label id="label" alignment="CENTER" prefHeight="21.0" prefWidth="138.0" stylesheets="@ProductIngredientInput.css" text="NGÀY gần nhất" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -83,12 +83,12 @@
                   </Button>
                </children>
             </HBox>
-            <BarChart fx:id="barChart">
+            <BarChart id="chart-bar" fx:id="barChart" stylesheets="@ProductIngredientInput.css">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
               <yAxis>
-                <NumberAxis side="LEFT" />
+                <NumberAxis id="axis" side="LEFT" stylesheets="@ProductIngredientInput.css" />
               </yAxis>
             </BarChart>
          </children>

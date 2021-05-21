@@ -8,23 +8,23 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.RevenueCostController">
+<AnchorPane style="-fx-background-color: rgb(136, 198, 163);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.RevenueCostController">
    <children>
       <VBox layoutX="200.0" layoutY="24.0" prefHeight="361.0" prefWidth="600.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="42.0" prefWidth="600.0">
                <children>
-                  <Label prefHeight="21.0" prefWidth="188.0" text="Doanh thu trong">
+                  <Label id="label" prefHeight="21.0" prefWidth="188.0" stylesheets="@RevenueCostInput.css" text="Doanh thu trong">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="weekRevenueBox" promptText="(một số nguyên)">
+                  <TextField id="text-field" fx:id="weekRevenueBox" promptText="(một số nguyên)" stylesheets="@RevenueCostInput.css">
                      <HBox.margin>
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="TUẦN gần nhất" textAlignment="CENTER">
+                  <Label id="label" alignment="CENTER" prefHeight="21.0" prefWidth="154.0" stylesheets="@RevenueCostInput.css" text="TUẦN gần nhất" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -38,7 +38,7 @@
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
                <children>
-                  <Label prefHeight="21.0" prefWidth="188.0" text="Chi phí trong">
+                  <Label id="label" prefHeight="21.0" prefWidth="188.0" stylesheets="@RevenueCostInput.css" text="Chi phí trong">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -48,7 +48,7 @@
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="TUẦN gần nhất" textAlignment="CENTER">
+                  <Label id="label" alignment="CENTER" prefHeight="21.0" prefWidth="154.0" stylesheets="@RevenueCostInput.css" text="TUẦN gần nhất" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -62,7 +62,7 @@
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
                <children>
-                  <Label prefHeight="21.0" prefWidth="188.0" text="Doanh thu trong">
+                  <Label id="label" prefHeight="21.0" prefWidth="188.0" stylesheets="@RevenueCostInput.css" text="Doanh thu trong">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -72,7 +72,7 @@
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="THÁNG gần nhất" textAlignment="CENTER">
+                  <Label id="label" alignment="CENTER" prefHeight="21.0" prefWidth="154.0" stylesheets="@RevenueCostInput.css" text="THÁNG gần nhất" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -86,7 +86,7 @@
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
                <children>
-                  <Label prefHeight="21.0" prefWidth="188.0" text="Chi phí trong">
+                  <Label id="label" prefHeight="21.0" prefWidth="188.0" stylesheets="@RevenueCostInput.css" text="Chi phí trong">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -96,7 +96,7 @@
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="THÁNG gần nhất" textAlignment="CENTER">
+                  <Label id="label" alignment="CENTER" prefHeight="21.0" prefWidth="154.0" stylesheets="@RevenueCostInput.css" text="THÁNG gần nhất" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -110,7 +110,7 @@
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
                <children>
-                  <Label prefHeight="21.0" prefWidth="188.0" text="Doanh thu trong">
+                  <Label id="label" prefHeight="21.0" prefWidth="188.0" stylesheets="@RevenueCostInput.css" text="Doanh thu trong">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -120,7 +120,7 @@
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="NĂM gần nhất" textAlignment="CENTER">
+                  <Label id="label" alignment="CENTER" prefHeight="21.0" prefWidth="154.0" stylesheets="@RevenueCostInput.css" text="NĂM gần nhất" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -134,7 +134,7 @@
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
                <children>
-                  <Label prefHeight="21.0" prefWidth="188.0" text="Chi phí trong">
+                  <Label id="label" prefHeight="21.0" prefWidth="188.0" stylesheets="@RevenueCostInput.css" text="Chi phí trong">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -144,7 +144,7 @@
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="NĂM gần nhất" textAlignment="CENTER">
+                  <Label id="label" alignment="CENTER" prefHeight="21.0" prefWidth="154.0" stylesheets="@RevenueCostInput.css" text="NĂM gần nhất" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -158,7 +158,7 @@
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
                <children>
-                  <Label prefHeight="21.0" prefWidth="188.0" text="Doanh thu trong">
+                  <Label id="label" prefHeight="21.0" prefWidth="188.0" stylesheets="@RevenueCostInput.css" text="Doanh thu trong">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -168,7 +168,7 @@
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="NGÀY gần nhất" textAlignment="CENTER">
+                  <Label id="label" alignment="CENTER" prefHeight="21.0" prefWidth="154.0" stylesheets="@RevenueCostInput.css" text="NGÀY gần nhất" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -182,7 +182,7 @@
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
                <children>
-                  <Label prefHeight="21.0" prefWidth="188.0" text="Chi phí trong">
+                  <Label id="label" prefHeight="21.0" prefWidth="188.0" stylesheets="@RevenueCostInput.css" text="Chi phí trong">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -192,7 +192,7 @@
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="154.0" text="NGÀY gần nhất" textAlignment="CENTER">
+                  <Label id="label" alignment="CENTER" prefHeight="21.0" prefWidth="154.0" stylesheets="@RevenueCostInput.css" text="NGÀY gần nhất" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>

@@ -38,3 +38,16 @@
     -fx-ms-flex-line-pack: start;
     -fx-align-content: flex-start;
 }
+#label
+{
+    -fx-text-fill: white;
+    -fx-border-color: blue;
+    -fx-background-color: brown;
+    -fx-alignment: center;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+.text-field {
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="pane" prefHeight="468.0" prefWidth="600.0" stylesheets="@Customerinput.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CustomerController">
+<AnchorPane id="pane" prefHeight="468.0" prefWidth="600.0" stylesheets="@Customerinput.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CustomerController">
    <children>
       <VBox id="vbox" layoutX="200.0" layoutY="24.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #88c6a3;" stylesheets="@Customerinput.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -28,22 +28,22 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label id="label" prefHeight="21.0" prefWidth="168.0" stylesheets="@Customerinput.css" text="Khách hàng chi tiêu trong">
+                  <Label id="label" prefHeight="22.0" prefWidth="185.0" stylesheets="@Customerinput.css" text="Khách hàng chi tiêu trong">
                      <HBox.margin>
                         <Insets bottom="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField id="text-field" fx:id="dayCustomerBox" prefHeight="31.0" prefWidth="74.0" promptText="(1, 2...)">
+                  <TextField id="text-field" fx:id="dayCustomerBox" prefHeight="31.0" prefWidth="73.0" promptText="(1, 2...)">
                      <HBox.margin>
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label id="label" alignment="CENTER" prefHeight="21.0" prefWidth="141.0" stylesheets="@Customerinput.css" text="NGÀY gần nhất" textAlignment="CENTER">
+                  <Label id="label" alignment="CENTER" prefHeight="22.0" prefWidth="153.0" stylesheets="@Customerinput.css" text="NGÀY gần nhất" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Button id="button1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#generateChart" prefHeight="33.0" prefWidth="38.0" stylesheets="@Customerinput.css" text="Tạo">
+                  <Button id="button1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#generateChart" prefHeight="33.0" prefWidth="37.0" stylesheets="@Customerinput.css" text="Tạo">
                      <HBox.margin>
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
@@ -52,7 +52,7 @@
             </HBox>
             <BarChart id="chart-bar" fx:id="barChart" stylesheets="@Customerinput.css">
               <xAxis>
-                <CategoryAxis side="BOTTOM" />
+                <CategoryAxis id="axis" side="BOTTOM" stylesheets="@Customerinput.css" />
               </xAxis>
               <yAxis>
                 <NumberAxis side="LEFT" />
