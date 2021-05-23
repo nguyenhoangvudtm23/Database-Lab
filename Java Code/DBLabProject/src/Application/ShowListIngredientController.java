@@ -9,6 +9,8 @@ import java.util.ResourceBundle;
 import Classes.Ingredient;
 import Execution.IngredientStatistics;
 import Scenario.Starter;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -41,15 +43,17 @@ public class ShowListIngredientController extends MenuController implements Init
 	@FXML
 	private TableView<Ingredient> ListIngredientTable;
 	@FXML
-	private TableColumn idColumn;
+	private TableColumn<Ingredient, String> idColumn;
 	@FXML
-	private TableColumn AmountLeftColumn;
+	private TableColumn<Ingredient, Integer> AmountLeftColumn;
 	@FXML
-	private TableColumn NameColumn;
+	private TableColumn<Ingredient, String> NameColumn;
 	@FXML
-	private TableColumn PriceColumn;
+	private TableColumn<Ingredient, Double> PriceColumn;
 	@FXML
-	private TableColumn DescriptionColumn;
+	private TableColumn<Ingredient, String> DescriptionColumn;
+	@FXML
+	private TextField filterField;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -136,7 +140,35 @@ public class ShowListIngredientController extends MenuController implements Init
 				};
 		PriceColumn.setCellFactory(PriceCellFactory);
 		
-		ListIngredientTable.setItems(Configuration.ListIngredient);
+//		ListIngredientTable.setItems(Configuration.ListIngredient);
+		FilteredList<Ingredient> filteredData = new FilteredList<>(Configuration.ListIngredient, b -> true);
+		filterField.textProperty().addListener((o, oldValue, newValue) -> {
+			filteredData.setPredicate(ingredient -> {
+				if(newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				String lowerCaseFilter = newValue.toLowerCase();
+				if(ingredient.getName().toLowerCase().indexOf(lowerCaseFilter) != - 1) {
+					return true;
+				}
+				else if(String.valueOf(ingredient.getIngredientID()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(ingredient.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(String.valueOf(ingredient.getPrice()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(String.valueOf(ingredient.getAmountLeft()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else return false;
+			});
+		});
+		SortedList<Ingredient> sortedData = new SortedList<>(filteredData);
+		sortedData.comparatorProperty().bind(ListIngredientTable.comparatorProperty());
+		ListIngredientTable.setItems(sortedData);
          
 	}
 	public void BackCreateIngredientScene(ActionEvent e) throws IOException {
