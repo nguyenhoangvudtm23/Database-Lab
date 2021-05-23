@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -42,11 +42,7 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Button id="button1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chooseBestSeller" stylesheets="@ProductIngredientInput.css" text="Tạo" textAlignment="CENTER">
-                     <HBox.margin>
-                        <Insets left="5.0" top="5.0" />
-                     </HBox.margin>
-                  </Button>
+                  <JFXButton id="button1" prefHeight="33.0" prefWidth="42.0" stylesheets="@ProductIngredientInput.css" text="Tạo" />
                </children>
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
@@ -71,16 +67,12 @@
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label id="label" alignment="CENTER" prefHeight="21.0" prefWidth="138.0" stylesheets="@ProductIngredientInput.css" text="NGÀY gần nhất" textAlignment="CENTER">
+                  <Label id="label" alignment="CENTER" prefHeight="22.0" prefWidth="137.0" stylesheets="@ProductIngredientInput.css" text="NGÀY gần nhất" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Button id="button1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chooseWorstSeller" stylesheets="@ProductIngredientInput.css" text="Tạo" textAlignment="CENTER">
-                     <HBox.margin>
-                        <Insets left="5.0" top="5.0" />
-                     </HBox.margin>
-                  </Button>
+                  <JFXButton id="button1" prefHeight="33.0" prefWidth="43.0" stylesheets="@ProductIngredientInput.css" text="Tạo" />
                </children>
             </HBox>
             <BarChart id="chart-bar" fx:id="barChart" stylesheets="@ProductIngredientInput.css">
@@ -93,8 +85,7 @@
             </BarChart>
          </children>
       </VBox>
-
-      <Button id="button" layoutX="247.0" layoutY="371.0" mnemonicParsing="false" onAction="#switchStatisticsScene" prefHeight="26.0" prefWidth="115.0" stylesheets="@ProductIngredientInput.css" text="Quay lại" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="247.0" AnchorPane.rightAnchor="247.0" />
+      <JFXButton id="button" layoutX="261.0" layoutY="472.0" stylesheets="@ProductIngredientInput.css" text="Quay lại" />
 
    </children>
 </AnchorPane>

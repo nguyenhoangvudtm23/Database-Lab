@@ -1,4 +1,5 @@
 #button1 {
+    -jfx-button-type: RAISED;
     -fx-background-color: 
         #000000,
         linear-gradient(#7ebcea, #2f4b8f),
@@ -11,6 +12,7 @@
     -fx-font-size: 12px;
 }
 #button{
+-jfx-button-type: FLAT;
     -fx-background-color: 
         #3c7fb1,
         linear-gradient(#fafdfe, #e8f5fc),
