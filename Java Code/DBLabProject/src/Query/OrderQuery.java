@@ -1,7 +1,24 @@
 package Query;
 import java.time.*;
 public class OrderQuery {
-	
+	public static String updateOrderItemsQuantityQuery(int OrderID, int ProductID, int newQuantity)
+	{
+		return "update OrderItems\r\n"
+				+ "set Quantity = '" + newQuantity + "'\r\n"
+				+ "where OrdersID = " + OrderID + " and ProductID = " + ProductID;
+	}
+	public static String updateOrdersStatusQuery(int OrderID, char newStatus)
+	{
+		return "update Orders\r\n"
+				+ "set Status = '" + newStatus + "'\r\n"
+				+ "where OrdersID = " + OrderID;
+	}
+	public static String updateOrdersDiscountQuery(int OrderID, int newDiscount)
+	{
+		return "update Orders\r\n"
+				+ "set Discount = '" + newDiscount + "'\r\n"
+				+ "where OrdersID = " + OrderID;
+	}
 	public static String deleteOrderQuery(int OrderID)
 	{
 		return "delete from Orders\r\n"

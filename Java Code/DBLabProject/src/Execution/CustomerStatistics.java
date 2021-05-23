@@ -14,7 +14,12 @@ public class CustomerStatistics extends Execution{
 	3 is Phone_Number
 	4 is Name
 	5 is Email
+	 * @throws SQLException 
 	 **/
+	public static void insertCustomer(String address, String phoneNumber, String name, String email) throws SQLException
+	{
+		statement.executeUpdate(CustomersQuery.insertCustomerQuery(address, phoneNumber, name, email));
+	}
 	//return 2 columns customerID + Total spending
 	public static ResultSet sortAllCustomersByTotalSpendDesc(int limit) throws SQLException
 	{
@@ -54,6 +59,16 @@ public class CustomerStatistics extends Execution{
 	{
 		statement.executeQuery(CustomersQuery.updateCustomerNameQuery(ID, newName));
 	}
+	//update Customer's Email
+	public static void updateCustomerEmail(int ID, String newEmail) throws SQLException
+	{
+		statement.executeQuery(CustomersQuery.updateCustomerEmailQuery(ID, newEmail));
+	}
+	//update Customer's Address
+	public static void updateCustomerAddress(int ID, String newAddress) throws SQLException
+	{
+		statement.executeQuery(CustomersQuery.updateCustomerAddressQuery(ID, newAddress));
+	}
 	//update Customer's phone number
 	public static void updateCustomerPhoneNumber(int ID, String phoneNumber) throws SQLException
 	{
@@ -70,6 +85,10 @@ public class CustomerStatistics extends Execution{
 	public static ResultSet getTopXSpendCustomersFromTo(int X, LocalDateTime from, LocalDateTime to) throws SQLException
 	{
 		return statement.executeQuery(CustomersQuery.getTopXSpendCustomersFromToQuery(X, from, to));
+	}
+	public static ResultSet getAllCustomer() throws SQLException
+	{
+		return statement.executeQuery(CustomersQuery.getAllCustomerQuery());
 	}
 	public static void main(String args[]) throws SQLException, ClassNotFoundException
 	{

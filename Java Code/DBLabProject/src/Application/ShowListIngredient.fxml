@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="697.0" prefWidth="849.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListIngredientController">
+   <children>
+      <Label layoutX="291.0" layoutY="66.0" text="List of Ingredient">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Button fx:id="backCreateIngredientSceneButton" mnemonicParsing="false" onAction="#switchManagementScene" text="Back" />
+      <TableView fx:id="ListIngredientTable" editable="true" layoutX="172.0" layoutY="202.0" prefHeight="395.0" prefWidth="558.0">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="NameColumn" prefWidth="160.0" text="Name" />
+            <TableColumn fx:id="AmountLeftColumn" prefWidth="81.0" text="Quantity" />
+            <TableColumn fx:id="PriceColumn" prefWidth="90.0" text="Price" />
+            <TableColumn fx:id="DescriptionColumn" prefWidth="151.0" text="Description" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

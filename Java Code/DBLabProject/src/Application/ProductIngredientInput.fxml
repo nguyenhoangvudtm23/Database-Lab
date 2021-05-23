@@ -1,8 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="499.0" prefWidth="609.0" style="-fx-background-color: rgb(136, 198, 163);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ProductIngredientController">
+   <children>
+      <VBox id="vbox" layoutX="200.0" layoutY="24.0" prefHeight="361.0" prefWidth="600.0" style="-fx-background-color: rgb(136, 198, 163);" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="42.0" prefWidth="600.0">
+               <children>
+                  <Label id="label" stylesheets="@ProductIngredientInput.css" text="Top">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="topBestBox" prefHeight="31.0" prefWidth="96.0" promptText="(1, 2, 3, 10...)">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label id="label" prefHeight="21.0" prefWidth="136.0" stylesheets="@ProductIngredientInput.css" text="bán chạy nhất trong">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="dayBestBox" prefHeight="31.0" prefWidth="123.0" promptText="(1, 6, 3000...)">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label id="label" alignment="CENTER" prefHeight="21.0" prefWidth="138.0" stylesheets="@ProductIngredientInput.css" text="NGÀY gần nhất" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXButton id="button1" onAction="#chooseBestSeller" prefHeight="33.0" prefWidth="42.0" stylesheets="@ProductIngredientInput.css" text="Tạo" />
+               </children>
+            </HBox>
+            <HBox prefHeight="42.0" prefWidth="600.0">
+               <children>
+                  <Label id="label" stylesheets="@ProductIngredientInput.css" text="Top">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="topWorstBox" prefHeight="31.0" prefWidth="96.0" promptText="(1, 2, 3, 10...)">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label id="label" prefHeight="21.0" prefWidth="136.0" stylesheets="@ProductIngredientInput.css" text="bán ít nhất trong">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="dayWorstBox" prefHeight="31.0" prefWidth="123.0" promptText="(1, 6, 3000...)">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label id="label" alignment="CENTER" prefHeight="22.0" prefWidth="137.0" stylesheets="@ProductIngredientInput.css" text="NGÀY gần nhất" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXButton id="button1" onAction="#chooseWorstSeller" prefHeight="33.0" prefWidth="43.0" stylesheets="@ProductIngredientInput.css" text="Tạo" />
+               </children>
+            </HBox>
+            <BarChart id="chart-bar" fx:id="barChart" stylesheets="@ProductIngredientInput.css">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis id="axis" side="LEFT" stylesheets="@ProductIngredientInput.css" />
+              </yAxis>
+            </BarChart>
+         </children>
+      </VBox>
+      <JFXButton id="button" layoutX="261.0" layoutY="472.0" onAction="#back" stylesheets="@ProductIngredientInput.css" text="Quay lại" />
+
+   </children>
 </AnchorPane>
-

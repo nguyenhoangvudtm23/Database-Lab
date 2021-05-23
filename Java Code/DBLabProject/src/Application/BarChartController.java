@@ -37,7 +37,7 @@ public class BarChartController extends ChartControllerUtil implements ChartCont
 		barChart.setTitle(ChartChooserController.chartName);
 		ObservableList<Series> series = BarChartController.convert_Result_Set_To_Bar_Chart_Data
 				(ChartChooserController.resultToDisplay);
-		//barChart.getData().clear();
+		barChart.getData().clear();
 		//loi ngu ngoc voi truc X cac ban a dcm nha no
 		barChart.getXAxis().setAnimated(false);
 		barChart.getData().addAll(series);

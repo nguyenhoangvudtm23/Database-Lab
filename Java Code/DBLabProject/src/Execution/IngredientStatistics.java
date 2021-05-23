@@ -7,6 +7,14 @@ import java.time.LocalDateTime;
 import Query.IngredientQuery;
 
 public class IngredientStatistics extends Execution {
+	public static void insertIngredient(String name, String description, double price, int amountleft) throws SQLException
+	{
+		statement.executeUpdate(IngredientQuery.insertIngredientQuery(name, description, price, amountleft));
+	}
+	public static ResultSet getAllIngredient() throws SQLException
+	{
+		return statement.executeQuery(IngredientQuery.getAllIngredientQuery());
+	}
 	public static String getIngredientName(int ID) throws SQLException
 	{
 		return statement.executeQuery(IngredientQuery.getIngredientNameQuery(ID)).getString(1);
@@ -14,6 +22,18 @@ public class IngredientStatistics extends Execution {
 	public static void updateIngredientName(int ID, String newName) throws SQLException
 	{
 		statement.executeUpdate(IngredientQuery.updateIngredientNameQuery(ID, newName));
+	}
+	public static void updateIngredientAmoutLeft(int ID, int newAmountLeft) throws SQLException
+	{
+		statement.executeUpdate(IngredientQuery.updateIngredientAmountLeftQuery(ID, newAmountLeft));
+	}
+	public static void updateIngredientdescriptionQuery(int ID, String newdescription) throws SQLException
+	{
+		statement.executeUpdate(IngredientQuery.updateIngredientdescriptionQuery(ID, newdescription));
+	}
+	public static void updateIngreListQuantityQuery(int ProductID, int IngredientID, int newQuantity) throws SQLException
+	{
+		statement.executeUpdate(IngredientQuery.updateIngreListQuantityQuery(ProductID, IngredientID, newQuantity));
 	}
 	public static double calculateOneIngredientCostFromToQuery(int ID, LocalDateTime from, LocalDateTime to) throws SQLException
 	{

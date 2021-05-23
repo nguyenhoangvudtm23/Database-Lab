@@ -26,6 +26,10 @@ public class SupplierStatistics extends Execution {
 	{
 		statement.executeUpdate(SuppliersQuery.updateSupplierNameQuery(SupplierID, newName));
 	}
+	public static void updateSupplierAddressQuery(int ID, String newAddress) throws SQLException
+	{
+		statement.executeUpdate(SuppliersQuery.updateSupplierAddressQuery(ID, newAddress));
+	}
 	public static void updateSupplierPhoneNumber(int SupplierID, String newPhoneNumber) throws SQLException
 	{
 		statement.executeUpdate(SuppliersQuery.updateSupplierNameQuery(SupplierID, newPhoneNumber));

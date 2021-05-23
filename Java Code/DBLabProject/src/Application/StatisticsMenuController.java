@@ -29,7 +29,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class StatisticsMenuController implements Initializable{
+public class StatisticsMenuController extends MenuController implements Initializable{
 	private Stage stage;
 	private Parent root;
 	public static ResultSet resultToDisplay;
@@ -57,9 +57,14 @@ public class StatisticsMenuController implements Initializable{
 	{
 		Starter.starting();
 	}
-	public void chooseProductAndIngredientScene(ActionEvent event) throws ClassNotFoundException, SQLException
+	public void chooseProductAndIngredientScene(ActionEvent event) throws ClassNotFoundException, SQLException, IOException
 	{
 		Starter.starting();
+		root = FXMLLoader.load(getClass().getResource("ProductIngredientInput.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

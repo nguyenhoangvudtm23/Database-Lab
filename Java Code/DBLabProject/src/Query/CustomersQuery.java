@@ -50,6 +50,18 @@ public class CustomersQuery {
 						+ DataConverter.convertDateTimeToString(from) + "' and '"
 						+ DataConverter.convertDateTimeToString(to) + "')";
 	}
+	public static String updateCustomerAddressQuery(int CustomerID, String newAddress)
+	{
+		return "update Customers\r\n"
+				+ "set Address = '" + newAddress + "'\r\n"
+				+ "where CustomerID = " + CustomerID;
+	}
+	public static String updateCustomerEmailQuery(int CustomerID, String newEmail)
+	{
+		return "update Customers\r\n"
+				+ "set Email = '" + newEmail + "'\r\n"
+				+ "where CustomerID = " + CustomerID;
+	}
 	public static String updateCustomerNameQuery(int CustomerID, String newName)
 	{
 		return "update Customers\r\n"
@@ -64,7 +76,7 @@ public class CustomersQuery {
 	}
 	public static String getTopXSpendCustomersFromToQuery(int X, LocalDateTime from, LocalDateTime to)
 	{
-		return "select Customers.*, sum(Totalcost - Discount) as Pay\r\n"
+		return "select Customers.Name || ' (' ||Customers.Phone_Number||')' AS INFO, sum(Totalcost - Discount) as Pay\r\n"
 				+ "from Orders join Customers on  Orders.CustomerID = Customers.CustomerID\r\n"
 				+ "where CreationDate between '"
 				+ DataConverter.convertDateTimeToString(from) + "' and '"
@@ -73,10 +85,22 @@ public class CustomersQuery {
 				+ "order by Pay desc\r\n"
 				+ "limit " + X;
 	}
+	public static String getAllCustomerQuery()
+	{
+		return "select Name, Phone_Number, Address, Email\r\n"
+				+ "from Customers";
+	}
+	public static String insertCustomerQuery(String address, String phoneNumber, String name, String email)
+	{
+		return "insert into Customers (Address, Phone_Number, Name, Email) VALUES " 
+				+ "('" + address + "', '" + phoneNumber + "', '" + name + "', '" + email + "')";
+	}
 	public static void main(String args[]) throws ClassNotFoundException
 	{
 		System.out.println(CustomersQuery.updateCustomerPhoneNumberQuery(1, "0123584321"));
 		System.out.println();
 		System.out.println(CustomersQuery.getTopXSpendCustomersFromToQuery(0, LocalDateTime.MIN, LocalDateTime.MAX));
+		System.out.println();
+		System.out.println(CustomersQuery.insertCustomerQuery("ale", "0123", "asd", "sdf"));
 	}
 }

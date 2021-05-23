@@ -3,6 +3,15 @@ package Query;
 import java.time.LocalDateTime;
 
 public class IngredientQuery {
+	public static String insertIngredientQuery(String name, String description, double price, int amountleft)
+	{
+		return "insert into Ingredients (Name, description, Amount_Left, PricePerUnit) "
+				+ "VALUES ('" + name + "', '" + description + "', " + amountleft + ", " + price + ")";
+	}
+	public static String getAllIngredientQuery()
+	{
+		return "select Name, description, Amount_Left, PricePerUnit from Ingredients";
+	}
 	public static String calculateOneIngredientCostFromToQuery(int ID, LocalDateTime from, LocalDateTime to)
 	{
 		return "SELECT SUM(OI.PricePerUnit*OI.Quantity) \r\n"
@@ -38,6 +47,24 @@ public class IngredientQuery {
 				+ "Name LIKE '%" + pattern +"%'\r\n"
 				+ "";
 	}
+	public static String updateIngredientAmountLeftQuery(int ID, int newAmountLeft)
+	{
+		return "update Ingredients\r\n"
+				+ "set Amount_Left = '" + newAmountLeft + "'\r\n"
+				+ "where IngredientID = " + ID;
+	}
+	public static String updateIngreListQuantityQuery(int ProductID, int IngredientID, int newQuantity)
+	{
+		return "update IngreList\r\n"
+				+ "set Quantity = '" + newQuantity + "'\r\n"
+				+ "where ProductID = " + ProductID + " and IngredientID = " + IngredientID;
+	}
+	public static String updateIngredientdescriptionQuery(int IngredientID, String newdescription)
+	{
+		return "update Ingredients\r\n"
+				+ "set description = '" + newdescription + "'\r\n"
+				+ "where IngredientID = " + IngredientID;
+	}
 	public static String topXmostcostingredientsYdaysQuery(int x, int y)
 	{
 		return "SELECT Ingredients.IngredientID, Name, sum(BuyOrderItems.PricePerUnit*Quantity) as totalcost from BuyOrderItems, Ingredients\r\n"
@@ -65,6 +92,7 @@ public class IngredientQuery {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(IngredientQuery.getIngredientsWithSimilarNameQuery("beef"));
+		System.out.println(IngredientQuery.insertIngredientQuery("hola", "sda", 5, 5));
 	}
 
 }

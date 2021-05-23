@@ -8,6 +8,10 @@ import Query.OrderQuery;
 import Query.ProductQuery;
 
 public class ProductStatistics extends Execution {
+	public static ResultSet selectAll() throws SQLException
+	{
+		return statement.executeQuery(ProductQuery.selectAllQuery());
+	}
 	//return product name only
 	public static void recordItemIntoOrder(int OrderID, int ProductID, int quantity) throws SQLException
 	{
@@ -42,6 +46,11 @@ public class ProductStatistics extends Execution {
 	{
 		statement.executeUpdate(ProductQuery.updateNameQuery(ProductID, newName));
 	}
+	//Update Product's Amount Left
+	public static void updateProductAmountLeft(int ProductID, int newAmountLeft) throws SQLException
+	{
+		statement.executeUpdate(ProductQuery.updateAmountLeftQuery(ProductID, newAmountLeft));
+	}
 	public static ResultSet getProductsWithSimilarName(String pattern) throws SQLException
 	{
 		return statement.executeQuery(ProductQuery.getProductsWithSimilarNameQuery(pattern));
@@ -55,6 +64,10 @@ public class ProductStatistics extends Execution {
 	public static ResultSet getLeastXSellingProductsFromTo(int X, LocalDateTime from, LocalDateTime to) throws SQLException
 	{
 		return statement.executeQuery(ProductQuery.getLeastXSellingProductsFromToQuery(X, from, to));
+	}
+	public static void insertProduct(String name, double price, int amount_left) throws SQLException
+	{
+		statement.executeUpdate(ProductQuery.insertProductQuery(name, price, amount_left));
 	}
 	public static void main(String args[]) throws SQLException, ClassNotFoundException
 	{

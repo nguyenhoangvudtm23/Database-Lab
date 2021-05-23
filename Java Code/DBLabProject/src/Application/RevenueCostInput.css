@@ -1,0 +1,56 @@
+#button1 {
+    -jfx-button-type: RAISED;
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,1,1;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 8 8 8 8;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+#button{
+-jfx-disable-visual-focus: true;
+-jfx-button-type: FLAT;
+    -fx-background-color: 
+        #3c7fb1,
+        linear-gradient(#fafdfe, #e8f5fc),
+        linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+}
+#button1 Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
+}
+.vbox {
+    -fx-display: -webkit-flex;
+    -fx-display: -ms-flexbox;
+    -fx-display: flex;
+
+    /*Align children vetically*/
+    -fx-webkit-flex-direction: column;
+    -fx-ms-flex-direction: column;
+    -fx-flex-direction: column;
+
+    -fx-webkit-align-content: flex-start;
+    -fx-ms-flex-line-pack: start;
+    -fx-align-content: flex-start;
+}
+#label
+{
+    -fx-text-fill: white;
+    -fx-border-color: blue;
+    -fx-background-color: brown;
+    -fx-alignment: center;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+.text-field {
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
