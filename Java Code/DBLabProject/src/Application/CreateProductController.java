@@ -96,6 +96,7 @@ public class CreateProductController extends MenuController implements Initializ
 						listProd.getString(1), 
 						listProd.getDouble(3),
 						listProd.getString(1));
+				product.setProductID(String.valueOf(listProd.getInt(4)));
 				Configuration.ListProduct.add(product);
 			}
 		} catch (SQLException e) {

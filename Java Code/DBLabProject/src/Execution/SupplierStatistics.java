@@ -6,6 +6,10 @@ import java.sql.SQLException;
 import Query.SuppliersQuery;
 
 public class SupplierStatistics extends Execution {
+	public static ResultSet getAllSuppliers() throws SQLException
+	{
+		return statement.executeQuery(SuppliersQuery.getAllSuppliersQuery());
+	}
 	public static ResultSet getSuppliersWithSimilarNameTo(String s) throws SQLException
 	{
 		return statement.executeQuery(SuppliersQuery.getSuppliersWithSimilarNameToQuery(s));
