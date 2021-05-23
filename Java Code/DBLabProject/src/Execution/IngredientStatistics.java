@@ -23,6 +23,10 @@ public class IngredientStatistics extends Execution {
 	{
 		statement.executeUpdate(IngredientQuery.updateIngredientNameQuery(ID, newName));
 	}
+	public static void updateIngredientAmoutLeft(int ID, int newAmountLeft) throws SQLException
+	{
+		statement.executeUpdate(IngredientQuery.updateIngredientAmountLeftQuery(ID, newAmountLeft));
+	}
 	public static void updateIngredientdescriptionQuery(int ID, String newdescription) throws SQLException
 	{
 		statement.executeUpdate(IngredientQuery.updateIngredientdescriptionQuery(ID, newdescription));

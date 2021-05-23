@@ -47,6 +47,12 @@ public class IngredientQuery {
 				+ "Name LIKE '%" + pattern +"%'\r\n"
 				+ "";
 	}
+	public static String updateIngredientAmountLeftQuery(int ID, int newAmountLeft)
+	{
+		return "update Ingredients\r\n"
+				+ "set Amount_Left = '" + newAmountLeft + "'\r\n"
+				+ "where IngredientID = " + ID;
+	}
 	public static String updateIngreListQuantityQuery(int ProductID, int IngredientID, int newQuantity)
 	{
 		return "update IngreList\r\n"

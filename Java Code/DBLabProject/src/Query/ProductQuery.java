@@ -18,6 +18,12 @@ public class ProductQuery {
 				+ "SET Product_Descript = \"" + newName + "\"\r\n"
 				+ "WHERE ProductID = " + ProductID;
 	}
+	public static String updateAmountLeftQuery(int ProductID, int newAmountLeft)
+	{
+		return "update Products \r\n"
+				+ "SET Amount_Left = \"" + newAmountLeft + "\"\r\n"
+				+ "WHERE ProductID = " + ProductID;
+	}
 	public static String calculateOneProductRevenueFromToQuery(int ID, LocalDateTime from, LocalDateTime to)
 	{
 		return "SELECT SUM(OI.PricePerUnit*OI.Quantity) \r\n"

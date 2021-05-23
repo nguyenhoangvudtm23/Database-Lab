@@ -46,6 +46,11 @@ public class ProductStatistics extends Execution {
 	{
 		statement.executeUpdate(ProductQuery.updateNameQuery(ProductID, newName));
 	}
+	//Update Product's Amount Left
+	public static void updateProductAmountLeft(int ProductID, int newAmountLeft) throws SQLException
+	{
+		statement.executeUpdate(ProductQuery.updateAmountLeftQuery(ProductID, newAmountLeft));
+	}
 	public static ResultSet getProductsWithSimilarName(String pattern) throws SQLException
 	{
 		return statement.executeQuery(ProductQuery.getProductsWithSimilarNameQuery(pattern));
