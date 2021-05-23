@@ -8,7 +8,6 @@ public class Customer {
 	private String Email;
 	public static int ID = 1;
 	
-	
 	public Customer(boolean createCustomerID, String Address, String PhoneNumber, String Name, String Email) {
 		this.Address = Address;
 		this.PhoneNumber = PhoneNumber;
