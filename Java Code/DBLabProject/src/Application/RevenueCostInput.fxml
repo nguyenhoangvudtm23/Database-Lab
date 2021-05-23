@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -8,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane style="-fx-background-color: rgb(136, 198, 163);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.RevenueCostController">
+<AnchorPane style="-fx-background-color: rgb(136, 198, 163);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.RevenueCostController">
    <children>
       <VBox layoutX="200.0" layoutY="24.0" prefHeight="361.0" prefWidth="600.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -29,7 +34,7 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXButton id="button1" stylesheets="@RevenueCostInput.css" text="Tạo" />
+                  <JFXButton id="button1" onAction="#chooseWeekRevenue" stylesheets="@RevenueCostInput.css" text="Tạo" />
                </children>
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
@@ -49,7 +54,7 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXButton id="button1" stylesheets="@RevenueCostInput.css" text="Tạo" />
+                  <JFXButton id="button1" onAction="#chooseWeekCost" stylesheets="@RevenueCostInput.css" text="Tạo" />
                </children>
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
@@ -69,7 +74,7 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXButton id="button1" stylesheets="@RevenueCostInput.css" text="Tạo" />
+                  <JFXButton id="button1" onAction="#chooseMonthRevenue" stylesheets="@RevenueCostInput.css" text="Tạo" />
                </children>
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
@@ -89,7 +94,7 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXButton id="button1" stylesheets="@RevenueCostInput.css" text="Tạo" />
+                  <JFXButton id="button1" onAction="#chooseMonthCost" stylesheets="@RevenueCostInput.css" text="Tạo" />
                </children>
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
@@ -109,7 +114,7 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXButton id="button1" stylesheets="@RevenueCostInput.css" text="Tạo" />
+                  <JFXButton id="button1" onAction="#chooseYearRevenue" stylesheets="@RevenueCostInput.css" text="Tạo" />
                </children>
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
@@ -129,7 +134,7 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXButton id="button1" stylesheets="@RevenueCostInput.css" text="Tạo" />
+                  <JFXButton id="button1" onAction="#chooseYearCost" stylesheets="@RevenueCostInput.css" text="Tạo" />
                </children>
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
@@ -149,7 +154,7 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXButton id="button1" stylesheets="@RevenueCostInput.css" text="Tạo" />
+                  <JFXButton id="button1" onAction="#chooseDayRevenue" stylesheets="@RevenueCostInput.css" text="Tạo" />
                </children>
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
@@ -169,11 +174,11 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXButton id="button1" stylesheets="@RevenueCostInput.css" text="Tạo" />
+                  <JFXButton id="button1" onAction="#chooseDayCost" stylesheets="@RevenueCostInput.css" text="Tạo" />
                </children>
             </HBox>
          </children>
       </VBox>
-      <JFXButton id="button" layoutX="209.0" layoutY="373.0" prefHeight="26.0" prefWidth="142.0" stylesheets="@RevenueCostInput.css" text="Quay lại" />
+      <JFXButton id="button" layoutX="209.0" layoutY="373.0" onAction="#back" prefHeight="26.0" prefWidth="142.0" stylesheets="@RevenueCostInput.css" text="Quay lại" />
    </children>
 </AnchorPane>
