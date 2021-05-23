@@ -215,6 +215,7 @@ public class ShowListIngredientController extends MenuController implements Init
 	                      Ingredient temp = getTableView().getItems().get(getIndex());
 	                      System.out.println(Integer.parseInt(textField.getText()));
 		    			  temp.setAmountLeft(Integer.valueOf(textField.getText()));
+		    			 
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
@@ -359,6 +360,7 @@ public class ShowListIngredientController extends MenuController implements Init
 	                      commitEdit(Double.parseDouble(textField.getText()));
 	                      Ingredient temp = getTableView().getItems().get(getIndex());
 	                      temp.setPrice(Double.parseDouble(textField.getText()));
+	                    
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }

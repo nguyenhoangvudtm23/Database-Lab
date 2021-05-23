@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Classes.Product;
+import Scenario.Starter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -53,6 +54,11 @@ public class ShowListProductController extends MenuController implements Initial
 		// TODO Auto-generated method stub
 		idColumn.setCellValueFactory(new PropertyValueFactory<>("ProductID"));
         
+		try {
+			Starter.starting();
+		}
+		catch(Exception e)
+		{}
         
         // AmountLeft Column
         AmountLeftColumn.setCellValueFactory(new PropertyValueFactory<>("AmountLeft"));
@@ -190,6 +196,7 @@ public class ShowListProductController extends MenuController implements Initial
 	                      Product temp = getTableView().getItems().get(getIndex());
 	                      System.out.println(Integer.parseInt(textField.getText()));
 		    			  temp.setAmountLeft(Integer.valueOf(textField.getText()));
+		    			  
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
