@@ -176,6 +176,12 @@ public class ShowListCustomerController extends MenuController implements Initia
 	                      commitEdit(textField.getText());
 	                      Customer temp = getTableView().getItems().get(getIndex());
 	                      temp.setName(textField.getText());
+	                      try {
+							CustomerStatistics.updateCustomerName(Integer.parseInt(temp.getCustomerID()), temp.getName());
+						} catch (NumberFormatException | SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
@@ -249,6 +255,12 @@ public class ShowListCustomerController extends MenuController implements Initia
 	                      commitEdit(textField.getText());
 	                      Customer temp = getTableView().getItems().get(getIndex());
 	                      temp.setAddress(textField.getText());
+	                      try {
+							CustomerStatistics.updateCustomerAddress(Integer.parseInt(temp.getCustomerID()), temp.getAddress());
+						} catch (NumberFormatException | SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
@@ -322,6 +334,13 @@ public class ShowListCustomerController extends MenuController implements Initia
 	                      commitEdit(textField.getText());
 	                      Customer temp = getTableView().getItems().get(getIndex());
 	                      temp.setPhoneNumber(textField.getText());
+	                      try {
+	                    	  CustomerStatistics.updateCustomerPhoneNumber(Integer.parseInt(temp.getCustomerID()), temp.getPhoneNumber());
+	                      }
+	                      catch (Exception e)
+	                      {
+	                    	  
+	                      }
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
@@ -395,6 +414,13 @@ public class ShowListCustomerController extends MenuController implements Initia
 	                      commitEdit(textField.getText());
 	                      Customer temp = getTableView().getItems().get(getIndex());
 	                      temp.setEmail(textField.getText());
+	                      try {
+	                    	  CustomerStatistics.updateCustomerEmail(Integer.parseInt(temp.getCustomerID()), temp.getEmail());
+	                      }
+	                      catch (Exception e)
+	                      {
+	                    	  
+	                      }
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
