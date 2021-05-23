@@ -14,7 +14,7 @@
             <Button fx:id="productButton" mnemonicParsing="false" onAction="#switchProductScene" prefHeight="100.0" prefWidth="600.0" text="Kho sản phẩm" />
             <Button fx:id="ingredientButton" mnemonicParsing="false" onAction="#switchIngredientScene" prefHeight="100.0" prefWidth="600.0" text="Kho nguyên liệu" />
             <Button fx:id="customerButton" mnemonicParsing="false" onAction="#switchCustomerScene" prefHeight="100.0" prefWidth="600.0" text="Khách hàng" />
-            <Button fx:id="supplierButton" mnemonicParsing="false" onAction="#switchProductScene" prefHeight="100.0" prefWidth="600.0" text="Đối tác" />
+            <Button fx:id="supplierButton" mnemonicParsing="false" onAction="#switchSupplierScene" prefHeight="100.0" prefWidth="600.0" text="Đối tác" />
          </children>
       </VBox>
    </children>

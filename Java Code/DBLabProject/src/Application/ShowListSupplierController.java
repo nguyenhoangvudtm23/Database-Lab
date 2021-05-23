@@ -1,9 +1,12 @@
 package Application;
 
 import java.net.URL;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 import Classes.Supplier;
+import Execution.SupplierStatistics;
+import Scenario.Starter;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -36,6 +39,23 @@ public class ShowListSupplierController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		// id column
+		try {
+			Configuration.ListSupplier.clear();
+			Starter.starting();
+			ResultSet set = SupplierStatistics.getAllSuppliers();
+			while (set.next())
+			{
+				Supplier sup = new Supplier(set.getString(3), 
+						set.getString(4), 
+						set.getString(2), set.getString(5));
+				sup.setSupplierID(String.valueOf(set.getInt(1)));
+				Configuration.ListSupplier.add(sup);
+			}
+		}
+		catch (Exception e)
+		{
+			
+		}
 		SupplierIDColumn.setCellValueFactory(new PropertyValueFactory<>("SupplierID"));
 		
 		// SupplierIdColumn
@@ -156,6 +176,13 @@ public class ShowListSupplierController implements Initializable {
 	                      commitEdit(textField.getText());
 	                      Supplier temp = getTableView().getItems().get(getIndex());
 	                      temp.setName(textField.getText());
+	                      try {
+	                    	  SupplierStatistics.updateSupplierName(Integer.parseInt(temp.getSupplierID()), temp.getName());
+	                      }
+	                      catch (Exception e)
+	                      {
+	                    	  
+	                      }
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
@@ -229,6 +256,13 @@ public class ShowListSupplierController implements Initializable {
 	                      commitEdit(textField.getText());
 	                      Supplier temp = getTableView().getItems().get(getIndex());
 	                      temp.setAddress(textField.getText());
+	                      try {
+	                    	  SupplierStatistics.updateSupplierAddressQuery(Integer.parseInt(temp.getSupplierID()), temp.getAddress());
+	                      }
+	                      catch(Exception e)
+	                      {
+	                    	  
+	                      }
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
@@ -302,6 +336,16 @@ public class ShowListSupplierController implements Initializable {
 	                      commitEdit(textField.getText());
 	                      Supplier temp = getTableView().getItems().get(getIndex());
 	                      temp.setPhone_Number(textField.getText());
+	                      try {
+	                    	  if (SupplierStatistics.checkExist(temp.getPhone_Number())==0)
+	                    	  {
+	                    		  SupplierStatistics.updateSupplierPhoneNumber(Integer.valueOf(temp.getSupplierID()), temp.getPhone_Number());
+	                    	  }
+	                      }
+	                      catch (Exception e)
+	                      {
+	                    	  
+	                      }
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }

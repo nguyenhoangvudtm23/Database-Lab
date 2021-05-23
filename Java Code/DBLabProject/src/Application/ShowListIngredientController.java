@@ -215,7 +215,12 @@ public class ShowListIngredientController extends MenuController implements Init
 	                      Ingredient temp = getTableView().getItems().get(getIndex());
 	                      System.out.println(Integer.parseInt(textField.getText()));
 		    			  temp.setAmountLeft(Integer.valueOf(textField.getText()));
-		    			 
+		    			  try {
+							IngredientStatistics.updateIngredientAmountLeft(temp.getIngredientID(), temp.getAmountLeft());
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
@@ -288,6 +293,13 @@ public class ShowListIngredientController extends MenuController implements Init
 	                      commitEdit(textField.getText());
 	                      Ingredient temp = getTableView().getItems().get(getIndex());
 	                      temp.setName(textField.getText());
+	                      try {
+	                    	  IngredientStatistics.updateIngredientName(temp.getIngredientID(), temp.getName());
+	                      }
+	                      catch(Exception e)
+	                      {
+	                    	  
+	                      }
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
@@ -360,6 +372,12 @@ public class ShowListIngredientController extends MenuController implements Init
 	                      commitEdit(Double.parseDouble(textField.getText()));
 	                      Ingredient temp = getTableView().getItems().get(getIndex());
 	                      temp.setPrice(Double.parseDouble(textField.getText()));
+	                      try {
+	                      }
+	                      catch (Exception e)
+	                      {
+	                    	  
+	                      }
 	                    
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();

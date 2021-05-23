@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Classes.Product;
+import Execution.ProductStatistics;
 import Scenario.Starter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -196,7 +197,13 @@ public class ShowListProductController extends MenuController implements Initial
 	                      Product temp = getTableView().getItems().get(getIndex());
 	                      System.out.println(Integer.parseInt(textField.getText()));
 		    			  temp.setAmountLeft(Integer.valueOf(textField.getText()));
-		    			  
+		    			  try {
+		    				  ProductStatistics.updateProductAmountLeft(Integer.parseInt(temp.getProductID()), temp.getAmountLeft());
+		    			  }
+		    			  catch(Exception e)
+		    			  {
+		    				  
+		    			  }
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
@@ -269,6 +276,13 @@ public class ShowListProductController extends MenuController implements Initial
 	                      commitEdit(textField.getText());
 	                      Product temp = getTableView().getItems().get(getIndex());
 	                      temp.setName(textField.getText());
+	                      try {
+	                    	  ProductStatistics.updateProductName(Integer.parseInt(temp.getProductID()), temp.getName());
+	                      }
+	                      catch(Exception e)
+	                      {
+	                    	  
+	                      }
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
@@ -341,6 +355,13 @@ public class ShowListProductController extends MenuController implements Initial
 	                      commitEdit(Double.parseDouble(textField.getText()));
 	                      Product temp = getTableView().getItems().get(getIndex());
 	                      temp.setPrice(Double.parseDouble(textField.getText()));
+	                      try {
+	                    	  ProductStatistics.updateProductPrice(Integer.parseInt(temp.getProductID()), temp.getPrice());
+	                      }
+	                      catch (Exception e)
+	                      {
+	                    	  
+	                      }
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
