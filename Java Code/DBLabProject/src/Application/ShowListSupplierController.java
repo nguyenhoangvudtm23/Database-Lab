@@ -22,7 +22,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Callback;
 
-public class ShowListSupplierController implements Initializable {
+public class ShowListSupplierController extends MenuController implements Initializable {
 	@FXML 
 	private TableView<Supplier> ListSupplierTable;
 	@FXML

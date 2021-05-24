@@ -28,5 +28,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      <Button layoutY="-1.0" mnemonicParsing="false" onAction="#switchManagementScene" text="Back" />
    </children>
 </AnchorPane>
