@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="766.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DatabaseLab.ShowListSupplierController">
+<AnchorPane prefHeight="766.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListSupplierController">
    <children>
       <Label layoutX="291.0" layoutY="66.0" text="List of Supplier">
          <font>
             <Font size="42.0" />
          </font>
       </Label>
-      <TableView fx:id="ListSupplierTable" editable="true" layoutX="68.0" layoutY="159.0" prefHeight="482.0" prefWidth="858.0">
+      <TableView fx:id="ListSupplierTable" editable="true" layoutX="66.0" layoutY="219.0" prefHeight="482.0" prefWidth="858.0">
         <columns>
           <TableColumn fx:id="SupplierIDColumn" prefWidth="90.0" text="ID" />
           <TableColumn fx:id="NameColumn" prefWidth="147.0" text="Name" />
@@ -22,5 +22,12 @@
             <TableColumn fx:id="EmailColumn" prefWidth="258.0" text="Email" />
         </columns>
       </TableView>
+      <TextField fx:id="filterField" layoutX="182.0" layoutY="173.0" prefHeight="31.0" prefWidth="359.0" />
+      <Label layoutX="66.0" layoutY="175.0" text="Search box">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutY="-1.0" mnemonicParsing="false" onAction="#switchManagementScene" text="Back" />
    </children>
 </AnchorPane>
