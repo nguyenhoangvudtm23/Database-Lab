@@ -1,7 +1,11 @@
 package Application;
 
+import java.time.LocalDate;
+
+import Classes.BuyOrders;
 import Classes.Customer;
 import Classes.Ingredient;
+import Classes.Orders;
 import Classes.Product;
 import Classes.Supplier;
 import javafx.collections.FXCollections;
@@ -13,10 +17,20 @@ public class Configuration {
 	);
 	
 	public static ObservableList<Ingredient> ListIngredient = FXCollections.observableArrayList(
+		
 	);
 	public static ObservableList<Supplier> ListSupplier = FXCollections.observableArrayList(
 			
     );
+	
+	public static ObservableList<Orders> ListOrder = FXCollections.observableArrayList(
+			new Orders(1, 120, LocalDate.of(2019, 2, 3), 'S', 20),
+			new Orders(2, 125, LocalDate.of(2019, 1, 13), 'P', 30)
+	);
+	public static ObservableList<BuyOrders> ListBuyOrder = FXCollections.observableArrayList(
+			new BuyOrders(1, 120, LocalDate.of(2019, 2, 3), 'S'),
+			new BuyOrders(2, 125, LocalDate.of(2019, 1, 13), 'P')
+	);
 	public static void addCustomer(Customer ...customers ) {
 		for(Customer customer: customers) {
 			ListCustomer.add(customer);

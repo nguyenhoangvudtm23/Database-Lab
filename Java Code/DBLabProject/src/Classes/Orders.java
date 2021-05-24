@@ -1,7 +1,7 @@
 package Classes;
 import java.time.LocalDate;
 public class Orders {
-	
+	private static int ID = 0;
 	private int OrderID;
 	private int CustomerID;
 	private double Totalcost;
@@ -57,9 +57,9 @@ public class Orders {
 		Discount = discount;
 	}
 
-	public Orders(int orderID, int customerID, double totalcost, LocalDate creationDate, char status, int discount) {
+	public Orders( int customerID, double totalcost, LocalDate creationDate, char status, int discount) {
 		super();
-		OrderID = orderID;
+		OrderID = ID++;
 		CustomerID = customerID;
 		Totalcost = totalcost;
 		CreationDate = creationDate;

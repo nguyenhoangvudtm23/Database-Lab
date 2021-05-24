@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="697.0" prefWidth="849.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListOrderController">
+   <children>
+      <Label layoutX="291.0" layoutY="66.0" text="List of Order">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Button layoutX="7.0" layoutY="658.0" mnemonicParsing="false" text="Back" />
+      <TableView fx:id="ListOrderTable" editable="true" layoutX="118.0" layoutY="228.0" prefHeight="430.0" prefWidth="636.0">
+        <columns>
+          <TableColumn fx:id="OrderIDColumn" prefWidth="100.0" text="OrderID" />
+          <TableColumn fx:id="CustomerIDColumn" prefWidth="152.0" text="CustomerID" />
+            <TableColumn fx:id="TotalCostColumn" prefWidth="107.0" text="TotalCost" />
+            <TableColumn fx:id="DateColumn" prefWidth="90.0" text="Date" />
+            <TableColumn fx:id="StatusColumn" prefWidth="69.0" text="Status" />
+            <TableColumn fx:id="DiscountColumn" prefWidth="116.0" text="Discount" />
+        </columns>
+      </TableView>
+      <Label layoutX="118.0" layoutY="191.0" text="Search box">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="filterField" layoutX="238.0" layoutY="189.0" prefHeight="31.0" prefWidth="268.0" />
+   </children>
+</AnchorPane>
