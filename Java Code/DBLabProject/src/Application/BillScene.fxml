@@ -52,5 +52,6 @@
          </children>
       </VBox>
       <Button layoutX="2.0" layoutY="-1.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Button layoutX="890.0" layoutY="753.0" mnemonicParsing="false" onAction="#ShowListOrderScene" text="Show List Order" />
    </children>
 </AnchorPane>

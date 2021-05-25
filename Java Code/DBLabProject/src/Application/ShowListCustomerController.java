@@ -6,8 +6,11 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Classes.Customer;
+import Classes.Supplier;
 import Execution.CustomerStatistics;
 import Scenario.Starter;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,6 +23,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Callback;
+import jfxtras.labs.scene.control.BigDecimalField;
 
 public class ShowListCustomerController extends MenuController implements Initializable {
 	@FXML 
@@ -34,8 +38,10 @@ public class ShowListCustomerController extends MenuController implements Initia
 	private TableColumn<Customer, String> PhoneNumberColumn;
 	@FXML
 	private TableColumn<Customer, String> EmailColumn;
+	@FXML
+	private TextField filterField;
 
-
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -112,7 +118,32 @@ public class ShowListCustomerController extends MenuController implements Initia
 		EmailColumn.setCellFactory(EmailFactory);
 
 
-		ListCustomerTable.setItems(Configuration.ListCustomer);
+//		ListCustomerTable.setItems(Configuration.ListCustomer);
+		FilteredList<Customer> filteredData = new FilteredList<>(Configuration.ListCustomer, b -> true);
+		filterField.textProperty().addListener((o, oldValue, newValue) -> {
+			filteredData.setPredicate(Customer -> {
+				if(newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				String lowerCaseFilter = newValue.toLowerCase();
+				if(Customer.getName().toLowerCase().indexOf(lowerCaseFilter) != - 1) {
+					return true;
+				}
+				else if(Customer.getAddress().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(Customer.getPhoneNumber().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(Customer.getEmail().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else return false;
+			});
+		});
+		SortedList<Customer> sortedData = new SortedList<>(filteredData);
+		sortedData.comparatorProperty().bind(ListCustomerTable.comparatorProperty());
+		ListCustomerTable.setItems(sortedData);
 
 	}
 	// Name cell 

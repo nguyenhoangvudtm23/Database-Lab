@@ -36,6 +36,10 @@ public class OrderStatistics extends Execution{
 	{
 		return statement.executeQuery(OrderQuery.displayAllItemsInOrderQuery(OrderID));
 	}
+	public static ResultSet selectAllOrders() throws SQLException
+	{
+		return statement.executeQuery(OrderQuery.selectAllOrdersQuery());
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

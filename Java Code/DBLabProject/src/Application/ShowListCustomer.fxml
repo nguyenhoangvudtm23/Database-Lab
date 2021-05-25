@@ -13,7 +13,7 @@
             <Font size="42.0" />
          </font>
       </Label>
-      <TableView fx:id="ListCustomerTable" editable="true" layoutX="68.0" layoutY="159.0" prefHeight="482.0" prefWidth="858.0">
+      <TableView fx:id="ListCustomerTable" editable="true" layoutX="66.0" layoutY="213.0" prefHeight="482.0" prefWidth="858.0">
         <columns>
           <TableColumn fx:id="CustomerIDColumn" prefWidth="90.0" text="ID" />
           <TableColumn fx:id="NameColumn" prefWidth="147.0" text="Name" />
@@ -23,5 +23,11 @@
         </columns>
       </TableView>
       <Button layoutY="-1.0" mnemonicParsing="false" onAction="#switchManagementScene" text="Back" />
+      <Button layoutX="66.0" layoutY="166.0" mnemonicParsing="false" text="Search box">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="filterField" layoutX="206.0" layoutY="166.0" prefHeight="39.0" prefWidth="340.0" />
    </children>
 </AnchorPane>

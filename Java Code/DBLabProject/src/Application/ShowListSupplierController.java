@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 import Classes.Supplier;
 import Execution.SupplierStatistics;
 import Scenario.Starter;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,7 +22,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Callback;
 
-public class ShowListSupplierController implements Initializable {
+public class ShowListSupplierController extends MenuController implements Initializable {
 	@FXML 
 	private TableView<Supplier> ListSupplierTable;
 	@FXML
@@ -33,6 +35,8 @@ public class ShowListSupplierController implements Initializable {
 	private TableColumn<Supplier, String> PhoneNumberColumn;
 	@FXML
 	private TableColumn<Supplier, String> EmailColumn;
+	@FXML
+	private TextField filterField;
 	
 	
 	@Override
@@ -85,7 +89,7 @@ public class ShowListSupplierController implements Initializable {
 		AddressColumn.setCellFactory(AddressFactory);
 		
 		//PhoneNumber 
-		PhoneNumberColumn.setCellValueFactory(new PropertyValueFactory<>("PhoneNumber"));
+		PhoneNumberColumn.setCellValueFactory(new PropertyValueFactory<>("Phone_Number"));
 		Callback<TableColumn<Supplier, String>, TableCell<Supplier, String>> PhoneNumberFactory = new Callback<TableColumn<Supplier,String>, TableCell<Supplier,String>>() {
 
 			@Override
@@ -111,7 +115,35 @@ public class ShowListSupplierController implements Initializable {
 		EmailColumn.setCellFactory(EmailFactory);
 		
 		
-		ListSupplierTable.setItems(Configuration.ListSupplier);
+//		ListSupplierTable.setItems(Configuration.ListSupplier);
+		
+		FilteredList<Supplier> filteredData = new FilteredList<>(Configuration.ListSupplier, b -> true);
+		filterField.textProperty().addListener((o, oldValue, newValue) -> {
+			filteredData.setPredicate(supplier -> {
+				if(newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				String lowerCaseFilter = newValue.toLowerCase();
+				if(supplier.getName().toLowerCase().indexOf(lowerCaseFilter) != - 1) {
+					return true;
+				}
+				else if(supplier.getAddress().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(supplier.getPhone_Number().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(supplier.getEmail().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else return false;
+			});
+		});
+		
+		SortedList<Supplier> sortedData = new SortedList<>(filteredData);
+		sortedData.comparatorProperty().bind(ListSupplierTable.comparatorProperty());
+		ListSupplierTable.setItems(sortedData);
+		
 		
 	}
 	// Name cell 

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="390.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ManagementMenuController">
+<AnchorPane prefHeight="390.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ManagementMenuController">
    <children>
       <Button mnemonicParsing="false" onAction="#back" text="Back" />
       <VBox layoutY="48.0" prefHeight="342.0" prefWidth="591.0">
@@ -15,6 +13,8 @@
             <Button fx:id="ingredientButton" mnemonicParsing="false" onAction="#switchIngredientScene" prefHeight="100.0" prefWidth="600.0" text="Kho nguyên liệu" />
             <Button fx:id="customerButton" mnemonicParsing="false" onAction="#switchCustomerScene" prefHeight="100.0" prefWidth="600.0" text="Khách hàng" />
             <Button fx:id="supplierButton" mnemonicParsing="false" onAction="#switchSupplierScene" prefHeight="100.0" prefWidth="600.0" text="Đối tác" />
+            <Button fx:id="orderButton" mnemonicParsing="false" onAction="#switchOrderScene" prefHeight="100.0" prefWidth="600.0" text="Hoá đơn bán hàng" />
+            <Button fx:id="buyOrderButton" mnemonicParsing="false" onAction="#switchBuyOrderScene" prefHeight="100.0" prefWidth="600.0" text="Hoá đơn nhập hàng" />
          </children>
       </VBox>
    </children>
