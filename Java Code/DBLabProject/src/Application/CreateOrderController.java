@@ -13,6 +13,7 @@ import Classes.Customer;
 import Classes.Ingredient;
 import Classes.Product;
 import Execution.CustomerStatistics;
+import Execution.ProductStatistics;
 import Scenario.Starter;
 import javafx.util.Callback;
 import jfxtras.labs.scene.control.BigDecimalField;
@@ -73,7 +74,7 @@ public class CreateOrderController extends MenuController implements Initializab
 
 			if (empty) {
 				setText(null);
-				setGraphic(null);
+				//setGraphic(null);
 			} else {
 				setGraphic(field);
 				setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
@@ -126,6 +127,18 @@ public class CreateOrderController extends MenuController implements Initializab
 						listCus.getString(1),
 						listCus.getString(4));
 				Configuration.ListCustomer.add(customer);
+			}
+			ResultSet listProd = ProductStatistics.selectAll();
+			while (listProd.next())
+			{
+				//amount_left is 2nd column, name & description are 1st column, price is 3rd column
+				Product product = new Product(
+						listProd.getInt(2), 
+						listProd.getString(1), 
+						listProd.getDouble(3),
+						listProd.getString(1));
+				product.setProductID(String.valueOf(listProd.getInt(4)));
+				Configuration.ListProduct.add(product);
 			}
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block

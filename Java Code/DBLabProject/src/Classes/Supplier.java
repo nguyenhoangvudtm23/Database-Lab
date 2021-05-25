@@ -37,7 +37,10 @@ public class Supplier {
 	public void setEmail(String email) {
 		Email = email;
 	}
-	
+	public Supplier()
+	{
+		
+	}
 	
 	public Supplier(String address, String phone_Number, String name, String email) {
 		super();

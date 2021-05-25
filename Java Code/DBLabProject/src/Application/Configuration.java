@@ -23,13 +23,9 @@ public class Configuration {
 			
     );
 	
-	public static ObservableList<Orders> ListOrder = FXCollections.observableArrayList(
-			new Orders(1, 120, LocalDate.of(2019, 2, 3), 'S', 20),
-			new Orders(2, 125, LocalDate.of(2019, 1, 13), 'P', 30)
-	);
+	public static ObservableList<Orders> ListOrder = FXCollections.observableArrayList();
 	public static ObservableList<BuyOrders> ListBuyOrder = FXCollections.observableArrayList(
-			new BuyOrders(1, 120, LocalDate.of(2019, 2, 3), 'S'),
-			new BuyOrders(2, 125, LocalDate.of(2019, 1, 13), 'P')
+		
 	);
 	public static void addCustomer(Customer ...customers ) {
 		for(Customer customer: customers) {

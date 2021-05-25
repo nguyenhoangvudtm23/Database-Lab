@@ -3,10 +3,13 @@ package Application;
 import java.awt.GraphicsConfigTemplate;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import Classes.BuyOrders;
 import Classes.Product;
+import Execution.BuyOrderStatistics;
 import Execution.ProductStatistics;
 import Scenario.Starter;
 import javafx.collections.transformation.FilteredList;
@@ -58,6 +61,25 @@ public class ShowListBuyOrderController extends MenuController implements Initia
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		try {
+			Starter.starting();
+			Configuration.ListBuyOrder.clear();
+			ResultSet list = BuyOrderStatistics.selectAllBuyOrders();
+			while (list.next())
+			{
+				BuyOrders buyorder = new BuyOrders();
+				buyorder.setBuyOrderId(list.getInt(1));
+				buyorder.setStatus(list.getString(5));
+				buyorder.setSupplierID(list.getInt(2));
+				buyorder.setCreationDate(LocalDate.parse(list.getString(4)));
+				buyorder.setTotalcost(list.getDouble(3));
+				Configuration.ListBuyOrder.add(buyorder);
+			}
+		}
+		catch(Exception e)
+		{
+			
+		}
 		// TODO Auto-generated method stub
 		SupplierIDColumn.setCellValueFactory(new PropertyValueFactory<>("SupplierID"));
         
@@ -106,7 +128,7 @@ public class ShowListBuyOrderController extends MenuController implements Initia
          
 	}
 	public void BackCreateProductScene(ActionEvent e) throws IOException {
-		root = FXMLLoader.load(getClass().getResource(""));
+		root = FXMLLoader.load(getClass().getResource("CreateIngredientScene.fxml"));
 		stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);

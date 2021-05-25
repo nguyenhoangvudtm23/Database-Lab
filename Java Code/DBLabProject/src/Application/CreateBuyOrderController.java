@@ -3,6 +3,7 @@ package Application;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
@@ -10,6 +11,9 @@ import javax.swing.JOptionPane;
 import Classes.Ingredient;
 import Classes.Product;
 import Classes.Supplier;
+import Execution.IngredientStatistics;
+import Execution.SupplierStatistics;
+import Scenario.Starter;
 //import Learnjavafx.JustDoIt.Person;
 import javafx.util.Callback;
 import jfxtras.labs.scene.control.BigDecimalField;
@@ -111,7 +115,37 @@ public class CreateBuyOrderController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		try {
+			Starter.starting();
+			Configuration.ListSupplier.clear();
+			ResultSet listSup = SupplierStatistics.getAllSuppliers();
+			while (listSup.next())
+			{
+				Supplier supplier = new Supplier();
+				supplier.setSupplierID(String.valueOf(listSup.getInt(1)));
+				supplier.setName(listSup.getString(2));
+				supplier.setAddress(listSup.getString(3));
+				supplier.setEmail(listSup.getString(5));
+				supplier.setPhone_Number(listSup.getString(4));
+				Configuration.ListSupplier.add(supplier);
+			}
+			Configuration.ListIngredient.clear();
+			ResultSet listIngre = IngredientStatistics.getAllIngredient();
+			while (listIngre.next())
+			{
+				Ingredient ingredient = new Ingredient(
+						listIngre.getString(1),
+						listIngre.getDouble(4),
+						listIngre.getString(2),
+						listIngre.getInt(3)
+						);
+				Configuration.ListIngredient.add(ingredient);
+			}
+		}
+		catch(Exception e)
+		{
+			
+		}
         idColumn.setCellValueFactory(new PropertyValueFactory<>("IngredientID"));
         AmountLeftColumn.setCellValueFactory(new PropertyValueFactory<>("AmountLeft"));
         NameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));

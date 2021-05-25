@@ -64,6 +64,22 @@ public class ManagementMenuController extends MenuController implements Initiali
 		stage.setScene(scene);
 		stage.show();
 	}
+	public void switchOrderScene(ActionEvent event) throws IOException
+	{
+		root = FXMLLoader.load(getClass().getResource("ShowListOrder.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchBuyOrderScene(ActionEvent event) throws IOException
+	{
+		root = FXMLLoader.load(getClass().getResource("ShowListBuyOrder.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub

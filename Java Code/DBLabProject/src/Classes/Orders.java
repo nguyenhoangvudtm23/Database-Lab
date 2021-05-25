@@ -6,8 +6,8 @@ public class Orders {
 	private int CustomerID;
 	private double Totalcost;
 	private LocalDate CreationDate;
-	private char Status;
-	private int Discount;
+	private String Status;
+	private double Discount;
 	
 	public int getOrderID() {
 		return OrderID;
@@ -41,15 +41,15 @@ public class Orders {
 		CreationDate = creationDate;
 	}
 
-	public char getStatus() {
+	public String getStatus() {
 		return Status;
 	}
 
-	public void setStatus(char status) {
+	public void setStatus(String status) {
 		Status = status;
 	}
 
-	public int getDiscount() {
+	public double getDiscount() {
 		return Discount;
 	}
 
@@ -57,7 +57,7 @@ public class Orders {
 		Discount = discount;
 	}
 
-	public Orders( int customerID, double totalcost, LocalDate creationDate, char status, int discount) {
+	public Orders( int customerID, double totalcost, LocalDate creationDate, String status, double discount) {
 		super();
 		OrderID = ID++;
 		CustomerID = customerID;

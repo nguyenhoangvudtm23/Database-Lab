@@ -3,10 +3,13 @@ package Application;
 import java.awt.GraphicsConfigTemplate;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import Classes.Orders;
 import Classes.Product;
+import Execution.OrderStatistics;
 import Execution.ProductStatistics;
 import Scenario.Starter;
 import javafx.collections.transformation.FilteredList;
@@ -60,6 +63,25 @@ public class ShowListOrderController extends MenuController implements Initializ
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		try {
+			Starter.starting();
+			Configuration.ListOrder.clear();
+			ResultSet listOr = OrderStatistics.selectAllOrders();
+			while (listOr.next())
+			{
+				Orders order = new Orders(listOr.getInt(2), listOr.getInt(3),
+						LocalDate.parse(listOr.getString(4)), listOr.getString(5),
+						listOr.getDouble(5)
+						);
+				order.setOrderID(listOr.getInt(1));
+				Configuration.ListOrder.add(order);
+			}
+			
+		}
+		catch (Exception e)
+		{
+			
+		}
 		// TODO Auto-generated method stub
 		CustomerIDColumn.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
         
@@ -113,7 +135,7 @@ public class ShowListOrderController extends MenuController implements Initializ
          
 	}
 	public void BackCreateProductScene(ActionEvent e) throws IOException {
-		root = FXMLLoader.load(getClass().getResource(""));
+		root = FXMLLoader.load(getClass().getResource("CreateProductScene.fxml"));
 		stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);

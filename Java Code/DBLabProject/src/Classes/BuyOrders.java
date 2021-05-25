@@ -6,7 +6,7 @@ public class BuyOrders {
 	private int SupplierID;
 	private double Totalcost;
 	private LocalDate CreationDate;
-	private char Status;
+	private String Status;
 	
 	public int getBuyOrderID() {
 		return BuyOrderID;
@@ -40,15 +40,15 @@ public class BuyOrders {
 		CreationDate = creationDate;
 	}
 
-	public char getStatus() {
+	public String getStatus() {
 		return Status;
 	}
 
-	public void setStatus(char status) {
+	public void setStatus(String status) {
 		Status = status;
 	}
 	
-	public BuyOrders(int supplierID, double totalcost, LocalDate creationDate, char status) {
+	public BuyOrders(int supplierID, double totalcost, LocalDate creationDate, String status) {
 		super();
 		BuyOrderID = ID++;
 		SupplierID = supplierID;
