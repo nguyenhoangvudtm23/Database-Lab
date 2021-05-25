@@ -1,31 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import java.lang.*?>
-<?import javafx.scene.chart.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.LineChartController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.LineChartController">
    <children>
-      <VBox fx:id="vBox" layoutX="7.0">
-         <children>
-            <LineChart fx:id="lineChart" layoutX="-15.0" prefHeight="369.0" prefWidth="500.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </LineChart>
-            <Button layoutX="511.0" layoutY="334.0" mnemonicParsing="false" onAction="#createALineChart" prefHeight="31.0" prefWidth="287.0" text="Tạo biểu đồ">
-               <VBox.margin>
-                  <Insets left="150.0" right="150.0" />
-               </VBox.margin>
-            </Button>
-         </children>
-      </VBox>
-      <Button mnemonicParsing="false" onAction="#back" text="Back" />
+      <VBox fx:id="vBox" layoutX="7.0" />
+      <LineChart fx:id="lineChart" layoutX="10.0" layoutY="16.0" prefHeight="369.0" prefWidth="566.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis prefHeight="328.0" prefWidth="76.0" side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <JFXButton id="button1" layoutX="191.0" layoutY="370.0" mnemonicParsing="false" onAction="#createALineChart" prefHeight="31.0" prefWidth="287.0" stylesheets="@LineChart.css" text="Tạo biểu đồ" />
+      <JFXButton id="button" layoutY="1.0" prefHeight="26.0" prefWidth="88.0" stylesheets="@LineChart.css" text="Back" />
    </children>
 </AnchorPane>

@@ -34,7 +34,7 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXButton id="button1" onAction="#chooseWeekRevenue" stylesheets="@RevenueCostInput.css" text="Tạo" />
+                  <JFXButton id="button1" onAction="#chooseWeekRevenue" stylesheets="@RevenueCostInput.css" text="Tạo"/>
                </children>
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
