@@ -12,8 +12,7 @@
     -fx-font-size: 18px;
 }
 #button{
--jfx-disable-visual-focus: true;
--jfx-button-type: FLAT;
+    -jfx-button-type: FLAT;
     -fx-background-color: 
         #3c7fb1,
         linear-gradient(#fafdfe, #e8f5fc),
