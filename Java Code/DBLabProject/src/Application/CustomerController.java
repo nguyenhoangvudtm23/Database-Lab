@@ -59,6 +59,7 @@ public class CustomerController extends MenuController implements Initializable{
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			showAlert("DB Error", "Can't connect to the database");
 			e.printStackTrace();
 		}
 	}

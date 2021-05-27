@@ -12,7 +12,7 @@
     -fx-font-size: 12px;
 }
 #button{
--jfx-button-type: FLAT;
+    -jfx-button-type: FLAT;
     -fx-background-color: 
         #3c7fb1,
         linear-gradient(#fafdfe, #e8f5fc),

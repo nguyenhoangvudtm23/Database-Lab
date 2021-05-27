@@ -1,22 +1,13 @@
-package Application;
+package Scenario;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
-import Classes.Customer;
-import Classes.Ingredient;
-import Classes.Product;
-import Execution.CustomerStatistics;
-import Execution.ProductStatistics;
-import Scenario.Starter;
+//import Learnjavafx.JustDoIt.Person;
 import javafx.util.Callback;
-import jfxtras.labs.scene.control.BigDecimalField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,7 +20,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -53,33 +43,80 @@ import java.util.*;
 
 
 
-public class CreateOrderController extends MenuController implements Initializable {
+public class CreateOrderController implements Initializable {
 	static class XCell extends TableCell<Product, String>{
-		public BigDecimalField field = new BigDecimalField();
+		HBox hbox = new HBox();
+		Pane pane = new Pane();
+		String lastItem;
+		Button addbutton = new Button("+");
+        TextField quantity = new TextField("0");
+        Button subbutton = new Button("-");
         public int quant = 0;
 		public XCell() {
             super();
-            field.setText("0");
-            field.setMinValue(BigDecimal.ZERO);
-            field.numberProperty().addListener((o, oldvalue, newvalue) -> {
-            	quant = newvalue.intValue();
-            	Product temp = getTableView().getItems().get(getIndex());
-             	temp.setCur_quantity(quant);
-//             	System.out.println(temp.getCur_quantity() + " " + temp.getIngredientID());
+            quantity.setAlignment(Pos.CENTER);
+            
+            addbutton.setMinWidth(USE_COMPUTED_SIZE);
+            subbutton.setMinWidth(USE_COMPUTED_SIZE);
+            quantity.setMaxWidth(100);
+            hbox.getChildren().addAll(pane, addbutton, quantity, subbutton);
+            hbox.setAlignment(Pos.CENTER);
+            HBox.setHgrow(pane, Priority.ALWAYS);
+//            quantity.setOnAction(new EventHandler<ActionEvent>() {
+//				@Override
+//				public void handle(ActionEvent event) {
+//					// TODO Auto-generated method stub
+//					quant = Integer.valueOf(quantity.getText());
+//				}
+//            	
+//            });
+            quantity.textProperty().addListener((v, oldValue, newValue) -> 
+            	{try{
+            		quant = Integer.valueOf(newValue.replace("\n", "").trim());
+            		Product temp = getTableView().getItems().get(getIndex());
+                 	temp.setCur_quantity(quant);
+            		}
+            	catch(Exception e) {}
+            	}
+            );
+            addbutton.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    quant = quant + 1;
+                    quantity.setText(Integer.toString(quant));
+                    Product temp = getTableView().getItems().get(getIndex());
+                	temp.setCur_quantity(quant);
+                }
+            });
+            subbutton.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					// TODO Auto-generated method stub
+					if(quant == 0) {
+						JOptionPane.showMessageDialog(null, "Cant less than 0");
+					}
+					else {
+						quant = quant - 1;
+						quantity.setText(Integer.toString(quant));
+						Product temp = getTableView().getItems().get(getIndex());
+		            	temp.setCur_quantity(quant);
+					}
+				}
+            	
             });
         }
 		@Override
-		public void updateItem(String item, boolean empty) {
-			super.updateItem(item, empty);
-
-			if (empty) {
-				setText(null);
-				//setGraphic(null);
-			} else {
-				setGraphic(field);
-				setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-			}
-		}
+        protected void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+            setText(null);  // No text in label of super class
+            if (empty) {
+                lastItem = null;
+                setGraphic(null);
+            } else {
+                lastItem = item;
+                setGraphic(hbox);
+            }
+        }
 		
 	}
 	private Stage stage;
@@ -115,40 +152,6 @@ public class CreateOrderController extends MenuController implements Initializab
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		Configuration.ListCustomer.clear();
-		try {
-			Starter.starting();
-			ResultSet listCus = CustomerStatistics.getAllCustomer();
-			while (listCus.next())
-			{
-				Customer customer = new Customer(
-						listCus.getString(3),
-						listCus.getString(2),
-						listCus.getString(1),
-						listCus.getString(4));
-				Configuration.ListCustomer.add(customer);
-			}
-			ResultSet listProd = ProductStatistics.selectAll();
-			while (listProd.next())
-			{
-				//amount_left is 2nd column, name & description are 1st column, price is 3rd column
-				Product product = new Product(
-						listProd.getInt(2), 
-						listProd.getString(1), 
-						listProd.getDouble(3),
-						listProd.getString(1));
-				product.setProductID(String.valueOf(listProd.getInt(4)));
-				Configuration.ListProduct.add(product);
-			}
-		} catch (ClassNotFoundException e1) {
-			showAlert("DB Error", "Can't connect to the database");
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (SQLException e1) {
-			showAlert("DB Error", "Can't connect to the database");
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		
         idColumn.setCellValueFactory(new PropertyValueFactory<>("ProductID"));
         AmountLeftColumn.setCellValueFactory(new PropertyValueFactory<>("AmountLeft"));
@@ -167,7 +170,7 @@ public class CreateOrderController extends MenuController implements Initializab
         };
         ActionColumn.setCellFactory(cellFactory);
  
-        ListProductTable.setItems(Configuration.ListProduct);
+        ListProductTable.setItems(Configuration.listProduct);
         PhoneNumberText.textProperty().addListener((v, oldValue, newValue) -> {
         	try{
         		PhoneNumber = newValue.replace("\n", "").trim();
@@ -192,9 +195,6 @@ public class CreateOrderController extends MenuController implements Initializab
         	}
         	catch(Exception e) {}
         });
-        
-        
-       
 	}
 	public void SwitchMainMenu(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
@@ -214,14 +214,6 @@ public class CreateOrderController extends MenuController implements Initializab
 		stage1.setTitle("Order created!!!");
 		stage1.show();
 		
-	}
-	public void ShowListOrderScene(ActionEvent event) throws IOException{
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowListOrder.fxml"));
-		Parent root1 = loader.load();
-		
-		Stage stage1 = new Stage();
-		stage1.setScene(new Scene(root1));
-		stage1.show();
 	}
 	public void GetCustomerInformation(ActionEvent e) {
 		if(Configuration.CheckPhone(PhoneNumber)) {
@@ -275,16 +267,7 @@ public class CreateOrderController extends MenuController implements Initializab
 		else {
 			System.out.println("There is no phone");
 			Customer cus = new Customer(Address, PhoneNumber, Name, Email);
-			
-			
-			try {
-				CustomerStatistics.insertCustomer(Address, PhoneNumber, Name, Email);
-				Configuration.ListCustomer.add(cus);
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				showAlert("DB Error", "Can't connect to the database");
-				e1.printStackTrace();
-			}
+			Configuration.ListCustomer.add(cus);
 		}
 	}
 }	

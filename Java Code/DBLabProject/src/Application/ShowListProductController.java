@@ -64,7 +64,9 @@ public class ShowListProductController extends MenuController implements Initial
 			Starter.starting();
 		}
 		catch(Exception e)
-		{}
+		{
+			showAlert("DB Error", "Can't connect to the database");
+		}
         
         // AmountLeft Column
         AmountLeftColumn.setCellValueFactory(new PropertyValueFactory<>("AmountLeft"));
