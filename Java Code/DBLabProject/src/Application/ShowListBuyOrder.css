@@ -3,27 +3,26 @@
     -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
 }
 #label{
-    -fx-background-color:  #bdc4c9;
+    -fx-background-color: #c2e9fb;
     -fx-background-insets: 0,1,2;
     -fx-background-radius: 3,2,1;
     -fx-padding: 3 30 3 30;
     -fx-text-fill: black;
 }
-#button{
--jfx-button-type: FLAT;
-    -fx-background-color: 
-        #3c7fb1,
-        linear-gradient(#fafdfe, #e8f5fc),
-        linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
-    -fx-background-insets: 0,1,2;
-    -fx-background-radius: 3,2,1;
-    -fx-padding: 3 30 3 30;
-    -fx-text-fill: black;
-    -fx-font-size: 14px;
+#table-view .table-cell {
+    -fx-alignment: CENTER-RIGHT;
+    -fx-skin: "com.Sun.javafx.scene.control.skin.TableCellSkin";
+    -fx-padding: 0.166667em; 
+    -fx-background-color: transparent;
+    -fx-border-color: transparent -fx-table-cell-border-color transparent transparent;
+    -fx-border-width: 0.083333em; 
+    -fx-cell-size: 2.0em; 
+    -fx-text-fill: -fx-text-inner-color;
 }
 #list {
-   -fx-text-fill: #ADFF2F;
+   -fx-text-fill:#FF0000;
    -fx-font-size: 42px;
+   -fx-font-family: "Arial Black";
    -fx-fill: #818181;
    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
 }
