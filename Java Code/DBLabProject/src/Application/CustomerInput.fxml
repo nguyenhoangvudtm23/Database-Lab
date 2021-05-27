@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="pane" prefHeight="468.0" prefWidth="600.0" stylesheets="@Customerinput.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CustomerController">
+<AnchorPane id="pane" prefHeight="468.0" prefWidth="600.0" stylesheets="@Customerinput.css" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CustomerController">
    <children>
       <VBox id="vbox" layoutX="200.0" layoutY="24.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #88c6a3;" stylesheets="@Customerinput.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton id="button" onAction="#back" prefHeight="26.0" prefWidth="96.0" stylesheets="@Customerinput.css" text="Back" />
+            <JFXButton id="button" onAction="#switchStatisticsScene" prefHeight="26.0" prefWidth="96.0" stylesheets="@Customerinput.css" text="Back" />
             <HBox id="hbox" prefHeight="42.0" prefWidth="600.0" stylesheets="@Customerinput.css">
                <children>
                   <Label id="label" prefHeight="21.0" prefWidth="30.0" stylesheets="@Customerinput.css" text="TOP">

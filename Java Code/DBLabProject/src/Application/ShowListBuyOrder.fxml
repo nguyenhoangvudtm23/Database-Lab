@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="697.0" prefWidth="849.0" style="-fx-background-color: #c2e9fb;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListBuyOrderController">
+<AnchorPane prefHeight="697.0" prefWidth="849.0" style="-fx-background-color: #c2e9fb;" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListBuyOrderController">
    <children>
       <JFXButton id="button" layoutX="7.0" layoutY="658.0" mnemonicParsing="false" onAction="#BackCreateProductScene" stylesheets="@ShowListBuyOrder.css" text="Back" />
       <Label id="list" layoutX="291.0" layoutY="66.0" stylesheets="@ShowListBuyOrder.css" text="List of BuyOrder">
@@ -16,7 +16,7 @@
             <Font size="42.0" />
          </font>
       </Label>
-      <TableView id="table-view" fx:id="ListBuyOrderTable" editable="true" layoutX="112.0" layoutY="228.0" prefHeight="424.0" prefWidth="626.0" stylesheets="@ShowListBuyOrder.css">
+      <TableView fx:id="ListBuyOrderTable" editable="true" layoutX="112.0" layoutY="228.0" prefHeight="424.0" prefWidth="626.0">
         <columns>
           <TableColumn fx:id="BuyOrderIDColumn" prefWidth="135.0" text="BuyOrderID" />
           <TableColumn fx:id="SupplierIDColumn" prefWidth="163.0" text="SupplierID" />

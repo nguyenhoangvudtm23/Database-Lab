@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.BarChart?>
@@ -17,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="499.0" prefWidth="609.0" style="-fx-background-color: rgb(136, 198, 163);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ProductIngredientController">
+<AnchorPane prefHeight="499.0" prefWidth="609.0" style="-fx-background-color: rgb(136, 198, 163);" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ProductIngredientController">
    <children>
       <VBox id="vbox" layoutX="200.0" layoutY="24.0" prefHeight="361.0" prefWidth="600.0" style="-fx-background-color: rgb(136, 198, 163);" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -91,7 +85,7 @@
             </BarChart>
          </children>
       </VBox>
-      <JFXButton id="button" layoutX="261.0" layoutY="472.0" onAction="#back" stylesheets="@ProductIngredientInput.css" text="Quay lại" />
+      <JFXButton id="button" layoutX="261.0" layoutY="472.0" onAction="#switchStatisticsScene" stylesheets="@ProductIngredientInput.css" text="Quay lại" />
 
    </children>
 </AnchorPane>

@@ -19,7 +19,7 @@ public abstract class MenuController {
 	{
 		Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
 		Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		Scene scene = new Scene(root);
+		Scene scene = new Scene(root); 
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -44,7 +44,7 @@ public abstract class MenuController {
 		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
-		stage.show();
+		stage.show(); 
 	}
 	public void switchManagementScene(ActionEvent event) throws IOException
 	{
