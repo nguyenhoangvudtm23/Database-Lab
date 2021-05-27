@@ -61,6 +61,13 @@ public abstract class MenuController {
 		alert.setContentText("Nhập vào một số nguyên");
 		alert.showAndWait();
 	}
+	public static void showAlert(String header, String message)
+	{
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setHeaderText(header);
+		alert.setContentText(message);
+		alert.showAndWait();
+	}
 	public void toChartChooserScene(ActionEvent event) throws IOException
 	{
 		Parent root = FXMLLoader.load(getClass().getResource("ChartChooser.fxml"));

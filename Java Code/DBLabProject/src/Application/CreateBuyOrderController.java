@@ -53,7 +53,7 @@ import java.util.*;
 
 
 
-public class CreateBuyOrderController implements Initializable {
+public class CreateBuyOrderController extends MenuController implements Initializable {
 	static class XCell extends TableCell<Ingredient, String>{
 		public BigDecimalField field = new BigDecimalField();
         public int quant = 0;
@@ -144,7 +144,7 @@ public class CreateBuyOrderController implements Initializable {
 		}
 		catch(Exception e)
 		{
-			
+			showAlert("DB Error", "Can't connect to the database");
 		}
         idColumn.setCellValueFactory(new PropertyValueFactory<>("IngredientID"));
         AmountLeftColumn.setCellValueFactory(new PropertyValueFactory<>("AmountLeft"));

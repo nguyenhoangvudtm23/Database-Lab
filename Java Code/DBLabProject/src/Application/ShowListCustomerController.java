@@ -61,6 +61,7 @@ public class ShowListCustomerController extends MenuController implements Initia
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			showAlert("DB Error", "Can't connect to the database");
 		}
 
 		CustomerIDColumn.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));

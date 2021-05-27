@@ -78,7 +78,7 @@ public class ShowListBuyOrderController extends MenuController implements Initia
 		}
 		catch(Exception e)
 		{
-			
+			showAlert("DB Error", "Can't connect to the database");
 		}
 		// TODO Auto-generated method stub
 		SupplierIDColumn.setCellValueFactory(new PropertyValueFactory<>("SupplierID"));
