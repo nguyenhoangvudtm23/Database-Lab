@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1222.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DatabaseLab.CreateBuyOrderController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1222.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateBuyOrderController">
    <children>
       <Label alignment="CENTER" layoutX="2.0" layoutY="26.0" prefHeight="47.0" prefWidth="1222.0" text="Create Buy Order Menu">
          <font>
@@ -32,7 +32,7 @@
             </TableView>
          </children>
       </VBox>
-      <Button fx:id="showOrderButton" layoutX="1041.0" layoutY="753.0" mnemonicParsing="false" onAction="#ShowOrderScene" text="Show Order" />
+      <Button fx:id="showOrderButton" layoutX="1041.0" layoutY="753.0" mnemonicParsing="false" onAction="#ShowBuyOrderScene" text="Show Buy Order" />
       <VBox layoutX="20.0" layoutY="150.0" prefHeight="458.0" prefWidth="348.0" spacing="20.0">
          <children>
             <Label alignment="CENTER" prefHeight="36.0" prefWidth="350.0" text="Supplier Information">
@@ -51,5 +51,6 @@
             <Button fx:id="SubmitButton" mnemonicParsing="false" onAction="#GetSupplierInformation" text="Submit" />
          </children>
       </VBox>
+      <Button layoutX="840.0" layoutY="753.0" mnemonicParsing="false" onAction="#ShowListBuyOrderScene" text="Show List BuyOrder" />
    </children>
 </AnchorPane>

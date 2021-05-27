@@ -23,6 +23,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Callback;
+import jfxtras.labs.scene.control.BigDecimalField;
 
 public class ShowListCustomerController extends MenuController implements Initializable {
 	@FXML 
@@ -40,7 +41,7 @@ public class ShowListCustomerController extends MenuController implements Initia
 	@FXML
 	private TextField filterField;
 
-
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
