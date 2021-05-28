@@ -11,6 +11,12 @@
     -fx-text-fill: white;
     -fx-font-size: 12px;
 }
+.level-legend {
+    -fx-padding: 10; 
+    -fx-border-width: 2; 
+    -fx-background-color: #00ff6aee; 
+    -fx-border-color: derive(rgba(211, 211, 211, 0.7), 10%);
+  }
 .default-color0.chart-pie { -fx-pie-color: #f9d900; }
 .default-color1.chart-pie { -fx-pie-color: #a9e200; }
 .default-color2.chart-pie { -fx-pie-color: #22bad9; }

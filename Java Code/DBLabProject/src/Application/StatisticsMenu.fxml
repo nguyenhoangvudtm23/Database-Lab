@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="435.0" prefWidth="600.0" style="-fx-background-color: #a3362e;" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.StatisticsMenuController">
+<AnchorPane prefHeight="435.0" prefWidth="600.0" style="-fx-background-color: #a3362e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.StatisticsMenuController">
    <children>
       <VBox alignment="TOP_LEFT" layoutY="38.0" prefHeight="397.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="99.0" prefWidth="630.0">
                <children>
-                  <JFXButton id="button" onAction="#back" prefHeight="26.0" prefWidth="89.0" stylesheets="@StatisticsMenu.css" text="Back" />
+                  <JFXButton id="button" ellipsisString="" onAction="#back" prefHeight="30.0" prefWidth="67.0" stylesheets="@StatisticsMenu.css" />
                </children>
             </HBox>
             <HBox prefHeight="100.0">
@@ -21,17 +21,17 @@
             </HBox>
             <HBox prefHeight="100.0">
                <children>
-                  <JFXButton id="button1" onAction="#chooseCustomerScene" prefHeight="99.0" prefWidth="604.0" stylesheets="@StatisticsMenu.css" text="Khách hàng" />
+                  <JFXButton id="button2" onAction="#chooseCustomerScene" prefHeight="99.0" prefWidth="604.0" stylesheets="@StatisticsMenu.css" text="Khách hàng" />
                </children>
             </HBox>
             <HBox prefHeight="100.0">
                <children>
-                  <JFXButton id="button1" onAction="#chooseSupplierScene" prefHeight="119.0" prefWidth="600.0" stylesheets="@StatisticsMenu.css" text="Đối tác" />
+                  <JFXButton id="button3" onAction="#chooseSupplierScene" prefHeight="119.0" prefWidth="600.0" stylesheets="@StatisticsMenu.css" text="Đối tác" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <JFXButton id="button1" onAction="#chooseProductAndIngredientScene" prefHeight="111.0" prefWidth="600.0" stylesheets="@StatisticsMenu.css" text="Sản phẩm - Nguyên liệu" />
+                  <JFXButton id="button4" onAction="#chooseProductAndIngredientScene" prefHeight="111.0" prefWidth="600.0" stylesheets="@StatisticsMenu.css" text="Sản phẩm - Nguyên liệu" />
                </children>
             </HBox>
          </children>

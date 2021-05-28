@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="697.0" prefWidth="849.0" style="-fx-background-color: #c2e9fb;" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListBuyOrderController">
+<AnchorPane prefHeight="697.0" prefWidth="849.0" style="-fx-background-color: #c2e9fb;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListBuyOrderController">
    <children>
-      <JFXButton id="button" layoutX="7.0" layoutY="658.0" mnemonicParsing="false" onAction="#BackCreateProductScene" stylesheets="@ShowListBuyOrder.css" text="Back" />
+      <JFXButton id="button" ellipsisString="" layoutX="7.0" layoutY="645.0" mnemonicParsing="false" onAction="#BackCreateProductScene" prefHeight="44.0" prefWidth="70.0" stylesheets="@ShowListBuyOrder.css" />
       <Label id="list" layoutX="291.0" layoutY="66.0" stylesheets="@ShowListBuyOrder.css" text="List of BuyOrder">
          <font>
             <Font size="42.0" />

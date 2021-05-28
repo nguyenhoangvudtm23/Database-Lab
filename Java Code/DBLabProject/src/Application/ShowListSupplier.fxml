@@ -30,6 +30,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton id="button" layoutY="-1.0" mnemonicParsing="false" onAction="#switchManagementScene" stylesheets="@ShowListSupplier.css" text="Back" />
+      <JFXButton id="button" ellipsisString="" layoutY="-1.0" mnemonicParsing="false" onAction="#switchManagementScene" prefHeight="44.0" prefWidth="69.0" stylesheets="@ShowListSupplier.css" />
    </children>
 </AnchorPane>
