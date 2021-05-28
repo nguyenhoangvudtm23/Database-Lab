@@ -9,9 +9,9 @@
       <VBox layoutX="40.0" layoutY="125.0" prefHeight="196.0" prefWidth="591.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <JFXButton id="button" fx:id="createOrderButton" mnemonicParsing="false" onAction="#switchOrderScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@MainMenu.css" text="Bán hàng" />
-            <JFXButton id="button" fx:id="createBuyOrderButton" mnemonicParsing="false" onAction="#switchBuyOrderScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@MainMenu.css" text="Nhập hàng" />
-            <JFXButton id="button" fx:id="statisticsButton" mnemonicParsing="false" onAction="#switchStatisticsScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@MainMenu.css" text="Thống kê" />
-            <JFXButton id="button" fx:id="managementButton" mnemonicParsing="false" onAction="#switchManagementScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@MainMenu.css" text="Quản lý" />
+            <JFXButton id="button1" fx:id="createBuyOrderButton" mnemonicParsing="false" onAction="#switchBuyOrderScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@MainMenu.css" text="Nhập hàng" />
+            <JFXButton id="button2" fx:id="statisticsButton" mnemonicParsing="false" onAction="#switchStatisticsScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@MainMenu.css" text="Thống kê" />
+            <JFXButton id="button3" fx:id="managementButton" mnemonicParsing="false" onAction="#switchManagementScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@MainMenu.css" text="Quản lý" />
          </children>
       </VBox>
    </children>

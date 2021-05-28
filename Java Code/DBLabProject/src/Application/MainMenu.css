@@ -1,4 +1,59 @@
 #button {
+-fx-background-image: url('selling.png');
+    -fx-background-size: 50px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 80%;
+    -jfx-button-type: RAISED;
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,1,1;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 8 8 8 8;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+#button3 {
+-fx-background-image: url('management.png');
+    -fx-background-size: 50px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 80%;
+    -jfx-button-type: RAISED;
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,1,1;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 8 8 8 8;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+#button1 {
+-fx-background-image: url('import.png');
+    -fx-background-size: 50px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 80%;
+    -jfx-button-type: RAISED;
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,1,1;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 8 8 8 8;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+#button2 {
+-fx-background-image: url('statistics.png');
+    -fx-background-size: 50px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 80%;
     -jfx-button-type: RAISED;
     -fx-background-color: 
         #000000,

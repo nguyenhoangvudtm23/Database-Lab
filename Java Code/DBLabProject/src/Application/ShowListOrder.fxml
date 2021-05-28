@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="697.0" prefWidth="849.0" style="-fx-background-color: rgb(236, 228, 212);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListOrderController">
    <children>
-      <JFXButton id="button" layoutX="7.0" layoutY="658.0" mnemonicParsing="false" onAction="#BackCreateProductScene" stylesheets="@ShowListOrder.css" text="Back" />
+      <JFXButton id="button" ellipsisString="" layoutX="7.0" layoutY="642.0" mnemonicParsing="false" onAction="#BackCreateProductScene" prefHeight="50.0" prefWidth="70.0" stylesheets="@ShowListOrder.css" />
       <Label id="list" layoutX="291.0" layoutY="66.0" stylesheets="@ShowListOrder.css" text="List of Order">
          <font>
             <Font size="42.0" />
