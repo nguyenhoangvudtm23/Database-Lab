@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="697.0" prefWidth="849.0" style="-fx-background-color: #dfa579;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListIngredientController">
+<AnchorPane prefHeight="697.0" prefWidth="849.0" style="-fx-background-color: #dfa579;" styleClass="anchor" stylesheets="@ShowListIngredient.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListIngredientController">
    <children>
       <JFXButton id="button" fx:id="backCreateIngredientSceneButton" ellipsisString="" mnemonicParsing="false" onAction="#switchManagementScene" prefHeight="33.0" prefWidth="70.0" stylesheets="@ShowListIngredient.css" />
       <Label id="list" layoutX="291.0" layoutY="66.0" stylesheets="@ShowListIngredient.css" text="List of Ingredient">
@@ -25,11 +25,11 @@
             <TableColumn fx:id="DescriptionColumn" prefWidth="174.0" text="Description" />
         </columns>
       </TableView>
-      <Label id="label" layoutX="110.0" layoutY="163.0" stylesheets="@ShowListIngredient.css" text="Search box">
+      <Label id="label" layoutX="120.0" layoutY="163.0" stylesheets="@ShowListIngredient.css" text="Search box">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField id="text-field" fx:id="filterField" layoutX="264.0" layoutY="164.0" prefHeight="31.0" prefWidth="266.0" stylesheets="@ShowListIngredient.css" />
+      <TextField id="text-field" fx:id="filterField" layoutX="292.0" layoutY="164.0" prefHeight="31.0" prefWidth="266.0" stylesheets="@ShowListIngredient.css" />
    </children>
 </AnchorPane>
