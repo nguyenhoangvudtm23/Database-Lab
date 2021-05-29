@@ -16,7 +16,6 @@
     -fx-background-size: 50px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: 80%;
-    -jfx-button-type: RAISED;
     -fx-background-color: 
         #000000,
         linear-gradient(#7ebcea, #2f4b8f),
@@ -33,7 +32,6 @@
     -fx-background-size: 50px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: 80%;
-    -jfx-button-type: RAISED;
     -fx-background-color: 
         #000000,
         linear-gradient(#7ebcea, #2f4b8f),
@@ -50,7 +48,6 @@
     -fx-background-size: 50px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: 80%;
-    -jfx-button-type: RAISED;
     -fx-background-color: 
         #000000,
         linear-gradient(#7ebcea, #2f4b8f),
@@ -67,7 +64,6 @@
     -fx-background-size: 50px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: 80%;
-    -jfx-button-type: RAISED;
     -fx-background-color: 
         #000000,
         linear-gradient(#7ebcea, #2f4b8f),
@@ -84,7 +80,6 @@
     -fx-background-size: 50px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: 80%;
-    -jfx-button-type: RAISED;
     -fx-background-color: 
         #000000,
         linear-gradient(#7ebcea, #2f4b8f),
@@ -101,7 +96,6 @@
     -fx-background-size: 50px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: 80%;
-    -jfx-button-type: RAISED;
     -fx-background-color: 
         #000000,
         linear-gradient(#7ebcea, #2f4b8f),
@@ -115,4 +109,9 @@
 }
 #button1 Text {
     -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
+}
+.anchor
+{
+   -fx-background-image: url('neural1.png');
+   -fx-background-size: 100% 100%;
 }

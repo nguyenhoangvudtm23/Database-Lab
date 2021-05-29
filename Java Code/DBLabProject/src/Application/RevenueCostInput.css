@@ -28,6 +28,8 @@
     -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
 }
 .vbox {
+    -fx-background-image: url('neural1.png');
+    -fx-background-size: 100% 100%;
     -fx-display: -webkit-flex;
     -fx-display: -ms-flexbox;
     -fx-display: flex;
