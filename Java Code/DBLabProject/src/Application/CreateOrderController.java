@@ -141,9 +141,11 @@ public class CreateOrderController extends MenuController implements Initializab
 				Configuration.ListProduct.add(product);
 			}
 		} catch (ClassNotFoundException e1) {
+			showAlert("DB Error", "Can't connect to the database");
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (SQLException e1) {
+			showAlert("DB Error", "Can't connect to the database");
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
@@ -280,6 +282,7 @@ public class CreateOrderController extends MenuController implements Initializab
 				Configuration.ListCustomer.add(cus);
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
+				showAlert("DB Error", "Can't connect to the database");
 				e1.printStackTrace();
 			}
 		}

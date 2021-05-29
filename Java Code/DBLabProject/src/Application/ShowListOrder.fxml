@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -8,15 +8,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="697.0" prefWidth="849.0" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListOrderController">
+<AnchorPane prefHeight="697.0" prefWidth="849.0" style="-fx-background-color: rgb(236, 228, 212);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListOrderController">
    <children>
-      <Label layoutX="291.0" layoutY="66.0" text="List of Order">
+      <JFXButton id="button" ellipsisString="" layoutX="7.0" layoutY="642.0" mnemonicParsing="false" onAction="#BackCreateProductScene" prefHeight="50.0" prefWidth="70.0" stylesheets="@ShowListOrder.css" />
+      <Label id="list" layoutX="291.0" layoutY="66.0" stylesheets="@ShowListOrder.css" text="List of Order">
          <font>
             <Font size="42.0" />
          </font>
       </Label>
-      <Button layoutX="7.0" layoutY="658.0" mnemonicParsing="false" onAction="#BackCreateProductScene" text="Back" />
-      <TableView fx:id="ListOrderTable" editable="true" layoutX="118.0" layoutY="228.0" prefHeight="430.0" prefWidth="636.0">
+      <TableView id="table-view" fx:id="ListOrderTable" editable="true" layoutX="118.0" layoutY="228.0" prefHeight="430.0" prefWidth="636.0" stylesheets="@ShowListOrder.css">
         <columns>
           <TableColumn fx:id="OrderIDColumn" prefWidth="100.0" text="OrderID" />
           <TableColumn fx:id="CustomerIDColumn" prefWidth="152.0" text="CustomerID" />
@@ -26,11 +26,11 @@
             <TableColumn fx:id="DiscountColumn" prefWidth="116.0" text="Discount" />
         </columns>
       </TableView>
-      <Label layoutX="118.0" layoutY="191.0" text="Search box">
+      <Label id="label" layoutX="109.0" layoutY="190.0" stylesheets="@ShowListOrder.css" text="Search box">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="filterField" layoutX="238.0" layoutY="189.0" prefHeight="31.0" prefWidth="268.0" />
+      <TextField id="text-field" fx:id="filterField" layoutX="254.0" layoutY="191.0" prefHeight="31.0" prefWidth="268.0" stylesheets="@ShowListOrder.css" />
    </children>
 </AnchorPane>

@@ -36,7 +36,40 @@ public class ChartControllerUtil {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-	
+	Parent root;
+	Stage stage;
+	Scene scene;
+	public void switchOrderScene(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("BillScene.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchBuyOrderScene(ActionEvent event) throws IOException
+	{
+		root = FXMLLoader.load(getClass().getResource("BuyOrder.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchStatisticsScene(ActionEvent event) throws IOException
+	{
+		root = FXMLLoader.load(getClass().getResource("StatisticsMenu.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show(); 
+	}
+	public void switchManagementScene(ActionEvent event) throws IOException
+	{
+		root = FXMLLoader.load(getClass().getResource("ManagementMenu.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
 	public static ObservableList<PieChart.Data> convert_Result_Set_To_Pie_Chart_Data(ResultSet set) throws SQLException
 	{
 		ObservableList<PieChart.Data> res = FXCollections.observableArrayList();

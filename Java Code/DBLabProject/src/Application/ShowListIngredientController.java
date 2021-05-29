@@ -74,9 +74,11 @@ public class ShowListIngredientController extends MenuController implements Init
 				Configuration.ListIngredient.add(ingredient);
 			}
 		} catch (ClassNotFoundException e) {
+			showAlert("DB Error", "Can't connect to the database");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
+			showAlert("DB Error", "Can't connect to the database");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

@@ -80,7 +80,7 @@ public class ShowListOrderController extends MenuController implements Initializ
 		}
 		catch (Exception e)
 		{
-			
+			showAlert("DB Error", "Can't connect to the database");
 		}
 		// TODO Auto-generated method stub
 		CustomerIDColumn.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));

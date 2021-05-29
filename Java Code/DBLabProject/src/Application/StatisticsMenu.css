@@ -1,0 +1,83 @@
+#button1 {
+-fx-background-image: url('revenue.png');
+    -fx-background-size: 50px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 80%;
+    -jfx-button-type: RAISED;
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,1,1;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 8 8 8 8;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+#button2 {
+-fx-background-image: url('customer.png');
+    -fx-background-size: 50px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 80%;
+    -jfx-button-type: RAISED;
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,1,1;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 8 8 8 8;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+#button3 {
+-fx-background-image: url('partner.png');
+    -fx-background-size: 50px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 80%;
+    -jfx-button-type: RAISED;
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,1,1;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 8 8 8 8;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+#button4 {
+-fx-background-image: url('product.png');
+    -fx-background-size: 50px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 80%;
+    -jfx-button-type: RAISED;
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,1,1;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 8 8 8 8;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+#button{
+-fx-background-image: url('back.png');
+    -fx-background-size: 30px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 50%;
+    -jfx-button-type: FLAT;
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+}
+#button1 Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
+}

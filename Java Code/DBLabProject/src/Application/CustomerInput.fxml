@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.BarChart?>
@@ -17,11 +11,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="pane" prefHeight="468.0" prefWidth="600.0" stylesheets="@Customerinput.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CustomerController">
+<AnchorPane id="pane" prefHeight="468.0" prefWidth="600.0" style="-fx-background-color: #145b70;" stylesheets="@Customerinput.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CustomerController">
    <children>
-      <VBox id="vbox" layoutX="200.0" layoutY="24.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #88c6a3;" stylesheets="@Customerinput.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox id="vbox" layoutX="200.0" layoutY="24.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0E4150; -fx-background-image: url: 'neural.jpg';" stylesheets="@Customerinput.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton id="button" onAction="#back" prefHeight="26.0" prefWidth="96.0" stylesheets="@Customerinput.css" text="Back" />
+            <JFXButton id="button" ellipsisString="" onAction="#switchStatisticsScene" prefHeight="31.0" prefWidth="60.0" stylesheets="@Customerinput.css" text="Button" />
             <HBox id="hbox" prefHeight="42.0" prefWidth="600.0" stylesheets="@Customerinput.css">
                <children>
                   <Label id="label" prefHeight="21.0" prefWidth="30.0" stylesheets="@Customerinput.css" text="TOP">
@@ -49,7 +43,7 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXButton id="button1" onAction="#generateChart" prefHeight="33.0" prefWidth="44.0" stylesheets="@Customerinput.css" text="Tạo" />
+                  <JFXButton id="button1" onAction="#generateChart" prefHeight="33.0" prefWidth="44.0" style="-fx-background-color: #333333;" stylesheets="@Customerinput.css" text="Tạo" />
                </children>
             </HBox>
             <BarChart id="chart-bar" fx:id="barChart" stylesheets="@Customerinput.css">
