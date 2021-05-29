@@ -76,6 +76,11 @@ public class OrderQuery {
 				+ Name + "', '"
 				+ email + "')";
 	}
+	public static String selectAllOrdersQuery()
+	{
+		return "select OrderID, CustomerID, Totalcost, CreationDate, Status, Discount\r\n"
+				+ "from Orders";
+	}
 	public static void main(String[] args){
 		System.out.println(OrderQuery.recordItemIntoOrderQuery(3, 2, 4));
 	}

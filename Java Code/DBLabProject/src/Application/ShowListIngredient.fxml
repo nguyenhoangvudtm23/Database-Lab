@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="697.0" prefWidth="849.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListIngredientController">
+<AnchorPane prefHeight="697.0" prefWidth="849.0" style="-fx-background-color: #dfa579;" styleClass="anchor" stylesheets="@ShowListIngredient.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListIngredientController">
    <children>
-      <Label layoutX="291.0" layoutY="66.0" text="List of Ingredient">
+      <JFXButton id="button" fx:id="backCreateIngredientSceneButton" ellipsisString="" mnemonicParsing="false" onAction="#switchManagementScene" prefHeight="33.0" prefWidth="70.0" stylesheets="@ShowListIngredient.css" />
+      <Label id="list" layoutX="291.0" layoutY="66.0" stylesheets="@ShowListIngredient.css" text="List of Ingredient">
          <font>
             <Font size="42.0" />
          </font>
       </Label>
-      <Button fx:id="backCreateIngredientSceneButton" mnemonicParsing="false" onAction="#switchManagementScene" text="Back" />
-      <TableView fx:id="ListIngredientTable" editable="true" layoutX="172.0" layoutY="202.0" prefHeight="395.0" prefWidth="558.0">
+      <TableView id="table-view" fx:id="ListIngredientTable" editable="true" layoutX="120.0" layoutY="202.0" prefHeight="424.0" prefWidth="610.0" stylesheets="@ShowListIngredient.css">
         <columns>
-          <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="NameColumn" prefWidth="160.0" text="Name" />
-            <TableColumn fx:id="AmountLeftColumn" prefWidth="81.0" text="Quantity" />
-            <TableColumn fx:id="PriceColumn" prefWidth="90.0" text="Price" />
-            <TableColumn fx:id="DescriptionColumn" prefWidth="151.0" text="Description" />
+          <TableColumn fx:id="idColumn" prefWidth="107.0" text="ID" />
+          <TableColumn fx:id="NameColumn" prefWidth="153.0" text="Name" />
+            <TableColumn fx:id="AmountLeftColumn" prefWidth="92.0" text="Quantity" />
+            <TableColumn fx:id="PriceColumn" prefWidth="83.0" text="Price" />
+            <TableColumn fx:id="DescriptionColumn" prefWidth="174.0" text="Description" />
         </columns>
       </TableView>
+      <Label id="label" layoutX="120.0" layoutY="163.0" stylesheets="@ShowListIngredient.css" text="Search box">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField id="text-field" fx:id="filterField" layoutX="292.0" layoutY="164.0" prefHeight="31.0" prefWidth="266.0" stylesheets="@ShowListIngredient.css" />
    </children>
 </AnchorPane>

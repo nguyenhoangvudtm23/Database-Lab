@@ -9,13 +9,6 @@ public class Ingredient {
 		return IngredientID;
 	}
 
-	public static int getID() {
-		return ID;
-	}
-
-	public static void setID(int iD) {
-		ID = iD;
-	}
 
 	public double getPrice() {
 		return Price;

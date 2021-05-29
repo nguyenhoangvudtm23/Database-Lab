@@ -6,7 +6,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Classes.Product;
+import Execution.ProductStatistics;
 import Scenario.Starter;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -39,15 +42,18 @@ public class ShowListProductController extends MenuController implements Initial
 	@FXML
 	private TableView<Product> ListProductTable;
 	@FXML
-	private TableColumn idColumn;
+	private TableColumn<Product, String> idColumn;
 	@FXML
-	private TableColumn AmountLeftColumn;
+	private TableColumn<Product, Integer> AmountLeftColumn;
 	@FXML
-	private TableColumn NameColumn;
+	private TableColumn<Product, String> NameColumn;
 	@FXML
-	private TableColumn PriceColumn;
+	private TableColumn<Product, Double> PriceColumn;
 	@FXML
-	private TableColumn DescriptionColumn;
+	private TableColumn<Product, String> DescriptionColumn;
+	@FXML
+	private TextField filterField;
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -58,7 +64,9 @@ public class ShowListProductController extends MenuController implements Initial
 			Starter.starting();
 		}
 		catch(Exception e)
-		{}
+		{
+			showAlert("DB Error", "Can't connect to the database");
+		}
         
         // AmountLeft Column
         AmountLeftColumn.setCellValueFactory(new PropertyValueFactory<>("AmountLeft"));
@@ -117,7 +125,35 @@ public class ShowListProductController extends MenuController implements Initial
 				};
 		PriceColumn.setCellFactory(PriceCellFactory);
 		
-		ListProductTable.setItems(Configuration.ListProduct);
+//		ListProductTable.setItems(Configuration.ListProduct);
+		FilteredList<Product> filteredData = new FilteredList<>(Configuration.ListProduct, b -> true);
+		filterField.textProperty().addListener((o, oldValue, newValue) -> {
+			filteredData.setPredicate(Product -> {
+				if(newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				String lowerCaseFilter = newValue.toLowerCase();
+				if(Product.getName().toLowerCase().indexOf(lowerCaseFilter) != - 1) {
+					return true;
+				}
+				else if(Product.getProductID().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(Product.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(String.valueOf(Product.getPrice()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(String.valueOf(Product.getAmountLeft()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else return false;
+			});
+		});
+		SortedList<Product> sortedData = new SortedList<>(filteredData);
+		sortedData.comparatorProperty().bind(ListProductTable.comparatorProperty());
+		ListProductTable.setItems(sortedData);
          
 	}
 	public void BackCreateProductScene(ActionEvent e) throws IOException {
@@ -196,7 +232,13 @@ public class ShowListProductController extends MenuController implements Initial
 	                      Product temp = getTableView().getItems().get(getIndex());
 	                      System.out.println(Integer.parseInt(textField.getText()));
 		    			  temp.setAmountLeft(Integer.valueOf(textField.getText()));
-		    			  
+		    			  try {
+		    				  ProductStatistics.updateProductAmountLeft(Integer.parseInt(temp.getProductID()), temp.getAmountLeft());
+		    			  }
+		    			  catch(Exception e)
+		    			  {
+		    				  
+		    			  }
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
@@ -269,6 +311,13 @@ public class ShowListProductController extends MenuController implements Initial
 	                      commitEdit(textField.getText());
 	                      Product temp = getTableView().getItems().get(getIndex());
 	                      temp.setName(textField.getText());
+	                      try {
+	                    	  ProductStatistics.updateProductName(Integer.parseInt(temp.getProductID()), temp.getName());
+	                      }
+	                      catch(Exception e)
+	                      {
+	                    	  
+	                      }
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }
@@ -341,6 +390,13 @@ public class ShowListProductController extends MenuController implements Initial
 	                      commitEdit(Double.parseDouble(textField.getText()));
 	                      Product temp = getTableView().getItems().get(getIndex());
 	                      temp.setPrice(Double.parseDouble(textField.getText()));
+	                      try {
+	                    	  ProductStatistics.updateProductPrice(Integer.parseInt(temp.getProductID()), temp.getPrice());
+	                      }
+	                      catch (Exception e)
+	                      {
+	                    	  
+	                      }
 	                  } else if (t.getCode() == KeyCode.ESCAPE) {
 	                      cancelEdit();
 	                  }

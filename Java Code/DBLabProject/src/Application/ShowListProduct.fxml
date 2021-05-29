@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="697.0" prefWidth="849.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListProductController">
+<AnchorPane prefHeight="697.0" prefWidth="849.0" style="-fx-background-color: #bdc4c9;" styleClass="anchor" stylesheets="@ShowListProduct.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListProductController">
    <children>
-      <Label layoutX="291.0" layoutY="66.0" text="List of Product">
+      <JFXButton id="button" fx:id="backCreateProductSceneButton" ellipsisString="" layoutX="7.0" layoutY="639.0" mnemonicParsing="false" onAction="#switchManagementScene" prefHeight="50.0" prefWidth="68.0" stylesheets="@ShowListProduct.css" />
+      <Label id="list" layoutX="291.0" layoutY="66.0" stylesheets="@ShowListProduct.css" text="List of Product">
          <font>
             <Font size="42.0" />
          </font>
       </Label>
-      <Button fx:id="backCreateProductSceneButton" layoutX="87.0" layoutY="557.0" mnemonicParsing="false" onAction="#switchManagementScene" text="Back" />
-      <TableView fx:id="ListProductTable" editable="true" layoutX="172.0" layoutY="202.0" prefHeight="395.0" prefWidth="558.0">
+      <TableView id="table-view" fx:id="ListProductTable" editable="true" layoutX="118.0" layoutY="228.0" prefHeight="430.0" prefWidth="613.0" stylesheets="@ShowListProduct.css">
         <columns>
-          <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="NameColumn" prefWidth="160.0" text="Name" />
-            <TableColumn fx:id="AmountLeftColumn" prefWidth="81.0" text="Quantity" />
+          <TableColumn fx:id="idColumn" prefWidth="100.0" text="ID" />
+          <TableColumn fx:id="NameColumn" prefWidth="152.0" text="Name" />
+            <TableColumn fx:id="AmountLeftColumn" prefWidth="107.0" text="Quantity" />
             <TableColumn fx:id="PriceColumn" prefWidth="90.0" text="Price" />
-            <TableColumn fx:id="DescriptionColumn" prefWidth="151.0" text="Description" />
+            <TableColumn fx:id="DescriptionColumn" prefWidth="163.0" text="Description" />
         </columns>
       </TableView>
+      <Label id="label" layoutX="118.0" layoutY="188.0" stylesheets="@ShowListProduct.css" text="Search box">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField id="text-field" fx:id="filterField" layoutX="291.0" layoutY="189.0" prefHeight="31.0" prefWidth="268.0" stylesheets="@ShowListProduct.css" />
    </children>
 </AnchorPane>

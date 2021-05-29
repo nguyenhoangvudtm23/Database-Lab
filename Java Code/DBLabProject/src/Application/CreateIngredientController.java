@@ -95,9 +95,11 @@ public class CreateIngredientController extends MenuController implements Initia
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
+			showAlert("DB Error", "Can't connect to the database");
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			showAlert("DB Error", "Can't connect to the database");
 			e.printStackTrace();
 		}
 	}

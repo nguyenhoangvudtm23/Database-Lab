@@ -87,7 +87,7 @@ public class CustomersQuery {
 	}
 	public static String getAllCustomerQuery()
 	{
-		return "select Name, Phone_Number, Address, Email\r\n"
+		return "select Name, Phone_Number, Address, Email, CustomerID\r\n"
 				+ "from Customers";
 	}
 	public static String insertCustomerQuery(String address, String phoneNumber, String name, String email)

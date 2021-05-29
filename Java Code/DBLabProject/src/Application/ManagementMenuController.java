@@ -48,17 +48,33 @@ public class ManagementMenuController extends MenuController implements Initiali
 		stage.setScene(scene);
 		stage.show();
 	}
-//	public void switchSupplierScene(ActionEvent event) throws IOException
-//	{
-//		root = FXMLLoader.load(getClass().getResource("ManagementMenu.fxml"));
-//		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-//		scene = new Scene(root);
-//		stage.setScene(scene);
-//		stage.show();
-//	}
+	public void switchSupplierScene(ActionEvent event) throws IOException
+	{
+		root = FXMLLoader.load(getClass().getResource("ShowListSupplier.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
 	public void switchCustomerScene(ActionEvent event) throws IOException
 	{
 		root = FXMLLoader.load(getClass().getResource("ShowListCustomer.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchOrderScene(ActionEvent event) throws IOException
+	{
+		root = FXMLLoader.load(getClass().getResource("ShowListOrder.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchBuyOrderScene(ActionEvent event) throws IOException
+	{
+		root = FXMLLoader.load(getClass().getResource("ShowListBuyOrder.fxml"));
 		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);

@@ -3,6 +3,10 @@ package Query;
 import java.time.LocalDateTime;
 
 public class SuppliersQuery {
+	public static String getAllSuppliersQuery()
+	{
+		return "select SupplierID, Name, Address, Phone_Number, Email from Suppliers";
+	}
 	public static String getSuppliersWithSimilarNameToQuery(String s)
 	{
 		return "select * from Suppliers \r\n"

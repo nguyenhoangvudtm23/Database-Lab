@@ -40,6 +40,11 @@ public class BuyOrderQuery {
 		return "select sum(Quantity * PricePerUnit) from BuyOrderItems where"
 				+ " (BuyOrderItems.BuyOrderID = " + BuyOrderID + ")";
 	}
+	public static String selectAllBuyOrdersQuery()
+	{
+		return "select BuyOrderID, SupplierID, Totalcost, CreationDate, Status\r\n"
+				+ "from BuyOrders";
+	}
 	public static void main(String args[])
 	{
 		System.out.println(BuyOrderQuery.deleteBuyOrderQuery(0));
