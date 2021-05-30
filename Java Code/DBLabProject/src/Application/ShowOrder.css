@@ -1,10 +1,15 @@
 .text-area {
     -fx-font-family: Consolas;
-    -fx-font-size: 15;
+    -fx-font-size: 17;
     -fx-text-fill: #ffffff;
     -fx-display-caret:true;
 }
-
-.text-area .content {
-    -fx-background-color: #FF4E50;
+.text-area:focused {
+ -fx-background-color:  white;
+ -fx-border-color: rgba(229,0,0,0.3);
+}
+.anchor
+{
+   -fx-background-image: url('neural1.png');
+   -fx-background-size: 100% 100%;
 }
