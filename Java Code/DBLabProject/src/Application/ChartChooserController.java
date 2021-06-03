@@ -32,27 +32,27 @@ public class ChartChooserController extends MenuController implements Initializa
 	private VBox vbox;
 	@FXML
 	private AnchorPane anchorPane;
-	public void chooseLineChart(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("LineChart.fxml"));
-		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
-	}
-	public void chooseBarChart(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("BarChart.fxml"));
-		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
-	}
-	public void choosePieChart(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("PieChart.fxml"));
-		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
-	}
+//	public void chooseLineChart(ActionEvent event) throws IOException {
+//		root = FXMLLoader.load(getClass().getResource("LineChart.fxml"));
+//		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//		scene = new Scene(root);
+//		stage.setScene(scene);
+//		stage.show();
+//	}
+//	public void chooseBarChart(ActionEvent event) throws IOException {
+//		root = FXMLLoader.load(getClass().getResource("BarChart.fxml"));
+//		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//		scene = new Scene(root);
+//		stage.setScene(scene);
+//		stage.show();
+//	}
+//	public void choosePieChart(ActionEvent event) throws IOException {
+//		root = FXMLLoader.load(getClass().getResource("PieChart.fxml"));
+//		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//		scene = new Scene(root);
+//		stage.setScene(scene);
+//		stage.show();
+//	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.MainMenuController">
+   <children>
+      <AnchorPane fx:id="rootPane" layoutX="280.0" prefHeight="592.0" prefWidth="643.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <VBox prefHeight="592.0" prefWidth="229.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton id="button" fx:id="createOrderButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchOrderScene" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@MainMenu.css" text="Bán hàng" textFill="#fcfcfc" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="SansSerif Bold" size="25.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="button1" fx:id="createBuyOrderButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchBuyOrderScene" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@MainMenu.css" text="Nhập hàng" textFill="#fcfcfc" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="SansSerif Bold" size="25.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="button2" fx:id="statisticsButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchStatisticsScene" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@MainMenu.css" text="Thống kê" textFill="#fcfcfc" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="SansSerif Bold" size="25.0" />
+               </font>
+            </JFXButton>
+            <MenuButton id="button1" mnemonicParsing="false" prefHeight="49.0" prefWidth="230.0" stylesheets="@MainMenu.css" text="MenuButton">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Action 2" />
+              </items>
+            </MenuButton>
+            <JFXButton id="button3" fx:id="managementButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchManagementScene" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@MainMenu.css" text="Quản lý" textFill="#fcfcfc" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="SansSerif Bold" size="25.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="button3" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@MainMenu.css" text="Hỗ trợ" textFill="#fcfcfc" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="SansSerif Bold" size="25.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="button3" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@MainMenu.css" text="About Us" textFill="#fcfcfc" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="SansSerif Bold" size="25.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

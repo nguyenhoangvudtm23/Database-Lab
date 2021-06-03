@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
@@ -215,8 +216,8 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 		stage1.show();
 		
 	}
-	public void GetSupplierInformation(ActionEvent e) {
-		if(Configuration.CheckPhone(PhoneNumber)) {
+	public void GetSupplierInformation(ActionEvent e) throws SQLException {
+		if(SupplierStatistics.checkExist(PhoneNumber) == 1) {
 			System.out.println("There is Phone");
 			System.out.println(PhoneNumber);
 			int SupplierIndex = Configuration.findSupplierIndex(PhoneNumber);

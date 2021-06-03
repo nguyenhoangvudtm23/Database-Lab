@@ -4,16 +4,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="390.0" prefWidth="591.0" style="-fx-background-color: #a3362e;" styleClass="anchor" stylesheets="@ManagementMenu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ManagementMenuController">
+<AnchorPane fx:id="anchorPane" style="-fx-background-color: #a3362e;" styleClass="anchor" stylesheets="@ManagementMenu.css" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ManagementMenuController">
    <children>
-      <VBox layoutY="48.0" prefHeight="342.0" prefWidth="591.0">
+      <VBox layoutY="48.0" prefHeight="342.0" prefWidth="591.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
          <children>
-            <JFXButton id="button1" fx:id="productButton" mnemonicParsing="false" onAction="#switchProductScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@ManagementMenu.css" text="Kho sản phẩm" />
-            <JFXButton id="button2" fx:id="ingredientButton" mnemonicParsing="false" onAction="#switchIngredientScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@ManagementMenu.css" text="Kho nguyên liệu" />
-            <JFXButton id="button3" fx:id="customerButton" mnemonicParsing="false" onAction="#switchCustomerScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@ManagementMenu.css" text="Khách hàng" />
-            <JFXButton id="button4" fx:id="supplierButton" mnemonicParsing="false" onAction="#switchSupplierScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@ManagementMenu.css" text="Đối tác" />
-            <JFXButton id="button5" fx:id="orderButton" mnemonicParsing="false" onAction="#switchOrderScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@ManagementMenu.css" text="Hoá đơn bán hàng" />
-            <JFXButton id="button6" fx:id="buyOrderButton" mnemonicParsing="false" onAction="#switchBuyOrderScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@ManagementMenu.css" text="Hoá đơn nhập hàng" />
+            <JFXButton id="button1" fx:id="productButton" mnemonicParsing="false" onAction="#switchProductScene" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@ManagementMenu.css" text="Kho sản phẩm" VBox.vgrow="ALWAYS" />
+            <JFXButton id="button2" fx:id="ingredientButton" mnemonicParsing="false" onAction="#switchIngredientScene" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@ManagementMenu.css" text="Kho nguyên liệu" VBox.vgrow="ALWAYS" />
+            <JFXButton id="button3" fx:id="customerButton" mnemonicParsing="false" onAction="#switchCustomerScene" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@ManagementMenu.css" text="Khách hàng" VBox.vgrow="ALWAYS" />
+            <JFXButton id="button4" fx:id="supplierButton" mnemonicParsing="false" onAction="#switchSupplierScene" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@ManagementMenu.css" text="Đối tác" VBox.vgrow="ALWAYS" />
+            <JFXButton id="button5" fx:id="orderButton" mnemonicParsing="false" onAction="#switchOrderScene" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@ManagementMenu.css" text="Hoá đơn bán hàng" VBox.vgrow="ALWAYS" />
+            <JFXButton id="button6" fx:id="buyOrderButton" mnemonicParsing="false" onAction="#switchBuyOrderScene" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@ManagementMenu.css" text="Hoá đơn nhập hàng" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
       <JFXButton id="button" ellipsisString="" onAction="#back" prefHeight="31.0" prefWidth="64.0" stylesheets="@ManagementMenu.css" />
