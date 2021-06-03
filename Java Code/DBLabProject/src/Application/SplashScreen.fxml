@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXProgressBar layoutX="6.0" layoutY="383.0" prefHeight="4.0" prefWidth="600.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+      <ImageView fitHeight="394.0" fitWidth="600.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Resources/splashscreenbackground.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="15.0" layoutY="63.0" prefHeight="79.0" prefWidth="584.0" text="Project Database Lab" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="58.0" />
+         </font>
+      </Label>
+      <VBox layoutX="307.0" layoutY="157.0">
+         <children>
+            <Label text="Group X:" textFill="#fcf7f7">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="Tran Quang Hai" textFill="#fcf7f7">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Label>
+            <Label text="Nguyen Hoang Vu" textFill="#fcf7f7">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Label>
+            <Label text="Nguyen Ngoc Linh" textFill="#fcf7f7">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Label>
+            <Label text="Tran Hai Dang" textFill="#fcf7f7">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

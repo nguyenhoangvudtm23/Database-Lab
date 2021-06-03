@@ -38,6 +38,9 @@ public class StatisticsMenuController extends MenuController implements Initiali
 	public void chooseCustomerScene(ActionEvent event) throws IOException, ClassNotFoundException, SQLException
 	{
 		Starter.starting();
+//		AnchorPane pane = FXMLLoader.load(getClass().getResource("CustomerInput.fxml"));
+//		AnchorPane root = (AnchorPane) ((Node)event.getSource()).getParent().getParent().getParent();
+//		root.getChildren().setAll(pane);
 		root = FXMLLoader.load(getClass().getResource("CustomerInput.fxml"));
 		
 		scene = new Scene(root);
@@ -48,8 +51,11 @@ public class StatisticsMenuController extends MenuController implements Initiali
 	public void chooseRevenueAndCostScene(ActionEvent event) throws IOException, ClassNotFoundException, SQLException
 	{
 		Starter.starting();
+//		AnchorPane pane = FXMLLoader.load(getClass().getResource("RevenueCostInput.fxml"));
+//		AnchorPane root = (AnchorPane) ((Node)event.getSource()).getParent().getParent().getParent();
+//		root.getChildren().setAll(pane);
+//		Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		root = FXMLLoader.load(getClass().getResource("RevenueCostInput.fxml"));
-//		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		Stage stage = new Stage();
 		stage.setScene(scene);

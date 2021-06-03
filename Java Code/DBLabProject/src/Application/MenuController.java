@@ -15,64 +15,73 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public abstract class MenuController {
+public class MenuController {
 	@FXML
-	private AnchorPane rootPane;
+	public AnchorPane rootPane;
 	private Stage stage;
 	private Parent root;
 	private Scene scene;
+	private FXMLLoader loader;
 	public void back(ActionEvent event) throws IOException
 	{
-		Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+		Parent root = SceneHolder.getMainMenu();
 		Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		Scene scene = new Scene(root); 
 		stage.setScene(scene);
 		stage.show();
 	}
 	public void chooseLineChart(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("LineChart.fxml"));
-		
-		rootPane.getChildren().setAll(pane);
-//		root = FXMLLoader.load(getClass().getResource("LineChart.fxml"));
-//		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-//		scene = new Scene(root);
-//		stage.setScene(scene);
-//		stage.show();
+//		AnchorPane pane = FXMLLoader.load(getClass().getResource("LineChart.fxml"));
+//		
+//		rootPane.getChildren().setAll(pane);
+		root = loader.load(getClass().getResource("LineChart.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
 	public void chooseBarChart(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("BarChart.fxml"));
-		
-		rootPane.getChildren().setAll(pane);
-//		root = FXMLLoader.load(getClass().getResource("BarChart.fxml"));
-//		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-//		scene = new Scene(root);
-//		stage.setScene(scene);
-//		stage.show();
+//		AnchorPane pane = FXMLLoader.load(getClass().getResource("BarChart.fxml"));
+//		
+//		rootPane.getChildren().setAll(pane);
+		root = loader.load(getClass().getResource("BarChart.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
 	public void choosePieChart(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("PieChart.fxml"));
-		
-		rootPane.getChildren().setAll(pane);
-//		root = FXMLLoader.load(getClass().getResource("PieChart.fxml"));
-//		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-//		scene = new Scene(root);
-//		stage.setScene(scene);
-//		stage.show();
+//		AnchorPane pane = FXMLLoader.load(getClass().getResource("PieChart.fxml"));
+//		
+//		rootPane.getChildren().setAll(pane);
+		root = FXMLLoader.load(getClass().getResource("PieChart.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
 	public void switchOrderScene(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("BillScene.fxml"));
+		AnchorPane pane = (AnchorPane) SceneHolder.getBillScene();
 		
 		rootPane.getChildren().setAll(pane);
+		rootPane.setTopAnchor(pane, 0.0);
+		rootPane.setBottomAnchor(pane, 0.0);
+		rootPane.setLeftAnchor(pane, 0.0);
+		rootPane.setRightAnchor(pane, 0.0);
 //		Parent root = FXMLLoader.load(getClass().getResource("BillScene.fxml"));
 //		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 //		scene = new Scene(root);
 //		stage.setScene(scene);
 //		stage.show();
 	}
-	public void switchBuyOrderScene(ActionEvent event) throws IOException
+	public void switchBuyOrderScene(ActionEvent event) throws IOException, InterruptedException
 	{
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("BuyOrder.fxml"));
+		AnchorPane pane = (AnchorPane) SceneHolder.getBuyOrderScene();
 		rootPane.getChildren().setAll(pane);
+		rootPane.setTopAnchor(pane, 0.0);
+		rootPane.setBottomAnchor(pane, 0.0);
+		rootPane.setLeftAnchor(pane, 0.0);
+		rootPane.setRightAnchor(pane, 0.0);
 //		Parent root = FXMLLoader.load(getClass().getResource("BuyOrder.fxml"));
 //		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 //		scene = new Scene(root);
@@ -81,8 +90,12 @@ public abstract class MenuController {
 	}
 	public void switchStatisticsScene(ActionEvent event) throws IOException
 	{
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("StatisticsMenu.fxml"));
+		AnchorPane pane = (AnchorPane) SceneHolder.getStatisticsMenu();
 		rootPane.getChildren().setAll(pane);
+		rootPane.setTopAnchor(pane, 0.0);
+		rootPane.setBottomAnchor(pane, 0.0);
+		rootPane.setLeftAnchor(pane, 0.0);
+		rootPane.setRightAnchor(pane, 0.0);
 //		Parent root = FXMLLoader.load(getClass().getResource("StatisticsMenu.fxml"));
 //		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 //		scene = new Scene(root);
@@ -91,8 +104,12 @@ public abstract class MenuController {
 	}
 	public void switchManagementScene(ActionEvent event) throws IOException
 	{
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("ManagementMenu.fxml"));
+		AnchorPane pane = (AnchorPane) SceneHolder.getManagementMenu();
 		rootPane.getChildren().setAll(pane);
+		rootPane.setTopAnchor(pane, 0.0);
+		rootPane.setBottomAnchor(pane, 0.0);
+		rootPane.setLeftAnchor(pane, 0.0);
+		rootPane.setRightAnchor(pane, 0.0);
 //		Parent root = FXMLLoader.load(getClass().getResource("ManagementMenu.fxml"));
 //		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 //		scene = new Scene(root);
@@ -115,12 +132,13 @@ public abstract class MenuController {
 	}
 	public void toChartChooserScene(ActionEvent event) throws IOException
 	{
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("ChartChooser.fxml"));
-		rootPane.getChildren().setAll(pane);
-//		Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-//		Scene scene = new Scene(root);
-//		stage.setScene(scene);
-//		stage.show();
+//		AnchorPane pane = FXMLLoader.load(getClass().getResource("ChartChooser.fxml"));
+//		rootPane.getChildren().setAll(pane);
+		Parent root = FXMLLoader.load(getClass().getResource("ChartChooser.fxml"));
+		Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
 	
 }

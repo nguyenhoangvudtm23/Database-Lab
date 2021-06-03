@@ -33,6 +33,8 @@ public class ManagementMenuController extends MenuController implements Initiali
 	private Stage stage;
 	private Parent root;
 	private Scene scene;
+	@FXML
+	AnchorPane anchorPane;
 	public void switchIngredientScene(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("CreateIngredientScene.fxml"));
 		stage = new Stage();
@@ -83,6 +85,5 @@ public class ManagementMenuController extends MenuController implements Initiali
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-
 	}
 }
