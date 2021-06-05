@@ -1,0 +1,57 @@
+.anchor
+{
+   -fx-background-image: url('backbill.png');
+   -fx-background-size: 100% 100%;
+}
+.label {
+	 -fx-font-size: 20px;
+}
+#anchor-label {
+   -fx-text-fill: #FB8122;
+   -fx-font-size: 33px;
+   -fx-font-family: "Arial Black";
+   -fx-fill: #818181;
+   -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+#back-button {
+    -jfx-button-type: RAISED;
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,1,1;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 8 8 8 8;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+}
+#submit-button {
+    -jfx-button-type: RAISED;
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,1,1;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 8 8 8 8;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+}
+
+#list-button {
+    -jfx-button-type: RAISED;
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,1,1;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 8 8 8 8;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+}
+
+

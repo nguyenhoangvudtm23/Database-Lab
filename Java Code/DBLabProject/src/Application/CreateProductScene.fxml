@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="733.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateProductController">
+<AnchorPane prefHeight="733.0" prefWidth="653.0" styleClass="anchor" stylesheets="@CreateProduct.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateProductController">
    <children>
-      <Label layoutX="196.0" layoutY="83.0" text="Create Product ">
+      <Label id="anchor-label" layoutX="196.0" layoutY="83.0" text="Create Product ">
          <font>
             <Font size="38.0" />
          </font>
       </Label>
-      <TextField fx:id="NameText" layoutX="71.0" layoutY="234.0" prefHeight="31.0" prefWidth="290.0" promptText="Name of Product" />
-      <TextField fx:id="priceText" layoutX="71.0" layoutY="336.0" promptText="Price" />
-      <TextField fx:id="AmountLeftText" layoutX="71.0" layoutY="435.0" promptText="Quantity" />
-      <TextField fx:id="DescriptionText" layoutX="71.0" layoutY="533.0" promptText="Description" />
+      <TextField fx:id="NameText" layoutX="67.0" layoutY="243.0" prefHeight="31.0" prefWidth="290.0" promptText="Name of Product" />
+      <TextField fx:id="priceText" layoutX="70.0" layoutY="351.0" promptText="Price" />
+      <TextField fx:id="AmountLeftText" layoutX="70.0" layoutY="437.0" promptText="Quantity" />
+      <TextField fx:id="DescriptionText" layoutX="70.0" layoutY="525.0" promptText="Description" />
       <Label layoutX="71.0" layoutY="213.0" text="Name of Product" />
-      <Label layoutX="71.0" layoutY="315.0" text="Price of Product" />
-      <Label layoutX="70.0" layoutY="414.0" text="Quantity of Product" />
-      <Label layoutX="70.0" layoutY="512.0" text="Description of Product" />
-      <Button fx:id="submitButton" layoutX="72.0" layoutY="606.0" mnemonicParsing="false" onAction="#CreateProduct" text="Submit" />
-      <Button fx:id="showListProductButton" layoutX="485.0" layoutY="606.0" mnemonicParsing="false" onAction="#showListProduct" text="Show List Product" />
-      <Button layoutY="-1.0" mnemonicParsing="false" onAction="#switchManagementScene" text="Back" />
+      <Label layoutX="71.0" layoutY="314.0" prefHeight="30.0" prefWidth="151.0" text="Price of Product" />
+      <Label layoutX="70.0" layoutY="407.0" text="Quantity of Product" />
+      <Label layoutX="71.0" layoutY="495.0" text="Description of Product" />
+      <Button fx:id="submitButton" layoutX="71.0" layoutY="606.0" mnemonicParsing="false" onAction="#CreateProduct" text="Submit" />
+      <Button fx:id="showListProductButton" layoutX="483.0" layoutY="606.0" mnemonicParsing="false" onAction="#showListProduct" text="Show List Product" />
+      <Button layoutY="-1.0" mnemonicParsing="false" onAction="#switchManagementScene" styleClass="buton" text="Back" />
    </children>
 </AnchorPane>
