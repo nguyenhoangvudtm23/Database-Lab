@@ -35,10 +35,26 @@ public final class SceneHolder {
 	private Parent managementMenu;
 	private Parent billScene;
 	private Parent buyOrderScene;
+	private Parent supplierInputScene;
+	private Parent customerInputScene;
+	private Parent ProductIngredientInputScene;
+	private Parent RevenueCostInputScene;
 	private final static SceneHolder singleton = new SceneHolder();
 	public static Parent getBillScene()
 	{
 		return singleton.billScene;
+	}
+	public static Parent getSupplierInputScene() {
+		return singleton.supplierInputScene;
+	}
+	public static Parent getCustomerInputScene() {
+		return singleton.customerInputScene;
+	}
+	public static Parent getProductIngredientInputScene() {
+		return singleton.ProductIngredientInputScene;
+	}
+	public static Parent getRevenueCostInputScene() {
+		return singleton.RevenueCostInputScene;
 	}
 	public static Parent getBuyOrderScene()
 	{
@@ -67,5 +83,9 @@ public final class SceneHolder {
 		singleton.managementMenu = FXMLLoader.load(getClass().getResource("ManagementMenu.fxml"));
 		singleton.billScene = FXMLLoader.load(getClass().getResource("BillScene.fxml"));
 		singleton.buyOrderScene = FXMLLoader.load(getClass().getResource("BuyOrder.fxml"));
+		singleton.customerInputScene = FXMLLoader.load(getClass().getResource("CustomerInput.fxml"));
+		singleton.ProductIngredientInputScene = FXMLLoader.load(getClass().getResource("ProductIngredientInput.fxml"));
+		singleton.RevenueCostInputScene = FXMLLoader.load(getClass().getResource("RevenueCostInput.fxml"));
+		singleton.supplierInputScene = FXMLLoader.load(getClass().getResource("SupplierInput.fxml"));
 	}
 }

@@ -24,11 +24,11 @@ public class MenuController {
 	private FXMLLoader loader;
 	public void back(ActionEvent event) throws IOException
 	{
-		Parent root = SceneHolder.getMainMenu();
-		Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		Scene scene = new Scene(root); 
-		stage.setScene(scene);
-		stage.show();
+//		Parent root = SceneHolder.getMainMenu();
+//		Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//		Scene scene = new Scene(root); 
+//		stage.setScene(scene);
+//		stage.show();
 	}
 	public void chooseLineChart(ActionEvent event) throws IOException {
 //		AnchorPane pane = FXMLLoader.load(getClass().getResource("LineChart.fxml"));
