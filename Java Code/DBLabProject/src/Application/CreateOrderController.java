@@ -166,7 +166,7 @@ public class CreateOrderController extends MenuController implements Initializab
 		    }
         };
         ActionColumn.setCellFactory(cellFactory);
- 
+        
         ListProductTable.setItems(Configuration.ListProduct);
         PhoneNumberText.textProperty().addListener((v, oldValue, newValue) -> {
         	try{
@@ -192,6 +192,7 @@ public class CreateOrderController extends MenuController implements Initializab
         	}
         	catch(Exception e) {}
         });
+        
         
         
        

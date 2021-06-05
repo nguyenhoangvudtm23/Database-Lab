@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="934.0" prefWidth="1144.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.MainMenuController">
+<AnchorPane prefHeight="934.0" prefWidth="1413.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.MainMenuController">
    <children>
-      <AnchorPane fx:id="rootPane" prefHeight="879.0" prefWidth="988.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="156.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0" />
+      <AnchorPane fx:id="rootPane" prefHeight="879.0" prefWidth="1059.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="156.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0" />
       <AnchorPane fx:id="textPane" layoutX="154.0" layoutY="46.0" prefHeight="888.0" prefWidth="185.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="46.0">
          <children>
             <VBox layoutX="-14.0" layoutY="9.0" prefHeight="879.0" prefWidth="185.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="9.0">
@@ -124,6 +125,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
                   </JFXButton>
                </children>
             </HBox>

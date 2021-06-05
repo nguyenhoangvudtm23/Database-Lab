@@ -1,66 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1222.0" styleClass="anchor" stylesheets="@BuyOrder.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateBuyOrderController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1222.0" styleClass="anchor" stylesheets="@BuyOrder.css" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateBuyOrderController">
    <children>
-      <Label id="anchor-label" alignment="CENTER" layoutX="2.0" layoutY="26.0" prefHeight="47.0" prefWidth="1222.0" text="Create Buy Order Menu">
+      <Label id="anchor-label" alignment="CENTER" layoutX="102.0" layoutY="34.0" prefHeight="58.0" prefWidth="976.0" text="Nhập hàng" AnchorPane.topAnchor="34.0">
          <font>
             <Font size="32.0" />
          </font></Label>
-      <Button id="back-main-button" fx:id="BackMainButton" layoutX="34.0" layoutY="753.0" mnemonicParsing="false" onAction="#SwitchMainMenu" text="back main" />
       <VBox fx:id="ListBox" layoutX="499.0" layoutY="150.0" prefHeight="564.0" prefWidth="682.0">
          <children>
-            <Label fx:id="ListIngredientLb" alignment="CENTER" prefHeight="21.0" prefWidth="307.0" text="List of Ingredient" textFill="#8c4c4c">
+            <Label fx:id="ListIngredientLb" alignment="CENTER" prefHeight="36.0" prefWidth="5000.0" text="Nguyên liệu" textFill="#8c4c4c">
                <font>
-                  <Font size="25.0" />
+                  <Font name="SansSerif Bold" size="31.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="7.0" />
+               </VBox.margin>
             </Label>
-            <TableView id="table-view" fx:id="ListIngredientTable" prefHeight="528.0" prefWidth="640.0">
+            <TableView id="table-view" fx:id="ListIngredientTable" prefWidth="500000.0" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="idColumn" prefWidth="102.0" text="Ingredient ID" />
-                <TableColumn fx:id="NameColumn" prefWidth="147.0" text="Name of Ingredient" />
-                  <TableColumn fx:id="AmountLeftColumn" prefWidth="75.0" text="Quantity" />
-                  <TableColumn fx:id="PriceColumn" prefWidth="75.0" text="Price" />
-                  <TableColumn fx:id="DescriptionColumn" minWidth="0.0" prefWidth="112.0" text="Description" />
-                  <TableColumn fx:id="ActionColumn" prefWidth="170.0" text="Action" />
+                <TableColumn fx:id="idColumn" maxWidth="1.7976931348623157E308" minWidth="52.0" prefWidth="-1.0" text="ID" />
+                <TableColumn fx:id="NameColumn" maxWidth="1.7976931348623157E308" minWidth="147.0" prefWidth="-1.0" text="Tên" />
+                  <TableColumn fx:id="AmountLeftColumn" maxWidth="1.7976931348623157E308" minWidth="75.0" prefWidth="-1.0" text="Tồn kho" />
+                  <TableColumn fx:id="PriceColumn" maxWidth="1.7976931348623157E308" minWidth="75.0" prefWidth="-1.0" resizable="false" text="Giá" />
+                  <TableColumn fx:id="DescriptionColumn" maxWidth="1.7976931348623157E308" minWidth="192.0" prefWidth="-1.0" text="Mô tả" />
+                  <TableColumn fx:id="ActionColumn" maxWidth="140.0" minWidth="140.0" prefWidth="-1.0" resizable="false" text="Lượng mua" />
               </columns>
             </TableView>
          </children>
       </VBox>
-      <Button id="show-button" fx:id="showOrderButton" layoutX="1041.0" layoutY="753.0" mnemonicParsing="false" onAction="#ShowBuyOrderScene" text="Show Buy Order" />
-      <VBox layoutX="20.0" layoutY="150.0" prefHeight="458.0" prefWidth="348.0" spacing="20.0">
+      <VBox layoutX="20.0" layoutY="150.0" prefHeight="567.0" prefWidth="367.0" spacing="20.0" AnchorPane.leftAnchor="20.0">
          <children>
-            <Label alignment="CENTER" prefHeight="36.0" prefWidth="350.0" text="Supplier Information" textFill="#8c4c4c">
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="350.0" text="Thông tin nhà cung cấp" textFill="#8c4c4c">
                <font>
-                  <Font size="25.0" />
+                  <Font name="SansSerif Bold" size="31.0" />
                </font>
             </Label>
-            <Label text="Phone Number" />
-            <TextField fx:id="PhoneNumberText" />
-            <Label text="Name">
+            <Label text="Số điện thoại">
                <font>
-                  <Font size="20.0" />
-               </font></Label>
-            <TextField fx:id="NameText" />
-            <Label text="Address">
+                  <Font name="SansSerif Regular" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="PhoneNumberText" prefHeight="35.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></TextField>
+            <Label text="Tên">
                <font>
-                  <Font size="10.0" />
-               </font></Label>
-            <TextField fx:id="AddressText" />
-            <Label text="Email" />
-            <TextField fx:id="EmailText" />
-            <Button id="submit-button" fx:id="SubmitButton" mnemonicParsing="false" onAction="#GetSupplierInformation" text="Submit" />
+                  <Font name="SansSerif Regular" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="NameText" prefHeight="35.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></TextField>
+            <Label text="Địa chỉ">
+               <font>
+                  <Font name="SansSerif Regular" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="AddressText" prefHeight="35.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></TextField>
+            <Label text="Email">
+               <font>
+                  <Font name="SansSerif Regular" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="EmailText" prefHeight="35.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></TextField>
+            <JFXButton onAction="#GetSupplierInformation" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: #4C54A4;" text="Kiểm tra" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </JFXButton>
          </children>
       </VBox>
-      <Button id="list-button" layoutX="840.0" layoutY="753.0" mnemonicParsing="false" onAction="#ShowListBuyOrderScene" text="Show List BuyOrder" />
-      <Button id="back-button" layoutX="12.0" layoutY="9.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <HBox layoutX="499.0" layoutY="763.0" prefHeight="37.0" prefWidth="682.0">
+         <children>
+            <JFXButton onAction="#ShowListBuyOrderScene" prefHeight="50.0" prefWidth="5000.0" style="-fx-background-color: #4C54A4;" text="Lịch sử hoá đơn" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton onAction="#ShowBuyOrderScene" prefHeight="50.0" prefWidth="5000.0" style="-fx-background-color: #4C54A4;" text="Xem hoá đơn hiện tại" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

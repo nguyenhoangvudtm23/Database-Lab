@@ -53,7 +53,7 @@ public class SuppliersQuery {
 	}
 	public static String topXbestsuppliersYdaysQuery(int x, int y)
 	{
-		return "SELECT Suppliers.SupplierID, Name, sum(Totalcost) from BuyOrders, Suppliers\r\n"
+		return "SELECT Suppliers.Name, sum(Totalcost) from BuyOrders, Suppliers\r\n"
 		+ "WHERE Suppliers.SupplierID=BuyOrders.SupplierID\r\n"
 		+ "AND CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusDays(y))
 		+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
@@ -61,7 +61,7 @@ public class SuppliersQuery {
 	}
 	public static String topXbestsuppliersYmonthsQuery(int x, int y)
 	{
-		return "SELECT Suppliers.SupplierID, Name, sum(Totalcost) from BuyOrders, Suppliers\r\n"
+		return "SELECT Name, sum(Totalcost) from BuyOrders, Suppliers\r\n"
 		+ "WHERE Suppliers.SupplierID=BuyOrders.SupplierID\r\n"
 		+ "AND CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusMonths(y))
 		+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
@@ -69,7 +69,7 @@ public class SuppliersQuery {
 	}
 	public static String topXbestsuppliersYyearsQuery(int x, int y)
 	{
-		return "SELECT Suppliers.SupplierID, Name, sum(Totalcost) from BuyOrders, Suppliers\r\n"
+		return "SELECT Name, sum(Totalcost) from BuyOrders, Suppliers\r\n"
 		+ "WHERE Suppliers.SupplierID=BuyOrders.SupplierID\r\n"
 		+ "AND CreationDate BETWEEN date('" + DataConverter.convertDateTimeToString(LocalDateTime.now().minusYears(y))
 		+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
