@@ -34,6 +34,10 @@ public class BuyOrderStatistics extends Execution{
 	{
 		statement.executeUpdate(BuyOrderQuery.deleteBuyOrderQuery(BuyOrderID));
 	}
+	public static ResultSet selectAllBuyOrders() throws SQLException
+	{
+		return statement.executeQuery(BuyOrderQuery.selectAllBuyOrdersQuery());
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

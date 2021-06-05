@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class ProductQuery {
 	public static String selectAllQuery()
 	{
-		return "select Product_Descript, Amount_Left, Selling_Price from Products";
+		return "select Product_Descript, Amount_Left, Selling_Price, ProductID from Products";
 	}
 	public static String updatePriceQuery(int ProductID, double newPrice)
 	{

@@ -1,19 +1,19 @@
 package Classes;
 import java.time.LocalDate;
 public class BuyOrders {
-
-	private int BuyOrderId;
+	private static int ID = 0;
+	private int BuyOrderID;
 	private int SupplierID;
 	private double Totalcost;
 	private LocalDate CreationDate;
-	private char Status;
+	private String Status;
 	
-	public int getBuyOrderId() {
-		return BuyOrderId;
+	public int getBuyOrderID() {
+		return BuyOrderID;
 	}
 
 	public void setBuyOrderId(int buyOrderId) {
-		BuyOrderId = buyOrderId;
+		BuyOrderID = buyOrderId;
 	}
 
 	public int getSupplierID() {
@@ -40,17 +40,17 @@ public class BuyOrders {
 		CreationDate = creationDate;
 	}
 
-	public char getStatus() {
+	public String getStatus() {
 		return Status;
 	}
 
-	public void setStatus(char status) {
+	public void setStatus(String status) {
 		Status = status;
 	}
 	
-	public BuyOrders(int buyOrderId, int supplierID, double totalcost, LocalDate creationDate, char status) {
+	public BuyOrders(int supplierID, double totalcost, LocalDate creationDate, String status) {
 		super();
-		BuyOrderId = buyOrderId;
+		BuyOrderID = ID++;
 		SupplierID = supplierID;
 		Totalcost = totalcost;
 		CreationDate = creationDate;

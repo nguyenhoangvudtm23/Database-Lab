@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.chart.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="572.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.BarChartController">
+<AnchorPane fx:id="anchorPane" prefHeight="572.0" prefWidth="682.0" style="-fx-background-color: #F2AA4CFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.BarChartController">
    <children>
       <VBox fx:id="vBox" layoutX="42.0" layoutY="71.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="71.0">
          <children>
@@ -22,13 +23,13 @@
                   <Insets />
                </VBox.margin>
             </BarChart>
-            <Button fx:id="createChart" alignment="CENTER" layoutX="340.0" layoutY="553.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#createABarChart" prefHeight="31.0" prefWidth="313.0" stylesheets="@Button.css" text="Tạo biểu đồ" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="339.0">
+            <Button id="create_button" fx:id="createChart" alignment="CENTER" layoutX="340.0" layoutY="553.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#createABarChart" prefHeight="31.0" prefWidth="313.0" stylesheets="@BarChart.css" text="Tạo biểu đồ" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="339.0">
                <VBox.margin>
                   <Insets left="150.0" right="150.0" />
                </VBox.margin>
             </Button>
          </children>
       </VBox>
-      <Button layoutY="-1.0" mnemonicParsing="false" onAction="#back" text="Back" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button id="back_button" layoutY="-1.0" mnemonicParsing="false" onAction="#back" stylesheets="@BarChart.css" text="Back" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

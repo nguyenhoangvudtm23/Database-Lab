@@ -33,9 +33,11 @@ public class ManagementMenuController extends MenuController implements Initiali
 	private Stage stage;
 	private Parent root;
 	private Scene scene;
+	@FXML
+	AnchorPane anchorPane;
 	public void switchIngredientScene(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("CreateIngredientScene.fxml"));
-		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		stage = new Stage();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
@@ -43,23 +45,39 @@ public class ManagementMenuController extends MenuController implements Initiali
 	public void switchProductScene(ActionEvent event) throws IOException
 	{
 		root = FXMLLoader.load(getClass().getResource("CreateProductScene.fxml"));
-		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		stage = new Stage();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
 	}
-//	public void switchSupplierScene(ActionEvent event) throws IOException
-//	{
-//		root = FXMLLoader.load(getClass().getResource("ManagementMenu.fxml"));
-//		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-//		scene = new Scene(root);
-//		stage.setScene(scene);
-//		stage.show();
-//	}
+	public void switchSupplierScene(ActionEvent event) throws IOException
+	{
+		root = FXMLLoader.load(getClass().getResource("ShowListSupplier.fxml"));
+		stage = new Stage();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
 	public void switchCustomerScene(ActionEvent event) throws IOException
 	{
 		root = FXMLLoader.load(getClass().getResource("ShowListCustomer.fxml"));
-		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		stage = new Stage();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchOrderScene(ActionEvent event) throws IOException
+	{
+		root = FXMLLoader.load(getClass().getResource("ShowListOrder.fxml"));
+		stage = new Stage();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void switchBuyOrderScene(ActionEvent event) throws IOException
+	{
+		root = FXMLLoader.load(getClass().getResource("ShowListBuyOrder.fxml"));
+		stage = new Stage();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
@@ -67,6 +85,5 @@ public class ManagementMenuController extends MenuController implements Initiali
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-
 	}
 }

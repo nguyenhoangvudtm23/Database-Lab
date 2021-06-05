@@ -84,7 +84,7 @@ public class CreateProductController extends MenuController implements Initializ
 			Product.ID = 1;
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			showAlert("DB Error", "Can't connect to the database");
 		}
 		try {
 			ResultSet listProd = ProductStatistics.selectAll();
@@ -96,10 +96,12 @@ public class CreateProductController extends MenuController implements Initializ
 						listProd.getString(1), 
 						listProd.getDouble(3),
 						listProd.getString(1));
+				product.setProductID(String.valueOf(listProd.getInt(4)));
 				Configuration.ListProduct.add(product);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			showAlert("DB Error", "Can't connect to the database");
 			e.printStackTrace();
 		}
 		

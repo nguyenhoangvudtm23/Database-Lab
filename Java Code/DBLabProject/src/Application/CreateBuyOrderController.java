@@ -1,15 +1,23 @@
 package Application;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
 import Classes.Ingredient;
+import Classes.Product;
 import Classes.Supplier;
+import Execution.IngredientStatistics;
+import Execution.SupplierStatistics;
+import Scenario.Starter;
 //import Learnjavafx.JustDoIt.Person;
 import javafx.util.Callback;
+import jfxtras.labs.scene.control.BigDecimalField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,6 +30,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -45,80 +54,33 @@ import java.util.*;
 
 
 
-public class CreateBuyOrderController implements Initializable {
+public class CreateBuyOrderController extends MenuController implements Initializable {
 	static class XCell extends TableCell<Ingredient, String>{
-		HBox hbox = new HBox();
-		Pane pane = new Pane();
-		String lastItem;
-		Button addbutton = new Button("+");
-        TextField quantity = new TextField("0");
-        Button subbutton = new Button("-");
+		public BigDecimalField field = new BigDecimalField();
         public int quant = 0;
 		public XCell() {
             super();
-            quantity.setAlignment(Pos.CENTER);
-            
-            addbutton.setMinWidth(USE_COMPUTED_SIZE);
-            subbutton.setMinWidth(USE_COMPUTED_SIZE);
-            quantity.setMaxWidth(100);
-            hbox.getChildren().addAll(pane, addbutton, quantity, subbutton);
-            hbox.setAlignment(Pos.CENTER);
-            HBox.setHgrow(pane, Priority.ALWAYS);
-//            quantity.setOnAction(new EventHandler<ActionEvent>() {
-//				@Override
-//				public void handle(ActionEvent event) {
-//					// TODO Auto-generated method stub
-//					quant = Integer.valueOf(quantity.getText());
-//				}
-//            	
-//            });
-            quantity.textProperty().addListener((v, oldValue, newValue) -> 
-            	{try{
-            		quant = Integer.valueOf(newValue.replace("\n", "").trim());
-            		Ingredient temp = getTableView().getItems().get(getIndex());
-                 	temp.setCur_quantity(quant);
-            		}
-            	catch(Exception e) {}
-            	}
-            );
-            addbutton.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    quant = quant + 1;
-                    quantity.setText(Integer.toString(quant));
-                    Ingredient temp = getTableView().getItems().get(getIndex());
-                	temp.setCur_quantity(quant);
-                }
-            });
-            subbutton.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent event) {
-					// TODO Auto-generated method stub
-					if(quant == 0) {
-						JOptionPane.showMessageDialog(null, "Cant less than 0");
-					}
-					else {
-						quant = quant - 1;
-						quantity.setText(Integer.toString(quant));
-						Ingredient temp = getTableView().getItems().get(getIndex());
-		            	temp.setCur_quantity(quant);
-					}
-				}
-            	
+            field.setText("0");
+            field.setMinValue(BigDecimal.ZERO);
+            field.numberProperty().addListener((o, oldvalue, newvalue) -> {
+            	quant = newvalue.intValue();
+            	Ingredient temp = getTableView().getItems().get(getIndex());
+             	temp.setCur_quantity(quant);
+//             	System.out.println(temp.getCur_quantity() + " " + temp.getIngredientID());
             });
         }
 		@Override
-        protected void updateItem(String item, boolean empty) {
-            super.updateItem(item, empty);
-            setText(null);  // No text in label of super class
-            if (empty) {
-                lastItem = null;
-                setGraphic(null);
-            } else {
-                lastItem = item;
-                setGraphic(hbox);
-            }
-        }
+		public void updateItem(String item, boolean empty) {
+			super.updateItem(item, empty);
+
+			if (empty) {
+				setText(null);
+				setGraphic(null);
+			} else {
+				setGraphic(field);
+				setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+			}
+		}
 		
 	}
 	private Stage stage;
@@ -154,7 +116,37 @@ public class CreateBuyOrderController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		try {
+			Starter.starting();
+			Configuration.ListSupplier.clear();
+			ResultSet listSup = SupplierStatistics.getAllSuppliers();
+			while (listSup.next())
+			{
+				Supplier supplier = new Supplier();
+				supplier.setSupplierID(String.valueOf(listSup.getInt(1)));
+				supplier.setName(listSup.getString(2));
+				supplier.setAddress(listSup.getString(3));
+				supplier.setEmail(listSup.getString(5));
+				supplier.setPhone_Number(listSup.getString(4));
+				Configuration.ListSupplier.add(supplier);
+			}
+			Configuration.ListIngredient.clear();
+			ResultSet listIngre = IngredientStatistics.getAllIngredient();
+			while (listIngre.next())
+			{
+				Ingredient ingredient = new Ingredient(
+						listIngre.getString(1),
+						listIngre.getDouble(4),
+						listIngre.getString(2),
+						listIngre.getInt(3)
+						);
+				Configuration.ListIngredient.add(ingredient);
+			}
+		}
+		catch(Exception e)
+		{
+			showAlert("DB Error", "Can't connect to the database");
+		}
         idColumn.setCellValueFactory(new PropertyValueFactory<>("IngredientID"));
         AmountLeftColumn.setCellValueFactory(new PropertyValueFactory<>("AmountLeft"));
         NameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -205,20 +197,27 @@ public class CreateBuyOrderController implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 	}
-	public void ShowOrderScene(ActionEvent event) throws IOException {
+	public void ShowBuyOrderScene(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowOrder.fxml"));
 		Parent root1 = loader.load();
-		
 		ShowOrderController showOrderscene = loader.getController();
 		showOrderscene.ShowBuyOrder(ListIngredientTable, Name);
 		Stage stage1 = new Stage();
 		stage1.setScene(new Scene(root1));
-		stage1.setTitle("Order created!!!");
+		stage1.setTitle("Buy Order created!!!");
 		stage1.show();
 		
 	}
-	public void GetSupplierInformation(ActionEvent e) {
-		if(Configuration.CheckPhone(PhoneNumber)) {
+	public void ShowListBuyOrderScene(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowListBuyOrder.fxml"));
+		Parent root1 = loader.load();
+		Stage stage1 = new Stage();
+		stage1.setScene(new Scene(root1));
+		stage1.show();
+		
+	}
+	public void GetSupplierInformation(ActionEvent e) throws SQLException {
+		if(SupplierStatistics.checkExist(PhoneNumber) == 1) {
 			System.out.println("There is Phone");
 			System.out.println(PhoneNumber);
 			int SupplierIndex = Configuration.findSupplierIndex(PhoneNumber);

@@ -1,8 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.SupplierStatisticsController">
+   <children>
+      <BarChart fx:id="barChart" layoutX="50.0" layoutY="76.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="76.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <HBox id="hbox" layoutX="10.0" layoutY="10.0" prefHeight="42.0" prefWidth="600.0" stylesheets="@Customerinput.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label id="label" prefHeight="22.0" prefWidth="34.0" stylesheets="@Customerinput.css" text="TOP">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField id="text-field" fx:id="supplierNumberBox" prefHeight="31.0" prefWidth="70.0" promptText="(5, 10...)" stylesheets="@Customerinput.css">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </TextField>
+            <Label id="label" prefHeight="22.0" prefWidth="185.0" stylesheets="@Customerinput.css" text="nhà cung cấp trong">
+               <HBox.margin>
+                  <Insets bottom="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField id="text-field" fx:id="daySupplierBox" prefHeight="31.0" prefWidth="73.0" promptText="(1, 2...)">
+               <HBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </HBox.margin>
+            </TextField>
+            <Label id="label" alignment="CENTER" prefHeight="22.0" prefWidth="143.0" stylesheets="@Customerinput.css" text="NGÀY gần nhất" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <JFXButton onAction="#createChart" prefHeight="19.0" prefWidth="65.0" style="-fx-background-color: #5F7CD7;" text="Tạo" textFill="#fcfcfc" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="SansSerif Bold" size="16.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
 </AnchorPane>
-

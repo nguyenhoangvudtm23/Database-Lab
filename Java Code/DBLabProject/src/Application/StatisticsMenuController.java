@@ -30,7 +30,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class StatisticsMenuController extends MenuController implements Initializable{
-	private Stage stage;
+	
 	private Parent root;
 	public static ResultSet resultToDisplay;
 	private Scene scene;
@@ -38,37 +38,59 @@ public class StatisticsMenuController extends MenuController implements Initiali
 	public void chooseCustomerScene(ActionEvent event) throws IOException, ClassNotFoundException, SQLException
 	{
 		Starter.starting();
-		root = FXMLLoader.load(getClass().getResource("CustomerInput.fxml"));
-		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//		AnchorPane pane = FXMLLoader.load(getClass().getResource("CustomerInput.fxml"));
+//		AnchorPane root = (AnchorPane) ((Node)event.getSource()).getParent().getParent().getParent();
+//		root.getChildren().setAll(pane);
+		root = SceneHolder.getCustomerInputScene();
+		
 		scene = new Scene(root);
+		Stage stage = new Stage();
 		stage.setScene(scene);
 		stage.show();
 	}
 	public void chooseRevenueAndCostScene(ActionEvent event) throws IOException, ClassNotFoundException, SQLException
 	{
 		Starter.starting();
-		root = FXMLLoader.load(getClass().getResource("RevenueCostInput.fxml"));
-		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//		AnchorPane pane = FXMLLoader.load(getClass().getResource("RevenueCostInput.fxml"));
+//		AnchorPane root = (AnchorPane) ((Node)event.getSource()).getParent().getParent().getParent();
+//		root.getChildren().setAll(pane);
+//		Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		root = SceneHolder.getRevenueCostInputScene();
 		scene = new Scene(root);
+		Stage stage = new Stage();
 		stage.setScene(scene);
 		stage.show();
 	}
-	public void chooseSupplierScene(ActionEvent event) throws ClassNotFoundException, SQLException
+	public void chooseSupplierScene(ActionEvent event) throws ClassNotFoundException, SQLException, IOException
 	{
 		Starter.starting();
+		root = SceneHolder.getSupplierInputScene();
+		scene = new Scene(root);
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.show();
 	}
 	public void chooseProductAndIngredientScene(ActionEvent event) throws ClassNotFoundException, SQLException, IOException
 	{
 		Starter.starting();
-		root = FXMLLoader.load(getClass().getResource("ProductIngredientInput.fxml"));
-		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		root = SceneHolder.getProductIngredientInputScene();
+//	stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
+		Stage stage = new Stage();
 		stage.setScene(scene);
 		stage.show();
 	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-
+		try {
+			Starter.starting();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

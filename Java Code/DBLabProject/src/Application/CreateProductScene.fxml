@@ -1,28 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="733.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateProductController">
+<AnchorPane prefHeight="733.0" prefWidth="653.0" styleClass="anchor" stylesheets="@CreateProduct.css" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateProductController">
    <children>
-      <Label layoutX="196.0" layoutY="83.0" text="Create Product ">
+      <VBox layoutX="67.0" layoutY="213.0" prefHeight="315.0" prefWidth="426.0">
+         <children>
+            <Label text="Tên sản phẩm">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="SansSerif Regular" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="NameText" prefWidth="290.0" promptText="Name of Product">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label prefWidth="151.0" text="Giá sản phẩm">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="SansSerif Regular" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="priceText" promptText="Price">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Số lượng trong kho">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="SansSerif Regular" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="AmountLeftText" promptText="Quantity">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Mô tả">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="SansSerif Regular" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="DescriptionText" promptText="Description">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+      <HBox layoutX="71.0" layoutY="606.0" prefHeight="37.0" prefWidth="426.0">
+         <children>
+            <Button fx:id="submitButton" mnemonicParsing="false" onAction="#CreateProduct" prefWidth="300.0" text="Submit" />
+            <Button fx:id="showListProductButton" mnemonicParsing="false" onAction="#showListProduct" prefWidth="300.0" text="Show List Product" />
+         </children>
+      </HBox>
+      <Label layoutX="212.0" layoutY="92.0" text="Tạo sản phẩm" textFill="#512c04">
          <font>
-            <Font size="38.0" />
+            <Font name="SansSerif Bold" size="34.0" />
          </font>
       </Label>
-      <TextField fx:id="NameText" layoutX="71.0" layoutY="234.0" prefHeight="31.0" prefWidth="290.0" promptText="Name of Product" />
-      <TextField fx:id="priceText" layoutX="71.0" layoutY="336.0" promptText="Price" />
-      <TextField fx:id="AmountLeftText" layoutX="71.0" layoutY="435.0" promptText="Quantity" />
-      <TextField fx:id="DescriptionText" layoutX="71.0" layoutY="533.0" promptText="Description" />
-      <Label layoutX="71.0" layoutY="213.0" text="Name of Product" />
-      <Label layoutX="71.0" layoutY="315.0" text="Price of Product" />
-      <Label layoutX="70.0" layoutY="414.0" text="Quantity of Product" />
-      <Label layoutX="70.0" layoutY="512.0" text="Description of Product" />
-      <Button fx:id="submitButton" layoutX="72.0" layoutY="606.0" mnemonicParsing="false" onAction="#CreateProduct" text="Submit" />
-      <Button fx:id="showListProductButton" layoutX="485.0" layoutY="606.0" mnemonicParsing="false" onAction="#showListProduct" text="Show List Product" />
-      <Button layoutY="-1.0" mnemonicParsing="false" onAction="#switchManagementScene" text="Back" />
    </children>
 </AnchorPane>
