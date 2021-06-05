@@ -61,9 +61,14 @@ public class StatisticsMenuController extends MenuController implements Initiali
 		stage.setScene(scene);
 		stage.show();
 	}
-	public void chooseSupplierScene(ActionEvent event) throws ClassNotFoundException, SQLException
+	public void chooseSupplierScene(ActionEvent event) throws ClassNotFoundException, SQLException, IOException
 	{
 		Starter.starting();
+		root = FXMLLoader.load(getClass().getResource("SupplierInput.fxml"));
+		scene = new Scene(root);
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.show();
 	}
 	public void chooseProductAndIngredientScene(ActionEvent event) throws ClassNotFoundException, SQLException, IOException
 	{
