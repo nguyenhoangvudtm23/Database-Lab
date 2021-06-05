@@ -20,6 +20,7 @@ public class ShowOrderController {
 		}
 		System.out.println("Bill of Customer: " + Name + "\n");
 		System.out.println("List of the product:");
+		System.out.println(table.getItems().size());
 		for(int i = 0; i < table.getItems().size(); i++) {
 			Product temp = table.getItems().get(i);
 			if(temp.getCur_quantity() == 0) continue;
