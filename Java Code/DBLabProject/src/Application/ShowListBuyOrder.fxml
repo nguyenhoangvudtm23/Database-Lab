@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -8,15 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="697.0" prefWidth="849.0" style="-fx-background-color: #c2e9fb;" styleClass="anchor" stylesheets="@ShowListBuyOrder.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListBuyOrderController">
+<AnchorPane prefHeight="697.0" prefWidth="849.0" stylesheets="@ShowListBuyOrder.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListBuyOrderController">
    <children>
-      <JFXButton id="button" ellipsisString="" layoutX="7.0" layoutY="645.0" mnemonicParsing="false" onAction="#BackCreateProductScene" prefHeight="44.0" prefWidth="70.0" stylesheets="@ShowListBuyOrder.css" />
       <Label id="list" layoutX="291.0" layoutY="66.0" stylesheets="@ShowListBuyOrder.css" text="List of BuyOrder">
          <font>
             <Font size="42.0" />
          </font>
       </Label>
-      <TableView fx:id="ListBuyOrderTable" editable="true" layoutX="112.0" layoutY="228.0" prefHeight="424.0" prefWidth="626.0">
+      <TableView fx:id="ListBuyOrderTable" editable="true" layoutX="112.0" layoutY="230.0" prefHeight="422.0" prefWidth="634.0">
         <columns>
           <TableColumn fx:id="BuyOrderIDColumn" prefWidth="135.0" text="BuyOrderID" />
           <TableColumn fx:id="SupplierIDColumn" prefWidth="163.0" text="SupplierID" />
