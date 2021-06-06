@@ -7,28 +7,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="697.0" prefWidth="849.0" stylesheets="@ShowListOrder.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListOrderController">
+<AnchorPane prefHeight="697.0" prefWidth="849.0" style="-fx-background-color: #d7fcfc;" stylesheets="@ShowListOrder.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListOrderController">
    <children>
-      <Label id="list" layoutX="291.0" layoutY="66.0" stylesheets="@ShowListOrder.css" text="List of Order">
+      <Label id="list" layoutX="176.0" layoutY="73.0" stylesheets="@ShowListOrder.css" text="Danh sách đơn hàng">
          <font>
             <Font size="42.0" />
          </font>
       </Label>
-      <TableView id="table-view" fx:id="ListOrderTable" editable="true" layoutX="118.0" layoutY="228.0" prefHeight="430.0" prefWidth="636.0" stylesheets="@ShowListOrder.css">
+      <TableView id="table-view" fx:id="ListOrderTable" editable="true" layoutX="53.0" layoutY="224.0" prefHeight="428.0" prefWidth="703.0" stylesheets="@ShowListOrder.css">
         <columns>
-          <TableColumn fx:id="OrderIDColumn" prefWidth="100.0" text="OrderID" />
-          <TableColumn fx:id="CustomerIDColumn" prefWidth="152.0" text="CustomerID" />
-            <TableColumn fx:id="TotalCostColumn" prefWidth="107.0" text="TotalCost" />
-            <TableColumn fx:id="DateColumn" prefWidth="90.0" text="Date" />
-            <TableColumn fx:id="StatusColumn" prefWidth="69.0" text="Status" />
-            <TableColumn fx:id="DiscountColumn" prefWidth="116.0" text="Discount" />
+          <TableColumn fx:id="OrderIDColumn" prefWidth="100.0" text="ID Đơn hàng" />
+          <TableColumn fx:id="CustomerIDColumn" prefWidth="152.0" text="ID Khách Hàng" />
+            <TableColumn fx:id="TotalCostColumn" prefWidth="107.0" text="Thành tiền" />
+            <TableColumn fx:id="DateColumn" prefWidth="116.0" text="Ngày lập hóa đơn" />
+            <TableColumn fx:id="StatusColumn" prefWidth="128.0" text="Trạng thái" />
+            <TableColumn fx:id="DiscountColumn" prefWidth="91.0" text="Chiết khấu" />
         </columns>
       </TableView>
-      <Label id="label" layoutX="118.0" layoutY="190.0" stylesheets="@ShowListOrder.css" text="Search box">
+      <Label id="label" layoutX="53.0" layoutY="190.0" stylesheets="@ShowListOrder.css" text="Search box">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField id="text-field" fx:id="filterField" layoutX="291.0" layoutY="191.0" prefHeight="31.0" prefWidth="268.0" stylesheets="@ShowListOrder.css" />
+      <TextField id="text-field" fx:id="filterField" layoutX="236.0" layoutY="191.0" prefHeight="31.0" prefWidth="519.0" stylesheets="@ShowListOrder.css" />
    </children>
 </AnchorPane>

@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="499.0" prefWidth="609.0" style="-fx-background-color: #F2AA4CFF;" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ProductIngredientController">
+<AnchorPane prefHeight="499.0" prefWidth="623.0" style="-fx-background-color: EAE7DC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ProductIngredientController">
 
    <children>
       <VBox id="vbox" layoutX="200.0" layoutY="24.0" prefHeight="361.0" prefWidth="600.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -44,7 +44,13 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXButton id="button1" onAction="#chooseBestSeller" prefHeight="33.0" prefWidth="42.0" stylesheets="@ProductIngredientInput.css" text="Tạo" />
+                  <JFXButton id="button1" onAction="#chooseBestSeller" prefHeight="33.0" prefWidth="51.0" style="-fx-background-color: #5F7CD7;" text="Tạo" textFill="#fcfcfc">
+                     <HBox.margin>
+                        <Insets left="8.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="SansSerif Bold" size="16.0" />
+                     </font></JFXButton>
                </children>
             </HBox>
             <HBox prefHeight="42.0" prefWidth="600.0">
@@ -74,7 +80,13 @@
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXButton id="button1" onAction="#chooseWorstSeller" prefHeight="33.0" prefWidth="43.0" stylesheets="@ProductIngredientInput.css" text="Tạo" />
+                  <JFXButton id="button1" onAction="#chooseWorstSeller" prefHeight="32.0" prefWidth="51.0" style="-fx-background-color: #5F7CD7;" text="Tạo" textFill="#fcfcfc">
+                     <HBox.margin>
+                        <Insets left="8.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="SansSerif Bold" size="16.0" />
+                     </font></JFXButton>
                </children>
             </HBox>
             <BarChart id="chart-bar" fx:id="barChart" stylesheets="@ProductIngredientInput.css" VBox.vgrow="ALWAYS">

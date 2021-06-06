@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="766.0" prefWidth="990.0" style="-fx-background-color: #4ABDAC;" stylesheets="@ShowListSupplier.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListSupplierController">
+<AnchorPane prefHeight="766.0" prefWidth="990.0" style="-fx-background-color: #d7fcfc;" stylesheets="@ShowListSupplier.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListSupplierController">
    <children>
-      <Label id="list" layoutX="291.0" layoutY="66.0" stylesheets="@ShowListSupplier.css" text="List of Supplier">
+      <Label id="list" layoutX="217.0" layoutY="87.0" stylesheets="@ShowListSupplier.css" text="Danh sách nhà cung cấp">
          <font>
             <Font size="42.0" />
          </font>
@@ -17,14 +17,14 @@
       <TableView id="table-view" fx:id="ListSupplierTable" editable="true" layoutX="66.0" layoutY="219.0" prefHeight="482.0" prefWidth="858.0" stylesheets="@ShowListSupplier.css">
         <columns>
           <TableColumn fx:id="SupplierIDColumn" prefWidth="73.0" text="ID" />
-          <TableColumn fx:id="NameColumn" prefWidth="172.0" text="Name" />
+          <TableColumn fx:id="NameColumn" prefWidth="172.0" text="Tên nhà cung cấp" />
             <TableColumn fx:id="AddressColumn" prefWidth="224.0" text="Địa chỉ" />
             <TableColumn fx:id="PhoneNumberColumn" prefWidth="130.0" text="Số điện thoại" />
             <TableColumn fx:id="EmailColumn" prefWidth="258.0" text="Email" />
         </columns>
       </TableView>
-      <TextField id="text-field" fx:id="filterField" layoutX="234.0" layoutY="176.0" prefHeight="31.0" prefWidth="359.0" stylesheets="@ShowListSupplier.css" />
-      <Label id="label" layoutX="66.0" layoutY="175.0" stylesheets="@ShowListSupplier.css" text="Tìm kiếm">
+      <TextField id="text-field" fx:id="filterField" layoutX="234.0" layoutY="176.0" prefHeight="31.0" prefWidth="685.0" stylesheets="@ShowListSupplier.css" />
+      <Label id="label" layoutX="66.0" layoutY="175.0" stylesheets="@ShowListSupplier.css" text="Search box">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
