@@ -27,6 +27,19 @@
                   <Insets bottom="7.0" />
                </VBox.margin>
             </Label>
+            <HBox>
+               <children>
+                  <Label prefHeight="21.0" prefWidth="167.0" text="Search Box">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="SansSerif Regular" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="filterField" prefHeight="31.0" prefWidth="636.0" />
+               </children>
+            </HBox>
             <TableView id="table-view" fx:id="ListProductTable" prefHeight="528.0" prefWidth="640.0">
               <columns>
                 <TableColumn fx:id="idColumn" prefWidth="55.0" text="ID" />

@@ -19,6 +19,8 @@ import javafx.util.Callback;
 import jfxtras.labs.scene.control.BigDecimalField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -65,6 +67,8 @@ public class CreateOrderController extends MenuController implements Initializab
             	quant = newvalue.intValue();
             	Product temp = getTableView().getItems().get(getIndex());
              	temp.setCur_quantity(quant);
+             	System.out.println(temp.getName());
+             	System.out.println(temp.getCur_quantity());
 //             	System.out.println(temp.getCur_quantity() + " " + temp.getIngredientID());
             });
         }
@@ -74,7 +78,7 @@ public class CreateOrderController extends MenuController implements Initializab
 
 			if (empty) {
 				setText(null);
-				//setGraphic(null);
+				setGraphic(null);
 			} else {
 				setGraphic(field);
 				setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
@@ -82,6 +86,8 @@ public class CreateOrderController extends MenuController implements Initializab
 		}
 		
 	}
+	@FXML
+	private TextField filterField;
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -167,7 +173,7 @@ public class CreateOrderController extends MenuController implements Initializab
         };
         ActionColumn.setCellFactory(cellFactory);
         
-        ListProductTable.setItems(Configuration.ListProduct);
+//        ListProductTable.setItems(Configuration.ListProduct);
         PhoneNumberText.textProperty().addListener((v, oldValue, newValue) -> {
         	try{
         		PhoneNumber = newValue.replace("\n", "").trim();
@@ -193,7 +199,34 @@ public class CreateOrderController extends MenuController implements Initializab
         	catch(Exception e) {}
         });
         
-        
+        FilteredList<Product> filteredData = new FilteredList<>(Configuration.ListProduct, b -> true);
+		filterField.textProperty().addListener((o, oldValue, newValue) -> {
+			filteredData.setPredicate(product -> {
+				if(newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				String lowerCaseFilter = newValue.toLowerCase();
+				if(product.getName().toLowerCase().indexOf(lowerCaseFilter) != - 1) {
+					return true;
+				}
+				else if(product.getProductID().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(product.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(String.valueOf(product.getPrice()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(String.valueOf(product.getAmountLeft()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else return false;
+			});
+		});
+		SortedList<Product> sortedData = new SortedList<>(filteredData);
+		sortedData.comparatorProperty().bind(ListProductTable.comparatorProperty());
+		ListProductTable.setItems(sortedData);
         
        
 	}
