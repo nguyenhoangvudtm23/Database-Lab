@@ -12,6 +12,6 @@
             <PieChart fx:id="pieChart" legendSide="LEFT" title="Chart" />
          </children>
       </VBox>
-      <JFXButton id="button1" layoutX="123.0" layoutY="409.0" mnemonicParsing="false" onAction="#createAPieChart" prefHeight="31.0" prefWidth="354.0" stylesheets="@PieChart.css" text="Tạo biểu đồ" />
+      <JFXButton id="button1" layoutX="123.0" layoutY="400.0" mnemonicParsing="false" onAction="#createAPieChart" prefHeight="31.0" prefWidth="354.0" stylesheets="@PieChart.css" text="Tạo biểu đồ" />
    </children>
 </AnchorPane>
