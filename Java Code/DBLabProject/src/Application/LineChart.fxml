@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F2AA4CFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.LineChartController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.LineChartController">
    <children>
       <VBox fx:id="vBox" layoutX="7.0" />
       <LineChart fx:id="lineChart" layoutX="10.0" layoutY="16.0" prefHeight="369.0" prefWidth="566.0">
@@ -19,6 +19,5 @@
         </yAxis>
       </LineChart>
       <JFXButton id="button1" layoutX="191.0" layoutY="370.0" mnemonicParsing="false" onAction="#createALineChart" prefHeight="31.0" prefWidth="287.0" stylesheets="@LineChart.css" text="Tạo biểu đồ" />
-      <JFXButton id="button" ellipsisString="" layoutX="-7.0" layoutY="1.0" prefHeight="33.0" prefWidth="68.0" stylesheets="@LineChart.css" />
    </children>
 </AnchorPane>

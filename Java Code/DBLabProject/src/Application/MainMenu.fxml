@@ -1,18 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="384.0" prefWidth="591.0" styleClass="anchor" stylesheets="@MainMenu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.MainMenuController">
+<AnchorPane prefHeight="934.0" prefWidth="1413.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.MainMenuController">
    <children>
-      <VBox layoutX="40.0" layoutY="125.0" prefHeight="196.0" prefWidth="591.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="rootPane" prefHeight="879.0" prefWidth="1059.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="156.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0" />
+      <AnchorPane fx:id="textPane" layoutX="154.0" layoutY="46.0" prefHeight="888.0" prefWidth="185.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="46.0">
          <children>
-            <JFXButton id="button" fx:id="createOrderButton" mnemonicParsing="false" onAction="#switchOrderScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@MainMenu.css" text="Bán hàng" />
-            <JFXButton id="button1" fx:id="createBuyOrderButton" mnemonicParsing="false" onAction="#switchBuyOrderScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@MainMenu.css" text="Nhập hàng" />
-            <JFXButton id="button2" fx:id="statisticsButton" mnemonicParsing="false" onAction="#switchStatisticsScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@MainMenu.css" text="Thống kê" />
-            <JFXButton id="button3" fx:id="managementButton" mnemonicParsing="false" onAction="#switchManagementScene" prefHeight="100.0" prefWidth="600.0" stylesheets="@MainMenu.css" text="Quản lý" />
+            <VBox layoutX="-14.0" layoutY="9.0" prefHeight="879.0" prefWidth="185.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="9.0">
+               <children>
+                  <JFXButton id="button" fx:id="createOrderButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchOrderScene" prefHeight="8000.0" prefWidth="229.0" stylesheets="@MainMenu.css" text="Bán hàng" textFill="#fcfcfc" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="SansSerif Bold" size="25.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton id="button1" fx:id="createBuyOrderButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchBuyOrderScene" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@MainMenu.css" text="Nhập hàng" textFill="#fcfcfc" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="SansSerif Bold" size="25.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton id="button2" fx:id="statisticsButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchStatisticsScene" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@MainMenu.css" text="Thống kê" textFill="#fcfcfc" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="SansSerif Bold" size="25.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton id="button3" fx:id="managementButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchManagementScene" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@MainMenu.css" text="Quản lý" textFill="#fcfcfc" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="SansSerif Bold" size="25.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton id="button3" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@MainMenu.css" text="Hỗ trợ" textFill="#fcfcfc" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="SansSerif Bold" size="25.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton id="button3" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="8000.0" prefWidth="8000.0" stylesheets="@MainMenu.css" text="About Us" textFill="#fcfcfc" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="SansSerif Bold" size="25.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
          </children>
-      </VBox>
+      </AnchorPane>
+      <AnchorPane fx:id="iconPane" layoutY="55.0" prefHeight="879.0" prefWidth="161.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="55.0">
+         <children>
+            <VBox prefHeight="960.0" prefWidth="134.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXButton onAction="#switchOrderScene" prefHeight="60000.0" prefWidth="60000.0" style="-fx-background-color: #5761F0; -fx-border-color: #3844EE;" stylesheets="@MainMenu.css" text=" " VBox.vgrow="ALWAYS">
+                     <graphic>
+                        <ImageView pickOnBounds="true" scaleX="0.65" scaleY="0.65">
+                           <image>
+                              <Image url="@../Resources/cart2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton onAction="#switchBuyOrderScene" prefHeight="60000.0" prefWidth="60000.0" style="-fx-background-color: #5761F0; -fx-border-color: #3844EE;" stylesheets="@MainMenu.css" text=" " VBox.vgrow="ALWAYS">
+                     <graphic>
+                        <ImageView pickOnBounds="true" scaleX="0.65" scaleY="0.65">
+                           <image>
+                              <Image url="@../Resources/inventory.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton onAction="#switchStatisticsScene" prefHeight="60000.0" prefWidth="60000.0" style="-fx-background-color: #5761F0; -fx-border-color: #3844EE;" stylesheets="@MainMenu.css" text=" " VBox.vgrow="ALWAYS">
+                     <graphic>
+                        <ImageView onDragDetected="#switchStatisticsScene" pickOnBounds="true" scaleX="0.65" scaleY="0.65">
+                           <image>
+                              <Image url="@../Resources/statistics2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton onAction="#switchManagementScene" prefHeight="60000.0" prefWidth="60000.0" style="-fx-background-color: #5761F0; -fx-border-color: #3844EE;" stylesheets="@MainMenu.css" text=" " VBox.vgrow="ALWAYS">
+                     <graphic>
+                        <ImageView pickOnBounds="true" scaleX="0.65" scaleY="0.65">
+                           <image>
+                              <Image url="@../Resources/history.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton prefHeight="60000.0" prefWidth="60000.0" style="-fx-background-color: #5761F0; -fx-border-color: #3844EE;" stylesheets="@MainMenu.css" text=" " VBox.vgrow="ALWAYS">
+                     <graphic>
+                        <ImageView pickOnBounds="true" scaleX="0.65" scaleY="0.65">
+                           <image>
+                              <Image url="@../Resources/support.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton prefHeight="60000.0" prefWidth="60000.0" style="-fx-background-color: #5761F0; -fx-border-color: #3844EE;" stylesheets="@MainMenu.css" text=" " VBox.vgrow="ALWAYS">
+                     <graphic>
+                        <ImageView pickOnBounds="true" scaleX="0.65" scaleY="0.65">
+                           <image>
+                              <Image url="@../Resources/aboutus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <Pane layoutY="-4.0" prefHeight="59.0" prefWidth="1144.0" style="-fx-background-color: #1F246D;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <HBox prefHeight="63.0" prefWidth="1144.0">
+               <children>
+                  <JFXButton fx:id="navigateButton" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="103.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Resources/menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <HBox layoutX="1074.0" layoutY="3.0" prefHeight="49.0" prefWidth="153.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="3.0">
+         <children>
+            <JFXButton fx:id="minimizeButton" onAction="#minimize" prefHeight="46.0" prefWidth="51.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Resources/minimize.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="maximizeButton" onAction="#maximize" prefHeight="46.0" prefWidth="51.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Resources/maximize.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="exitButton" prefHeight="46.0" prefWidth="51.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Resources/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

@@ -158,7 +158,8 @@ public class ShowListProductController extends MenuController implements Initial
 	}
 	public void BackCreateProductScene(ActionEvent e) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("CreateProductScene.fxml"));
-		stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+		//stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+		stage = new Stage();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();

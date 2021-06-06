@@ -42,6 +42,7 @@ public class Configuration {
 		}
 		return false;
 	}
+
 	public static Customer findCustomer(String PhoneNumber){
 		for(Customer cus: ListCustomer) {
 			if(cus.getPhoneNumber().equals(PhoneNumber)) {

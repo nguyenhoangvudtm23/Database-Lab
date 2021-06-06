@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
@@ -19,6 +20,8 @@ import javafx.util.Callback;
 import jfxtras.labs.scene.control.BigDecimalField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -85,6 +88,8 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
+	@FXML
+	private TextField filterField;
 	@FXML
 	private TableView<Ingredient> ListIngredientTable;
 	@FXML	
@@ -162,8 +167,8 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 		    }
         };
         ActionColumn.setCellFactory(cellFactory);
-        ListIngredientTable.setItems(Configuration.ListIngredient);
-        ListIngredientTable.setItems(Configuration.ListIngredient);
+//        ListIngredientTable.setItems(Configuration.ListIngredient);
+//        ListIngredientTable.setItems(Configuration.ListIngredient);
         PhoneNumberText.textProperty().addListener((v, oldValue, newValue) -> {
         	try{
         		PhoneNumber = newValue.replace("\n", "").trim();
@@ -188,6 +193,34 @@ public class CreateBuyOrderController extends MenuController implements Initiali
         	}
         	catch(Exception e) {}
         });
+        FilteredList<Ingredient> filteredData = new FilteredList<>(Configuration.ListIngredient, b -> true);
+		filterField.textProperty().addListener((o, oldValue, newValue) -> {
+			filteredData.setPredicate(ingredient -> {
+				if(newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				String lowerCaseFilter = newValue.toLowerCase();
+				if(ingredient.getName().toLowerCase().indexOf(lowerCaseFilter) != - 1) {
+					return true;
+				}
+				else if(String.valueOf(ingredient.getIngredientID()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(ingredient.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(String.valueOf(ingredient.getPrice()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(String.valueOf(ingredient.getAmountLeft()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else return false;
+			});
+		});
+		SortedList<Ingredient> sortedData = new SortedList<>(filteredData);
+		sortedData.comparatorProperty().bind(ListIngredientTable.comparatorProperty());
+		ListIngredientTable.setItems(sortedData);
 	}
 	public void SwitchMainMenu(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
@@ -215,8 +248,8 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 		stage1.show();
 		
 	}
-	public void GetSupplierInformation(ActionEvent e) {
-		if(Configuration.CheckPhone(PhoneNumber)) {
+	public void GetSupplierInformation(ActionEvent e) throws SQLException {
+		if(SupplierStatistics.checkExist(PhoneNumber) == 1) {
 			System.out.println("There is Phone");
 			System.out.println(PhoneNumber);
 			int SupplierIndex = Configuration.findSupplierIndex(PhoneNumber);
