@@ -1,3 +1,29 @@
+
+#button1 {
+    -jfx-button-type: RAISED;
+    -fx-background-color: #5F7CD7;
+    -fx-background-insets: 0,1,1,1;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 8 8 8 8;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+#button{
+    -fx-background-image: url('back.png');
+    -fx-background-size: 30px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 50%;
+    -jfx-button-type: FLAT;
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: black;
+    -fx-font-size: 0;
+}
+.anchor-pane{
+    -fx-background-image:url('neural.png');
+}
+
 .vbox {
     -fx-border-width: 2px;
     -fx-padding: 10;

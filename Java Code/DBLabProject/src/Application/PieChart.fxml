@@ -13,10 +13,12 @@
             <PieChart fx:id="pieChart" legendSide="LEFT" prefHeight="378.0" prefWidth="548.0" title="Chart" />
          </children>
       </VBox>
+
       <JFXButton layoutX="228.0" layoutY="376.0" mnemonicParsing="false" onAction="#createAPieChart" prefHeight="31.0" prefWidth="354.0" style="-fx-background-color: #5F7CD7;" stylesheets="@PieChart.css" text="Tạo biểu đồ" textFill="#fcfcfc" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="247.0">
          <font>
             <Font name="SansSerif Bold" size="16.0" />
          </font>
       </JFXButton>
+
    </children>
 </AnchorPane>
