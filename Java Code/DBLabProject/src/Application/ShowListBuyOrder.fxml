@@ -7,20 +7,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="697.0" prefWidth="849.0" stylesheets="@ShowListBuyOrder.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListBuyOrderController">
+<AnchorPane prefHeight="697.0" prefWidth="849.0" style="-fx-background-color: #d7fcfc;" stylesheets="@ShowListBuyOrder.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListBuyOrderController">
    <children>
-      <Label id="list" layoutX="291.0" layoutY="66.0" stylesheets="@ShowListBuyOrder.css" text="List of BuyOrder">
+      <Label id="list" layoutX="189.0" layoutY="73.0" stylesheets="@ShowListBuyOrder.css" text="Danh sách nhập hàng">
          <font>
             <Font size="42.0" />
          </font>
       </Label>
       <TableView fx:id="ListBuyOrderTable" editable="true" layoutX="112.0" layoutY="230.0" prefHeight="422.0" prefWidth="634.0">
         <columns>
-          <TableColumn fx:id="BuyOrderIDColumn" prefWidth="135.0" text="BuyOrderID" />
-          <TableColumn fx:id="SupplierIDColumn" prefWidth="163.0" text="SupplierID" />
-            <TableColumn fx:id="TotalCostColumn" prefWidth="112.0" text="TotalCost" />
-            <TableColumn fx:id="DateColumn" prefWidth="130.0" text="Date" />
-            <TableColumn fx:id="StatusColumn" prefWidth="95.0" text="Status" />
+          <TableColumn fx:id="BuyOrderIDColumn" prefWidth="135.0" text="ID Nhập hàng" />
+          <TableColumn fx:id="SupplierIDColumn" prefWidth="163.0" text="ID Nhà cung cấp" />
+            <TableColumn fx:id="TotalCostColumn" prefWidth="112.0" text="Thành tiền" />
+            <TableColumn fx:id="DateColumn" prefWidth="130.0" text="Ngày nhập hàng" />
+            <TableColumn fx:id="StatusColumn" prefWidth="95.0" text="Trạng thái" />
         </columns>
       </TableView>
       <Label id="label" layoutX="112.0" layoutY="188.0" stylesheets="@ShowListBuyOrder.css" text="Search box">
@@ -28,6 +28,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField id="text-field" fx:id="filterField" layoutX="291.0" layoutY="189.0" prefHeight="31.0" prefWidth="268.0" stylesheets="@ShowListBuyOrder.css" />
+      <TextField id="text-field" fx:id="filterField" layoutX="291.0" layoutY="189.0" prefHeight="31.0" prefWidth="453.0" stylesheets="@ShowListBuyOrder.css" />
    </children>
 </AnchorPane>

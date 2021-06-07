@@ -4,14 +4,21 @@
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="597.0" style="-fx-background-color: #F2AA4CFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.PieChartController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="597.0" style="-fx-background-color: #c3cfe2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.PieChartController">
    <children>
-      <VBox fx:id="vBox" layoutX="50.0" prefHeight="400.0" prefWidth="500.0">
+      <VBox fx:id="vBox" layoutX="50.0" prefHeight="400.0" prefWidth="500.0" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0">
          <children>
-            <PieChart fx:id="pieChart" legendSide="LEFT" title="Chart" />
+            <PieChart fx:id="pieChart" legendSide="LEFT" prefHeight="378.0" prefWidth="548.0" title="Chart" />
          </children>
       </VBox>
-      <JFXButton id="button1" layoutX="123.0" layoutY="400.0" mnemonicParsing="false" onAction="#createAPieChart" prefHeight="31.0" prefWidth="354.0" stylesheets="@PieChart.css" text="Tạo biểu đồ" />
+
+      <JFXButton layoutX="228.0" layoutY="376.0" mnemonicParsing="false" onAction="#createAPieChart" prefHeight="31.0" prefWidth="354.0" style="-fx-background-color: #5F7CD7;" stylesheets="@PieChart.css" text="Tạo biểu đồ" textFill="#fcfcfc" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="247.0">
+         <font>
+            <Font name="SansSerif Bold" size="16.0" />
+         </font>
+      </JFXButton>
+
    </children>
 </AnchorPane>

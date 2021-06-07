@@ -6,11 +6,12 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.LineChartController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #c3cfe2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.LineChartController">
    <children>
       <VBox fx:id="vBox" layoutX="7.0" />
-      <LineChart fx:id="lineChart" layoutX="10.0" layoutY="16.0" prefHeight="369.0" prefWidth="566.0">
+      <LineChart fx:id="lineChart" layoutY="14.0" prefHeight="369.0" prefWidth="566.0" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -18,6 +19,9 @@
           <NumberAxis prefHeight="328.0" prefWidth="76.0" side="LEFT" />
         </yAxis>
       </LineChart>
-      <JFXButton id="button1" layoutX="191.0" layoutY="370.0" mnemonicParsing="false" onAction="#createALineChart" prefHeight="31.0" prefWidth="287.0" stylesheets="@LineChart.css" text="Tạo biểu đồ" />
+      <JFXButton layoutX="260.0" layoutY="354.0" mnemonicParsing="false" onAction="#createALineChart" prefHeight="31.0" prefWidth="287.0" style="-fx-background-color: #5F7CD7;" stylesheets="@LineChart.css" text="Tạo biểu đồ" textFill="#fcfcfc" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="215.0">
+         <font>
+            <Font name="SansSerif Bold" size="16.0" />
+         </font></JFXButton>
    </children>
 </AnchorPane>
