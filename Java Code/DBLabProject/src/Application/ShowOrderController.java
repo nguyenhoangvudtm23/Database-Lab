@@ -3,6 +3,9 @@ package Application;
 
 
 import Classes.Product;
+
+import com.jfoenix.controls.JFXButton;
+
 import Classes.Ingredient;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
@@ -11,6 +14,8 @@ import javafx.scene.control.TextArea;
 public class ShowOrderController {
 	@FXML
 	private TextArea textArea ;
+	@FXML
+	private JFXButton record;
 	public void showOrder(TableView<Product> table, String Name) {
 		
 		Double total_price = 0.0;
@@ -18,8 +23,8 @@ public class ShowOrderController {
 		if(Name.isEmpty()) {
 			Name = "Nguoi Vo Danh";
 		}
-		System.out.println("Bill of Customer: " + Name + "\n");
-		System.out.println("List of the product:");
+		textArea.appendText("Khách hàng: " + Name + "\n");
+		textArea.appendText("Danh sách sản phẩm:\n");
 		System.out.println(table.getItems().size());
 		for(int i = 0; i < table.getItems().size(); i++) {
 			Product temp = table.getItems().get(i);
@@ -28,6 +33,9 @@ public class ShowOrderController {
 			textArea.appendText(temp.printInformation() + "\n");
 		}
 		textArea.appendText("Total Price: " + total_price);
+		record.setOnAction(e -> {
+			
+		});
 	}
 	public void ShowBuyOrder(TableView<Ingredient> table, String Name) {
 		Double total_price = 0.0;
@@ -35,8 +43,8 @@ public class ShowOrderController {
 		if(Name.isEmpty()) {
 			Name = "Nguoi Vo Danh";
 		}
-		System.out.println("Bill of Customer: " + Name + "\n");
-		System.out.println("List of the product:");
+		textArea.appendText("Nhà cung cấp: " + Name + "\n");
+		textArea.appendText("Danh sách nguyên liệu:\n");
 		for(int i = 0; i < table.getItems().size(); i++) {
 			Classes.Ingredient temp = table.getItems().get(i);
 			if(temp.getCur_quantity() == 0) continue;
@@ -44,5 +52,8 @@ public class ShowOrderController {
 			textArea.appendText(temp.printInformation() + "\n");
 		}
 		textArea.appendText("Total Price: " + total_price);
+		record.setOnAction(e -> {
+			
+		});
 	}
 }
