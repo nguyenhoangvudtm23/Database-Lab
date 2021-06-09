@@ -15,6 +15,6 @@
       <TextField id="text-field" fx:id="Address" layoutX="138.0" layoutY="86.0" prefHeight="31.0" prefWidth="402.0" stylesheets="@Sample.css" />
       <TextField id="text-field" fx:id="PhoneNumber" layoutX="138.0" layoutY="147.0" prefHeight="31.0" prefWidth="402.0" stylesheets="@Sample.css" />
       <TextField id="text-field" fx:id="Email" layoutX="138.0" layoutY="211.0" prefHeight="31.0" prefWidth="402.0" stylesheets="@Sample.css" />
-      <JFXButton id="button" ellipsisString="" layoutX="274.0" layoutY="271.0" prefHeight="43.0" prefWidth="69.0" stylesheets="@Sample.css" text="Button" />
+      <JFXButton id="button" ellipsisString="" layoutX="274.0" layoutY="271.0" prefHeight="43.0" prefWidth="107.0" style="-fx-background-color: #5F7CD7;" stylesheets="@Sample.css" text="Submit" />
    </children>
 </AnchorPane>

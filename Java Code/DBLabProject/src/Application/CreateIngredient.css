@@ -7,11 +7,11 @@
 	 -fx-font-size: 20px;
 }
 #anchor-label {
-   -fx-text-fill: #FB8122;
-   -fx-font-size: 33px;
-   -fx-font-family: "Arial Black";
+   -fx-text-fill: #512C04;
+   -fx-font-size: 34px;
+   -fx-font-family: "Sans Serif";
+   -fx-font-weight: BOLD;
    -fx-fill: #818181;
-   -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
 }
 #back-button {
     -jfx-button-type: RAISED;

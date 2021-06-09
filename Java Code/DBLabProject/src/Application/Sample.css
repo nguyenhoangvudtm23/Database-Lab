@@ -1,13 +1,9 @@
 #button{
--fx-background-image: url('submit1.png');
-    -fx-background-size: 50px;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: 50%;
--jfx-button-type: FLAT;
+    -jfx-button-type: FLAT;
     -fx-background-insets: 0,1,2;
     -fx-background-radius: 3,2,1;
     -fx-padding: 3 30 3 30;
-    -fx-text-fill: black;
+    -fx-text-fill: #fcfcfc;
     -fx-font-size: 14px;
 }
 .anchor

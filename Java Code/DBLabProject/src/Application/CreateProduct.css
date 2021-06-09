@@ -1,15 +1,9 @@
-.anchor
-{
-   -fx-background-image: url('backbill.png');
-   -fx-background-size: 100% 100%;
-}
-
 #anchor-label {
    -fx-text-fill: #FB8122;
-   -fx-font-size: 33px;
-   -fx-font-family: "Arial Black";
+   -fx-font-size: 41px;
+   -fx-font-family: "Sans Serif";
+   -fx-font-weight: BOLD;
    -fx-fill: #818181;
-   -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
 }
 
 .button {

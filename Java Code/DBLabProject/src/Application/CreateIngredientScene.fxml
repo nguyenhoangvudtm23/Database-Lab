@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="753.0" prefWidth="645.0" styleClass="anchor" stylesheets="@CreateIngredient.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateIngredientController">
    <children>
-      <Label id="anchor-label" layoutX="180.0" layoutY="121.0" text="Create Ingredient">
+      <Label id="anchor-label" layoutX="180.0" layoutY="121.0" text="Tạo nguyên liệu">
          <font>
             <Font size="33.0" />
          </font>
@@ -16,15 +16,15 @@
       <TextField fx:id="NameText" layoutX="117.0" layoutY="268.0" promptText="name of ingredient" />
       <TextField fx:id="AmountLeftText" layoutX="117.0" layoutY="546.0" promptText="quantity of product" />
       <TextField fx:id="DescriptionText" layoutX="117.0" layoutY="453.0" promptText="description" />
-      <Label layoutX="118.0" layoutY="234.0" text="Name of Ingredient">
+      <Label layoutX="118.0" layoutY="234.0" text="Tên nguyên liệu">
          <font>
             <Font size="16.0" />
          </font></Label>
-      <Label layoutX="118.0" layoutY="509.0" text="Quantity of Product" />
-      <Label layoutX="118.0" layoutY="419.0" text="Description" />
-      <Button id="submit-button" fx:id="submitButton" layoutX="75.0" layoutY="645.0" mnemonicParsing="false" onAction="#CreateProduct" text="Submit" />
-      <Button id="list-button" fx:id="showListIngredientButton" layoutX="450.0" layoutY="645.0" mnemonicParsing="false" onAction="#showListIngredient" text="Show List Ingredient" />
+      <Label layoutX="118.0" layoutY="509.0" text="Số lượng" />
+      <Label layoutX="118.0" layoutY="419.0" text="Mô tả" />
+      <Button id="submit-button" fx:id="submitButton" layoutX="114.0" layoutY="645.0" mnemonicParsing="false" onAction="#CreateProduct" prefHeight="37.0" prefWidth="187.0" text="Submit" />
+      <Button id="list-button" fx:id="showListIngredientButton" layoutX="301.0" layoutY="645.0" mnemonicParsing="false" onAction="#showListIngredient" prefHeight="37.0" prefWidth="194.0" text="Show List Ingredient" />
       <TextField layoutX="117.0" layoutY="361.0" promptText="Price of Ingredient" />
-      <Label layoutX="117.0" layoutY="326.0" text="Price" />
+      <Label layoutX="117.0" layoutY="326.0" text="Giá tiền" />
    </children>
 </AnchorPane>
