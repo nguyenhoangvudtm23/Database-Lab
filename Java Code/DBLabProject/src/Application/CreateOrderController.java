@@ -1,7 +1,6 @@
 package Application;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,15 +9,13 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import Classes.Customer;
-import Classes.Ingredient;
 import Classes.Product;
 import Execution.CustomerStatistics;
 import Execution.ProductStatistics;
 import Scenario.Starter;
 import javafx.util.Callback;
-import jfxtras.labs.scene.control.BigDecimalField;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -31,57 +28,157 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import java.util.*;
 
 
 
 public class CreateOrderController extends MenuController implements Initializable {
-	static class XCell extends TableCell<Product, String>{
-		public BigDecimalField field = new BigDecimalField();
+	static class AddSubCell extends TableCell<Product, String>{
+		HBox hbox = new HBox();
+		Pane pane = new Pane();
+		Button addbutton = new Button("+");
+        Button subbutton = new Button("-");
         public int quant = 0;
-		public XCell() {
+		public AddSubCell() {
             super();
-            field.setText("0");
-            field.setMinValue(BigDecimal.ZERO);
-            field.numberProperty().addListener((o, oldvalue, newvalue) -> {
-            	quant = newvalue.intValue();
-            	Product temp = getTableView().getItems().get(getIndex());
-             	temp.setCur_quantity(quant);
-//             	System.out.println(temp.getCur_quantity() + " " + temp.getIngredientID());
+            addbutton.setMinWidth(USE_COMPUTED_SIZE);
+            subbutton.setMinWidth(USE_COMPUTED_SIZE);
+            hbox.getChildren().addAll(pane, addbutton, subbutton);
+            hbox.setAlignment(Pos.CENTER);
+            HBox.setHgrow(pane, Priority.ALWAYS);
+            addbutton.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                	Product temp = getTableView().getItems().get(getIndex());
+                	quant = temp.getCur_quantity();
+                    quant = quant + 1;
+                	temp.setCur_quantity(quant);
+                	Configuration.ListProduct.set(getIndex(), temp);
+                }
+            });
+            subbutton.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					// TODO Auto-generated method stub
+					Product temp = getTableView().getItems().get(getIndex());
+					quant = temp.getCur_quantity();
+					if(quant == 0) {
+						JOptionPane.showMessageDialog(null, "Cant less than 0");
+					}
+					else {
+						quant = quant - 1;
+		            	temp.setCur_quantity(quant);
+		            	Configuration.ListProduct.set(getIndex(), temp);
+					}
+				}
+            	
             });
         }
 		@Override
-		public void updateItem(String item, boolean empty) {
-			super.updateItem(item, empty);
-
-			if (empty) {
-				setText(null);
-				//setGraphic(null);
-			} else {
-				setGraphic(field);
-				setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-			}
-		}
+        protected void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+            setText(null);  // No text in label of super class
+            if (empty) {
+                setGraphic(null);
+            } else {
+                setGraphic(hbox);
+            }
+        }
 		
 	}
+	class XCell extends TableCell<Product, Integer> {
+
+	      private TextField textField;
+	    
+	      public XCell() {
+	    	  super();
+	      }
+	    
+	      @Override
+	      public void startEdit() {
+	          super.startEdit();
+	        
+	          if (textField == null) {
+	              createTextField();
+	          }
+	        
+	          setGraphic(textField);
+	          setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+	          textField.selectAll();
+	      }
+	    
+	      @Override
+	      public void cancelEdit() {
+	          super.cancelEdit();
+	        
+	          setText(String.valueOf(getItem()));
+	          setContentDisplay(ContentDisplay.TEXT_ONLY);
+	      }
+
+	      @Override
+	      public void updateItem(Integer item, boolean empty) {
+	          super.updateItem(item, empty);
+	        
+	          if (empty) {
+	              setText(null);
+	              setGraphic(null);
+	          } else {
+	              if (isEditing()) {
+	                  if (textField != null) {
+	                      textField.setText(getString());
+	                  }
+	                  setGraphic(textField);
+	                  setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+	              } else {
+	                  setText(getString());
+	                  setContentDisplay(ContentDisplay.TEXT_ONLY);
+	              }
+	          }
+	      }
+
+	      private void createTextField() {
+	          textField = new TextField(getString());
+	          textField.setMinWidth(this.getWidth() - this.getGraphicTextGap()*2);
+	          textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+	            
+	              @Override
+	              public void handle(KeyEvent t) {
+	                  if (t.getCode() == KeyCode.ENTER) {
+	                      commitEdit(Integer.valueOf(textField.getText()));
+	                      Product temp = getTableView().getItems().get(getIndex());
+	                      temp.setCur_quantity(Integer.valueOf(textField.getText()));
+//	                      try {
+//	                    	  ProductStatistics.updateProductName(Integer.parseInt(temp.getProductID()), temp.getName());
+//	                      }
+//	                      catch(Exception e)
+//	                      {
+//	                    	  
+//	                      }
+	                  } else if (t.getCode() == KeyCode.ESCAPE) {
+	                      cancelEdit();
+	                  }
+	              }
+	          });
+	      }
+	    
+	      private String getString() {
+	          return getItem() == null ? "" : getItem().toString();
+	      }
+	}
+	@FXML
+	private TextField filterField;
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -105,7 +202,9 @@ public class CreateOrderController extends MenuController implements Initializab
 	private TableColumn<Product, String> DescriptionColumn;
 	
 	@FXML
-	private TableColumn<Product, String> ActionColumn;
+	private TableColumn<Product, Integer> ActionColumn;
+	@FXML
+	private TableColumn<Product, String> AddSubColumn;
 	@FXML
 	private TextField PhoneNumberText, NameText, AddressText, EmailText;
 	
@@ -116,6 +215,7 @@ public class CreateOrderController extends MenuController implements Initializab
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Configuration.ListCustomer.clear();
+		ListProductTable.setEditable(true);
 		try {
 			Starter.starting();
 			ResultSet listCus = CustomerStatistics.getAllCustomer();
@@ -155,19 +255,43 @@ public class CreateOrderController extends MenuController implements Initializab
         NameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
         DescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("Description"));
         PriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-        ActionColumn.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
+        ActionColumn.setCellValueFactory(new PropertyValueFactory<>("cur_quantity"));
+        AddSubColumn.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
         
-        
-        Callback<TableColumn<Product, String>, TableCell<Product, String>> cellFactory = new Callback<TableColumn<Product, String>, TableCell<Product, String>>() {
+        Callback<TableColumn<Product, Integer>, TableCell<Product, Integer>> cellFactory = new Callback<TableColumn<Product, Integer>, TableCell<Product, Integer>>() {
 		    @Override
-		    public TableCell<Product, String> call(final TableColumn<Product, String> param) {
-		        TableCell<Product, String> cell = new XCell();
+		    public TableCell<Product, Integer> call(final TableColumn<Product, Integer> param) {
+		        XCell cell = new XCell();
 		        return cell;
 		    }
         };
         ActionColumn.setCellFactory(cellFactory);
         
-        ListProductTable.setItems(Configuration.ListProduct);
+        Callback<TableColumn<Product, String>, TableCell<Product, String>> addsubcellFactory = 
+        		new Callback<TableColumn<Product,String>, TableCell<Product,String>>() {
+
+					@Override
+					public TableCell<Product, String> call(TableColumn<Product, String> param) {
+						// TODO Auto-generated method stub
+						TableCell<Product, String> cell = new AddSubCell();
+						return cell;
+					}
+				};
+		AddSubColumn.setCellFactory(addsubcellFactory);
+//        ActionColumn.setOnEditCommit(
+//                new EventHandler<CellEditEvent<Product, Integer>>() {
+//                    @Override
+//                    public void handle(CellEditEvent<Product, Integer> t) {
+//                        ((Product) t.getTableView().getItems().get(
+//                            t.getTablePosition().getRow())
+//                            ).setCur_quantity(t.getNewValue());
+//                    }
+//                }
+//        );
+        
+        
+        
+//        ListProductTable.setItems(Configuration.ListProduct);
         PhoneNumberText.textProperty().addListener((v, oldValue, newValue) -> {
         	try{
         		PhoneNumber = newValue.replace("\n", "").trim();
@@ -193,7 +317,34 @@ public class CreateOrderController extends MenuController implements Initializab
         	catch(Exception e) {}
         });
         
-        
+        FilteredList<Product> filteredData = new FilteredList<>(Configuration.ListProduct, b -> true);
+		filterField.textProperty().addListener((o, oldValue, newValue) -> {
+			filteredData.setPredicate(product -> {
+				if(newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				String lowerCaseFilter = newValue.toLowerCase();
+				if(product.getName().toLowerCase().indexOf(lowerCaseFilter) != - 1) {
+					return true;
+				}
+				else if(product.getProductID().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(product.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(String.valueOf(product.getPrice()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(String.valueOf(product.getAmountLeft()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else return false;
+			});
+		});
+		SortedList<Product> sortedData = new SortedList<>(filteredData);
+		sortedData.comparatorProperty().bind(ListProductTable.comparatorProperty());
+		ListProductTable.setItems(sortedData);
         
        
 	}

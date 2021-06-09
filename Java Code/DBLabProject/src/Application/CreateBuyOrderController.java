@@ -1,25 +1,20 @@
 package Application;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
 import javax.swing.JOptionPane;
-
 import Classes.Ingredient;
 import Classes.Product;
 import Classes.Supplier;
 import Execution.IngredientStatistics;
 import Execution.SupplierStatistics;
 import Scenario.Starter;
-//import Learnjavafx.JustDoIt.Person;
 import javafx.util.Callback;
-import jfxtras.labs.scene.control.BigDecimalField;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -32,60 +27,159 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import java.util.*;
 
 
 
 public class CreateBuyOrderController extends MenuController implements Initializable {
-	static class XCell extends TableCell<Ingredient, String>{
-		public BigDecimalField field = new BigDecimalField();
+	static class AddSubCell extends TableCell<Ingredient, String>{
+		HBox hbox = new HBox();
+		Pane pane = new Pane();
+		Button addbutton = new Button("+");
+        Button subbutton = new Button("-");
         public int quant = 0;
-		public XCell() {
+		public AddSubCell() {
             super();
-            field.setText("0");
-            field.setMinValue(BigDecimal.ZERO);
-            field.numberProperty().addListener((o, oldvalue, newvalue) -> {
-            	quant = newvalue.intValue();
-            	Ingredient temp = getTableView().getItems().get(getIndex());
-             	temp.setCur_quantity(quant);
-//             	System.out.println(temp.getCur_quantity() + " " + temp.getIngredientID());
+            addbutton.setMinWidth(USE_COMPUTED_SIZE);
+            subbutton.setMinWidth(USE_COMPUTED_SIZE);
+            hbox.getChildren().addAll(pane, addbutton, subbutton);
+            hbox.setAlignment(Pos.CENTER);
+            HBox.setHgrow(pane, Priority.ALWAYS);
+            addbutton.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                	Ingredient temp = getTableView().getItems().get(getIndex());
+                	quant = temp.getCur_quantity();
+                    quant = quant + 1;
+                	temp.setCur_quantity(quant);
+                	Configuration.ListIngredient.set(getIndex(), temp);
+                }
+            });
+            subbutton.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					// TODO Auto-generated method stub
+					Ingredient temp = getTableView().getItems().get(getIndex());
+					quant = temp.getCur_quantity();
+					if(quant == 0) {
+						JOptionPane.showMessageDialog(null, "Cant less than 0");
+					}
+					else {
+						quant = quant - 1;
+		            	temp.setCur_quantity(quant);
+		            	Configuration.ListIngredient.set(getIndex(), temp);
+					}
+				}
+            	
             });
         }
 		@Override
-		public void updateItem(String item, boolean empty) {
-			super.updateItem(item, empty);
-
-			if (empty) {
-				setText(null);
-				setGraphic(null);
-			} else {
-				setGraphic(field);
-				setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-			}
-		}
+        protected void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+            setText(null);  // No text in label of super class
+            if (empty) {
+                setGraphic(null);
+            } else {
+                setGraphic(hbox);
+            }
+        }
 		
+	}
+	class XCell extends TableCell<Ingredient, Integer> {
+
+	      private TextField textField;
+	    
+	      public XCell() {
+	    	  super();
+	      }
+	    
+	      @Override
+	      public void startEdit() {
+	          super.startEdit();
+	        
+	          if (textField == null) {
+	              createTextField();
+	          }
+	        
+	          setGraphic(textField);
+	          setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+	          textField.selectAll();
+	      }
+	    
+	      @Override
+	      public void cancelEdit() {
+	          super.cancelEdit();
+	        
+	          setText(String.valueOf(getItem()));
+	          setContentDisplay(ContentDisplay.TEXT_ONLY);
+	      }
+
+	      @Override
+	      public void updateItem(Integer item, boolean empty) {
+	          super.updateItem(item, empty);
+	        
+	          if (empty) {
+	              setText(null);
+	              setGraphic(null);
+	          } else {
+	              if (isEditing()) {
+	                  if (textField != null) {
+	                      textField.setText(getString());
+	                  }
+	                  setGraphic(textField);
+	                  setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+	              } else {
+	                  setText(getString());
+	                  setContentDisplay(ContentDisplay.TEXT_ONLY);
+	              }
+	          }
+	      }
+
+	      private void createTextField() {
+	          textField = new TextField(getString());
+	          textField.setMinWidth(this.getWidth() - this.getGraphicTextGap()*2);
+	          textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+	            
+	              @Override
+	              public void handle(KeyEvent t) {
+	                  if (t.getCode() == KeyCode.ENTER) {
+	                      commitEdit(Integer.valueOf(textField.getText()));
+	                      Ingredient temp = getTableView().getItems().get(getIndex());
+	                      temp.setCur_quantity(Integer.valueOf(textField.getText()));
+//	                      try {
+//	                    	  ProductStatistics.updateProductName(Integer.parseInt(temp.getProductID()), temp.getName());
+//	                      }
+//	                      catch(Exception e)
+//	                      {
+//	                    	  
+//	                      }
+	                  } else if (t.getCode() == KeyCode.ESCAPE) {
+	                      cancelEdit();
+	                  }
+	              }
+	          });
+	      }
+	    
+	      private String getString() {
+	          return getItem() == null ? "" : getItem().toString();
+	      }
 	}
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
+	@FXML
+	private TextField filterField;
 	@FXML
 	private TableView<Ingredient> ListIngredientTable;
 	@FXML	
@@ -106,7 +200,10 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 	private TableColumn<Ingredient, String> DescriptionColumn;
 	
 	@FXML
-	private TableColumn<Ingredient, String> ActionColumn;
+	private TableColumn<Ingredient, Integer> ActionColumn;
+	@FXML
+	private TableColumn<Ingredient, String> AddSubColumn;
+	
 	@FXML
 	private TextField PhoneNumberText, NameText, AddressText, EmailText;
 	
@@ -116,6 +213,7 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		ListIngredientTable.setEditable(true);
 		try {
 			Starter.starting();
 			Configuration.ListSupplier.clear();
@@ -152,19 +250,32 @@ public class CreateBuyOrderController extends MenuController implements Initiali
         NameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
         DescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("Description"));
         PriceColumn.setCellValueFactory(new PropertyValueFactory<>("Price"));
-        ActionColumn.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
+        ActionColumn.setCellValueFactory(new PropertyValueFactory<>("cur_quantity"));
+        AddSubColumn.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
         
         
-        Callback<TableColumn<Ingredient, String>, TableCell<Ingredient, String>> cellFactory = new Callback<TableColumn<Ingredient, String>, TableCell<Ingredient, String>>() {
+        Callback<TableColumn<Ingredient, Integer>, TableCell<Ingredient, Integer>> cellFactory = new Callback<TableColumn<Ingredient, Integer>, TableCell<Ingredient, Integer>>() {
 		    @Override
-		    public TableCell<Ingredient, String> call(final TableColumn<Ingredient, String> param) {
-		        TableCell<Ingredient, String> cell = new XCell();
+		    public TableCell<Ingredient, Integer> call(final TableColumn<Ingredient, Integer> param) {
+		        TableCell<Ingredient, Integer> cell = new XCell();
 		        return cell;
 		    }
         };
         ActionColumn.setCellFactory(cellFactory);
-        ListIngredientTable.setItems(Configuration.ListIngredient);
-        ListIngredientTable.setItems(Configuration.ListIngredient);
+        
+        Callback<TableColumn<Ingredient, String>, TableCell<Ingredient, String>> addsubcellFactory = 
+        		new Callback<TableColumn<Ingredient,String>, TableCell<Ingredient,String>>() {
+
+					@Override
+					public TableCell<Ingredient, String> call(TableColumn<Ingredient, String> param) {
+						// TODO Auto-generated method stub
+						TableCell<Ingredient, String> cell = new AddSubCell();
+						return cell;
+					}
+				};
+		AddSubColumn.setCellFactory(addsubcellFactory);
+//        ListIngredientTable.setItems(Configuration.ListIngredient);
+//        ListIngredientTable.setItems(Configuration.ListIngredient);
         PhoneNumberText.textProperty().addListener((v, oldValue, newValue) -> {
         	try{
         		PhoneNumber = newValue.replace("\n", "").trim();
@@ -189,6 +300,34 @@ public class CreateBuyOrderController extends MenuController implements Initiali
         	}
         	catch(Exception e) {}
         });
+        FilteredList<Ingredient> filteredData = new FilteredList<>(Configuration.ListIngredient, b -> true);
+		filterField.textProperty().addListener((o, oldValue, newValue) -> {
+			filteredData.setPredicate(ingredient -> {
+				if(newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				String lowerCaseFilter = newValue.toLowerCase();
+				if(ingredient.getName().toLowerCase().indexOf(lowerCaseFilter) != - 1) {
+					return true;
+				}
+				else if(String.valueOf(ingredient.getIngredientID()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(ingredient.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(String.valueOf(ingredient.getPrice()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else if(String.valueOf(ingredient.getAmountLeft()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true;
+				}
+				else return false;
+			});
+		});
+		SortedList<Ingredient> sortedData = new SortedList<>(filteredData);
+		sortedData.comparatorProperty().bind(ListIngredientTable.comparatorProperty());
+		ListIngredientTable.setItems(sortedData);
 	}
 	public void SwitchMainMenu(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -8,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="766.0" prefWidth="990.0" style="-fx-background-color: #00bfff;" styleClass="anchor" stylesheets="@ShowListCustomer.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListCustomerController">
+<AnchorPane prefHeight="766.0" prefWidth="990.0" style="-fx-background-color: #d7fcfc;" stylesheets="@ShowListCustomer.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.ShowListCustomerController">
    <children>
-      <Label id="label" layoutX="291.0" layoutY="66.0" stylesheets="@ShowListCustomer.css" text="List of Customer">
+      <Label id="label" layoutX="223.0" layoutY="76.0" stylesheets="@ShowListCustomer.css" text="Danh sách khách hàng">
          <font>
             <Font size="42.0" />
          </font>
@@ -18,14 +17,13 @@
       <TableView fx:id="ListCustomerTable" editable="true" layoutX="66.0" layoutY="213.0" prefHeight="482.0" prefWidth="858.0">
         <columns>
           <TableColumn fx:id="CustomerIDColumn" prefWidth="90.0" text="ID" />
-          <TableColumn fx:id="NameColumn" prefWidth="147.0" text="Name" />
-            <TableColumn fx:id="AddressColumn" prefWidth="224.0" text="Address" />
-            <TableColumn fx:id="PhoneNumberColumn" prefWidth="138.0" text="PhoneNumber" />
+          <TableColumn fx:id="NameColumn" prefWidth="147.0" text="Tên khách hàng" />
+            <TableColumn fx:id="AddressColumn" prefWidth="224.0" text="Địa chỉ" />
+            <TableColumn fx:id="PhoneNumberColumn" prefWidth="138.0" text="Số điện thoại" />
             <TableColumn fx:id="EmailColumn" prefWidth="258.0" text="Email" />
         </columns>
       </TableView>
-      <TextField fx:id="filterField" layoutX="259.0" layoutY="166.0" prefHeight="39.0" prefWidth="340.0" />
-      <JFXButton id="button" ellipsisString="" layoutY="-1.0" mnemonicParsing="false" onAction="#switchManagementScene" prefHeight="32.0" prefWidth="70.0" stylesheets="@ShowListCustomer.css" />
+      <TextField fx:id="filterField" layoutX="259.0" layoutY="166.0" prefHeight="39.0" prefWidth="665.0" />
       <Label id="label1" layoutX="66.0" layoutY="166.0" prefHeight="39.0" prefWidth="164.0" stylesheets="@ShowListCustomer.css" text=" Search box" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />

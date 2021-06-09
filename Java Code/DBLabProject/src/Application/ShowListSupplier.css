@@ -14,24 +14,14 @@
     -fx-padding: 3 30 3 30;
     -fx-text-fill: black;
 }
-#button{
--jfx-button-type: FLAT;
-  -fx-background-image: url('back.png');
-    -fx-background-size: 30px;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: 50%;
-    -fx-background-insets: 0,1,2;
-    -fx-background-radius: 3,2,1;
-    -fx-padding: 3 30 3 30;
-    -fx-text-fill: black;
-    -fx-font-size: 14px;
-}
-#list {
+#list 
+   {
    -fx-text-fill: #FB8122;
-   -fx-font-size: 42px;
-   -fx-font-family: "Arial Black";
+   -fx-font-size: 50px;
+   -fx-font-family: "SansSerif";
+-fx-font-weight: BOLD;
    -fx-fill: #818181;
-   -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+   -fx-effect: innershadow( three-pass-box , rgba(0.3,0.9,0.1,0.1) , 5, 0.0 , 0 , 1 );
 }
 .table-view .column-header,
 .table-view .column-header-background .filler {
@@ -40,7 +30,7 @@
 .table-view .column-header .label{
    -fx-text-fill: white;
    -fx-font-weight: bold; 
-   -fx-alignment: CENTER_LEFT;
+   -fx-alignment: CENTER;
 }
 .table-view .cell{
    -fx-cell-size: 35;

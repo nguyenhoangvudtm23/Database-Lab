@@ -11,7 +11,7 @@ public class Product {
 	public String getProductID() {
 		return ProductID;
 	}
-	public void setCur_quantity(int cur_quantity) {
+	public void setCur_quantity(Integer cur_quantity) {
 		this.cur_quantity = cur_quantity;
 	}
 	public int getAmountLeft() {
@@ -52,7 +52,7 @@ public class Product {
 	public Product(int AmountLeft, String Name, Double price) {
 		this(AmountLeft, Name, price, " ");
 	}
-	public int getCur_quantity() {
+	public Integer getCur_quantity() {
 		return cur_quantity;
 	}
 	public String printInformation() {

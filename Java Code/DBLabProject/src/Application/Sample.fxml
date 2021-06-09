@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="653.0" style="-fx-background-color: rgb(136, 198, 163);" styleClass="anchor" stylesheets="@Sample.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="653.0" style="-fx-background-color: EAE7DC;" stylesheets="@Sample.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
    <children>
       <Label id="label" layoutX="59.0" layoutY="36.0" stylesheets="@Sample.css" text="Tên" />
       <Label id="label" layoutX="59.0" layoutY="91.0" stylesheets="@Sample.css" text="Địa chỉ" />
