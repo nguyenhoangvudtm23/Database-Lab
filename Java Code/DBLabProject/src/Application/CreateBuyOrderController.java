@@ -13,6 +13,11 @@ import Execution.IngredientStatistics;
 import Execution.SupplierStatistics;
 import Scenario.Starter;
 import javafx.util.Callback;
+
+import jfxtras.labs.scene.control.BigDecimalField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
@@ -262,6 +267,7 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 		    }
         };
         ActionColumn.setCellFactory(cellFactory);
+
         
         Callback<TableColumn<Ingredient, String>, TableCell<Ingredient, String>> addsubcellFactory = 
         		new Callback<TableColumn<Ingredient,String>, TableCell<Ingredient,String>>() {
@@ -274,6 +280,7 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 					}
 				};
 		AddSubColumn.setCellFactory(addsubcellFactory);
+
 //        ListIngredientTable.setItems(Configuration.ListIngredient);
 //        ListIngredientTable.setItems(Configuration.ListIngredient);
         PhoneNumberText.textProperty().addListener((v, oldValue, newValue) -> {

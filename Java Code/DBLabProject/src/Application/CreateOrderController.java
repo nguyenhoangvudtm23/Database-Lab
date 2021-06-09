@@ -14,6 +14,10 @@ import Execution.CustomerStatistics;
 import Execution.ProductStatistics;
 import Scenario.Starter;
 import javafx.util.Callback;
+
+import jfxtras.labs.scene.control.BigDecimalField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
@@ -53,6 +57,7 @@ public class CreateOrderController extends MenuController implements Initializab
         public int quant = 0;
 		public AddSubCell() {
             super();
+
             addbutton.setMinWidth(USE_COMPUTED_SIZE);
             subbutton.setMinWidth(USE_COMPUTED_SIZE);
             hbox.getChildren().addAll(pane, addbutton, subbutton);
@@ -177,6 +182,8 @@ public class CreateOrderController extends MenuController implements Initializab
 	          return getItem() == null ? "" : getItem().toString();
 	      }
 	}
+
+           
 	@FXML
 	private TextField filterField;
 	private Stage stage;
@@ -267,6 +274,7 @@ public class CreateOrderController extends MenuController implements Initializab
         };
         ActionColumn.setCellFactory(cellFactory);
         
+
         Callback<TableColumn<Product, String>, TableCell<Product, String>> addsubcellFactory = 
         		new Callback<TableColumn<Product,String>, TableCell<Product,String>>() {
 
@@ -290,7 +298,7 @@ public class CreateOrderController extends MenuController implements Initializab
 //        );
         
         
-        
+
 //        ListProductTable.setItems(Configuration.ListProduct);
         PhoneNumberText.textProperty().addListener((v, oldValue, newValue) -> {
         	try{

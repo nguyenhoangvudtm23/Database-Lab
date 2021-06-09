@@ -46,7 +46,9 @@
                   <TextField fx:id="filterField" prefHeight="31.0" prefWidth="636.0" />
                </children>
             </HBox>
-            <TableView id="table-view" fx:id="ListIngredientTable" prefHeight="490.0" prefWidth="659.0" VBox.vgrow="ALWAYS">
+
+            <TableView id="table-view" fx:id="ListIngredientTable" prefWidth="500000.0" VBox.vgrow="ALWAYS">
+
               <columns>
                 <TableColumn fx:id="idColumn" maxWidth="1.7976931348623157E308" minWidth="52.0" prefWidth="-1.0" text="ID" />
                 <TableColumn fx:id="NameColumn" maxWidth="1.7976931348623157E308" minWidth="147.0" prefWidth="-1.0" text="Tên" />
