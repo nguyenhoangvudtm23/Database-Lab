@@ -4,7 +4,7 @@ public class Ingredient {
 	public static int ID = 1;
 	private int IngredientID;
 	private double Price;
-	private int cur_quantity;
+	private Integer cur_quantity;
 	public int getIngredientID() {
 		return IngredientID;
 	}
@@ -58,11 +58,11 @@ public class Ingredient {
 		this.Price = price;
 	}
 
-	public int getCur_quantity() {
+	public Integer getCur_quantity() {
 		return cur_quantity;
 	}
 
-	public void setCur_quantity(int cur_quantity) {
+	public void setCur_quantity(Integer cur_quantity) {
 		this.cur_quantity = cur_quantity;
 	}
 	public String printInformation() {

@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -11,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1222.0" style="-fx-background-color: #7fffd4;" styleClass="anchor" stylesheets="@BillScene.css" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateOrderController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1222.0" style="-fx-background-color: #7fffd4;" styleClass="anchor" stylesheets="@BillScene.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateOrderController">
    <children>
       <Label id="anchor-label" alignment="CENTER" layoutX="122.0" layoutY="30.0" prefHeight="47.0" prefWidth="941.0" text="Bán hàng" AnchorPane.topAnchor="34.0">
          <font>
@@ -46,8 +52,9 @@
                 <TableColumn fx:id="NameColumn" prefWidth="177.0" text="Tên sản phẩm" />
                   <TableColumn fx:id="AmountLeftColumn" prefWidth="75.0" text="Tồn kho" />
                   <TableColumn fx:id="PriceColumn" prefWidth="75.0" text="Giá bán" />
-                  <TableColumn fx:id="DescriptionColumn" minWidth="0.0" prefWidth="149.0" text="Mô tả" />
-                  <TableColumn fx:id="ActionColumn" prefWidth="150.0" text="Số lượng order" />
+                  <TableColumn fx:id="DescriptionColumn" minWidth="0.0" prefWidth="103.0" text="Mô tả" />
+                  <TableColumn fx:id="ActionColumn" prefWidth="111.0" text="Số lượng" />
+                  <TableColumn fx:id="AddSubColumn" prefWidth="85.0" />
               </columns>
             </TableView>
          </children>

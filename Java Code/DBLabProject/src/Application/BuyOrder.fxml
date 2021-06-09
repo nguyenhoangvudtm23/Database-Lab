@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -11,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1222.0" styleClass="anchor" stylesheets="@BuyOrder.css" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateBuyOrderController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1222.0" styleClass="anchor" stylesheets="@BuyOrder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateBuyOrderController">
    <children>
       <Label id="anchor-label" alignment="CENTER" layoutX="102.0" layoutY="34.0" prefHeight="58.0" prefWidth="976.0" text="Nhập hàng" AnchorPane.topAnchor="34.0">
          <font>
@@ -40,14 +46,17 @@
                   <TextField fx:id="filterField" prefHeight="31.0" prefWidth="636.0" />
                </children>
             </HBox>
+
             <TableView id="table-view" fx:id="ListIngredientTable" prefWidth="500000.0" VBox.vgrow="ALWAYS">
+
               <columns>
                 <TableColumn fx:id="idColumn" maxWidth="1.7976931348623157E308" minWidth="52.0" prefWidth="-1.0" text="ID" />
                 <TableColumn fx:id="NameColumn" maxWidth="1.7976931348623157E308" minWidth="147.0" prefWidth="-1.0" text="Tên" />
                   <TableColumn fx:id="AmountLeftColumn" maxWidth="1.7976931348623157E308" minWidth="75.0" prefWidth="-1.0" text="Tồn kho" />
                   <TableColumn fx:id="PriceColumn" maxWidth="1.7976931348623157E308" minWidth="75.0" prefWidth="-1.0" resizable="false" text="Giá" />
-                  <TableColumn fx:id="DescriptionColumn" maxWidth="1.7976931348623157E308" minWidth="192.0" prefWidth="-1.0" text="Mô tả" />
-                  <TableColumn fx:id="ActionColumn" maxWidth="140.0" minWidth="140.0" prefWidth="-1.0" resizable="false" text="Lượng mua" />
+                  <TableColumn fx:id="DescriptionColumn" maxWidth="1.7976931348623157E308" minWidth="142.0" prefWidth="142.0" text="Mô tả" />
+                  <TableColumn fx:id="ActionColumn" maxWidth="190.0" minWidth="109.0" prefWidth="109.0" resizable="false" text="Lượng mua" />
+                  <TableColumn fx:id="AddSubColumn" prefWidth="75.0" />
               </columns>
             </TableView>
          </children>
