@@ -56,6 +56,7 @@ public class Ingredient {
 		this.Description = Description;
 		this.AmountLeft = AmountLeft;
 		this.Price = price;
+		this.cur_quantity = 0;
 	}
 
 	public Integer getCur_quantity() {
