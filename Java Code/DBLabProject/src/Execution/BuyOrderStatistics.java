@@ -38,6 +38,18 @@ public class BuyOrderStatistics extends Execution{
 	{
 		return statement.executeQuery(BuyOrderQuery.selectAllBuyOrdersQuery());
 	}
+	public static void insertBuyOrder(int SupplierID, double totalCost) throws SQLException
+	{
+		statement.executeUpdate(BuyOrderQuery.insertBuyOrderQuery(SupplierID, totalCost));
+	}
+	public static void insertBuyOrderItem(int BuyOrderID, int IngredientID, int quantity) throws SQLException
+	{
+		statement.executeUpdate(BuyOrderQuery.recordBuyOrderItems(BuyOrderID, IngredientID, quantity));
+	}
+	public static int lastestBuyOrderID() throws SQLException
+	{
+		return statement.executeQuery(BuyOrderQuery.lastestBuyOrderIDQuery()).getInt(1);
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

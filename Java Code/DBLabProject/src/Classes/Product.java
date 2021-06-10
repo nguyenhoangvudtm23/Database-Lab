@@ -56,7 +56,7 @@ public class Product {
 		return cur_quantity;
 	}
 	public String printInformation() {
-		String s = String.format("%20s%20s%20d%20f", ProductID, Name, cur_quantity, price);
+		String s = String.format("%20s%20s%10d%10f", ProductID, Name, cur_quantity, price);
 		return s;
 	}
 	

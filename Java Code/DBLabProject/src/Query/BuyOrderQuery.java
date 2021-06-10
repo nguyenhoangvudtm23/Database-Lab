@@ -45,10 +45,25 @@ public class BuyOrderQuery {
 		return "select BuyOrderID, SupplierID, Totalcost, CreationDate, Status\r\n"
 				+ "from BuyOrders";
 	}
+	public static String insertBuyOrderQuery(int SupplierID, double totalCost)
+	{
+		return "INSERT INTO BuyOrders (SupplierID, totalCost, status) VALUES "
+				+ "(" + SupplierID + ", " + totalCost + ",  'F')";
+	}
+	public static String recordBuyOrderItems(int BuyOrderID, int IngredientID, int quantity)
+	{
+		return "INSERT INTO BuyOrderItems (BuyOrderID, IngredientID, Quantity, PricePerUnit) "
+				+ "VALUES ("+ BuyOrderID + "," + IngredientID + "," + quantity + ", (Select PricePerUnit from Ingredients where IngredientID = " + IngredientID + ")";
+	}
+	public static String lastestBuyOrderIDQuery()
+	{
+		return "SELECT MAX(BuyOrderID) from BuyOrders";
+	}
 	public static void main(String args[])
 	{
 		System.out.println(BuyOrderQuery.deleteBuyOrderQuery(0));
 		System.out.println(BuyOrderQuery.showBuyOrderItemsQuery(0));
 		System.out.println(BuyOrderQuery.calculateTotalCostQuery(0));
+		System.out.println(BuyOrderQuery.insertBuyOrderQuery(0, 0));
 	}
 }

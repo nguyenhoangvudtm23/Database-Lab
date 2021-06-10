@@ -53,7 +53,7 @@
                   <TableColumn fx:id="AddSubColumn" prefWidth="75.0" />
               </columns>
             </TableView>
-            <JFXButton prefWidth="50000.0" style="-fx-background-color: #F06184;" text="Refresh" textFill="WHITE">
+            <JFXButton onAction="#refresh" prefWidth="50000.0" style="-fx-background-color: #F06184;" text="Refresh" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="19.0" />
                </font>

@@ -3,9 +3,12 @@ package Application;
 
 
 import Classes.Product;
+import Execution.BuyOrderStatistics;
 import Execution.CustomerStatistics;
+import Execution.IngredientStatistics;
 import Execution.OrderStatistics;
 import Execution.ProductStatistics;
+import Execution.SupplierStatistics;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -56,6 +59,7 @@ public class ShowOrderController {
 			{
 				try {
 					OrderStatistics.insertOrderItems(orderID, Integer.parseInt(prod.getProductID()), prod.getCur_quantity());
+					prod.setAmountLeft(prod.getAmountLeft() - prod.getCur_quantity());
 					ProductStatistics.updateProductAmountLeft(Integer.parseInt(prod.getProductID()), prod.getAmountLeft() - prod.getCur_quantity());
 				} catch (NumberFormatException e1) {
 					// TODO Auto-generated catch block
@@ -65,6 +69,7 @@ public class ShowOrderController {
 					e1.printStackTrace();
 				}
 			}
+			
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Hoàn thành");
 			alert.setHeaderText("Hoàn thành");
@@ -72,7 +77,8 @@ public class ShowOrderController {
 			alert.showAndWait();
 		});
 	}
-	public void ShowBuyOrder(TableView<Ingredient> table, String Name) {
+	public void ShowBuyOrder(TableView<Ingredient> table, String Name, String PhoneNumber) throws SQLException {
+		ArrayList<Ingredient> items = new ArrayList<Ingredient>();
 		Double total_price = 0.0;
 		textArea.clear();
 		if(Name.isEmpty()) {
@@ -83,12 +89,37 @@ public class ShowOrderController {
 		for(int i = 0; i < table.getItems().size(); i++) {
 			Classes.Ingredient temp = table.getItems().get(i);
 			if(temp.getCur_quantity() == 0) continue;
+			items.add(temp);
 			total_price += temp.getCur_quantity() * temp.getPrice();
 			textArea.appendText(temp.printInformation() + "\n");
 		}
+		try {
+			BuyOrderStatistics.insertBuyOrder(SupplierStatistics.getSupplierID(PhoneNumber), total_price);
+		}
+		catch (Exception e)
+		{
+			BuyOrderStatistics.insertBuyOrder(0, total_price);
+		}
 		textArea.appendText("Total Price: " + total_price);
+		int buyOrderID = BuyOrderStatistics.lastestBuyOrderID();
 		record.setOnAction(e -> {
-			
+			for (Ingredient ingredient: items)
+			{
+				try {
+					BuyOrderStatistics.insertBuyOrderItem(buyOrderID, ingredient.getIngredientID(), ingredient.getCur_quantity());
+					ingredient.setAmountLeft(ingredient.getAmountLeft() + ingredient.getCur_quantity());
+					IngredientStatistics.updateIngredientAmountLeft(ingredient.getIngredientID(), ingredient.getAmountLeft() + ingredient.getCur_quantity());
+				}
+				catch(Exception ex)
+				{
+					
+				}
+			}
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Hoàn thành");
+			alert.setHeaderText("Hoàn thành");
+			alert.setContentText("Đã ghi nhận hoá đơn");
+			alert.showAndWait();
 		});
 	}
 }
