@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -17,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1222.0" styleClass="anchor" stylesheets="@BuyOrder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateBuyOrderController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1222.0" styleClass="anchor" stylesheets="@BuyOrder.css" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateBuyOrderController">
    <children>
       <Label id="anchor-label" alignment="CENTER" layoutX="102.0" layoutY="34.0" prefHeight="58.0" prefWidth="976.0" text="Nhập hàng" AnchorPane.topAnchor="34.0">
          <font>
@@ -59,6 +53,11 @@
                   <TableColumn fx:id="AddSubColumn" prefWidth="75.0" />
               </columns>
             </TableView>
+            <JFXButton prefWidth="50000.0" style="-fx-background-color: #F06184;" text="Refresh" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="19.0" />
+               </font>
+            </JFXButton>
          </children>
       </VBox>
       <VBox layoutX="20.0" layoutY="150.0" prefHeight="567.0" prefWidth="367.0" spacing="20.0" AnchorPane.leftAnchor="20.0">

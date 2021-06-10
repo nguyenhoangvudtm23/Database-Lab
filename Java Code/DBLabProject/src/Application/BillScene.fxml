@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -17,13 +11,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1222.0" style="-fx-background-color: #7fffd4;" styleClass="anchor" stylesheets="@BillScene.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateOrderController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1222.0" style="-fx-background-color: #7fffd4;" styleClass="anchor" stylesheets="@BillScene.css" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateOrderController">
    <children>
       <Label id="anchor-label" alignment="CENTER" layoutX="122.0" layoutY="30.0" prefHeight="47.0" prefWidth="941.0" text="Bán hàng" AnchorPane.topAnchor="34.0">
          <font>
             <Font size="32.0" />
          </font></Label>
-      <VBox fx:id="ListBox" layoutX="499.0" layoutY="150.0" prefHeight="521.0" prefWidth="682.0">
+      <VBox fx:id="ListBox" layoutX="499.0" layoutY="150.0" prefHeight="536.0" prefWidth="682.0">
          <children>
             <Label fx:id="ListProductLb" alignment="CENTER" prefHeight="36.0" prefWidth="686.0" text="Danh sách sản phẩm" textFill="#8c4c4c">
                <font>
@@ -33,9 +27,9 @@
                   <Insets bottom="7.0" />
                </VBox.margin>
             </Label>
-            <HBox>
+            <HBox prefHeight="31.0" prefWidth="661.0">
                <children>
-                  <Label prefHeight="21.0" prefWidth="167.0" text="Search Box">
+                  <Label prefHeight="21.0" prefWidth="167.0" text="Tìm kiếm">
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin>
@@ -43,7 +37,7 @@
                         <Font name="SansSerif Regular" size="17.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="filterField" prefHeight="31.0" prefWidth="636.0" />
+                  <TextField fx:id="filterField" prefHeight="31.0" prefWidth="556.0" promptText="(Theo tên sản phẩm hoặc mô tả)" />
                </children>
             </HBox>
             <TableView id="table-view" fx:id="ListProductTable" prefHeight="528.0" prefWidth="640.0">
@@ -57,6 +51,11 @@
                   <TableColumn fx:id="AddSubColumn" prefWidth="85.0" />
               </columns>
             </TableView>
+            <JFXButton onAction="#refresh" prefHeight="45.0" prefWidth="682.0" style="-fx-background-color: #F06184;" text="Refresh" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="19.0" />
+               </font>
+            </JFXButton>
          </children>
       </VBox>
       <HBox layoutX="503.0" layoutY="753.0" prefHeight="37.0" prefWidth="682.0">
@@ -73,7 +72,7 @@
             </JFXButton>
          </children>
       </HBox>
-      <VBox layoutX="20.0" layoutY="150.0" prefHeight="567.0" prefWidth="348.0" spacing="20.0" AnchorPane.leftAnchor="20.0">
+      <VBox layoutX="20.0" layoutY="150.0" prefHeight="584.0" prefWidth="348.0" spacing="20.0" AnchorPane.leftAnchor="20.0">
          <children>
             <Label alignment="CENTER" prefHeight="36.0" prefWidth="350.0" text="Thông tin khách hàng" textFill="#8c4c4c">
                <font>

@@ -81,8 +81,12 @@ public class OrderQuery {
 		return "select OrderID, CustomerID, Totalcost, CreationDate, Status, Discount\r\n"
 				+ "from Orders";
 	}
+	public static String lastOrderIDQuery()
+	{
+		return "select MAX(OrderID) From Orders";
+	}
 	public static void main(String[] args){
 		System.out.println(OrderQuery.recordItemIntoOrderQuery(3, 2, 4));
 	}
-
+	
 }

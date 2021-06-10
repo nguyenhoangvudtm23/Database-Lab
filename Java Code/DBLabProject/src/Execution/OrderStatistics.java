@@ -40,6 +40,19 @@ public class OrderStatistics extends Execution{
 	{
 		return statement.executeQuery(OrderQuery.selectAllOrdersQuery());
 	}
+	public static void insertOrder(int CustomerID,
+			double TotalCost, char status, double discount) throws SQLException
+	{
+		statement.executeUpdate(OrderQuery.addOrderQuery(CustomerID, TotalCost, status, discount));
+	}
+	public static void insertOrderItems(int OrderID, int ProductID, int quantity) throws SQLException
+	{
+		statement.executeUpdate(OrderQuery.recordItemIntoOrderQuery(OrderID, ProductID, quantity));
+	}
+	public static int lastestOrderID() throws SQLException
+	{
+		return statement.executeQuery(OrderQuery.lastOrderIDQuery()).getInt(1);
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

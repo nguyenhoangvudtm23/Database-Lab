@@ -53,27 +53,27 @@ public class CreateOrderController extends MenuController implements Initializab
 		HBox hbox = new HBox();
 		Pane pane = new Pane();
 		Button addbutton = new Button("+");
-        Button subbutton = new Button("-");
-        public int quant = 0;
+		Button subbutton = new Button("-");
+		public int quant = 0;
 		public AddSubCell() {
-            super();
+			super();
 
-            addbutton.setMinWidth(USE_COMPUTED_SIZE);
-            subbutton.setMinWidth(USE_COMPUTED_SIZE);
-            hbox.getChildren().addAll(pane, addbutton, subbutton);
-            hbox.setAlignment(Pos.CENTER);
-            HBox.setHgrow(pane, Priority.ALWAYS);
-            addbutton.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                	Product temp = getTableView().getItems().get(getIndex());
-                	quant = temp.getCur_quantity();
-                    quant = quant + 1;
-                	temp.setCur_quantity(quant);
-                	Configuration.ListProduct.set(getIndex(), temp);
-                }
-            });
-            subbutton.setOnAction(new EventHandler<ActionEvent>() {
+			addbutton.setMinWidth(USE_COMPUTED_SIZE);
+			subbutton.setMinWidth(USE_COMPUTED_SIZE);
+			hbox.getChildren().addAll(pane, addbutton, subbutton);
+			hbox.setAlignment(Pos.CENTER);
+			HBox.setHgrow(pane, Priority.ALWAYS);
+			addbutton.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					Product temp = getTableView().getItems().get(getIndex());
+					quant = temp.getCur_quantity();
+					quant = quant + 1;
+					temp.setCur_quantity(quant);
+					Configuration.ListProduct.set(getIndex(), temp);
+				}
+			});
+			subbutton.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
 					// TODO Auto-generated method stub
@@ -84,106 +84,106 @@ public class CreateOrderController extends MenuController implements Initializab
 					}
 					else {
 						quant = quant - 1;
-		            	temp.setCur_quantity(quant);
-		            	Configuration.ListProduct.set(getIndex(), temp);
+						temp.setCur_quantity(quant);
+						Configuration.ListProduct.set(getIndex(), temp);
 					}
 				}
-            	
-            });
-        }
+
+			});
+		}
 		@Override
-        protected void updateItem(String item, boolean empty) {
-            super.updateItem(item, empty);
-            setText(null);  // No text in label of super class
-            if (empty) {
-                setGraphic(null);
-            } else {
-                setGraphic(hbox);
-            }
-        }
-		
+		protected void updateItem(String item, boolean empty) {
+			super.updateItem(item, empty);
+			setText(null);  // No text in label of super class
+			if (empty) {
+				setGraphic(null);
+			} else {
+				setGraphic(hbox);
+			}
+		}
+
 	}
 	class XCell extends TableCell<Product, Integer> {
 
-	      private TextField textField;
-	    
-	      public XCell() {
-	    	  super();
-	      }
-	    
-	      @Override
-	      public void startEdit() {
-	          super.startEdit();
-	        
-	          if (textField == null) {
-	              createTextField();
-	          }
-	        
-	          setGraphic(textField);
-	          setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-	          textField.selectAll();
-	      }
-	    
-	      @Override
-	      public void cancelEdit() {
-	          super.cancelEdit();
-	        
-	          setText(String.valueOf(getItem()));
-	          setContentDisplay(ContentDisplay.TEXT_ONLY);
-	      }
+		private TextField textField;
 
-	      @Override
-	      public void updateItem(Integer item, boolean empty) {
-	          super.updateItem(item, empty);
-	        
-	          if (empty) {
-	              setText(null);
-	              setGraphic(null);
-	          } else {
-	              if (isEditing()) {
-	                  if (textField != null) {
-	                      textField.setText(getString());
-	                  }
-	                  setGraphic(textField);
-	                  setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-	              } else {
-	                  setText(getString());
-	                  setContentDisplay(ContentDisplay.TEXT_ONLY);
-	              }
-	          }
-	      }
+		public XCell() {
+			super();
+		}
 
-	      private void createTextField() {
-	          textField = new TextField(getString());
-	          textField.setMinWidth(this.getWidth() - this.getGraphicTextGap()*2);
-	          textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
-	            
-	              @Override
-	              public void handle(KeyEvent t) {
-	                  if (t.getCode() == KeyCode.ENTER) {
-	                      commitEdit(Integer.valueOf(textField.getText()));
-	                      Product temp = getTableView().getItems().get(getIndex());
-	                      temp.setCur_quantity(Integer.valueOf(textField.getText()));
-//	                      try {
-//	                    	  ProductStatistics.updateProductName(Integer.parseInt(temp.getProductID()), temp.getName());
-//	                      }
-//	                      catch(Exception e)
-//	                      {
-//	                    	  
-//	                      }
-	                  } else if (t.getCode() == KeyCode.ESCAPE) {
-	                      cancelEdit();
-	                  }
-	              }
-	          });
-	      }
-	    
-	      private String getString() {
-	          return getItem() == null ? "" : getItem().toString();
-	      }
+		@Override
+		public void startEdit() {
+			super.startEdit();
+
+			if (textField == null) {
+				createTextField();
+			}
+
+			setGraphic(textField);
+			setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+			textField.selectAll();
+		}
+
+		@Override
+		public void cancelEdit() {
+			super.cancelEdit();
+
+			setText(String.valueOf(getItem()));
+			setContentDisplay(ContentDisplay.TEXT_ONLY);
+		}
+
+		@Override
+		public void updateItem(Integer item, boolean empty) {
+			super.updateItem(item, empty);
+
+			if (empty) {
+				setText(null);
+				setGraphic(null);
+			} else {
+				if (isEditing()) {
+					if (textField != null) {
+						textField.setText(getString());
+					}
+					setGraphic(textField);
+					setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+				} else {
+					setText(getString());
+					setContentDisplay(ContentDisplay.TEXT_ONLY);
+				}
+			}
+		}
+
+		private void createTextField() {
+			textField = new TextField(getString());
+			textField.setMinWidth(this.getWidth() - this.getGraphicTextGap()*2);
+			textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+
+				@Override
+				public void handle(KeyEvent t) {
+					if (t.getCode() == KeyCode.ENTER) {
+						commitEdit(Integer.valueOf(textField.getText()));
+						Product temp = getTableView().getItems().get(getIndex());
+						temp.setCur_quantity(Integer.valueOf(textField.getText()));
+						//	                      try {
+							//	                    	  ProductStatistics.updateProductName(Integer.parseInt(temp.getProductID()), temp.getName());
+						//	                      }
+						//	                      catch(Exception e)
+						//	                      {
+						//	                    	  
+						//	                      }
+					} else if (t.getCode() == KeyCode.ESCAPE) {
+						cancelEdit();
+					}
+				}
+			});
+		}
+
+		private String getString() {
+			return getItem() == null ? "" : getItem().toString();
+		}
 	}
 
-           
+
 	@FXML
 	private TextField filterField;
 	private Stage stage;
@@ -207,18 +207,18 @@ public class CreateOrderController extends MenuController implements Initializab
 	private TableColumn<Product, Double> PriceColumn;
 	@FXML
 	private TableColumn<Product, String> DescriptionColumn;
-	
+
 	@FXML
 	private TableColumn<Product, Integer> ActionColumn;
 	@FXML
 	private TableColumn<Product, String> AddSubColumn;
 	@FXML
 	private TextField PhoneNumberText, NameText, AddressText, EmailText;
-	
+
 	private String PhoneNumber="", Name="", Address="", Email="";
-	
-	
-	
+
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Configuration.ListCustomer.clear();
@@ -256,76 +256,76 @@ public class CreateOrderController extends MenuController implements Initializab
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("ProductID"));
-        AmountLeftColumn.setCellValueFactory(new PropertyValueFactory<>("AmountLeft"));
-        NameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        DescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("Description"));
-        PriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-        ActionColumn.setCellValueFactory(new PropertyValueFactory<>("cur_quantity"));
-        AddSubColumn.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
-        
-        Callback<TableColumn<Product, Integer>, TableCell<Product, Integer>> cellFactory = new Callback<TableColumn<Product, Integer>, TableCell<Product, Integer>>() {
-		    @Override
-		    public TableCell<Product, Integer> call(final TableColumn<Product, Integer> param) {
-		        XCell cell = new XCell();
-		        return cell;
-		    }
-        };
-        ActionColumn.setCellFactory(cellFactory);
-        
 
-        Callback<TableColumn<Product, String>, TableCell<Product, String>> addsubcellFactory = 
-        		new Callback<TableColumn<Product,String>, TableCell<Product,String>>() {
+		idColumn.setCellValueFactory(new PropertyValueFactory<>("ProductID"));
+		AmountLeftColumn.setCellValueFactory(new PropertyValueFactory<>("AmountLeft"));
+		NameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+		DescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("Description"));
+		PriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+		ActionColumn.setCellValueFactory(new PropertyValueFactory<>("cur_quantity"));
+		AddSubColumn.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
 
-					@Override
-					public TableCell<Product, String> call(TableColumn<Product, String> param) {
-						// TODO Auto-generated method stub
-						TableCell<Product, String> cell = new AddSubCell();
-						return cell;
-					}
-				};
+		Callback<TableColumn<Product, Integer>, TableCell<Product, Integer>> cellFactory = new Callback<TableColumn<Product, Integer>, TableCell<Product, Integer>>() {
+			@Override
+			public TableCell<Product, Integer> call(final TableColumn<Product, Integer> param) {
+				XCell cell = new XCell();
+				return cell;
+			}
+		};
+		ActionColumn.setCellFactory(cellFactory);
+
+
+		Callback<TableColumn<Product, String>, TableCell<Product, String>> addsubcellFactory = 
+				new Callback<TableColumn<Product,String>, TableCell<Product,String>>() {
+
+			@Override
+			public TableCell<Product, String> call(TableColumn<Product, String> param) {
+				// TODO Auto-generated method stub
+				TableCell<Product, String> cell = new AddSubCell();
+				return cell;
+			}
+		};
 		AddSubColumn.setCellFactory(addsubcellFactory);
-//        ActionColumn.setOnEditCommit(
-//                new EventHandler<CellEditEvent<Product, Integer>>() {
-//                    @Override
-//                    public void handle(CellEditEvent<Product, Integer> t) {
-//                        ((Product) t.getTableView().getItems().get(
-//                            t.getTablePosition().getRow())
-//                            ).setCur_quantity(t.getNewValue());
-//                    }
-//                }
-//        );
-        
-        
+		//        ActionColumn.setOnEditCommit(
+		//                new EventHandler<CellEditEvent<Product, Integer>>() {
+		//                    @Override
+		//                    public void handle(CellEditEvent<Product, Integer> t) {
+		//                        ((Product) t.getTableView().getItems().get(
+		//                            t.getTablePosition().getRow())
+		//                            ).setCur_quantity(t.getNewValue());
+		//                    }
+		//                }
+		//        );
 
-//        ListProductTable.setItems(Configuration.ListProduct);
-        PhoneNumberText.textProperty().addListener((v, oldValue, newValue) -> {
-        	try{
-        		PhoneNumber = newValue.replace("\n", "").trim();
-        	}
-        	catch(Exception e) {}
-        });
-        NameText.textProperty().addListener((v, oldValue, newValue) -> {
-        	try{
-        		Name = newValue.replace("\n", "").trim();
-        	}
-        	catch(Exception e) {}
-        });
-        EmailText.textProperty().addListener((v, oldValue, newValue) -> {
-        	try{
-        		Email = newValue.replace("\n", "").trim();
-        	}
-        	catch(Exception e) {}
-        });
-        AddressText.textProperty().addListener((v, oldValue, newValue) -> {
-        	try{
-        		Address = newValue.replace("\n", "").trim();
-        	}
-        	catch(Exception e) {}
-        });
-        
-        FilteredList<Product> filteredData = new FilteredList<>(Configuration.ListProduct, b -> true);
+
+
+		//        ListProductTable.setItems(Configuration.ListProduct);
+		PhoneNumberText.textProperty().addListener((v, oldValue, newValue) -> {
+			try{
+				PhoneNumber = newValue.replace("\n", "").trim();
+			}
+			catch(Exception e) {}
+		});
+		NameText.textProperty().addListener((v, oldValue, newValue) -> {
+			try{
+				Name = newValue.replace("\n", "").trim();
+			}
+			catch(Exception e) {}
+		});
+		EmailText.textProperty().addListener((v, oldValue, newValue) -> {
+			try{
+				Email = newValue.replace("\n", "").trim();
+			}
+			catch(Exception e) {}
+		});
+		AddressText.textProperty().addListener((v, oldValue, newValue) -> {
+			try{
+				Address = newValue.replace("\n", "").trim();
+			}
+			catch(Exception e) {}
+		});
+
+		FilteredList<Product> filteredData = new FilteredList<>(Configuration.ListProduct, b -> true);
 		filterField.textProperty().addListener((o, oldValue, newValue) -> {
 			filteredData.setPredicate(product -> {
 				if(newValue == null || newValue.isEmpty()) {
@@ -353,9 +353,15 @@ public class CreateOrderController extends MenuController implements Initializab
 		SortedList<Product> sortedData = new SortedList<>(filteredData);
 		sortedData.comparatorProperty().bind(ListProductTable.comparatorProperty());
 		ListProductTable.setItems(sortedData);
-        
-       
+
+
 	}
+	
+	public void refresh()
+	{
+		
+	}
+	
 	public void SwitchMainMenu(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
 		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -363,22 +369,22 @@ public class CreateOrderController extends MenuController implements Initializab
 		stage.setScene(scene);
 		stage.show();
 	}
-	public void ShowOrderScene(ActionEvent event) throws IOException {
+	public void ShowOrderScene(ActionEvent event) throws IOException, SQLException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowOrder.fxml"));
 		Parent root1 = loader.load();
-		
+
 		ShowOrderController showOrderscene = loader.getController();
-		showOrderscene.showOrder(ListProductTable, Name);
+		showOrderscene.showOrder(ListProductTable, Name, PhoneNumber);
 		Stage stage1 = new Stage();
 		stage1.setScene(new Scene(root1));
 		stage1.setTitle("Order created!!!");
 		stage1.show();
-		
+
 	}
 	public void ShowListOrderScene(ActionEvent event) throws IOException{
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowListOrder.fxml"));
 		Parent root1 = loader.load();
-		
+
 		Stage stage1 = new Stage();
 		stage1.setScene(new Scene(root1));
 		stage1.show();
@@ -392,7 +398,7 @@ public class CreateOrderController extends MenuController implements Initializab
 			if(cus == null) {
 				System.out.println("null");
 			}
-			
+
 			// update name in text field
 			// flag to check if customer information has change
 			boolean flag = false;
@@ -425,7 +431,7 @@ public class CreateOrderController extends MenuController implements Initializab
 				System.out.println("customer email is not empty");
 				EmailText.setText(cus.getEmail());
 			}
-			
+
 			if(flag) {
 				// set change
 				Configuration.ListCustomer.remove(CustomerIndex);
@@ -435,15 +441,17 @@ public class CreateOrderController extends MenuController implements Initializab
 		else {
 			System.out.println("There is no phone");
 			Customer cus = new Customer(Address, PhoneNumber, Name, Email);
-			
-			
-			try {
-				CustomerStatistics.insertCustomer(Address, PhoneNumber, Name, Email);
-				Configuration.ListCustomer.add(cus);
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				showAlert("DB Error", "Can't connect to the database");
-				e1.printStackTrace();
+
+			if (!PhoneNumber.equals(""))
+			{
+				try {
+					CustomerStatistics.insertCustomer(Address, PhoneNumber, Name, Email);
+					Configuration.ListCustomer.add(cus);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					showAlert("DB Error", "Can't connect to the database");
+					e1.printStackTrace();
+				}
 			}
 		}
 	}

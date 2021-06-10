@@ -362,6 +362,11 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 		stage1.show();
 		
 	}
+	public void refresh()
+	{
+		
+	}
+	
 	public void GetSupplierInformation(ActionEvent e) throws SQLException {
 		if(SupplierStatistics.checkExist(PhoneNumber) == 1) {
 			System.out.println("There is Phone");
