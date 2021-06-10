@@ -68,6 +68,10 @@ public class CreateOrderController extends MenuController implements Initializab
 				public void handle(ActionEvent event) {
 					Product temp = getTableView().getItems().get(getIndex());
 					quant = temp.getCur_quantity();
+					if(quant == temp.getAmountLeft()) {
+						JOptionPane.showMessageDialog(null, "cant be larger the current exist number");
+						return;
+					}
 					quant = quant + 1;
 					temp.setCur_quantity(quant);
 					Configuration.ListProduct.set(getIndex(), temp);
@@ -163,7 +167,12 @@ public class CreateOrderController extends MenuController implements Initializab
 					if (t.getCode() == KeyCode.ENTER) {
 						commitEdit(Integer.valueOf(textField.getText()));
 						Product temp = getTableView().getItems().get(getIndex());
-						temp.setCur_quantity(Integer.valueOf(textField.getText()));
+						int quant = Integer.valueOf(textField.getText());
+						if(quant > temp.getAmountLeft()) {
+							textField.setText(String.valueOf(temp.getAmountLeft()));
+							JOptionPane.showMessageDialog(null, "cant be larger the current exist number");
+						}
+						temp.setCur_quantity(temp.getAmountLeft());
 						//	                      try {
 							//	                    	  ProductStatistics.updateProductName(Integer.parseInt(temp.getProductID()), temp.getName());
 						//	                      }
