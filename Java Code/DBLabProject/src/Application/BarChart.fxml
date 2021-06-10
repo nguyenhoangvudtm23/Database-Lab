@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="572.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.BarChartController">
+<AnchorPane fx:id="anchorPane" prefHeight="572.0" prefWidth="682.0" style="-fx-background-color: #c3cfe2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.BarChartController">
    <children>
       <VBox fx:id="vBox" layoutX="42.0" layoutY="71.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="71.0">
          <children>
