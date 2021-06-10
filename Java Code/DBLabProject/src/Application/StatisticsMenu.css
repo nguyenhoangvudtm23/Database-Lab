@@ -9,7 +9,7 @@
     -fx-border-color: #446da6;
     -fx-padding: 8 8 8 8;
     -fx-text-fill: white;
-    -fx-font-size: 18px;
+    -fx-font-size: 25px;
 }
 #button2 {
 -fx-background-image: url('customer.png');
@@ -22,7 +22,7 @@
     -fx-border-color: #446da6;
     -fx-padding: 8 8 8 8;
     -fx-text-fill: white;
-    -fx-font-size: 18px;
+    -fx-font-size: 25px;
 }
 #button3 {
 -fx-background-image: url('partner.png');
@@ -35,7 +35,7 @@
     -fx-border-color: #446da6;
     -fx-padding: 8 8 8 8;
     -fx-text-fill: white;
-    -fx-font-size: 18px;
+    -fx-font-size: 25px;
 }
 #button4 {
 -fx-background-image: url('product.png');
@@ -48,7 +48,7 @@
     -fx-border-color: #446da6;
     -fx-padding: 8 8 8 8;
     -fx-text-fill: white;
-    -fx-font-size: 18px;
+    -fx-font-size: 25px;
 }
 #button{
 -fx-background-image: url('back.png');

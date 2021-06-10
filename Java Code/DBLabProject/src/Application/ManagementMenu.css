@@ -22,7 +22,7 @@
     -fx-border-color: #446da6;
     -fx-padding: 8 8 8 8;
     -fx-text-fill: white;
-    -fx-font-size: 18px;
+    -fx-font-size: 25px;
 }
 #button2 {
 -fx-background-image: url('warehouse1.png');
@@ -35,7 +35,7 @@
     -fx-border-color: #446da6;
     -fx-padding: 8 8 8 8;
     -fx-text-fill: white;
-    -fx-font-size: 18px;
+    -fx-font-size: 25px;
 }
 #button3 {
 -fx-background-image: url('customer.png');
@@ -48,7 +48,7 @@
     -fx-border-color: #446da6;
     -fx-padding: 8 8 8 8;
     -fx-text-fill: white;
-    -fx-font-size: 18px;
+    -fx-font-size: 25px;
 }
 #button4 {
 -fx-background-image: url('partner.png');
@@ -61,7 +61,7 @@
     -fx-border-color: #446da6;
     -fx-padding: 8 8 8 8;
     -fx-text-fill: white;
-    -fx-font-size: 18px;
+    -fx-font-size: 25px;
 }
 #button5 {
 -fx-background-image: url('bill.png');
@@ -74,7 +74,7 @@
     -fx-border-color: #446da6;
     -fx-padding: 8 8 8 8;
     -fx-text-fill: white;
-    -fx-font-size: 18px;
+    -fx-font-size: 25px;
 }
 #button6 {
 -fx-background-image: url('bill1.png');
@@ -87,7 +87,7 @@
     -fx-border-color: #446da6;
     -fx-padding: 8 8 8 8;
     -fx-text-fill: white;
-    -fx-font-size: 18px;
+    -fx-font-size: 25px;
 }
 #button1 Text {
     -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
