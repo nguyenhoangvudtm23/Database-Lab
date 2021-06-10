@@ -362,9 +362,13 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 		stage1.show();
 		
 	}
-	public void refresh()
-	{
-		
+	public void refresh(ActionEvent e)
+	{	
+		int count = 0;
+		for(Ingredient ingredient: Configuration.ListIngredient) {
+			ingredient.setCur_quantity(0);
+			Configuration.ListIngredient.set(count++, ingredient);
+		}
 	}
 	
 	public void GetSupplierInformation(ActionEvent e) throws SQLException {

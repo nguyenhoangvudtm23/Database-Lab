@@ -357,9 +357,13 @@ public class CreateOrderController extends MenuController implements Initializab
 
 	}
 	
-	public void refresh()
-	{
-		
+	public void refresh(ActionEvent e)
+	{	
+		int count = 0;
+		for(Product product: Configuration.ListProduct) {
+			product.setCur_quantity(0);
+			Configuration.ListProduct.set(count++, product);
+		}
 	}
 	
 	public void SwitchMainMenu(ActionEvent event) throws IOException {
