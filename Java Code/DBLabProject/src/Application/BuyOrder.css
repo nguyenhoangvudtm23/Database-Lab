@@ -11,6 +11,13 @@
    -fx-fill: #818181;
    -fx-effect: innershadow( three-pass-box , rgba(0.3,0.9,0.1,0.1) , 5, 0.0 , 0 , 1 );
 }
+#label{
+    -fx-background-color: #C2E9FB;
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: black;
+}
 #back-button {
     -jfx-button-type: RAISED;
     -fx-background-color: #5F7CD7;

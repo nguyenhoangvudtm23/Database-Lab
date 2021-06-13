@@ -23,7 +23,7 @@
             <TableColumn fx:id="StatusColumn" prefWidth="95.0" text="Trạng thái" />
         </columns>
       </TableView>
-      <Label id="label" layoutX="112.0" layoutY="188.0" stylesheets="@ShowListBuyOrder.css" text="Search box">
+      <Label id="label" layoutX="112.0" layoutY="188.0" stylesheets="@ShowListBuyOrder.css" text="Tìm kiếm">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
