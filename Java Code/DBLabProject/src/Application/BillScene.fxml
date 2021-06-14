@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1222.0" style="-fx-background-color: #7fffd4;" styleClass="anchor" stylesheets="@BillScene.css" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateOrderController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="863.0" prefWidth="1222.0" style="-fx-background-color: #7fffd4;" styleClass="anchor" stylesheets="@BillScene.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.CreateOrderController">
    <children>
       <Label id="anchor-label" alignment="CENTER" layoutX="122.0" layoutY="30.0" prefHeight="47.0" prefWidth="941.0" text="Bán hàng" AnchorPane.topAnchor="34.0">
          <font>
@@ -29,15 +29,15 @@
             </Label>
             <HBox prefHeight="31.0" prefWidth="661.0">
                <children>
-                  <Label prefHeight="21.0" prefWidth="167.0" text="Tìm kiếm">
+                  <Label id="label" prefHeight="33.0" prefWidth="142.0" stylesheets="@BillScene.css" text="Tìm kiếm">
                      <HBox.margin>
-                        <Insets top="5.0" />
+                        <Insets right="7.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="SansSerif Regular" size="17.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="filterField" prefHeight="31.0" prefWidth="556.0" promptText="(Theo tên sản phẩm hoặc mô tả)" />
+                  <TextField fx:id="filterField" prefHeight="38.0" prefWidth="536.0" promptText="(Theo tên sản phẩm hoặc mô tả)" />
                </children>
             </HBox>
             <TableView id="table-view" fx:id="ListProductTable" prefHeight="528.0" prefWidth="640.0">

@@ -24,7 +24,7 @@
         </columns>
       </TableView>
       <TextField fx:id="filterField" layoutX="259.0" layoutY="166.0" prefHeight="39.0" prefWidth="665.0" />
-      <Label id="label1" layoutX="66.0" layoutY="166.0" prefHeight="39.0" prefWidth="164.0" stylesheets="@ShowListCustomer.css" text=" Search box" textAlignment="CENTER">
+      <Label id="label1" layoutX="66.0" layoutY="166.0" prefHeight="39.0" prefWidth="164.0" stylesheets="@ShowListCustomer.css" text=" Tìm kiếm" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
