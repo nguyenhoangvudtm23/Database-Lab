@@ -68,7 +68,7 @@ public class CreateBuyOrderController extends MenuController implements Initiali
                 	quant = temp.getCur_quantity();
                     quant = quant + 1;
                 	temp.setCur_quantity(quant);
-                	Configuration.ListIngredient.set(getIndex(), temp);
+                	Configuration.ListIngredient.set(temp.getIngredientID() - 1, temp);
                 }
             });
             subbutton.setOnAction(new EventHandler<ActionEvent>() {
@@ -83,7 +83,7 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 					else {
 						quant = quant - 1;
 		            	temp.setCur_quantity(quant);
-		            	Configuration.ListIngredient.set(getIndex(), temp);
+		            	Configuration.ListIngredient.set(temp.getIngredientID() - 1, temp);
 					}
 				}
             	
@@ -317,18 +317,18 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 				if(ingredient.getName().toLowerCase().indexOf(lowerCaseFilter) != - 1) {
 					return true;
 				}
-				else if(String.valueOf(ingredient.getIngredientID()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
-					return true;
-				}
+//				else if(String.valueOf(ingredient.getIngredientID()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+//					return true;
+//				}
 				else if(ingredient.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true;
 				}
-				else if(String.valueOf(ingredient.getPrice()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
-					return true;
-				}
-				else if(String.valueOf(ingredient.getAmountLeft()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
-					return true;
-				}
+//				else if(String.valueOf(ingredient.getPrice()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+//					return true;
+//				}
+//				else if(String.valueOf(ingredient.getAmountLeft()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
+//					return true;
+//				}
 				else return false;
 			});
 		});

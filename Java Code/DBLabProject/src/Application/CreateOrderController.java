@@ -74,7 +74,7 @@ public class CreateOrderController extends MenuController implements Initializab
 					}
 					quant = quant + 1;
 					temp.setCur_quantity(quant);
-					Configuration.ListProduct.set(getIndex(), temp);
+					Configuration.ListProduct.set(Integer.valueOf(temp.getProductID()) - 1, temp);
 				}
 			});
 			subbutton.setOnAction(new EventHandler<ActionEvent>() {
@@ -89,7 +89,7 @@ public class CreateOrderController extends MenuController implements Initializab
 					else {
 						quant = quant - 1;
 						temp.setCur_quantity(quant);
-						Configuration.ListProduct.set(getIndex(), temp);
+						Configuration.ListProduct.set(Integer.valueOf(temp.getProductID()) - 1, temp);
 					}
 				}
 

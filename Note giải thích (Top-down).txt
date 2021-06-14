@@ -1,0 +1,15 @@
+- Lấy 1 cửa hàng bất kỳ
+- 2 hoạt động chính: nhập - xuất(bán)
+-> lưu trữ 2 loại hoá đơn
+- Mỗi hoá đơn sẽ có 1 số loại thông tin:
++ Người mua - người bán 	-> Đối tác + Khách hàng
++ Số hoá đơn (PK)		-> PK
++ Ngày hoá đơn được lập		-> CreationDate
++ Phương thức thanh toán
++ Mô tả chi tiết sản phẩm	->
++ Số lượng + Giá		-> Danh sách các sản phẩm + số lượng + giá
++ Tổng tiền			-> (Optional, lưu để tăng tốc độ truy vấn) 
+** VÌ SAO KHÔNG VI PHẠM CHUẨN 3 **
+- Giải thích qua file excel đi kèm, TotalCost không vướng vào phụ thuộc ham
++ Đơn vị tiền			-> Một cửa hàng bán lẻ chỉ xuất hiện tại 1 QG -> Bỏ qua
+
