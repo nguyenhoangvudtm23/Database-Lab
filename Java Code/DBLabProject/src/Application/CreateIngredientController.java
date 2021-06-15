@@ -61,6 +61,7 @@ public class CreateIngredientController extends MenuController implements Initia
 		}
 		catch(Exception error) {
 			System.out.println("Price");
+			error.printStackTrace();
 		}
 		
 		
