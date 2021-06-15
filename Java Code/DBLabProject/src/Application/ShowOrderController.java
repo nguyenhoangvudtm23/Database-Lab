@@ -37,8 +37,8 @@ public class ShowOrderController {
 		textArea.appendText("Khách hàng: " + Name + "\n");
 		textArea.appendText("Danh sách sản phẩm:\n");
 		System.out.println(table.getItems().size());
-		for(int i = 0; i < table.getItems().size(); i++) {
-			Product temp = table.getItems().get(i);
+		for(Product temp: Configuration.ListProduct) {
+			
 			if(temp.getCur_quantity() == 0) continue;
 			total_price += temp.getCur_quantity() * temp.getPrice();
 			items.add(temp);
@@ -86,8 +86,8 @@ public class ShowOrderController {
 		}
 		textArea.appendText("Nhà cung cấp: " + Name + "\n");
 		textArea.appendText("Danh sách nguyên liệu:\n");
-		for(int i = 0; i < table.getItems().size(); i++) {
-			Classes.Ingredient temp = table.getItems().get(i);
+		for(Ingredient temp: Configuration.ListIngredient) {
+			
 			if(temp.getCur_quantity() == 0) continue;
 			items.add(temp);
 			total_price += temp.getCur_quantity() * temp.getPrice();

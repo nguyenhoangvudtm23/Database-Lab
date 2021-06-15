@@ -13,7 +13,3 @@
 - Giải thích qua file excel đi kèm, TotalCost không vướng vào phụ thuộc ham
 + Đơn vị tiền			-> Một cửa hàng bán lẻ chỉ xuất hiện tại 1 QG -> Bỏ qua
 
-Tool check 3NF:
-http://www.ict.griffith.edu.au/normalization_tools/normalization/ind.php
-
-
