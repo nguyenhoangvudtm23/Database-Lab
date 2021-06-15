@@ -78,7 +78,7 @@ public class ShowListIngredientController extends MenuController implements Init
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			showAlert("DB Error", "Can't connect to the database");
+			showAlert("DB Error", "Can not connect to the database");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

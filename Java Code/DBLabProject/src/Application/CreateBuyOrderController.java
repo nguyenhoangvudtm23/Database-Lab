@@ -343,11 +343,11 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 		stage.setScene(scene);
 		stage.show();
 	}
-	public void ShowBuyOrderScene(ActionEvent event) throws IOException, SQLException {
+	public void ShowBuyOrderScene(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowOrder.fxml"));
 		Parent root1 = loader.load();
 		ShowOrderController showOrderscene = loader.getController();
-		showOrderscene.ShowBuyOrder(ListIngredientTable, Name, PhoneNumber);
+		showOrderscene.ShowBuyOrder(ListIngredientTable, Name, PhoneNumberText.getText());
 		Stage stage1 = new Stage();
 		stage1.setScene(new Scene(root1));
 		stage1.setTitle("Buy Order created!!!");

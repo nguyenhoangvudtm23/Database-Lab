@@ -65,8 +65,11 @@ public class ShowListBuyOrderController extends MenuController implements Initia
 			Starter.starting();
 			Configuration.ListBuyOrder.clear();
 			ResultSet list = BuyOrderStatistics.selectAllBuyOrders();
+			int tmp = 0;
 			while (list.next())
 			{
+				tmp++;
+				System.out.println(tmp);
 				BuyOrders buyorder = new BuyOrders();
 				buyorder.setBuyOrderId(list.getInt(1));
 				buyorder.setStatus(list.getString(5));
@@ -78,6 +81,7 @@ public class ShowListBuyOrderController extends MenuController implements Initia
 		}
 		catch(Exception e)
 		{
+			e.printStackTrace();
 			showAlert("DB Error", "Can't connect to the database");
 		}
 		// TODO Auto-generated method stub

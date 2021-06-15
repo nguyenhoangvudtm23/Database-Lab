@@ -13,7 +13,7 @@ public abstract class Execution {
 		Class.forName("org.sqlite.JDBC");
 		connection = DriverManager.getConnection("jdbc:sqlite:creation.db");
 		statement = connection.createStatement();
-        statement.setQueryTimeout(30); 
+        //statement.setQueryTimeout(30); 
 	}
 	public static void closeConnection() throws SQLException
 	{
