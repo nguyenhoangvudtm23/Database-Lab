@@ -80,7 +80,6 @@ public class ShowOrderController {
 		});
 	}
 	public void ShowBuyOrder(TableView<Ingredient> table, String Name, String PhoneNumber) throws SQLException, ClassNotFoundException {
-		Starter.starting();
 		ArrayList<Ingredient> items = new ArrayList<Ingredient>();
 		Double total_price = 0.0;
 		textArea.clear();
