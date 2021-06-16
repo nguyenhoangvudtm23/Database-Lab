@@ -1,6 +1,5 @@
 package Application;
 
-import java.awt.GraphicsConfigTemplate;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -8,9 +7,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import Classes.Orders;
-import Classes.Product;
 import Execution.OrderStatistics;
-import Execution.ProductStatistics;
 import Scenario.Starter;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -24,16 +21,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -57,6 +50,8 @@ public class ShowListOrderController extends MenuController implements Initializ
 	private TableColumn<Orders, String> StatusColumn;
 	@FXML 
 	private TableColumn<Orders, String> DiscountColumn;
+	@FXML 
+	private TableColumn<Orders, String> DeleteColumn;
 	@FXML
 	private TextField filterField;
 	
@@ -104,6 +99,21 @@ public class ShowListOrderController extends MenuController implements Initializ
 		// Discount column
 		DiscountColumn.setCellValueFactory(new PropertyValueFactory<>("Discount"));
 		
+		// Delete Column
+		DeleteColumn.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
+		Callback<TableColumn<Orders, String>, TableCell<Orders, String>> DelCellFactory = 
+        		new Callback<TableColumn<Orders,String>, TableCell<Orders,String>>() {
+
+					@Override
+					public TableCell<Orders, String> call(TableColumn<Orders, String> param) {
+						// TODO Auto-generated method stub
+						DelCell cell = new DelCell();
+						return cell;
+					}
+				};
+		DeleteColumn.setCellFactory(DelCellFactory);
+		
+		
 //		ListOrderTable.setItems(Configuration.ListOrder);
 		FilteredList<Orders> filteredData = new FilteredList<>(Configuration.ListOrder, b -> true);
 		filterField.textProperty().addListener((o, oldValue, newValue) -> {
@@ -138,6 +148,41 @@ public class ShowListOrderController extends MenuController implements Initializ
 		ListOrderTable.setItems(sortedData);
          
 	}
+	
+	static class DelCell extends TableCell<Orders, String>{
+		HBox hbox = new HBox();
+		Button delbutton = new Button("Del");
+		public int quant = 0;
+		public DelCell() {
+			super();
+
+			delbutton.setMinWidth(USE_COMPUTED_SIZE);
+			hbox.getChildren().addAll(delbutton);
+			hbox.setAlignment(Pos.CENTER);
+			delbutton.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					Orders temp = getTableView().getItems().get(getIndex());
+					Configuration.ListOrder.remove(temp);
+					/*
+					 * need add change in database here
+					 */
+				}
+			});
+		}
+		@Override
+		protected void updateItem(String item, boolean empty) {
+			super.updateItem(item, empty);
+			setText(null);  // No text in label of super class
+			if (empty) {
+				setGraphic(null);
+			} else {
+				setGraphic(hbox);
+			}
+		}
+
+	}
+	
 	public void BackCreateProductScene(ActionEvent e) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("CreateProductScene.fxml"));
 		stage = (Stage) ((Node)e.getSource()).getScene().getWindow();

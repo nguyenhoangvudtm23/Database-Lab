@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+import Application.ShowListOrderController.DelCell;
 import Classes.BuyOrders;
+import Classes.Orders;
 import Classes.Product;
 import Execution.BuyOrderStatistics;
 import Execution.ProductStatistics;
@@ -33,6 +35,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -55,6 +58,8 @@ public class ShowListBuyOrderController extends MenuController implements Initia
 	private TableColumn<BuyOrders, Double> DateColumn;
 	@FXML
 	private TableColumn<BuyOrders, String> StatusColumn;
+	@FXML
+	private TableColumn<BuyOrders, String> DeleteColumn;
 	@FXML
 	private TextField filterField;
 	
@@ -99,6 +104,20 @@ public class ShowListBuyOrderController extends MenuController implements Initia
 		// create date Column
 		DateColumn.setCellValueFactory(new PropertyValueFactory<>("CreationDate"));
 		
+		// delete column
+		DeleteColumn.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
+		Callback<TableColumn<BuyOrders, String>, TableCell<BuyOrders, String>> DelCellFactory = 
+        		new Callback<TableColumn<BuyOrders,String>, TableCell<BuyOrders,String>>() {
+
+					@Override
+					public TableCell<BuyOrders, String> call(TableColumn<BuyOrders, String> param) {
+						// TODO Auto-generated method stub
+						DelCell cell = new DelCell();
+						return cell;
+					}
+				};
+		DeleteColumn.setCellFactory(DelCellFactory);
+		
 		
 //		ListOrderTable.setItems(Configuration.ListOrder);
 		FilteredList<BuyOrders> filteredData = new FilteredList<>(Configuration.ListBuyOrder, b -> true);
@@ -131,6 +150,41 @@ public class ShowListBuyOrderController extends MenuController implements Initia
 		ListBuyOrderTable.setItems(sortedData);
          
 	}
+	
+	static class DelCell extends TableCell<BuyOrders, String>{
+		HBox hbox = new HBox();
+		Button delbutton = new Button("Del");
+		public int quant = 0;
+		public DelCell() {
+			super();
+
+			delbutton.setMinWidth(USE_COMPUTED_SIZE);
+			hbox.getChildren().addAll(delbutton);
+			hbox.setAlignment(Pos.CENTER);
+			delbutton.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					BuyOrders temp = getTableView().getItems().get(getIndex());
+					Configuration.ListBuyOrder.remove(temp);
+					/*
+					 * need add change in database here
+					 */
+				}
+			});
+		}
+		@Override
+		protected void updateItem(String item, boolean empty) {
+			super.updateItem(item, empty);
+			setText(null);  // No text in label of super class
+			if (empty) {
+				setGraphic(null);
+			} else {
+				setGraphic(hbox);
+			}
+		}
+
+	}
+	
 	public void BackCreateProductScene(ActionEvent e) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("CreateIngredientScene.fxml"));
 		stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
