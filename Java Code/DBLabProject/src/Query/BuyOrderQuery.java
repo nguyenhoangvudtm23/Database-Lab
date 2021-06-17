@@ -1,6 +1,16 @@
 package Query;
 
 public class BuyOrderQuery {
+	public static String deleteBuyOrderWithBuyOrderID(int BuyOrderID)
+	{
+		return "delete from BuyOrders\r\n"
+				+ "where BuyOrderID = " + BuyOrderID;
+	}
+	public static String deleteBuyOrderItemsWithBuyOrderID(int BuyOrderID)
+	{
+		return "delete from BuyOrderItems\r\n"
+				+ "where BuyOrderID = " + BuyOrderID;
+	}
 	public static String updateBuyOrdersSupplierIDQuery(int BuyOrderID, int newSupplierID)
 	{
 		return "update BuyOrders\r\n"

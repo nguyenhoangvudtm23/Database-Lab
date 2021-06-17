@@ -50,6 +50,11 @@ public class BuyOrderStatistics extends Execution{
 	{
 		return statement.executeQuery(BuyOrderQuery.lastestBuyOrderIDQuery()).getInt(1);
 	}
+	public static void deleteBuyOrderWithBuyOrderID(int BuyOrderID) throws SQLException
+	{
+		statement.executeUpdate(BuyOrderQuery.deleteBuyOrderItemsWithBuyOrderID(BuyOrderID));
+		statement.executeUpdate(BuyOrderQuery.deleteBuyOrderQuery(BuyOrderID));
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

@@ -1,6 +1,16 @@
 package Query;
 import java.time.*;
 public class OrderQuery {
+	public static String deleteOrderWithIDQuery(int OrderID)
+	{
+		return "delete from Orders\r\n"
+				+ "where OrderID = " + OrderID;
+	}
+	public static String deleteOrderItemsWithIDQuery(int OrderID)
+	{
+		return "delete from OrderItems\r\n"
+				+ "where OrderID = " + OrderID;
+	}
 	public static String updateOrderItemsQuantityQuery(int OrderID, int ProductID, int newQuantity)
 	{
 		return "update OrderItems\r\n"
