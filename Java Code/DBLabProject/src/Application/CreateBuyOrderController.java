@@ -314,7 +314,6 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 					return true;
 				}
 				String lowerCaseFilter = newValue.toLowerCase();
-				
 				if(ingredient.getName().toLowerCase().indexOf(lowerCaseFilter) != - 1) {
 					return true;
 				}
@@ -324,7 +323,6 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 				else if(ingredient.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true;
 				}
-				
 //				else if(String.valueOf(ingredient.getPrice()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
 //					return true;
 //				}

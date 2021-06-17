@@ -53,11 +53,6 @@ public class OrderStatistics extends Execution{
 	{
 		return statement.executeQuery(OrderQuery.lastOrderIDQuery()).getInt(1);
 	}
-	public static void deleteOrderWithID(int OrderID) throws SQLException
-	{
-		statement.executeUpdate(OrderQuery.deleteOrderItemsWithIDQuery(OrderID));
-		statement.executeUpdate(OrderQuery.deleteOrderWithIDQuery(OrderID));
-	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

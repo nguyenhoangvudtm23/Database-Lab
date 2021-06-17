@@ -334,15 +334,10 @@ public class CreateOrderController extends MenuController implements Initializab
 			catch(Exception e) {}
 		});
 
-		FilteredList<Product> filteredData = new FilteredList<>(Configuration.ListProduct, b -> (b.getAmountLeft() > 0));
+		FilteredList<Product> filteredData = new FilteredList<>(Configuration.ListProduct, b -> true);
 		filterField.textProperty().addListener((o, oldValue, newValue) -> {
 			filteredData.setPredicate(product -> {
-				if (product.getAmountLeft() <= 0)
-				{
-					return false;
-				}
 				if(newValue == null || newValue.isEmpty()) {
-					
 					return true;
 				}
 				String lowerCaseFilter = newValue.toLowerCase();
