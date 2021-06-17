@@ -3,6 +3,7 @@ package Application;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -164,9 +165,13 @@ public class ShowListOrderController extends MenuController implements Initializ
 				public void handle(ActionEvent event) {
 					Orders temp = getTableView().getItems().get(getIndex());
 					Configuration.ListOrder.remove(temp);
-					/*
-					 * need add change in database here
-					 */
+					try {
+						OrderStatistics.deleteOrderWithID(temp.getOrderID());
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					};
+					
 				}
 			});
 		}

@@ -4,6 +4,7 @@ import java.awt.GraphicsConfigTemplate;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -166,9 +167,12 @@ public class ShowListBuyOrderController extends MenuController implements Initia
 				public void handle(ActionEvent event) {
 					BuyOrders temp = getTableView().getItems().get(getIndex());
 					Configuration.ListBuyOrder.remove(temp);
-					/*
-					 * need add change in database here
-					 */
+					try {
+						BuyOrderStatistics.deleteBuyOrderWithBuyOrderID(temp.getBuyOrderID());
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			});
 		}
