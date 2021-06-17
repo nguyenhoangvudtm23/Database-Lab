@@ -47,8 +47,8 @@ public class BuyOrderQuery {
 	}
 	public static String insertBuyOrderQuery(int SupplierID, double totalCost)
 	{
-		return "INSERT INTO BuyOrders (SupplierID, totalCost, status) VALUES "
-				+ "(" + SupplierID + ", " + totalCost + ",  'F')";
+		return "INSERT INTO BuyOrders (SupplierID, totalCost, status, CreationDate) VALUES "
+				+ "(" + SupplierID + ", " + totalCost + ",  'F', DATE('NOW'))";
 	}
 	public static String recordBuyOrderItems(int BuyOrderID, int IngredientID, int quantity)
 	{
@@ -64,6 +64,6 @@ public class BuyOrderQuery {
 		System.out.println(BuyOrderQuery.deleteBuyOrderQuery(0));
 		System.out.println(BuyOrderQuery.showBuyOrderItemsQuery(0));
 		System.out.println(BuyOrderQuery.calculateTotalCostQuery(0));
-		System.out.println(BuyOrderQuery.insertBuyOrderQuery(0, 0));
+		System.out.println(BuyOrderQuery.insertBuyOrderQuery(5, 5000));
 	}
 }

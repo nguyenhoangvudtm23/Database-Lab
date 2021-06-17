@@ -66,15 +66,19 @@ public class ShowListOrderController extends MenuController implements Initializ
 		try {
 			Starter.starting();
 			Configuration.ListOrder.clear();
+			int tmp = 0;
 			ResultSet listOr = OrderStatistics.selectAllOrders();
 			while (listOr.next())
 			{
+				tmp++;
+				System.out.println(tmp);
 				Orders order = new Orders(listOr.getInt(2), listOr.getInt(3),
 						LocalDate.parse(listOr.getString(4)), listOr.getString(5),
 						listOr.getDouble(5)
 						);
 				order.setOrderID(listOr.getInt(1));
 				Configuration.ListOrder.add(order);
+				
 			}
 			
 		}

@@ -9,6 +9,7 @@ import Execution.IngredientStatistics;
 import Execution.OrderStatistics;
 import Execution.ProductStatistics;
 import Execution.SupplierStatistics;
+import Scenario.Starter;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class ShowOrderController {
 	@FXML
 	private JFXButton record;
 	public void showOrder(TableView<Product> table, String Name, String PhoneNumber) throws SQLException {
+		
 		ArrayList<Product> items = new ArrayList<Product>();
 		Double total_price = 0.0;
 		textArea.clear();
@@ -77,7 +79,7 @@ public class ShowOrderController {
 			alert.showAndWait();
 		});
 	}
-	public void ShowBuyOrder(TableView<Ingredient> table, String Name, String PhoneNumber) throws SQLException {
+	public void ShowBuyOrder(TableView<Ingredient> table, String Name, String PhoneNumber) throws SQLException, ClassNotFoundException {
 		ArrayList<Ingredient> items = new ArrayList<Ingredient>();
 		Double total_price = 0.0;
 		textArea.clear();
@@ -98,6 +100,7 @@ public class ShowOrderController {
 		}
 		catch (Exception e)
 		{
+			System.out.println(SupplierStatistics.getSupplierID(PhoneNumber));
 			BuyOrderStatistics.insertBuyOrder(0, total_price);
 		}
 		textArea.appendText("Total Price: " + total_price);
