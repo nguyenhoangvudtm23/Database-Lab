@@ -233,7 +233,7 @@ public class ShowListProductController extends MenuController implements Initial
 	                  if (t.getCode() == KeyCode.ENTER) {
 	                      commitEdit(Integer.parseInt(textField.getText()));
 	                      Product temp = getTableView().getItems().get(getIndex());
-	                      System.out.println(Integer.parseInt(textField.getText()));
+//	                      System.out.println(Integer.parseInt(textField.getText()));
 		    			  temp.setAmountLeft(Integer.valueOf(textField.getText()));
 		    			  try {
 		    				  ProductStatistics.updateProductAmountLeft(Integer.parseInt(temp.getProductID()), temp.getAmountLeft());

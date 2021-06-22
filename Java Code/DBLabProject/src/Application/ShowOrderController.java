@@ -9,13 +9,9 @@ import Execution.IngredientStatistics;
 import Execution.OrderStatistics;
 import Execution.ProductStatistics;
 import Execution.SupplierStatistics;
-import Scenario.Starter;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import com.jfoenix.controls.JFXButton;
-
 import Classes.Ingredient;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -38,7 +34,7 @@ public class ShowOrderController {
 		}
 		textArea.appendText("Khách hàng: " + Name + "\n");
 		textArea.appendText("Danh sách sản phẩm:\n");
-		System.out.println(table.getItems().size());
+//		System.out.println(table.getItems().size());
 		for(Product temp: Configuration.ListProduct) {
 			
 			if(temp.getCur_quantity() == 0) continue;
@@ -100,7 +96,7 @@ public class ShowOrderController {
 		}
 		catch (Exception e)
 		{
-			System.out.println(SupplierStatistics.getSupplierID(PhoneNumber));
+//			System.out.println(SupplierStatistics.getSupplierID(PhoneNumber));
 			BuyOrderStatistics.insertBuyOrder(0, total_price);
 		}
 		textArea.appendText("Total Price: " + total_price);

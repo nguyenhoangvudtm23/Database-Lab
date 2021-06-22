@@ -39,28 +39,28 @@ public class CreateIngredientController extends MenuController implements Initia
 			AmountLeft = Integer.valueOf(AmountLeftText.getText());
 		}
 		catch(Exception error) {
-			System.out.println("AmountLeft");
+//			System.out.println("AmountLeft");
 		}
 		
 		try {
 			Name = NameText.getText();
 		}
 		catch(Exception error) {
-			System.out.println("Name");
+//			System.out.println("Name");
 		}
 		
 		try {
 			Description = DescriptionText.getText();
 		}
 		catch(Exception error) {
-			System.out.println("Description");
+//			System.out.println("Description");
 		}
 		
 		try {
 			Price = Double.valueOf(PriceText.getText());
 		}
 		catch(Exception error) {
-			System.out.println("Price");
+//			System.out.println("Price");
 			error.printStackTrace();
 		}
 		

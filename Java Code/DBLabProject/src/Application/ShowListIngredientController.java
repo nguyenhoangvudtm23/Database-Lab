@@ -1,6 +1,5 @@
 package Application;
 
-import java.awt.GraphicsConfigTemplate;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -16,13 +15,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -30,7 +27,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -247,7 +243,7 @@ public class ShowListIngredientController extends MenuController implements Init
 					if (t.getCode() == KeyCode.ENTER) {
 						commitEdit(Integer.parseInt(textField.getText()));
 						Ingredient temp = getTableView().getItems().get(getIndex());
-						System.out.println(Integer.parseInt(textField.getText()));
+//						System.out.println(Integer.parseInt(textField.getText()));
 						temp.setAmountLeft(Integer.valueOf(textField.getText()));
 						try {
 							IngredientStatistics.updateIngredientAmountLeft(temp.getIngredientID(), temp.getAmountLeft());

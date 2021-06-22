@@ -375,44 +375,44 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 	
 	public void GetSupplierInformation(ActionEvent e) throws SQLException {
 		if(SupplierStatistics.checkExist(PhoneNumber) == 1) {
-			System.out.println("There is Phone");
-			System.out.println(PhoneNumber);
+//			System.out.println("There is Phone");
+//			System.out.println(PhoneNumber);
 			int SupplierIndex = Configuration.findSupplierIndex(PhoneNumber);
 			Supplier sup = Configuration.ListSupplier.get(SupplierIndex);
 			if(sup == null) {
-				System.out.println("null");
+//				System.out.println("null");
 			}
 			
 			// update name in text field
 			// flag to check if Supplier information has change
 			boolean flag = false;
 			if(sup.getName().isEmpty() && !Name.isEmpty()) {
-				System.out.println("Supplier name is empty");
+//				System.out.println("Supplier name is empty");
 				flag = true;
 				sup.setName(Name);
 			}
 			else if(!sup.getName().isEmpty()) {
-				System.out.println("Supplier name is not empty");
+//				System.out.println("Supplier name is not empty");
 				NameText.setText(sup.getName());
 			}
 			// address
 			if(sup.getAddress().isEmpty() && !Address.isEmpty()) {
-				System.out.println("Supplier address is empty");
+//				System.out.println("Supplier address is empty");
 				flag = true;
 				sup.setAddress(Address);
 			}
 			else if(!sup.getAddress().isEmpty()) {
-				System.out.println("Supplier address is not empty");
+//				System.out.println("Supplier address is not empty");
 				AddressText.setText(sup.getAddress());
 			}
 			// email 
 			if(sup.getEmail().isEmpty() && !Email.isEmpty()) {
-				System.out.println("Supplier email is empty");
+//				System.out.println("Supplier email is empty");
 				flag = true;
 				sup.setEmail(Email);
 			}
 			else if(!sup.getEmail().isEmpty()) {
-				System.out.println("Supplier email is not empty");
+//				System.out.println("Supplier email is not empty");
 				EmailText.setText(sup.getEmail());
 			}
 			
@@ -423,7 +423,7 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 			}
 		}
 		else {
-			System.out.println("There is no phone");
+//			System.out.println("There is no phone");
 			Supplier sup = new Supplier(Address, PhoneNumber, Name, Email);
 			Configuration.ListSupplier.add(sup);
 			SupplierStatistics.insertSupplier(Address, PhoneNumber, Name, Email);

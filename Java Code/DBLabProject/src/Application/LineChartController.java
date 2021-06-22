@@ -27,7 +27,7 @@ public class LineChartController extends ChartControllerUtil implements ChartCon
 				(ChartChooserController.resultToDisplay);
 		lineChart.setTitle(ChartChooserController.chartName);
 		//lineChart.getData().clear();
-		//javaFX has a bug with chart, noi chung la loi nay no ngu vcl the luon
+		//javaFX has a bug with chart
 		lineChart.getXAxis().setAnimated(false);;
 		lineChart.getData().addAll(series);
 		

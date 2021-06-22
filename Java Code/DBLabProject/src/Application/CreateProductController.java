@@ -40,27 +40,27 @@ public class CreateProductController extends MenuController implements Initializ
 			AmountLeft = Integer.parseInt((AmountLeftText.getText()));
 		}
 		catch(Exception error) {
-			System.out.println("amount");
+//			System.out.println("amount");
 		}
 		
 		try {
 			Name = NameText.getText();
 		}
 		catch(Exception error) {
-			System.out.println("name");
+//			System.out.println("name");
 		}
 		
 		try {
 			price = Double.parseDouble(priceText.getText());
 		}
 		catch(Exception error) {
-			System.out.println("price");
+//			System.out.println("price");
 		}
 		try {
 			Description = DescriptionText.getText();
 		}
 		catch(Exception error) {
-			System.out.println("description");
+//			System.out.println("description");
 		}
 		Product newProduct = new Product(AmountLeft, Name, price, Description);
 		try {
@@ -70,7 +70,7 @@ public class CreateProductController extends MenuController implements Initializ
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		System.out.println(newProduct.getName());
+//		System.out.println(newProduct.getName());
 		Configuration.ListProduct.add(newProduct);
 	}
 	

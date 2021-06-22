@@ -67,7 +67,7 @@ public class ShowListOrderController extends MenuController implements Initializ
 			while (listOr.next())
 			{
 				tmp++;
-				System.out.println(tmp);
+//				System.out.println(tmp);
 				Orders order = new Orders(listOr.getInt(2), listOr.getInt(3),
 						LocalDate.parse(listOr.getString(4)), listOr.getString(5),
 						listOr.getDouble(5)

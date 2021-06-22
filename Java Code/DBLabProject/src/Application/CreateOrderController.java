@@ -409,44 +409,44 @@ public class CreateOrderController extends MenuController implements Initializab
 	}
 	public void GetCustomerInformation(ActionEvent e) {
 		if(Configuration.CheckPhone(PhoneNumber)) {
-			System.out.println("There is Phone");
-			System.out.println(PhoneNumber);
+//			System.out.println("There is Phone");
+//			System.out.println(PhoneNumber);
 			int CustomerIndex = Configuration.findCustomerIndex(PhoneNumber);
 			Customer cus = Configuration.ListCustomer.get(CustomerIndex);
 			if(cus == null) {
-				System.out.println("null");
+//				System.out.println("null");
 			}
 
 			// update name in text field
 			// flag to check if customer information has change
 			boolean flag = false;
 			if(cus.getName().isEmpty() && !Name.isEmpty()) {
-				System.out.println("customer name is empty");
+//				System.out.println("customer name is empty");
 				flag = true;
 				cus.setName(Name);
 			}
 			else if(!cus.getName().isEmpty()) {
-				System.out.println("customer name is not empty");
+//				System.out.println("customer name is not empty");
 				NameText.setText(cus.getName());
 			}
 			// address
 			if(cus.getAddress().isEmpty() && !Address.isEmpty()) {
-				System.out.println("customer address is empty");
+//				System.out.println("customer address is empty");
 				flag = true;
 				cus.setAddress(Address);
 			}
 			else if(!cus.getAddress().isEmpty()) {
-				System.out.println("customer address is not empty");
+//				System.out.println("customer address is not empty");
 				AddressText.setText(cus.getAddress());
 			}
 			// email 
 			if(cus.getEmail().isEmpty() && !Email.isEmpty()) {
-				System.out.println("customer email is empty");
+//				System.out.println("customer email is empty");
 				flag = true;
 				cus.setEmail(Email);
 			}
 			else if(!cus.getEmail().isEmpty()) {
-				System.out.println("customer email is not empty");
+//				System.out.println("customer email is not empty");
 				EmailText.setText(cus.getEmail());
 			}
 
@@ -457,7 +457,7 @@ public class CreateOrderController extends MenuController implements Initializab
 			}
 		}
 		else {
-			System.out.println("There is no phone");
+//			System.out.println("There is no phone");
 			Customer cus = new Customer(Address, PhoneNumber, Name, Email);
 
 			if (!PhoneNumber.equals(""))
