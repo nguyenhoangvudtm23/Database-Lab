@@ -426,6 +426,7 @@ public class CreateBuyOrderController extends MenuController implements Initiali
 			System.out.println("There is no phone");
 			Supplier sup = new Supplier(Address, PhoneNumber, Name, Email);
 			Configuration.ListSupplier.add(sup);
+			SupplierStatistics.insertSupplier(Address, PhoneNumber, Name, Email);
 		}
 	}
 }	

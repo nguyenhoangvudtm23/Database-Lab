@@ -54,6 +54,10 @@ public class SupplierStatistics extends Execution {
 	{
 		return statement.executeQuery(SuppliersQuery.topXbestsuppliersYyearsQuery(x, y));
 	}
+	public static void insertSupplier(String address, String phoneNumber, String name, String email) throws SQLException
+	{
+		statement.executeUpdate(SuppliersQuery.insertSupplierQuery(address, phoneNumber, name, email));
+	}
 	public static void main(String args[]) throws ClassNotFoundException, SQLException
 	{
 		SupplierStatistics.getConnection();

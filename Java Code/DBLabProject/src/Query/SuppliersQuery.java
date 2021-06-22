@@ -75,7 +75,11 @@ public class SuppliersQuery {
 		+  "') AND date('" + DataConverter.convertDateTimeToString(LocalDateTime.now()) + "')\r\n"
 		+ "GROUP BY Suppliers.SupplierID ORDER BY sum(Totalcost) DESC LIMIT "+x;
 	}
-	
+	public static String insertSupplierQuery(String address, String phoneNumber, String name, String email)
+	{
+		return "insert into Suppliers (Address, Phone_Number, Name, Email) VALUES " 
+				+ "('" + address + "', '" + phoneNumber + "', '" + name + "', '" + email + "')";
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(SuppliersQuery.updateSupplierPhoneNumberQuery(2, "0812321342"));
