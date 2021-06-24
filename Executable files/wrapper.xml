@@ -2,8 +2,8 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>E:\Tran Hai\HUST\20202\Database Lab\Project\Database-Lab\Executable files\V1.jar</jar>
-  <outfile>E:\Tran Hai\HUST\20202\Database Lab\Project\Database-Lab\Executable files\V1.exe</outfile>
+  <jar>E:\Tran Hai\HUST\20202\Database Lab\Project\Database-Lab\Executable files\Final.jar</jar>
+  <outfile>E:\Tran Hai\HUST\20202\Database Lab\Project\Database-Lab\Executable files\Final.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
